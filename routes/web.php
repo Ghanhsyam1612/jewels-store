@@ -49,6 +49,12 @@ Route::get('/custom-engagement-rings', function () {
     return view('components.engagement-rings.custom-engagement-rings');
 });
 
+// Fine Jewellery
+Route::get('/stud-earrings', function () {
+    return view('components.fine-jewellery.stud');
+});
+
+// Product Display Pages
 Route::get('/product', function () {
     return view('components.product.product');
 });
