@@ -239,7 +239,7 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-gray-900 text-12px leading-[19px] mb-2">Earrings</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">
+                                <a href="/stud-earrings" class="flex items-center text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">
                                     <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 6v12m-6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
