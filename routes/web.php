@@ -59,6 +59,11 @@ Route::get('/product', function () {
     return view('components.product.product');
 });
 
+// My Account
+Route::get('/myaccount', function () {
+    return view('components.account.myaccount');
+});
+
 // Footer Help
 Route::get('/about-us', function () {
     return view('components.help.about');
