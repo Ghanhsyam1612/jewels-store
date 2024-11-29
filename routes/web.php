@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
@@ -89,6 +90,12 @@ Route::get('/faq', function () {
 Route::get('/contact-us', function () {
     return view('components.help.contact-us');
 });
+
+Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders') ;
+Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
+Route::get('/account/addresses', [AccountController::class, 'addresses'])->name('account.addresses');
+Route::get('/account/details', [AccountController::class, 'details'])->name('account.details');
+Route::get('/account/logout', [AccountController::class, 'logout'])->name('account.logout');
 
 // Routes
 
