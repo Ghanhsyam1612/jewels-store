@@ -12,12 +12,12 @@
                 Join us to explore our exclusive collection
             </p>
         </div>
-        <form class="mt-8 space-y-6" action="#" method="POST">
+        <form class="mt-8 space-y-6" action="{{ route('customer.store') }}" method="POST">
             @csrf
             <div class="space-y-4">
                 <div>
-                    <label for="name" class="block text-sm font-medium font-montserrat text-gray-700">Full Name <span class="text-red-500">*</span></label>
-                    <input id="name" name="name" type="text" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Full Name">
+                    <label for="full_name" class="block text-sm font-medium font-montserrat text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                    <input id="full_name" name="full_name" type="text" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Full Name">
                 </div>
                 <div>
                     <label for="phone" class="block text-sm font-medium font-montserrat text-gray-700">Phone Number <span class="text-red-500">*</span></label>
