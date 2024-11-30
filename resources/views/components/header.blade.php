@@ -502,7 +502,7 @@
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
-            <a href="/register  " class="text-gray-700 hover:text-gray-900 cursor-pointer">
+            <a href="/account" class="text-gray-700 hover:text-gray-900 cursor-pointer">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" stroke-width="2" />
@@ -511,7 +511,7 @@
                         d="M5.5 19.5C7 17 9.5 15.5 12 15.5s5 1.5 6.5 4" />
                 </svg>
             </a>
-            <a href="#" class="text-gray-700 hover:text-gray-900 relative">
+            <a href="/cart" class="text-gray-700 hover:text-gray-900 relative">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

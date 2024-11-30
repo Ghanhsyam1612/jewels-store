@@ -66,6 +66,26 @@ Route::get('/my-account', function () {
     return view('account.my-account');
 });
 
+// Login-Register
+Route::get('/account', function () {
+    return view('components.account');
+});
+
+// Cart
+Route::get('/cart', function () {
+    return view('cart.cart');
+});
+
+// Edit Shipping Address
+Route::get('/edit-shipping-address', function () {
+    return view('account.edit-shipping-address');
+});
+
+// Edit Billing Address
+Route::get('/edit-billing-address', function () {
+    return view('account.edit-billing-address');
+});
+
 // Footer Help
 Route::get('/about-us', function () {
     return view('components.help.about');

@@ -609,7 +609,7 @@
                             id="input-with-keypress-1" value="100000.00" class="text-sm w-20 p-1 h-6 rounded-md text-center border">
                     </div>
                     <div id="price-range" class="relative ltr">
-                        <div class="noUi-base">
+                        <div class="">
                             <div class="noUi-connects">
                                 <div class="noUi-connect" style="transform: translate(0%) scale(1);"></div>
                             </div>
