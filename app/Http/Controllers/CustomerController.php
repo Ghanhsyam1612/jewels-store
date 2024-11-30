@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\WelcomeMail;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -52,6 +53,40 @@ class CustomerController extends Controller
         }
     }
 
+
+    // Update Customer Details
+    public function updateDetails(Request $request)
+    {
+        $customer = auth('customer')->user();
+
+        $validatedData = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'nullable|string|max:255',
+            'email' => 'required|email|unique:customers,email,' . $customer->id,
+            'current_password' => 'nullable',
+            'new_password' => 'nullable|min:6|confirmed',
+        ]);
+
+        // Update basic details
+        $customer->first_name = $validatedData['first_name'];
+        $customer->last_name = $validatedData['last_name'];
+        $customer->email = $validatedData['email'];
+
+        // Password update logic
+        if ($request->filled('new_password')) {
+            // Check current password
+            if (!Hash::check($request->current_password, $customer->password)) {
+                return back()->withErrors(['current_password' => 'Current password is incorrect']);
+            }
+
+            $customer->password = Hash::make($validatedData['new_password']);
+        }
+
+        $customer->update();
+
+        return back()->with('success', 'Account details updated successfully');
+    }
+
     // Login Customer
     public function login(Request $request)
     {
@@ -60,12 +95,12 @@ class CustomerController extends Controller
             'password' => 'required',
         ]);
 
-        $customer = Customer::where('email', $request->email)->first();
+        $credentials = $request->only('email', 'password');
 
-        if (!$customer || !Hash::check($request->password, $customer->password)) {
-            return redirect()->route('login')->with('error', 'Invalid Email or Password');
+        if (Auth::guard('customer')->attempt($credentials)) {
+            return redirect()->route('home')->with('success', 'Customer logged in successfully');
         }
 
-        return redirect()->route('home')->with('success', 'Customer logged in successfully');
+        return redirect()->route('account')->with('error', 'Invalid Email or Password');
     }
 }

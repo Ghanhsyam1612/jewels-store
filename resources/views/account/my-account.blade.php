@@ -12,7 +12,11 @@
                 <a href="javascript:void(0)" onclick="loadPage('/account/wishlist')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Wishlist</a>
                 <a href="javascript:void(0)" onclick="loadPage('/account/addresses')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Addresses</a>
                 <a href="javascript:void(0)" onclick="loadPage('/account/details')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Account Details</a>
-                <!-- <a href="javascript:void(0)" onclick="loadPage('/account/logout')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Logout</a> -->
+
+                <form id="logout-form" action="{{ route('account.logout') }}" method="GET" style="display: none;">
+                    @csrf
+                </form>
+                <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit()" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Logout</a>
             </nav>
         </div>
 

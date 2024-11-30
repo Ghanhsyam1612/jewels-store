@@ -13,6 +13,17 @@
                     Sign in to your account
                 </p>
             </div>
+            <!-- Display session messages -->
+            @if (session('success'))
+            <div class="mb-4 text-sm text-green-700 bg-green-100 p-3 rounded-md">
+                {{ session('success') }}
+            </div>
+            @endif
+            @if (session('error'))
+            <div class="mb-4 text-sm text-red-700 bg-red-100 p-3 rounded-md">
+                {{ session('error') }}
+            </div>
+            @endif
             <form class="mt-8 space-y-6" action="{{ route('customer.login') }}" method="POST">
                 @csrf
                 <div class="space-y-4">
