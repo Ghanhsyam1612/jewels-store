@@ -201,6 +201,7 @@
                         </a>
                     </div>
                     <div class="flex">
+                        
                         <a href="#"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 60 60"
@@ -398,270 +399,379 @@
                 </div>
             </div>
 
+            {{-- Price Range Slider --}}
             <div class="flex items-center">
                 <h5 class="text-sm font-montserrat font-semibold mr-3">Price</h5>
-                <div class="w-full max-w-2xl">
-                    <div class="flex justify-between items-center">
-                        <input id="start" type="text" value="100.00"
-                            class="w-24 px-2 py-1 text-center border border-gray-300 rounded-md" readonly>
-                        <input id="end" type="text" value="100000.00"
-                            class="w-24 px-2 py-1 text-center border border-gray-300 rounded-md" readonly>
+                <div class="range_container">
+                    
+                    <div class="form_control">
+                        <div class="form_control_container">
+                            <input class="form_control_container__time__input" type="number" id="fromInput" value="100.00"
+                                min="100" max="100000" />
+                        </div>
+                        <div class="form_control_container">
+                            <input class="form_control_container__time__input" type="number" id="toInput" value="100000.00"
+                                min="100" max="100000" />
+                        </div>
                     </div>
+                    <div class="sliders_control">
+                        <input id="fromSlider" type="range" value="100" min="100" max="100000" />
+                        <input id="toSlider" type="range" value="100000" min="100" max="100000" />
+                    </div>
+                    <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
+                        <span>$100</span>
+                        <span>$100,000</span>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .range_container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    margin: 5% auto;
+                }
 
-                    <div>
-                        <div class="relative">
-                            <style>
-                                .range-slider {
-                                    position: relative;
-                                    height: 2px;
-                                    background: #ddd;
-                                    margin: 20px 0 !important;
-                                }
+                .sliders_control {
+                    position: relative;
+                    min-height: 35px;
+                    display: flex;
+                    align-items: center;
+                }
 
-                                .range-selected {
-                                    height: 100%;
-                                    position: absolute;
-                                    background: rgb(59 130 246);
-                                    border-radius: 8px;
-                                }
+                .form_control {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 24px;
+                    color: #635a5a;
+                }
 
-                                .range-input {
-                                    position: relative;
-                                }
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                    cursor: pointer;
+                    /* margin-top: -9px; */
+                }
 
-                                .range-input input {
-                                    position: absolute;
-                                    width: 100%;
-                                    height: 8px;
-                                    background: none;
-                                    pointer-events: none;
-                                    -webkit-appearance: none;
-                                }
+                input[type="range"]::-moz-range-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 24px;
+                    height: 24px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 1px #c6c6c6;
+                    cursor: pointer;
+                }
 
-                                .range-input input::-webkit-slider-thumb {
-                                    height: 15px;
-                                    width: 15px;
-                                    border-radius: 50%;
-                                    border: 2px solid rgb(59 130 246);
-                                    background: #fff;
-                                    pointer-events: auto;
-                                    -webkit-appearance: none;
-                                    cursor: pointer;
-                                }
+                input[type="range"]::-webkit-slider-thumb:hover {
+                    background: #f7f7f7;
+                }
 
-                                .range-input input::-moz-range-thumb {
-                                    height: 15px;
-                                    width: 15px;
-                                    border-radius: 50%;
-                                    border: 2px solid rgb(59 130 246);
-                                    background: #fff;
-                                    pointer-events: auto;
-                                    -moz-appearance: none;
-                                    cursor: pointer;
-                                }
-                            </style>
-                            <div class="range-slider">
-                                <div class="range-selected"></div>
-                                <div class="range-input">
-                                    <input type="range" id="minRange" class="minRange" min="100" max="100000"
-                                        value="100" step="1" oninput="updateRange(this, 'min')">
-                                    <input type="range" id="maxRange" class="maxRange" min="100" max="100000"
-                                        value="100000" step="1" oninput="updateRange(this, 'max')">
+                input[type="range"]::-webkit-slider-thumb:active {
+                    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                }
+
+                input[type="number"] {
+                    color: #8a8383;
+                    width: 100%;
+                    /* height: 30px; */
+                    font-size: 13px;
+                    border: 1px solid #c6c6c6;
+                    border-radius: 4px;
+                    padding: 4px;
+                }
+
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    opacity: 1;
+                }
+
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    height: 4px;
+                    width: 100%;
+                    position: absolute;
+                    background-color: #c6c6c6;
+                    pointer-events: none;
+                    border-radius: 8px;
+                }
+
+                #fromSlider {
+                    height: 0;
+                    z-index: 1;
+                }
+            </style>
+            <script>
+                // Controls the slider using from Input....
+                function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+                    const [from, to] = getParsed(fromInput, toInput);
+                    fillSlider(fromInput, toInput, "#C6C6C6", "#733D80", controlSlider);
+                    fromSlider.value = from;
+
+                    if (from > to) {
+                        fromSlider.value = to;
+                        fromInput.value = to;
+                    } else {
+                        fromSlider.value = from;
+                    }
+                }
+
+                // Controls the slider using to Input....
+                function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+                    const [from, to] = getParsed(fromInput, toInput);
+                    fillSlider(fromInput, toInput, "#C6C6C6", "#733D80", controlSlider);
+                    setToggleAccessible(toInput);
+                    toSlider.value = to;
+                    toInput.value = to;
+
+                    if (from <= to) {
+                        toSlider.value = to;
+                        toInput.value = to;
+                    } else {
+                        toInput.value = from;
+                    }
+                }
+
+                // Sliding event of the From slider
+                function controlFromSlider(fromSlider, toSlider, fromInput) {
+                    const [from, to] = getParsed(fromSlider, toSlider);
+                    console.log([from, to]);
+                    fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
+                    fromInput.value = from;
+                    if (from > to) {
+                        fromInput.value = to;
+                        toInput.value = from;
+                    }
+                }
+
+                // Sliding event of the To slider
+                function controlToSlider(fromSlider, toSlider, toInput) {
+                    const [from, to] = getParsed(fromSlider, toSlider);
+                    fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
+                    setToggleAccessible(toSlider);
+                    toSlider.value = to;
+                    toInput.value = to;
+                    if (from > to) {
+                        fromInput.value = to;
+                        toInput.value = from;
+                    }
+                }
+
+                // Parsign values of the Inputs
+                function getParsed(currentFrom, currentTo) {
+                    const from = parseInt(currentFrom.value, 10);
+                    const to = parseInt(currentTo.value, 10);
+                    return [from, to];
+                }
+
+                // Changing and Filling the color in the selected part...
+                function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                    let rangeDistance = to.max - to.min;
+                    let fromPosition = from.value - to.min;
+                    let toPosition = to.value - to.min;
+                    if (fromPosition > toPosition) {
+                        let spare = fromPosition;
+                        fromPosition = toPosition;
+                        toPosition = spare;
+                    }
+                    controlSlider.style.background = `linear-gradient(
+              to right,
+              ${sliderColor} 0%,
+              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+              ${sliderColor} 100%)`;
+                }
+
+                // Making sure the toggle which we are using is accesible to change the range
+                function setToggleAccessible(currentTarget) {
+                    const toSlider = document.querySelector("#toSlider");
+                    if (Number(currentTarget.value) <= 0) {
+                        toSlider.style.zIndex = 2;
+                    } else {
+                        toSlider.style.zIndex = 0;
+                    }
+                }
+
+                const fromSlider = document.querySelector("#fromSlider");
+                const toSlider = document.querySelector("#toSlider");
+                const fromInput = document.querySelector("#fromInput");
+                const toInput = document.querySelector("#toInput");
+
+                // Initially filling the slider using default values...
+                fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
+                setToggleAccessible(toSlider);
+
+                // Assigning listner methonds to respective events.
+                fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+                toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+                fromInput.oninput = () =>
+                    controlFromInput(fromSlider, fromInput, toInput, toSlider);
+                toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+            </script>
+
+            {{-- Carat --}}
+            <div class="flex items-center">
+                <h5 class="text-sm font-montserrat font-semibold mr-3">Carat</h5>
+                <div class="relative font-inter antialiased">
+
+                    <main class="relative flex flex-col justify-center bg-slate-50 overflow-hidden">
+                        <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
+                
+                            
+                            <!-- Pricing table component -->
+                            <div x-data="pricingSlider">
+                
+                                <!-- Pricing slider -->
+                                <div class="max-w-sm mx-auto lg:max-w-3xl space-y-3 mb-12 lg:mb-16">
+                                    <div class="text-center text-sm text-slate-700 font-medium" x-text="`${prices[value].contacts} contacts/month`"></div>
+                                    <div class="relative flex items-center" :style="`--progress:${progress};--segments-width:${segmentsWidth}`">
+                                        <div class="
+                                            absolute left-2.5 right-2.5 h-1.5 bg-slate-200 rounded-full overflow-hidden
+                                            before:absolute
+                                            before:inset-0
+                                            before:bg-gradient-to-r
+                                            before:from-indigo-300
+                                            before:to-indigo-500
+                                            before:[mask-image:_linear-gradient(to_right,theme(colors.white),theme(colors.white)_var(--progress),transparent_var(--progress))]
+                                            after:absolute
+                                            after:inset-0
+                                            after:bg-[repeating-linear-gradient(to_right,transparent,transparent_calc(var(--segments-width)-1px),theme(colors.white/.7)_calc(var(--segments-width)-1px),theme(colors.white/.7)_calc(var(--segments-width)+1px))]
+                                            [&[x-cloak]]:hidden
+                                        " aria-hidden="true" x-cloak></div>
+                                        <input class="
+                                            relative appearance-none cursor-pointer w-full bg-transparent focus:outline-none
+                                            [&::-webkit-slider-thumb]:appearance-none
+                                            [&::-webkit-slider-thumb]:h-5
+                                            [&::-webkit-slider-thumb]:w-5
+                                            [&::-webkit-slider-thumb]:rounded-full
+                                            [&::-webkit-slider-thumb]:bg-white
+                                            [&::-webkit-slider-thumb]:shadow
+                                            [&::-webkit-slider-thumb]:focus-visible:ring
+                                            [&::-webkit-slider-thumb]:focus-visible:ring-indigo-300
+                                            [&::-moz-range-thumb]:h-5
+                                            [&::-moz-range-thumb]:w-5                            
+                                            [&::-moz-range-thumb]:rounded-full
+                                            [&::-moz-range-thumb]:bg-white
+                                            [&::-moz-range-thumb]:border-none
+                                            [&::-moz-range-thumb]:shadow
+                                            [&::-moz-range-thumb]:focus-visible:ring
+                                            [&::-moz-range-thumb]:focus-visible:ring-indigo-300                            
+                                        " type="range" min="0" :max="prices.length - 1" :aria-valuetext="`${prices[value].contacts} contacts/month`" aria-label="Pricing Slider" x-model="value">
+                                    </div>
+                                    <div>
+                                        <ul class="flex justify-between text-xs font-medium text-slate-500 px-2.5">
+                                            <template x-for="(price, index) in prices" :key="index">
+                                                <li class="relative"><span class="absolute -translate-x-1/2" x-text="price.contacts"></span></li>
+                                            </template>
+                                        </ul>
+                                    </div>
                                 </div>
+                
+                              
+                            
                             </div>
+                            <!-- Slider data and functionality: https://github.com/alpinejs/alpine -->
                             <script>
-                                function updateRange(element, type) {
-                                    const min = document.getElementById('minRange');
-                                    const max = document.getElementById('maxRange');
-                                    const start = document.getElementById('start');
-                                    const end = document.getElementById('end');
-
-                                    if (type === 'min') {
-                                        if (parseInt(element.value) > parseInt(max.value)) {
-                                            element.value = max.value;
-                                        }
-                                        start.value = parseFloat(element.value).toFixed(2);
-                                    } else {
-                                        if (parseInt(element.value) < parseInt(min.value)) {
-                                            element.value = min.value;
-                                        }
-                                        end.value = parseFloat(element.value).toFixed(2);
-                                    }
-                                }
-                            </script>
+                                document.addEventListener('alpine:init', () => {
+                                    Alpine.data('pricingSlider', () => ({
+                                        value: 2,
+                                        prices: [
+                                            {
+                                                contacts: '1K',
+                                                plans: {
+                                                    starter: '5',
+                                                    business: '9',
+                                                }
+                                            },
+                                            {
+                                                contacts: '5K',
+                                                plans: {
+                                                    starter: '19',
+                                                    business: '29',
+                                                }
+                                            },
+                                            {
+                                                contacts: '10K',
+                                                plans: {
+                                                    starter: '29',
+                                                    business: '49',
+                                                }
+                                            },
+                                            {
+                                                contacts: '15K',
+                                                plans: {
+                                                    starter: '39',
+                                                    business: '59',
+                                                }
+                                            },
+                                            {
+                                                contacts: '1M',
+                                                plans: {
+                                                    starter: '1,490',
+                                                    business: '2,490',
+                                                }
+                                            },
+                                        ],
+                                        segmentsWidth: '100%',
+                                        progress: '0%',
+                                        segments: 1,
+                                        calculateProgress() {
+                                            this.segmentsWidth = 100 / this.segments + '%'
+                                            this.progress = 100 / this.segments * this.value + '%'
+                                        },
+                                        init() {
+                                            this.segments = this.prices.length - 1
+                                            this.calculateProgress()
+                                            this.$watch('value', () => this.calculateProgress())
+                                        },
+                                    }))
+                                })
+                            </script>            
+                            <!-- End: Pricing table component -->
+                
                         </div>
-                    </div>
+                    </main>
+                
+                
+                
                 </div>
+
             </div>
-
-            <div class="p-6 flex">
-                <h5 class="text-sm font-montserrat font-semibold mr-3">Price</h5>
-                <div class="relative w-full">
-                    <input type="range" min="100.00" max="100000.00" value="0"
-                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                        oninput="this.nextElementSibling.value = this.value 
-                       onchange='this.nextElementSibling.value = this.value'">
-                    <output
-                        class="absolute left-1/2 bottom-5 transform -translate-x-1/2 text-sm text-gray-800 font-montserrat font-semibold">500</output>
-                </div>
-            </div>
-
-            <div class="p-8 w-full max-w-2xl">
-                <div class="flex justify-between items-center">
-                    <input id="start" type="text" value="100.00"
-                        class="w-24 px-2 py-1 text-center border border-gray-300 rounded-md" readonly>
-                    <input id="end" type="text" value="100000.00"
-                        class="w-24 px-2 py-1 text-center border border-gray-300 rounded-md" readonly>
-                </div>
-
-                <div>
-                    <div class="relative">
-                        <style>
-                            .range-slider {
-                                position: relative;
-                                height: 2px;
-                                background: #ddd;
-                                margin: 40px 0;
-                            }
-
-                            .range-selected {
-                                height: 100%;
-                                position: absolute;
-                                background: rgb(59 130 246);
-                                border-radius: 8px;
-                            }
-
-                            .range-input {
-                                position: relative;
-                            }
-
-                            .range-input input {
-                                position: absolute;
-                                width: 100%;
-                                height: 2px;
-                                background: none;
-                                pointer-events: none;
-                                -webkit-appearance: none;
-                            }
-
-                            .range-input input::-webkit-slider-thumb {
-                                height: 15px;
-                                width: 15px;
-                                border-radius: 50%;
-                                border: 2px solid rgb(59 130 246);
-                                background: #fff;
-                                pointer-events: auto;
-                                -webkit-appearance: none;
-                                cursor: pointer;
-                            }
-
-                            .range-input input::-moz-range-thumb {
-                                height: 15px;
-                                width: 15px;
-                                border-radius: 50%;
-                                border: 2px solid rgb(59 130 246);
-                                background: #fff;
-                                pointer-events: auto;
-                                -moz-appearance: none;
-                                cursor: pointer;
-                            }
-                        </style>
-                        <div class="range-slider">
-                            <div class="range-selected"></div>
-                            <div class="range-input">
-                                <input type="range" id="minRange" class="minRange" min="100" max="100000"
-                                    value="100" step="1" oninput="updateRange(this, 'min')">
-                                <input type="range" id="maxRange" class="maxRange" min="100" max="100000"
-                                    value="100000" step="1" oninput="updateRange(this, 'max')">
-                            </div>
-                        </div>
-                        <script>
-                            function updateRange(element, type) {
-                                const min = document.getElementById('minRange');
-                                const max = document.getElementById('maxRange');
-                                const start = document.getElementById('start');
-                                const end = document.getElementById('end');
-
-                                if (type === 'min') {
-                                    if (parseInt(element.value) > parseInt(max.value)) {
-                                        element.value = max.value;
-                                    }
-                                    start.value = parseFloat(element.value).toFixed(2);
-                                } else {
-                                    if (parseInt(element.value) < parseInt(min.value)) {
-                                        element.value = min.value;
-                                    }
-                                    end.value = parseFloat(element.value).toFixed(2);
-                                }
-                            }
-                        </script>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-1/2 flex items-center m-0">
-                <h5 class="font-montserrat font-semibold "><span>Price</span> <i class="openclose"></i></h5>
-                <div class="relative pl-4 inline-block w-full">
-                    <div class="flex justify-between w-full absolute -top-9"> 
-                        <input type="number" name="price_range1" min="100.00"
-                            max="100000.00" step="1" id="input-with-keypress-0" value="100.00" class="text-sm w-20 p-1 h-6 rounded-md text-center border">
-                        <input type="number" name="price_range2" min="100.00" max="100000.00" step="1"
-                            id="input-with-keypress-1" value="100000.00" class="text-sm w-20 p-1 h-6 rounded-md text-center border">
-                    </div>
-                    <div id="price-range" class="relative ltr">
-                        <div class="">
-                            <div class="noUi-connects">
-                                <div class="noUi-connect" style="transform: translate(0%) scale(1);"></div>
-                            </div>
-                            <div class="noUi-origin" style="transform: translate(-100%); z-index: 5;">
-                                <div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider"
-                                    aria-orientation="horizontal" aria-valuemin="100.0" aria-valuemax="100000.0"
-                                    aria-valuenow="100.0" aria-valuetext="100.00">
-                                    <div class="noUi-touch-area"></div>
-                                    <div class="noUi-tooltip">100.00</div>
-                                </div>
-                            </div>
-                            <div class="noUi-origin" style="transform: translate(0%); z-index: 4;">
-                                <div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider"
-                                    aria-orientation="horizontal" aria-valuemin="100.0" aria-valuemax="100000.0"
-                                    aria-valuenow="100000.0" aria-valuetext="100000.00">
-                                    <div class="noUi-touch-area"></div>
-                                    <div class="noUi-tooltip">100000.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noUi-pips noUi-pips-horizontal">
-                            <div class="noUi-marker noUi-marker-horizontal noUi-marker-large" style="left: 0%;"></div>
-                            <div class="noUi-value noUi-value-horizontal noUi-value-large" data-value="100"
-                                style="left: 0%;">100</div>
-                            <div class="noUi-marker noUi-marker-horizontal noUi-marker-large" style="left: 50%;"></div>
-                            <div class="noUi-value noUi-value-horizontal noUi-value-large" data-value="6000"
-                                style="left: 50%;">6000</div>
-                            <div class="noUi-marker noUi-marker-horizontal noUi-marker-large" style="left: 100%;"></div>
-                            <div class="noUi-value noUi-value-horizontal noUi-value-large" data-value="100000"
-                                style="left: 100%;">100000</div>
-                        </div>
-                    </div>
-                    <input type="hidden" name="price_range" id="price-range-value" value="100.00,100000.00">
-
-                </div>
-            </div>
-
-            {{-- <script>
-            // JavaScript to sync slider with input boxes
-            const rangeSlider = document.getElementById('range');
-            const startInput = document.getElementById('start');
-            const endInput = document.getElementById('end');
-    
-            // Update the values in input fields as the range slider is adjusted
-            rangeSlider.addEventListener('input', function() {
-                const value = rangeSlider.value;
-                startInput.value = parseFloat(value).toFixed(2);
-                endInput.value = parseFloat(100000 - value).toFixed(2); // Adjusted end value
-            });
-        </script> --}}
 
 
         </div>
     </div>
+
+<script>
+    // Toggle script for showing/hiding elements
+    function toggleElement(elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        }
+    }
+
+    // Add click event listeners to toggle buttons/elements
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButtons = document.querySelectorAll('[data-toggle]');
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-toggle');
+                toggleElement(targetId);
+            });
+        });
+    });
+</script>
+    
 @endsection
