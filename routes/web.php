@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ Route::get('/register', function () {
 
 Route::get('/login', function () {
     return view('components.login');
-});
+})->name('login');
 
 // Header Menu  
 Route::get('/inventory', function () {
@@ -64,12 +65,12 @@ Route::get('/product', function () {
 // My Account
 Route::get('/my-account', function () {
     return view('account.my-account');
-});
+})->name('account.my-account');
 
 // Login-Register
 Route::get('/account', function () {
     return view('components.account');
-});
+})->name('account');
 
 // Cart
 Route::get('/cart', function () {
@@ -85,6 +86,7 @@ Route::get('/edit-shipping-address', function () {
 Route::get('/edit-billing-address', function () {
     return view('account.edit-billing-address');
 });
+
 
 // Footer Help
 Route::get('/about-us', function () {
@@ -111,11 +113,10 @@ Route::get('/contact-us', function () {
     return view('components.help.contact-us');
 });
 
-Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders') ;
+Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
 Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
 Route::get('/account/addresses', [AccountController::class, 'addresses'])->name('account.addresses');
-Route::get('/account/details', [AccountController::class, 'details'])->name('account.details');
-Route::get('/account/logout', [AccountController::class, 'logout'])->name('account.logout');
+
 
 // Routes
 
@@ -124,3 +125,19 @@ Route::post('/register', [CustomerController::class, 'register'])->name('custome
 
 // Customer Login
 Route::post('/login', [CustomerController::class, 'login'])->name('customer.login');
+
+// Authenticated Routes
+Route::middleware(['auth:customer'])->group(function () {
+    // Customer Details
+    Route::get('/account/details', [AccountController::class, 'details'])->name('account.details');
+    // Update Customer Details
+    Route::post('/account/details', [CustomerController::class, 'updateDetails'])->name('account.update');
+    // Logout
+    Route::get('/account/logout', [AccountController::class, 'logout'])->name('account.logout');
+
+    // Customer Addresses
+    // Route::get('/account/addresses', [AddressController::class, 'index'])->name('account.addresses.index');
+    Route::post('/account/addresses', [AddressController::class, 'store'])->name('account.addresses.store');
+    Route::put('/account/addresses/{address}', [AddressController::class, 'update'])->name('account.addresses.update');
+    Route::delete('/account/addresses/{address}', [AddressController::class, 'destroy'])->name('account.addresses.destroy');
+});
