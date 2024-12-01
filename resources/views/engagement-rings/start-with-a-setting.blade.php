@@ -199,6 +199,21 @@
                 </div>
             </div>
         </div>
+        <script>
+            const styleIcon = document.getElementById('styleDropdownIcon');
+            const styleDropdown = document.getElementById('styleDropdown');
+            
+            styleIcon.addEventListener('click', () => {
+                styleDropdown.classList.toggle('hidden');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!styleIcon.contains(e.target) && !styleDropdown.contains(e.target)) {
+                    styleDropdown.classList.add('hidden');
+                }
+            });
+        </script>
 
         <span class="text-sm font-montserrat text-gray-400 mx-40">
             Showing 1-12 of 100 results
@@ -246,21 +261,7 @@
         </div>
     
     {{-- Style Script --}}
-    <script>
-        const styleIcon = document.getElementById('styleDropdownIcon');
-        const styleDropdown = document.getElementById('styleDropdown');
-        
-        styleIcon.addEventListener('click', () => {
-            styleDropdown.classList.toggle('hidden');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!styleIcon.contains(e.target) && !styleDropdown.contains(e.target)) {
-                styleDropdown.classList.add('hidden');
-            }
-        });
-    </script>
+    
 
     {{-- Diamond Shape --}}
     <script>

@@ -8,9 +8,10 @@
         <p class="text-gray-600 text-center font-montserrat text-sm mb-8">
             Select your perfect lab grown diamond from thousands of ethically sourced diamonds.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 px-10">
             <!-- Grid Item 1 -->
-            <div class="p-6 flex items-center">
+            <div class="flex items-center">
                 <h5 class="text-sm font-montserrat font-semibold mr-3">Shape</h5>
                 <div class="flex flex-col">
                     <div class="flex">
@@ -201,7 +202,7 @@
                         </a>
                     </div>
                     <div class="flex">
-                        
+
                         <a href="#"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 60 60"
@@ -403,15 +404,14 @@
             <div class="flex items-center">
                 <h5 class="text-sm font-montserrat font-semibold mr-3">Price</h5>
                 <div class="range_container">
-                    
                     <div class="form_control">
                         <div class="form_control_container">
-                            <input class="form_control_container__time__input" type="number" id="fromInput" value="100.00"
-                                min="100" max="100000" />
+                            <input class="form_control_container__time__input" type="number" id="fromInput"
+                                value="100" min="100" max="100000" />
                         </div>
                         <div class="form_control_container">
-                            <input class="form_control_container__time__input" type="number" id="toInput" value="100000.00"
-                                min="100" max="100000" />
+                            <input class="form_control_container__time__input" type="number" id="toInput"
+                                value="100000" min="100" max="100000" />
                         </div>
                     </div>
                     <div class="sliders_control">
@@ -445,6 +445,7 @@
                     justify-content: space-between;
                     font-size: 24px;
                     color: #635a5a;
+                    width: 100%;
                 }
 
                 input[type="range"]::-webkit-slider-thumb {
@@ -623,155 +624,1895 @@
             {{-- Carat --}}
             <div class="flex items-center">
                 <h5 class="text-sm font-montserrat font-semibold mr-3">Carat</h5>
-                <div class="relative font-inter antialiased">
-
-                    <main class="relative flex flex-col justify-center bg-slate-50 overflow-hidden">
-                        <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
-                
-                            
-                            <!-- Pricing table component -->
-                            <div x-data="pricingSlider">
-                
-                                <!-- Pricing slider -->
-                                <div class="max-w-sm mx-auto lg:max-w-3xl space-y-3 mb-12 lg:mb-16">
-                                    <div class="text-center text-sm text-slate-700 font-medium" x-text="`${prices[value].contacts} contacts/month`"></div>
-                                    <div class="relative flex items-center" :style="`--progress:${progress};--segments-width:${segmentsWidth}`">
-                                        <div class="
-                                            absolute left-2.5 right-2.5 h-1.5 bg-slate-200 rounded-full overflow-hidden
-                                            before:absolute
-                                            before:inset-0
-                                            before:bg-gradient-to-r
-                                            before:from-indigo-300
-                                            before:to-indigo-500
-                                            before:[mask-image:_linear-gradient(to_right,theme(colors.white),theme(colors.white)_var(--progress),transparent_var(--progress))]
-                                            after:absolute
-                                            after:inset-0
-                                            after:bg-[repeating-linear-gradient(to_right,transparent,transparent_calc(var(--segments-width)-1px),theme(colors.white/.7)_calc(var(--segments-width)-1px),theme(colors.white/.7)_calc(var(--segments-width)+1px))]
-                                            [&[x-cloak]]:hidden
-                                        " aria-hidden="true" x-cloak></div>
-                                        <input class="
-                                            relative appearance-none cursor-pointer w-full bg-transparent focus:outline-none
-                                            [&::-webkit-slider-thumb]:appearance-none
-                                            [&::-webkit-slider-thumb]:h-5
-                                            [&::-webkit-slider-thumb]:w-5
-                                            [&::-webkit-slider-thumb]:rounded-full
-                                            [&::-webkit-slider-thumb]:bg-white
-                                            [&::-webkit-slider-thumb]:shadow
-                                            [&::-webkit-slider-thumb]:focus-visible:ring
-                                            [&::-webkit-slider-thumb]:focus-visible:ring-indigo-300
-                                            [&::-moz-range-thumb]:h-5
-                                            [&::-moz-range-thumb]:w-5                            
-                                            [&::-moz-range-thumb]:rounded-full
-                                            [&::-moz-range-thumb]:bg-white
-                                            [&::-moz-range-thumb]:border-none
-                                            [&::-moz-range-thumb]:shadow
-                                            [&::-moz-range-thumb]:focus-visible:ring
-                                            [&::-moz-range-thumb]:focus-visible:ring-indigo-300                            
-                                        " type="range" min="0" :max="prices.length - 1" :aria-valuetext="`${prices[value].contacts} contacts/month`" aria-label="Pricing Slider" x-model="value">
-                                    </div>
-                                    <div>
-                                        <ul class="flex justify-between text-xs font-medium text-slate-500 px-2.5">
-                                            <template x-for="(price, index) in prices" :key="index">
-                                                <li class="relative"><span class="absolute -translate-x-1/2" x-text="price.contacts"></span></li>
-                                            </template>
-                                        </ul>
-                                    </div>
-                                </div>
-                
-                              
-                            
-                            </div>
-                            <!-- Slider data and functionality: https://github.com/alpinejs/alpine -->
-                            <script>
-                                document.addEventListener('alpine:init', () => {
-                                    Alpine.data('pricingSlider', () => ({
-                                        value: 2,
-                                        prices: [
-                                            {
-                                                contacts: '1K',
-                                                plans: {
-                                                    starter: '5',
-                                                    business: '9',
-                                                }
-                                            },
-                                            {
-                                                contacts: '5K',
-                                                plans: {
-                                                    starter: '19',
-                                                    business: '29',
-                                                }
-                                            },
-                                            {
-                                                contacts: '10K',
-                                                plans: {
-                                                    starter: '29',
-                                                    business: '49',
-                                                }
-                                            },
-                                            {
-                                                contacts: '15K',
-                                                plans: {
-                                                    starter: '39',
-                                                    business: '59',
-                                                }
-                                            },
-                                            {
-                                                contacts: '1M',
-                                                plans: {
-                                                    starter: '1,490',
-                                                    business: '2,490',
-                                                }
-                                            },
-                                        ],
-                                        segmentsWidth: '100%',
-                                        progress: '0%',
-                                        segments: 1,
-                                        calculateProgress() {
-                                            this.segmentsWidth = 100 / this.segments + '%'
-                                            this.progress = 100 / this.segments * this.value + '%'
-                                        },
-                                        init() {
-                                            this.segments = this.prices.length - 1
-                                            this.calculateProgress()
-                                            this.$watch('value', () => this.calculateProgress())
-                                        },
-                                    }))
-                                })
-                            </script>            
-                            <!-- End: Pricing table component -->
-                
+                <div class="range_carat_container">
+                    <div class="form_carat_control">
+                        <div class="form_carat_control_container">
+                            <input class="form_carat_control_container__carat__input" type="number" id="fromCaratInput"
+                                value="0.00" min="0" max="60" />
                         </div>
-                    </main>
-                
-                
-                
+                        <div class="form_carat_control_container">
+                            <input class="form_carat_control_container__carat__input" type="number" id="toCaratInput"
+                                value="60.00" min="0" max="60" />
+                        </div>
+                    </div>
+                    <div class="sliders_carat_control">
+                        <input id="fromCaratSlider" type="range" value="0" min="0" max="60" />
+                        <input id="toCaratSlider" type="range" value="60" min="0" max="60" />
+                    </div>
+                    <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
+                        <span>0ct</span>
+                        <span>60ct</span>
+                    </div>
                 </div>
-
             </div>
+            <style>
+                .range_carat_container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    margin: 5% auto;
+                }
 
+                .sliders_carat_control {
+                    position: relative;
+                    min-height: 35px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .form_carat_control {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 24px;
+                    color: #635a5a;
+                }
+
+                input[type="range"]#fromCaratSlider::-webkit-slider-thumb,
+                input[type="range"]#toCaratSlider::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+
+                input[type="range"]#fromCaratSlider::-moz-range-thumb,
+                input[type="range"]#toCaratSlider::-moz-range-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 24px;
+                    height: 24px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 1px #c6c6c6;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+
+                input[type="range"]#fromCaratSlider::-webkit-slider-thumb:hover,
+                input[type="range"]#toCaratSlider::-webkit-slider-thumb:hover {
+                    background: #f7f7f7;
+                }
+
+                input[type="range"]#fromCaratSlider::-webkit-slider-thumb:active,
+                input[type="range"]#toCaratSlider::-webkit-slider-thumb:active {
+                    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                }
+
+                input[type="number"]#rangeInput,
+                input[type="number"]#rangeInput {
+                    color: #8a8383;
+                    width: 100%;
+                    /* height: 30px; */
+                    font-size: 13px;
+                    border: 1px solid #c6c6c6;
+                    border-radius: 4px;
+                    padding: 4px;
+                }
+
+                input[type="number"]#fromCaratInput::-webkit-inner-spin-button,
+                input[type="number"]#fromCaratInput::-webkit-outer-spin-button {
+                    opacity: 1;
+                }
+
+                input[type="number"]#toCaratInput::-webkit-inner-spin-button,
+                input[type="number"]#toCaratInput::-webkit-outer-spin-button {
+                    opacity: 1;
+                }
+
+                input[type="range"]#fromCaratSlider,
+                input[type="range"]#toCaratSlider {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    height: 4px;
+                    width: 100%;
+                    position: absolute;
+                    background-color: #c6c6c6;
+                    pointer-events: all;
+                    border-radius: 8px;
+                }
+
+                /* #fromCaratSlider {
+                        height: 0;
+                        z-index: 3;
+                    } */
+                #toCaratSlider {
+                    height: 0;
+                    z-index: 4;
+                }
+            </style>
+            <script>
+                // Controls the slider using from Input....
+                function controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
+                    const [from, to] = getParsed(fromCaratInput, toCaratInput);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider);
+                    fromCaratSlider.value = from;
+
+                    if (from > to) {
+                        fromCaratSlider.value = to;
+                        fromCaratInput.value = to;
+                    } else {
+                        fromCaratSlider.value = from;
+                    }
+                }
+
+                // Controls the slider using to Input....
+                function controlToInput(toCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
+                    const [from, to] = getParsed(fromCaratInput, toCaratInput);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider);
+                    setToggleAccessible(toCaratInput);
+                    toCaratSlider.value = to;
+                    toCaratInput.value = to;
+
+                    if (from <= to) {
+                        toCaratSlider.value = to;
+                        toCaratInput.value = to;
+                    } else {
+                        toCaratInput.value = from;
+                    }
+                }
+
+                // Sliding event of the From slider
+                function controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput) {
+                    const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
+                    console.log([from, to]);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                    fromCaratInput.value = from;
+                    if (from > to) {
+                        fromCaratInput.value = to;
+                        toCaratInput.value = from;
+                    }
+                }
+
+                // Sliding event of the To slider
+                function controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput) {
+                    const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                    setToggleAccessible(toCaratInput);
+                    toCaratSlider.value = to;
+                    toCaratInput.value = to;
+                    if (from > to) {
+                        fromCaratInput.value = to;
+                        toCaratInput.value = from;
+                    }
+                }
+
+                // Parsing values of the Inputs with 2 decimal places
+                function getParsed(currentFrom, currentTo) {
+                    const from = parseFloat(currentFrom.value).toFixed(2);
+                    const to = parseFloat(currentTo.value).toFixed(2);
+                    return [parseFloat(from), parseFloat(to)];
+                }
+
+                // Changing and Filling the color in the selected part...
+                function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                    let rangeDistance = to.max - to.min;
+                    let fromPosition = from.value - to.min;
+                    let toPosition = to.value - to.min;
+                    if (fromPosition > toPosition) {
+                        let spare = fromPosition;
+                        fromPosition = toPosition;
+                        toPosition = spare;
+                    }
+                    controlSlider.style.background = `linear-gradient(
+              to right,
+              ${sliderColor} 0%,
+              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+              ${sliderColor} 100%)`;
+                }
+
+                // Making sure the toggle which we are using is accessible to change the range
+                function setToggleAccessible(currentTarget) {
+                    const toCaratSlider = document.querySelector("#toCaratSlider");
+                    if (Number(currentTarget.value) <= 0) {
+                        toCaratSlider.style.zIndex = 4;
+                    } else {
+                        toCaratSlider.style.zIndex = 4;
+                    }
+                }
+
+                const fromCaratSlider = document.querySelector("#fromCaratSlider");
+                const toCaratSlider = document.querySelector("#toCaratSlider");
+                const fromCaratInput = document.querySelector("#fromCaratInput");
+                const toCaratInput = document.querySelector("#toCaratInput");
+
+                // Set step to 0.01 for finer control
+                fromCaratSlider.step = "0.01";
+                toCaratSlider.step = "0.01";
+                fromCaratInput.step = "0.01";
+                toCaratInput.step = "0.01";
+
+                // Initially filling the slider using default values...
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                setToggleAccessible(toCaratSlider);
+
+                // Assigning listener methods to respective events.
+                fromCaratSlider.oninput = () => controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput);
+                toCaratSlider.oninput = () => controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput);
+                fromCaratInput.oninput = () =>
+                    controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
+                toCaratInput.oninput = () => controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
+            </script>
+
+            {{-- Cut --}}
+            <div class="flex items-center">
+                <h5 class="text-sm font-montserrat font-semibold mr-3">Cut</h5>
+                <div class="range_cut_container">
+                    <div class="sliders_cut_control">
+                        <input id="fromCutSlider" type="range" value="0" min="0" max="4"
+                            step="1" />
+                        <input id="toCutSlider" type="range" value="4" min="0" max="4"
+                            step="1" />
+                    </div>
+                    <div class="flex justify-center gap-10 font-montserrat text-xs text-gray-500 font-medium">
+                        <span>Good</span>
+                        <span>Very Good</span>
+                        <span>Excellent</span>
+                        <span>Ideal</span>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .range_cut_container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    margin: 5% auto;
+                }
+
+                .sliders_cut_control {
+                    position: relative;
+                    min-height: 35px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .form_cut_control {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 24px;
+                    color: #635a5a;
+                }
+
+                input[type="range"]#fromCutSlider::-webkit-slider-thumb,
+                input[type="range"]#toCutSlider::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+
+                input[type="range"]#fromCutSlider::-moz-range-thumb,
+                input[type="range"]#toCutSlider::-moz-range-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 24px;
+                    height: 24px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 1px #c6c6c6;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+            </style>
+            <script>
+                const fromCutSlider = document.querySelector("#fromCutSlider");
+                const toCutSlider = document.querySelector("#toCutSlider");
+                const fromCutInput = document.querySelector("#fromCutInput");
+                const toCutInput = document.querySelector("#toCutInput");
+
+                // Initially filling the slider using default values...
+                fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#733D80", toCutSlider);
+                setToggleAccessible(toCutSlider);
+
+                // Assigning listener methods to respective events.
+                fromCutSlider.oninput = () => controlFromSlider(fromCutSlider, toCutSlider, fromCutInput);
+                toCutSlider.oninput = () => controlToSlider(fromCutSlider, toCutSlider, toCutInput);
+                fromCutInput.oninput = () =>
+                    controlFromInput(fromCutSlider, fromCutInput, toCutInput, toCutSlider);
+                toCutInput.oninput = () => controlToInput(toCutSlider, fromCutInput, toCutInput, toCutSlider);
+            </script>
+
+            {{-- Color --}}
+            <div class="flex items-center">
+                <h5 class="text-sm font-montserrat font-semibold mr-3">Color</h5>
+                <div class="range_color_container">
+                    <div class="sliders_color_control">
+                        <input id="fromColorSliderM" type="range" value="0" min="0" max="10"
+                            step="1" />
+                        <input id="toColorSliderM" type="range" value="10" min="0" max="10"
+                            step="1" />
+                    </div>
+                    <div class="flex justify-center gap-7 font-montserrat text-xs text-gray-500 font-medium">
+                        <span>M</span>
+                        <span>L</span>
+                        <span>K</span>
+                        <span>J</span>
+                        <span>I</span>
+                        <span>H</span>
+                        <span>G</span>
+                        <span>F</span>
+                        <span>E</span>
+                        <span>D</span>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .range_color_container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    margin: 5% auto;
+                }
+
+                .sliders_color_control {
+                    position: relative;
+                    min-height: 35px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .form_color_control {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 24px;
+                    color: #635a5a;
+                }
+
+                input[type="range"]#fromColorSliderM::-webkit-slider-thumb,
+                input[type="range"]#toColorSliderM::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+
+                input[type="range"]#fromColorSliderM::-moz-range-thumb,
+                input[type="range"]#toColorSliderM::-moz-range-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 24px;
+                    height: 24px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 1px #c6c6c6;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+            </style>
+            <script>
+                const fromColorSliderM = document.querySelector("#fromColorSliderM");
+                const toColorSliderM = document.querySelector("#toColorSliderM");
+                const fromColorInputM = document.querySelector("#fromColorInputM");
+                const toColorInputM = document.querySelector("#toColorInputM");
+
+                // Initially filling the slider using default values...
+                fillSlider(fromColorSliderM, toColorSliderM, "#C6C6C6", "#733D80", toColorSliderM);
+                setToggleAccessible(toColorSliderM);
+
+                // Assigning listener methods to respective events.
+                fromColorSliderM.oninput = () => controlFromSlider(fromColorSliderM, toColorSliderM, fromColorInputM);
+                toColorSliderM.oninput = () => controlToSlider(fromColorSliderM, toColorSliderM, toColorInputM);
+                fromColorInputM.oninput = () =>
+                    controlFromInput(fromColorSliderM, fromColorInputM, toColorInputM, toColorSliderM);
+                toColorInputM.oninput = () => controlToInput(toColorSliderM, fromColorInputM, toColorInputM, toColorSliderM);
+            </script>
+
+            {{-- Clarity --}}
+            <div class="flex items-center">
+                <h5 class="text-sm font-montserrat font-semibold mr-3">Clarity</h5>
+                <div class="range_clarity_container">
+                    <div class="sliders_clarity_control">
+                        <input id="fromClaritySlider" type="range" value="0" min="0" max="11"
+                            step="1" />
+                        <input id="toClaritySlider" type="range" value="11" min="0" max="11"
+                            step="1" />
+                    </div>
+                    <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
+                        <span>I2</span>
+                        <span>I1</span>
+                        <span>SI3</span>
+                        <span>S12</span>
+                        <span>SI1</span>
+                        <span>VS2</span>
+                        <span>VS1</span>
+                        <span>VVS2</span>
+                        <span>VVS1</span>
+                        <span>IF</span>
+                        <span>FL</span>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .range_clarity_container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    margin: 5% auto;
+                }
+
+                .sliders_clarity_control {
+                    position: relative;
+                    min-height: 35px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .form_clarity_control {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 24px;
+                    color: #635a5a;
+                }
+
+                input[type="range"]#fromClaritySlider::-webkit-slider-thumb,
+                input[type="range"]#toClaritySlider::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+
+                input[type="range"]#fromClaritySlider::-moz-range-thumb,
+                input[type="range"]#toClaritySlider::-moz-range-thumb {
+                    -webkit-appearance: none;
+                    pointer-events: all;
+                    width: 24px;
+                    height: 24px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 1px #c6c6c6;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 5;
+                }
+            </style>
+            <script>
+                const fromClaritySlider = document.querySelector("#fromClaritySlider");
+                const toClaritySlider = document.querySelector("#toClaritySlider");
+                const fromClarityInput = document.querySelector("#fromClarityInput");
+                const toClarityInput = document.querySelector("#toClarityInput");
+
+                // Initially filling the slider using default values...
+                fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#733D80", toClaritySlider);
+                setToggleAccessible(toClaritySlider);
+
+                // Assigning listener methods to respective events.
+                fromClaritySlider.oninput = () => controlFromSlider(fromClaritySlider, toClaritySlider, fromClarityInput);
+                toClaritySlider.oninput = () => controlToSlider(fromClaritySlider, toClaritySlider, toClarityInput);
+                fromClarityInput.oninput = () =>
+                    controlFromInput(fromClaritySlider, fromClarityInput, toClarityInput, toClaritySlider);
+                toClarityInput.oninput = () => controlToInput(toClaritySlider, fromClarityInput, toClarityInput, toClaritySlider);
+            </script>
 
         </div>
+
+        <div class="flex felx-row items-center gap-3 px-10 py-5">
+            <h3 class="text-sm font-montserrat font-semibold">Advanced Options</h3>
+            <div class="flex justify-between items-center w-5/6">
+                <div class="flex flex-row items-center gap-4">
+                    {{-- Certificate Dropdown --}}
+                    <div id="styleDropdownIcon"
+                        class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                        <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
+                        {{-- Down Arrow --}}
+                        <svg id="downArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        {{-- Up Arrow --}}
+                        <svg id="upArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path style="fill:#000000;"
+                                    d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                </path>
+                            </g>
+                        </svg>
+
+                        <div id="styleDropdown"
+                            class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
+                            <div class="flex justify-between">
+                                <p class="text-sm font-montserrat font-semibold px-4 py-2">Certificate</p>
+
+                                <button class="p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="py-2">
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                    <input type="checkbox" class="mr-2 accent-black">
+                                    <span class="text-sm font-montserrat">IGI</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                    <input type="checkbox" class="mr-2 accent-black">
+                                    <span class="text-sm font-montserrat">GIA</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                    <input type="checkbox" class="mr-2 accent-black">
+                                    <span class="text-sm font-montserrat">GCAL</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                    <input type="checkbox" class="mr-2 accent-black">
+                                    <span class="text-sm font-montserrat">NON CERTIFIED</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Method Dropdown --}}
+                    <div id="methodDropdownIcon"
+                        class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                        <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
+                        {{-- Down Arrow --}}
+                        <svg id="methodDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        {{-- Up Arrow --}}
+                        <svg id="methodUpArrow" class="hidden" height="8" width="8" version="1.1"
+                            id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path style="fill:#000000;"
+                                    d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                </path>
+                            </g>
+                        </svg>
+
+                        <div id="methodDropdown"
+                            class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
+                            <div class="flex justify-between">
+                                <p class="text-sm font-montserrat font-semibold px-4 py-2">Method</p>
+
+                                <button class="p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="py-2">
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                    <input type="checkbox" class="mr-2 accent-black">
+                                    <span class="text-sm font-montserrat">HPHT</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                    <input type="checkbox" class="mr-2 accent-black">
+                                    <span class="text-sm font-montserrat">CVD</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {{-- Table --}}
+                    <div id="tableDropdownIcon"
+                        class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                        <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Table (%)</label>
+                        {{-- Down Arrow --}}
+                        <svg id="tableDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        {{-- Up Arrow --}}
+                        <svg id="tableUpArrow" class="hidden" height="8" width="8" version="1.1"
+                            id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path style="fill:#000000;"
+                                    d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                </path>
+                            </g>
+                        </svg>
+
+                        <div id="tableDropdown"
+                            class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
+                            <div class="flex justify-between">
+                                <p class="text-sm font-montserrat font-semibold px-4 py-2">Table</p>
+
+                                <button class="p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="range_table_container">
+                                    <div class="form_table_control">
+                                        <div class="form_table_control_container">
+                                            <input class="form_table_control_container__table__input" type="number"
+                                                id="fromTableInput" value="50" min="50" max="80"
+                                                onclick="event.stopPropagation();" />
+                                        </div>
+                                        <div class="form_table_control_container">
+                                            <input class="form_table_control_container__table__input" type="number"
+                                                id="toTableInput" value="80" min="50" max="80"
+                                                onclick="event.stopPropagation();" />
+                                        </div>
+                                    </div>
+                                    <div class="sliders_table_control">
+                                        <input id="fromTableSlider" type="range" value="50" min="50"
+                                            max="80" onclick="event.stopPropagation();" />
+                                        <input id="toTableSlider" type="range" value="80" min="50"
+                                            max="80" onclick="event.stopPropagation();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .range_table_container {
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 80%;
+                                    margin: 5% auto;
+                                }
+
+                                .sliders_table_control {
+                                    position: relative;
+                                    min-height: 35px;
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                .form_table_control {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    font-size: 24px;
+                                    color: #635a5a;
+                                }
+
+                                input[type="range"]#fromTableSlider::-webkit-slider-thumb,
+                                input[type="range"]#toTableSlider::-webkit-slider-thumb {
+                                    -webkit-appearance: none;
+                                    pointer-events: all;
+                                    width: 16px;
+                                    height: 16px;
+                                    background-color: #fff;
+                                    border-radius: 100%;
+                                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                                    cursor: pointer;
+                                    position: relative;
+                                    z-index: 5;
+                                }
+
+                                input[type="range"]#fromTableSlider::-moz-range-thumb,
+                                input[type="range"]#toTableSlider::-moz-range-thumb {
+                                    -webkit-appearance: none;
+                                    pointer-events: all;
+                                    width: 24px;
+                                    height: 24px;
+                                    background-color: #fff;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 0 1px #c6c6c6;
+                                    cursor: pointer;
+                                    position: relative;
+                                    z-index: 5;
+                                }
+
+                                input[type="range"]#fromTableSlider::-webkit-slider-thumb:hover,
+                                input[type="range"]#toTableSlider::-webkit-slider-thumb:hover {
+                                    background: #f7f7f7;
+                                }
+
+                                input[type="range"]#fromTableSlider::-webkit-slider-thumb:active,
+                                input[type="range"]#toTableSlider::-webkit-slider-thumb:active {
+                                    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                                    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                                }
+
+                                input[type="number"]#rangeInput,
+                                input[type="number"]#rangeInput {
+                                    color: #8a8383;
+                                    width: 100%;
+                                    /* height: 30px; */
+                                    font-size: 13px;
+                                    border: 1px solid #c6c6c6;
+                                    border-radius: 4px;
+                                    padding: 4px;
+                                }
+
+                                input[type="number"]#fromTableInput::-webkit-inner-spin-button,
+                                input[type="number"]#fromTableInput::-webkit-outer-spin-button {
+                                    opacity: 1;
+                                }
+
+                                input[type="number"]#toTableInput::-webkit-inner-spin-button,
+                                input[type="number"]#toTableInput::-webkit-outer-spin-button {
+                                    opacity: 1;
+                                }
+
+                                input[type="range"]#fromTableSlider,
+                                input[type="range"]#toTableSlider {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    height: 4px;
+                                    width: 100%;
+                                    position: absolute;
+                                    background-color: #c6c6c6;
+                                    pointer-events: all;
+                                    border-radius: 8px;
+                                }
+
+                                /* #fromCaratSlider {
+                                height: 0;
+                                z-index: 3;
+                            } */
+                                #toTableSlider {
+                                    height: 0;
+                                    z-index: 4;
+                                }
+                            </style>
+                            <script>
+                                // Controls the slider using from Input....
+                                function controlFromInput(fromTableSlider, fromTableInput, toTableInput, controlSlider) {
+                                    const [from, to] = getParsed(fromTableInput, toTableInput);
+                                    fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", controlSlider);
+                                    fromTableSlider.value = from;
+
+                                    if (from > to) {
+                                        fromTableSlider.value = to;
+                                        fromTableInput.value = to;
+                                    } else {
+                                        fromTableSlider.value = from;
+                                    }
+                                }
+
+                                // Controls the slider using to Input....
+                                function controlToInput(toTableSlider, fromTableInput, toTableInput, controlSlider) {
+                                    const [from, to] = getParsed(fromTableInput, toTableInput);
+                                    fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", controlSlider);
+                                    setToggleAccessible(toTableInput);
+                                    toTableSlider.value = to;
+                                    toTableInput.value = to;
+
+                                    if (from <= to) {
+                                        toTableSlider.value = to;
+                                        toTableInput.value = to;
+                                    } else {
+                                        toTableInput.value = from;
+                                    }
+                                }
+
+                                // Sliding event of the From slider
+                                function controlFromSlider(fromTableSlider, toTableSlider, fromTableInput) {
+                                    const [from, to] = getParsed(fromTableSlider, toTableSlider);
+                                    console.log([from, to]);
+                                    fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", toTableSlider);
+                                    fromTableInput.value = from;
+                                    if (from > to) {
+                                        fromTableInput.value = to;
+                                        toTableInput.value = from;
+                                    }
+                                }
+
+                                // Sliding event of the To slider
+                                function controlToSlider(fromTableSlider, toTableSlider, toTableInput) {
+                                    const [from, to] = getParsed(fromTableSlider, toTableSlider);
+                                    fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", toTableSlider);
+                                    setToggleAccessible(toTableInput);
+                                    toTableSlider.value = to;
+                                    toTableInput.value = to;
+                                    if (from > to) {
+                                        fromTableInput.value = to;
+                                        toTableInput.value = from;
+                                    }
+                                }
+
+                                // Parsign values of the Inputs
+                                function getParsed(currentFrom, currentTo) {
+                                    const from = parseInt(currentFrom.value, 10);
+                                    const to = parseInt(currentTo.value, 10);
+                                    return [from, to];
+                                }
+
+                                // Changing and Filling the color in the selected part...
+                                function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                                    let rangeDistance = to.max - to.min;
+                                    let fromPosition = from.value - to.min;
+                                    let toPosition = to.value - to.min;
+                                    if (fromPosition > toPosition) {
+                                        let spare = fromPosition;
+                                        fromPosition = toPosition;
+                                        toPosition = spare;
+                                    }
+                                    controlSlider.style.background = `linear-gradient(
+                      to right,
+                      ${sliderColor} 0%,
+                      ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                      ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                      ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                      ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                      ${sliderColor} 100%)`;
+                                }
+
+                                // Making sure the toggle which we are using is accesible to change the range
+                                function setToggleAccessible(currentTarget) {
+                                    const toTableSlider = document.querySelector("#toTableSlider");
+                                    if (Number(currentTarget.value) <= 0) {
+                                        toTableSlider.style.zIndex = 4;
+                                    } else {
+                                        toTableSlider.style.zIndex = 4;
+                                    }
+                                }
+
+                                const fromTableSlider = document.querySelector("#fromTableSlider");
+                                const toTableSlider = document.querySelector("#toTableSlider");
+                                const fromTableInput = document.querySelector("#fromTableInput");
+                                const toTableInput = document.querySelector("#toTableInput");
+
+                                // Initially filling the slider using default values...
+                                fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", toTableSlider);
+                                setToggleAccessible(toTableSlider);
+
+                                // Assigning listner methonds to respective events.
+                                fromTableSlider.oninput = () => controlFromSlider(fromTableSlider, toTableSlider, fromTableInput);
+                                toTableSlider.oninput = () => controlToSlider(fromTableSlider, toTableSlider, toTableInput);
+                                fromTableInput.oninput = () =>
+                                    controlFromInput(fromTableSlider, fromTableInput, toTableInput, toTableSlider);
+                                toTableInput.oninput = () => controlToInput(toTableSlider, fromTableInput, toTableInput, toTableSlider);
+                            </script>
+                        </div>
+                    </div>
+
+                    {{-- Depth --}}
+                    <div id="depthDropdownIcon"
+                        class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                        <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Depth (%)</label>
+                        {{-- Down Arrow --}}
+                        <svg id="depthDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        {{-- Up Arrow --}}
+                        <svg id="depthUpArrow" class="hidden" height="8" width="8" version="1.1"
+                            id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path style="fill:#000000;"
+                                    d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                </path>
+                            </g>
+                        </svg>
+
+                        <div id="depthDropdown"
+                            class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
+                            <div class="flex justify-between">
+                                <p class="text-sm font-montserrat font-semibold px-4 py-2">Depth</p>
+
+                                <button class="p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="range_depth_container">
+                                    <div class="form_depth_control">
+                                        <div class="form_depth_control_container">
+                                            <input class="form_depth_control_container__depth__input" type="number"
+                                                id="fromDepthInput" value="46" min="46" max="78"
+                                                onclick="event.stopPropagation();" />
+                                        </div>
+                                        <div class="form_depth_control_container">
+                                            <input class="form_depth_control_container__depth__input" type="number"
+                                                id="toDepthInput" value="78" min="46" max="78"
+                                                onclick="event.stopPropagation();" />
+                                        </div>
+                                    </div>
+                                    <div class="sliders_depth_control">
+                                        <input id="fromDepthSlider" type="range" value="46" min="46"
+                                            max="78" onclick="event.stopPropagation();" />
+                                        <input id="toDepthSlider" type="range" value="78" min="46"
+                                            max="78" onclick="event.stopPropagation();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .range_depth_container {
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 80%;
+                                    margin: 5% auto;
+                                }
+
+                                .sliders_depth_control {
+                                    position: relative;
+                                    min-height: 35px;
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                .form_depth_control {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    font-size: 24px;
+                                    color: #635a5a;
+                                }
+
+                                input[type="range"]#fromDepthSlider::-webkit-slider-thumb,
+                                input[type="range"]#toDepthSlider::-webkit-slider-thumb {
+                                    -webkit-appearance: none;
+                                    pointer-events: all;
+                                    width: 16px;
+                                    height: 16px;
+                                    background-color: #fff;
+                                    border-radius: 100%;
+                                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                                    cursor: pointer;
+                                    position: relative;
+                                    z-index: 5;
+                                }
+
+                                input[type="range"]#fromDepthSlider::-moz-range-thumb,
+                                input[type="range"]#toDepthSlider::-moz-range-thumb {
+                                    -webkit-appearance: none;
+                                    pointer-events: all;
+                                    width: 24px;
+                                    height: 24px;
+                                    background-color: #fff;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 0 1px #c6c6c6;
+                                    cursor: pointer;
+                                    position: relative;
+                                    z-index: 5;
+                                }
+
+                                input[type="range"]#fromDepthSlider::-webkit-slider-thumb:hover,
+                                input[type="range"]#toDepthSlider::-webkit-slider-thumb:hover {
+                                    background: #f7f7f7;
+                                }
+
+                                input[type="range"]#fromDepthSlider::-webkit-slider-thumb:active,
+                                input[type="range"]#toDepthSlider::-webkit-slider-thumb:active {
+                                    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                                    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                                }
+
+                                input[type="number"]#rangeInput,
+                                input[type="number"]#rangeInput {
+                                    color: #8a8383;
+                                    width: 100%;
+                                    /* height: 30px; */
+                                    font-size: 13px;
+                                    border: 1px solid #c6c6c6;
+                                    border-radius: 4px;
+                                    padding: 4px;
+                                }
+
+                                input[type="number"]#fromDepthInput::-webkit-inner-spin-button,
+                                input[type="number"]#fromDepthInput::-webkit-outer-spin-button {
+                                    opacity: 1;
+                                }
+
+                                input[type="number"]#toDepthInput::-webkit-inner-spin-button,
+                                input[type="number"]#toDepthInput::-webkit-outer-spin-button {
+                                    opacity: 1;
+                                }
+
+                                input[type="range"]#fromDepthSlider,
+                                input[type="range"]#toDepthSlider {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    height: 4px;
+                                    width: 100%;
+                                    position: absolute;
+                                    background-color: #c6c6c6;
+                                    pointer-events: all;
+                                    border-radius: 8px;
+                                }
+
+                                #toDepthSlider {
+                                    height: 0;
+                                    z-index: 4;
+                                }
+                            </style>
+                            <script>
+                                // Controls the slider using from Input....
+                                function controlFromInput(fromDepthSlider, fromDepthInput, toDepthInput, controlSlider) {
+                                    const [from, to] = getParsed(fromDepthInput, toDepthInput);
+                                    fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", controlSlider);
+                                    fromDepthSlider.value = from;
+
+                                    if (from > to) {
+                                        fromDepthSlider.value = to;
+                                        fromDepthInput.value = to;
+                                    } else {
+                                        fromDepthSlider.value = from;
+                                    }
+                                }
+
+                                // Controls the slider using to Input....
+                                function controlToInput(toDepthSlider, fromDepthInput, toDepthInput, controlSlider) {
+                                    const [from, to] = getParsed(fromDepthInput, toDepthInput);
+                                    fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", controlSlider);
+                                    setToggleAccessible(toDepthInput);
+                                    toDepthSlider.value = to;
+                                    toDepthInput.value = to;
+
+                                    if (from <= to) {
+                                        toDepthSlider.value = to;
+                                        toDepthInput.value = to;
+                                    } else {
+                                        toDepthInput.value = from;
+                                    }
+                                }
+
+                                // Sliding event of the From slider
+                                function controlFromSlider(fromDepthSlider, toDepthSlider, fromDepthInput) {
+                                    const [from, to] = getParsed(fromDepthSlider, toDepthSlider);
+                                    console.log([from, to]);
+                                    fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", toDepthSlider);
+                                    fromDepthInput.value = from;
+                                    if (from > to) {
+                                        fromDepthInput.value = to;
+                                        toDepthInput.value = from;
+                                    }
+                                }
+
+                                // Sliding event of the To slider
+                                function controlToSlider(fromDepthSlider, toDepthSlider, toDepthInput) {
+                                    const [from, to] = getParsed(fromDepthSlider, toDepthSlider);
+                                    fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", toDepthSlider);
+                                    setToggleAccessible(toDepthInput);
+                                    toDepthSlider.value = to;
+                                    toDepthInput.value = to;
+                                    if (from > to) {
+                                        fromDepthInput.value = to;
+                                        toDepthInput.value = from;
+                                    }
+                                }
+
+                                // Parsign values of the Inputs
+                                function getParsed(currentFrom, currentTo) {
+                                    const from = parseInt(currentFrom.value, 10);
+                                    const to = parseInt(currentTo.value, 10);
+                                    return [from, to];
+                                }
+
+                                // Changing and Filling the color in the selected part...
+                                function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                                    let rangeDistance = to.max - to.min;
+                                    let fromPosition = from.value - to.min;
+                                    let toPosition = to.value - to.min;
+                                    if (fromPosition > toPosition) {
+                                        let spare = fromPosition;
+                                        fromPosition = toPosition;
+                                        toPosition = spare;
+                                    }
+                                    controlSlider.style.background = `linear-gradient(
+                      to right,
+                      ${sliderColor} 0%,
+                      ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                      ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                      ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                      ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                      ${sliderColor} 100%)`;
+                                }
+
+                                // Making sure the toggle which we are using is accesible to change the range
+                                function setToggleAccessible(currentTarget) {
+                                    const toDepthSlider = document.querySelector("#toDepthSlider");
+                                    if (Number(currentTarget.value) <= 0) {
+                                        toDepthSlider.style.zIndex = 4;
+                                    } else {
+                                        toDepthSlider.style.zIndex = 4;
+                                    }
+                                }
+
+                                const fromDepthSlider = document.querySelector("#fromDepthSlider");
+                                const toDepthSlider = document.querySelector("#toDepthSlider");
+                                const fromDepthInput = document.querySelector("#fromDepthInput");
+                                const toDepthInput = document.querySelector("#toDepthInput");
+
+                                // Initially filling the slider using default values...
+                                fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", toDepthSlider);
+                                setToggleAccessible(toDepthSlider);
+
+                                // Assigning listner methonds to respective events.
+                                fromDepthSlider.oninput = () => controlFromSlider(fromDepthSlider, toDepthSlider, fromDepthInput);
+                                toDepthSlider.oninput = () => controlToSlider(fromDepthSlider, toDepthSlider, toDepthInput);
+                                fromDepthInput.oninput = () =>
+                                    controlFromInput(fromDepthSlider, fromDepthInput, toDepthInput, toDepthSlider);
+                                toDepthInput.oninput = () => controlToInput(toDepthSlider, fromDepthInput, toDepthInput, toDepthSlider);
+                            </script>
+                        </div>
+                    </div>
+
+                    {{-- L/W Ratio --}}
+                    <div id="lwDropdownIcon"
+                        class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                        <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">L/W Ratio</label>
+                        {{-- Down Arrow --}}
+                        <svg id="lwDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        {{-- Up Arrow --}}
+                        <svg id="lwUpArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path style="fill:#000000;"
+                                    d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                </path>
+                            </g>
+                        </svg>
+
+                        <div id="lwDropdown"
+                            class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
+                            <div class="flex justify-between">
+                                <p class="text-sm font-montserrat font-semibold px-4 py-2">L/W Ratio</p>
+
+                                <button class="p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="range_lw_container">
+                                    <div class="form_lw_control">
+                                        <div class="form_lw_control_container">
+                                            <input class="form_lw_control_container__lw__input" type="number"
+                                                id="fromLwInput" value="1.00" min="1.00" max="3.00"
+                                                onclick="event.stopPropagation();" />
+                                        </div>
+                                        <div class="form_lw_control_container">
+                                            <input class="form_lw_control_container__lw__input" type="number"
+                                                id="toLwInput" value="3.00" min="1.00" max="3.00"
+                                                onclick="event.stopPropagation();" />
+                                        </div>
+                                    </div>
+                                    <div class="sliders_lw_control">
+                                        <input id="fromLwSlider" type="range" value="1.00" min="1.00"
+                                            max="3.00" onclick="event.stopPropagation();" />
+                                        <input id="toLwSlider" type="range" value="3.00" min="1.00"
+                                            max="3.00" onclick="event.stopPropagation();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .range_lw_container {
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 80%;
+                                    margin: 5% auto;
+                                }
+
+                                .sliders_lw_control {
+                                    position: relative;
+                                    min-height: 35px;
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                .form_lw_control {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    font-size: 24px;
+                                    color: #635a5a;
+                                }
+
+                                input[type="range"]#fromLwSlider::-webkit-slider-thumb,
+                                input[type="range"]#toLwSlider::-webkit-slider-thumb {
+                                    -webkit-appearance: none;
+                                    pointer-events: all;
+                                    width: 16px;
+                                    height: 16px;
+                                    background-color: #fff;
+                                    border-radius: 100%;
+                                    box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                                    cursor: pointer;
+                                    position: relative;
+                                    z-index: 5;
+                                }
+
+                                input[type="range"]#fromLwSlider::-moz-range-thumb,
+                                input[type="range"]#toLwSlider::-moz-range-thumb {
+                                    -webkit-appearance: none;
+                                    pointer-events: all;
+                                    width: 24px;
+                                    height: 24px;
+                                    background-color: #fff;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 0 1px #c6c6c6;
+                                    cursor: pointer;
+                                    position: relative;
+                                    z-index: 5;
+                                }
+
+                                input[type="range"]#fromLwSlider::-webkit-slider-thumb:hover,
+                                input[type="range"]#toLwSlider::-webkit-slider-thumb:hover {
+                                    background: #f7f7f7;
+                                }
+
+                                input[type="range"]#fromLwSlider::-webkit-slider-thumb:active,
+                                input[type="range"]#toLwSlider::-webkit-slider-thumb:active {
+                                    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                                    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                                }
+
+                                input[type="number"]#rangeInput,
+                                input[type="number"]#rangeInput {
+                                    color: #8a8383;
+                                    width: 100%;
+                                    /* height: 30px; */
+                                    font-size: 13px;
+                                    border: 1px solid #c6c6c6;
+                                    border-radius: 4px;
+                                    padding: 4px;
+                                }
+
+                                input[type="number"]#fromLwInput::-webkit-inner-spin-button,
+                                input[type="number"]#fromLwInput::-webkit-outer-spin-button {
+                                    opacity: 1;
+                                }
+
+                                input[type="number"]#toLwInput::-webkit-inner-spin-button,
+                                input[type="number"]#toLwInput::-webkit-outer-spin-button {
+                                    opacity: 1;
+                                }
+
+                                input[type="range"]#fromLwSlider,
+                                input[type="range"]#toLwSlider {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    height: 4px;
+                                    width: 100%;
+                                    position: absolute;
+                                    background-color: #c6c6c6;
+                                    pointer-events: all;
+                                    border-radius: 8px;
+                                }
+
+                                #toLwSlider {
+                                    height: 0;
+                                    z-index: 4;
+                                }
+                            </style>
+                            <script>
+                                // Controls the slider using from Input....
+                                function controlFromInput(fromLwSlider, fromLwInput, toLwInput, controlSlider) {
+                                    const [from, to] = getParsed(fromLwInput, toLwInput);
+                                    fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", controlSlider);
+                                    fromLwSlider.value = from;
+
+                                    if (from > to) {
+                                        fromLwSlider.value = to;
+                                        fromLwInput.value = to;
+                                    } else {
+                                        fromLwSlider.value = from;
+                                    }
+                                }
+
+                                // Controls the slider using to Input....
+                                function controlToInput(toLwSlider, fromLwInput, toLwInput, controlSlider) {
+                                    const [from, to] = getParsed(fromLwInput, toLwInput);
+                                    fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", controlSlider);
+                                    setToggleAccessible(toLwInput);
+                                    toLwSlider.value = to;
+                                    toLwInput.value = to;
+
+                                    if (from <= to) {
+                                        toLwSlider.value = to;
+                                        toLwInput.value = to;
+                                    } else {
+                                        toLwInput.value = from;
+                                    }
+                                }
+
+                                // Sliding event of the From slider
+                                function controlFromSlider(fromLwSlider, toLwSlider, fromLwInput) {
+                                    const [from, to] = getParsed(fromLwSlider, toLwSlider);
+                                    console.log([from, to]);
+                                    fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", toLwSlider);
+                                    fromLwInput.value = from;
+                                    if (from > to) {
+                                        fromLwInput.value = to;
+                                        toLwInput.value = from;
+                                    }
+                                }
+
+                                // Sliding event of the To slider
+                                function controlToSlider(fromLwSlider, toLwSlider, toLwInput) {
+                                    const [from, to] = getParsed(fromLwSlider, toLwSlider);
+                                    fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", toLwSlider);
+                                    setToggleAccessible(toLwInput);
+                                    toLwSlider.value = to;
+                                    toLwInput.value = to;
+                                    if (from > to) {
+                                        fromLwInput.value = to;
+                                        toLwInput.value = from;
+                                    }
+                                }
+
+                                // Parsing values of the Inputs with 2 decimal places
+                                function getParsed(currentFrom, currentTo) {
+                                    const from = parseFloat(currentFrom.value).toFixed(2);
+                                    const to = parseFloat(currentTo.value).toFixed(2);
+                                    return [parseFloat(from), parseFloat(to)];
+                                }
+
+                                // Changing and Filling the color in the selected part...
+                                function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                                    let rangeDistance = to.max - to.min;
+                                    let fromPosition = from.value - to.min;
+                                    let toPosition = to.value - to.min;
+                                    if (fromPosition > toPosition) {
+                                        let spare = fromPosition;
+                                        fromPosition = toPosition;
+                                        toPosition = spare;
+                                    }
+                                    controlSlider.style.background = `linear-gradient(
+                      to right,
+                      ${sliderColor} 0%,
+                      ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                      ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                      ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                      ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                      ${sliderColor} 100%)`;
+                                }
+
+                                // Making sure the toggle which we are using is accessible to change the range
+                                function setToggleAccessible(currentTarget) {
+                                    const toLwSlider = document.querySelector("#toLwSlider");
+                                    if (Number(currentTarget.value) <= 0) {
+                                        toLwSlider.style.zIndex = 4;
+                                    } else {
+                                        toLwSlider.style.zIndex = 4;
+                                    }
+                                }
+
+                                const fromLwSlider = document.querySelector("#fromLwSlider");
+                                const toLwSlider = document.querySelector("#toLwSlider");
+                                const fromLwInput = document.querySelector("#fromLwInput");
+                                const toLwInput = document.querySelector("#toLwInput");
+
+                                // Set step to 0.01 for finer control
+                                fromLwSlider.step = "0.01";
+                                toLwSlider.step = "0.01";
+                                fromLwInput.step = "0.01";
+                                toLwInput.step = "0.01";
+
+                                // Initially filling the slider using default values...
+                                fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", toLwSlider);
+                                setToggleAccessible(toLwSlider);
+
+                                // Assigning listener methods to respective events.
+                                fromLwSlider.oninput = () => controlFromSlider(fromLwSlider, toLwSlider, fromLwInput);
+                                toLwSlider.oninput = () => controlToSlider(fromLwSlider, toLwSlider, toLwInput);
+                                fromLwInput.oninput = () =>
+                                    controlFromInput(fromLwSlider, fromLwInput, toLwInput, toLwSlider);
+                                toLwInput.oninput = () => controlToInput(toLwSlider, fromLwInput, toLwInput, toLwSlider);
+                            </script>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="flex flex-row items-center gap-3">
+                    <p class="font-montserrat font-semibold text-sm">Type</p>
+                    <a href="/inventory" class="text-xs text-white bg-black border border-gray-300 hover:bg-black p-2 rounded-md font-montserrat">WHITE DIAMONDS</a>
+                    <a href="#" class="text-xs text-black hover:text-white border border-gray-500 hover:bg-black p-2 rounded-md font-montserrat">FANCY COLOR DIAMONDS</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center px-10 py-5">
+            <!-- Left side search box with icon -->
+            <div class="relative flex items-center">
+                <input type="text" placeholder="Search by SKU/GIA/IGI/GCAL number" class="w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
+                <div class="absolute right-0 h-full flex items-center">
+                    <button class="h-full px-4 bg-black">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right side clear filter button -->
+            <button class="flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-black">
+                <span>Clear Filters</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="px-10">
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr class="border-b">
+                        <th class="py-4 text-left">
+                            <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(0)">
+                                <span class="text-sm font-montserrat font-semibold">Shape</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                        </th>
+                        <th class="py-4 text-left">
+                            <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(1)">
+                                <span class="text-sm font-montserrat font-semibold">Carat</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                        </th>
+                        <th class="py-4 text-left">
+                            <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(2)">
+                                <span class="text-sm font-montserrat font-semibold">Cut</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                        </th>
+                        <th class="py-4 text-left">
+                            <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(3)">
+                                <span class="text-sm font-montserrat font-semibold">Color</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                        </th>
+                        <th class="py-4 text-left">
+                            <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(4)">
+                                <span class="text-sm font-montserrat font-semibold">Clarity</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                        </th>
+                        <th class="py-4 text-left">
+                            <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(5)">
+                                <span class="text-sm font-montserrat font-semibold">Price (USD)</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                        </th>
+                        <th class="py-4"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-4 text-sm font-montserrat">Round</td>
+                        <td class="py-4 text-sm font-montserrat">1.01</td>
+                        <td class="py-4 text-sm font-montserrat">Excellent</td>
+                        <td class="py-4 text-sm font-montserrat">D</td>
+                        <td class="py-4 text-sm font-montserrat">VS1</td>
+                        <td class="py-4 text-sm font-montserrat">$12,500</td>
+                        <td class="py-4">
+                            <button onclick="toggleDetails(1)" class="px-4 py-2 text-xs font-montserrat text-white bg-black rounded hover:bg-gray-800 transition-all duration-300">View More</button>
+                        </td>
+                    </tr>
+                    <tr id="details-1" class="hidden bg-gray-50 transition-all duration-300">
+                        <td colspan="7" class="p-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-montserrat font-semibold mb-2">Additional Details</h4>
+                                    <p class="text-sm font-montserrat">Polish: Excellent</p>
+                                    <p class="text-sm font-montserrat">Symmetry: Excellent</p>
+                                    <p class="text-sm font-montserrat">Fluorescence: None</p>
+                                    <p class="text-sm font-montserrat">Certificate: GIA</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-montserrat font-semibold mb-2">Measurements</h4>
+                                    <p class="text-sm font-montserrat">Length: 6.41mm</p>
+                                    <p class="text-sm font-montserrat">Width: 6.38mm</p>
+                                    <p class="text-sm font-montserrat">Depth: 3.91mm</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-4 text-sm font-montserrat">Princess</td>
+                        <td class="py-4 text-sm font-montserrat">1.52</td>
+                        <td class="py-4 text-sm font-montserrat">Very Good</td>
+                        <td class="py-4 text-sm font-montserrat">E</td>
+                        <td class="py-4 text-sm font-montserrat">VS2</td>
+                        <td class="py-4 text-sm font-montserrat">$15,750</td>
+                        <td class="py-4">
+                            <button onclick="toggleDetails(2)" class="px-4 py-2 text-xs font-montserrat text-white bg-black rounded hover:bg-gray-800">View More</button>
+                        </td>
+                    </tr>
+                    <tr id="details-2" class="hidden bg-gray-50">
+                        <td colspan="7" class="p-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-montserrat font-semibold mb-2">Additional Details</h4>
+                                    <p class="text-sm font-montserrat">Polish: Very Good</p>
+                                    <p class="text-sm font-montserrat">Symmetry: Very Good</p>
+                                    <p class="text-sm font-montserrat">Fluorescence: Faint</p>
+                                    <p class="text-sm font-montserrat">Certificate: GIA</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-montserrat font-semibold mb-2">Measurements</h4>
+                                    <p class="text-sm font-montserrat">Length: 7.12mm</p>
+                                    <p class="text-sm font-montserrat">Width: 7.09mm</p>
+                                    <p class="text-sm font-montserrat">Depth: 5.11mm</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-4 text-sm font-montserrat">Oval</td>
+                        <td class="py-4 text-sm font-montserrat">2.03</td>
+                        <td class="py-4 text-sm font-montserrat">Excellent</td>
+                        <td class="py-4 text-sm font-montserrat">F</td>
+                        <td class="py-4 text-sm font-montserrat">VVS1</td>
+                        <td class="py-4 text-sm font-montserrat">$25,900</td>
+                        <td class="py-4">
+                            <button onclick="toggleDetails(3)" class="px-4 py-2 text-xs font-montserrat text-white bg-black rounded hover:bg-gray-800">View More</button>
+                        </td>
+                    </tr>
+                    <tr id="details-3" class="hidden bg-gray-50">
+                        <td colspan="7" class="p-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-montserrat font-semibold mb-2">Additional Details</h4>
+                                    <p class="text-sm font-montserrat">Polish: Excellent</p>
+                                    <p class="text-sm font-montserrat">Symmetry: Excellent</p>
+                                    <p class="text-sm font-montserrat">Fluorescence: Medium</p>
+                                    <p class="text-sm font-montserrat">Certificate: GIA</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-montserrat font-semibold mb-2">Measurements</h4>
+                                    <p class="text-sm font-montserrat">Length: 9.85mm</p>
+                                    <p class="text-sm font-montserrat">Width: 7.22mm</p>
+                                    <p class="text-sm font-montserrat">Depth: 4.45mm</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            let sortOrders = Array(7).fill('asc');
+
+            function sortTable(columnIndex) {
+                const table = document.querySelector('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr:not([id^="details-"])'));
+
+                rows.sort((a, b) => {
+                    const aValue = a.cells[columnIndex].textContent;
+                    const bValue = b.cells[columnIndex].textContent;
+                    
+                    // Handle numeric columns (Carat and Price)
+                    if (columnIndex === 1) {
+                        return sortOrders[columnIndex] === 'asc' 
+                            ? parseFloat(aValue) - parseFloat(bValue)
+                            : parseFloat(bValue) - parseFloat(aValue);
+                    }
+                    if (columnIndex === 5) {
+                        const aPrice = parseFloat(aValue.replace('$', '').replace(',', ''));
+                        const bPrice = parseFloat(bValue.replace('$', '').replace(',', ''));
+                        return sortOrders[columnIndex] === 'asc' 
+                            ? aPrice - bPrice
+                            : bPrice - aPrice;
+                    }
+
+                    // Text comparison for other columns
+                    return sortOrders[columnIndex] === 'asc'
+                        ? aValue.localeCompare(bValue)
+                        : bValue.localeCompare(aValue);
+                });
+
+                // Toggle sort order for next click
+                sortOrders[columnIndex] = sortOrders[columnIndex] === 'asc' ? 'desc' : 'asc';
+
+                // Clear and re-append sorted rows
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+                rows.forEach(row => {
+                    tbody.appendChild(row);
+                    const detailsId = row.querySelector('button').getAttribute('onclick').match(/\d+/)[0];
+                    const detailsRow = document.getElementById(`details-${detailsId}`);
+                    if (detailsRow) {
+                        tbody.appendChild(detailsRow);
+                    }
+                });
+            }
+
+            function toggleDetails(id) {
+                const detailsRow = document.getElementById(`details-${id}`);
+                detailsRow.classList.toggle('hidden');
+            }
+        </script>
+
     </div>
 
-<script>
-    // Toggle script for showing/hiding elements
-    function toggleElement(elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+    <script>
+        // Toggle script for showing/hiding elements
+        function toggleElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.style.display = element.style.display === 'none' ? 'block' : 'none';
+            }
         }
-    }
 
-    // Add click event listeners to toggle buttons/elements
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleButtons = document.querySelectorAll('[data-toggle]');
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-toggle');
-                toggleElement(targetId);
+        // Add click event listeners to toggle buttons/elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('[data-toggle]');
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-toggle');
+                    toggleElement(targetId);
+                });
             });
         });
-    });
-</script>
-    
+    </script>
+
+    {{-- Certificate Dropdown --}}
+    <script>
+        const styleIcon = document.getElementById('styleDropdownIcon');
+        const styleDropdown = document.getElementById('styleDropdown');
+        const downArrow = document.getElementById('downArrow');
+        const upArrow = document.getElementById('upArrow');
+
+        styleIcon.addEventListener('click', () => {
+            styleDropdown.classList.toggle('hidden');
+            downArrow.classList.toggle('hidden');
+            upArrow.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!styleIcon.contains(e.target) && !styleDropdown.contains(e.target)) {
+                styleDropdown.classList.add('hidden');
+                downArrow.classList.remove('hidden');
+                upArrow.classList.add('hidden');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking checkboxes
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    {{-- Method Dropdown --}}
+    <script>
+        const methodIcon = document.getElementById('methodDropdownIcon');
+        const methodDropdown = document.getElementById('methodDropdown');
+        const methodDownArrow = document.getElementById('methodDownArrow');
+        const methodUpArrow = document.getElementById('methodUpArrow');
+
+        methodIcon.addEventListener('click', () => {
+            methodDropdown.classList.toggle('hidden');
+            methodDownArrow.classList.toggle('hidden');
+            methodUpArrow.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!methodIcon.contains(e.target) && !methodDropdown.contains(e.target)) {
+                methodDropdown.classList.add('hidden');
+                methodDownArrow.classList.remove('hidden');
+                methodUpArrow.classList.add('hidden');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking checkboxes
+        const methodCheckboxes = methodDropdown.querySelectorAll('input[type="checkbox"]');
+        methodCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    {{-- Table Dropdown --}}
+    <script>
+        const tableIcon = document.getElementById('tableDropdownIcon');
+        const tableDropdown = document.getElementById('tableDropdown');
+        const tableDownArrow = document.getElementById('tableDownArrow');
+        const tableUpArrow = document.getElementById('tableUpArrow');
+
+        tableIcon.addEventListener('click', () => {
+            tableDropdown.classList.toggle('hidden');
+            tableDownArrow.classList.toggle('hidden');
+            tableUpArrow.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!tableIcon.contains(e.target) && !tableDropdown.contains(e.target)) {
+                tableDropdown.classList.add('hidden');
+                tableDownArrow.classList.remove('hidden');
+                tableUpArrow.classList.add('hidden');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking checkboxes
+        const tableCheckboxes = tableDropdown.querySelectorAll('input[type="checkbox"]');
+        tableCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    {{-- Depth Dropdown --}}
+    <script>
+        const depthIcon = document.getElementById('depthDropdownIcon');
+        const depthDropdown = document.getElementById('depthDropdown');
+        const depthDownArrow = document.getElementById('depthDownArrow');
+        const depthUpArrow = document.getElementById('depthUpArrow');
+
+        depthIcon.addEventListener('click', () => {
+            depthDropdown.classList.toggle('hidden');
+            depthDownArrow.classList.toggle('hidden');
+            depthUpArrow.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!depthIcon.contains(e.target) && !depthDropdown.contains(e.target)) {
+                depthDropdown.classList.add('hidden');
+                depthDownArrow.classList.remove('hidden');
+                depthUpArrow.classList.add('hidden');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking checkboxes
+        const depthCheckboxes = depthDropdown.querySelectorAll('input[type="checkbox"]');
+        depthCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    {{-- L/W Ratio Dropdown --}}
+    <script>
+        const lwIcon = document.getElementById('lwDropdownIcon');
+        const lwDropdown = document.getElementById('lwDropdown');
+        const lwDownArrow = document.getElementById('lwDownArrow');
+        const lwUpArrow = document.getElementById('lwUpArrow');
+
+        lwIcon.addEventListener('click', () => {
+            lwDropdown.classList.toggle('hidden');
+            lwDownArrow.classList.toggle('hidden');
+            lwUpArrow.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!lwIcon.contains(e.target) && !lwDropdown.contains(e.target)) {
+                lwDropdown.classList.add('hidden');
+                lwDownArrow.classList.remove('hidden');
+                lwUpArrow.classList.add('hidden');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking checkboxes
+        const lwCheckboxes = lwDropdown.querySelectorAll('input[type="checkbox"]');
+        lwCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
 @endsection
