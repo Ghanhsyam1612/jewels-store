@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -21,13 +21,7 @@ class AccountController extends Controller
         return view('account.wishlist');
     }
 
-    // Addresses
-    public function addresses()
-    {
-        $countries = Country::all();
-        $customer = auth('customer')->user();
-        return view('account.edit-shipping-address', compact('countries', 'customer'));
-    }
+   
 
     // Account Details
     public function details()

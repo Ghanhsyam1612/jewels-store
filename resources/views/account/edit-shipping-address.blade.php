@@ -35,28 +35,38 @@
 
             <!-- Address Fields -->
             <div class="mb-6">
-                <label for="address_1" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">Address Line 1 <span class="text-red-500">*</span></label>
-                <input type="text" id="address_1" name="address_1" placeholder="House number and street name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                <label for="address_line_1" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">Address Line 1 <span class="text-red-500">*</span></label>
+                <input type="text" id="address_line_1" name="address_line_1" placeholder="House number and street name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
             </div>
 
             <div class="mb-6">
-                <label for="address_2" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">Address Line 2</label>
-                <input type="text" id="address_2" name="address_2" placeholder="Apartment, suite, unit etc." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                <label for="address_line_2" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">Address Line 2</label>
+                <input type="text" id="address_line_2" name="address_line_2" placeholder="Apartment, suite, unit etc." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
             </div>
 
             <!-- City, State, ZIP -->
             <div class="grid grid-cols-3 gap-6 mb-6">
                 <div>
                     <label for="city" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">City <span class="text-red-500">*</span></label>
-                    <input type="text" id="city" name="city" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                    <select id="city" name="city" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                        <option value="">Select a city</option>
+                        @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
                     <label for="state" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">State <span class="text-red-500">*</span></label>
-                    <input type="text" id="state" name="state" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                    <select id="state" name="state" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                        <option value="">Select a state</option>
+                        @foreach($states as $state)
+                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
-                    <label for="zip" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">ZIP Code <span class="text-red-500">*</span></label>
-                    <input type="text" id="zip" name="zip" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                    <label for="zip_code" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">ZIP Code <span class="text-red-500">*</span></label>
+                    <input type="text" id="zip_code" name="zip_code" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
             </div>
 

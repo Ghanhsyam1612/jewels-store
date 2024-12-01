@@ -77,15 +77,11 @@ Route::get('/cart', function () {
     return view('cart.cart');
 });
 
-// Edit Shipping Address
-Route::get('/edit-shipping-address', function () {
-    return view('account.edit-shipping-address');
-});
+// Addresses
+Route::get('/shipping-address', [AddressController::class, 'shipping'])->name('account.addresses.shipping');
+Route::get('/billing-address', [AddressController::class, 'billing'])->name('account.addresses.billing');
+Route::get('/account/addresses', [AddressController::class, 'addresses'])->name('account.addresses');
 
-// Edit Billing Address
-Route::get('/edit-billing-address', function () {
-    return view('account.edit-billing-address');
-});
 
 
 // Footer Help
@@ -115,7 +111,6 @@ Route::get('/contact-us', function () {
 
 Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
 Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
-Route::get('/account/addresses', [AccountController::class, 'addresses'])->name('account.addresses');
 
 
 // Routes

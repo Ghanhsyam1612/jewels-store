@@ -5,50 +5,99 @@ namespace App\Http\Controllers;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\State;
 
 class AddressController extends Controller
 {
+    // Shipping Address
+    public function shipping()
+    {
+        return view('account.edit-shipping-address');
+    }
+
+    // Billing Address
+    public function billing()
+    {
+        return view('account.edit-billing-address');
+    }
+
+    // Addresses
+    public function addresses()
+    {
+        $countries = Country::all();
+        $states = State::all();
+        $cities = City::all();
+        $customer = auth('customer')->user();
+        return view('account.edit-shipping-address', compact('countries', 'states', 'cities', 'customer'));
+    }
+
     // Store Address
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'address_line_1' => 'required|string|max:255',
             'address_line_2' => 'nullable|string|max:255',
             'zip_code' => 'required|string|max:20',
-            'country_id' => 'required|exists:countries,id',
-            'state_id' => 'required|exists:states,id',
-            'city_id' => 'required|exists:cities,id',
-            'address_type' => 'required|in:shipping,billing',
+            'country' => 'required|exists:countries,id',
+            'state' => 'required|exists:states,id',
+            'city' => 'required|exists:cities,id',
             'is_default' => 'boolean'
         ]);
 
-        // Create the address
-        $address = Address::create($validatedData);
 
-        // Get the current authenticated customer
-        $customer = Auth::guard('customer')->user();
+        $isShippingAddress = $request->routeIs('account.addresses.store.shipping');
+        dd($isShippingAddress);
+        die();
 
-        // If setting as default, remove previous default for this address type
-        if ($validatedData['is_default']) {
-            $customer->addresses()
-                ->wherePivot('address_type', $validatedData['address_type'])
-                ->wherePivot('is_default', true)
-                ->updateExistingPivot(
-                    $customer->addresses()
-                        ->wherePivot('address_type', $validatedData['address_type'])
-                        ->wherePivot('is_default', true)
-                        ->first()->id,
-                    ['is_default' => false]
-                );
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()],  422);
         }
 
-        // Attach the address to the customer
-        $customer->addresses()->attach($address->id, [
-            'address_type' => $validatedData['address_type'],
-            'is_default' => $validatedData['is_default'] ?? false
-        ]);
+        DB::beginTransaction();
+        try {
+            $address = new Address();
+            $address->address_line_1 = $request->address_line_1;
+            $address->address_line_2 = $request->address_line_2;
+            $address->city_id = $request->city;
+            $address->state_id = $request->state;
+            $address->zip_code = $request->zip_code;
+            $address->country_id = $request->country;
+            $address->save();
 
-        return redirect()->back()->with('success', 'Address added successfully');
+            // Get the current authenticated customer
+            $customer = Auth::guard('customer')->user();
+
+            // If setting as default, remove previous default for this address type
+            if ($request->is_default) {
+                $customer->addresses()
+                    ->wherePivot('address_type', $isShippingAddress ? 'shipping' : 'billing')
+                    ->wherePivot('is_default', true)
+                    ->updateExistingPivot(
+                        $customer->addresses()
+                            ->wherePivot('address_type', $isShippingAddress ? 'shipping' : 'billing')
+                            ->wherePivot('is_default', true)
+                            ->first()->id,
+                        ['is_default' => false]
+                    );
+            }
+
+            // Attach the address to the customer
+            $customer->addresses()->attach($address->id, [
+                'customer_id' => auth()->guard('customer')->id(), // Assuming addresses are tied to a user
+                'address_type' => $isShippingAddress ? 'shipping' : 'billing', // Save the type of address
+                'is_default' => $request->is_default ?? true
+            ]);
+            DB::commit();
+            return redirect()->back()->with('success', 'Address added successfully');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['errors' => $e->getMessage()], 500);
+        }
     }
 
     // Update Address
