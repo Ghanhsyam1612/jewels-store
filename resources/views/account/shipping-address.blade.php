@@ -28,7 +28,7 @@
                 <select id="country" name="country" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
                     <option value="">Select a country</option>
                     @foreach($countries as $country)
-                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    <option value="{{ $country->id }}" {{ $shippingAddress->country_id == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -36,12 +36,12 @@
             <!-- Address Fields -->
             <div class="mb-6">
                 <label for="address_line_1" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">Address Line 1 <span class="text-red-500">*</span></label>
-                <input type="text" id="address_line_1" name="address_line_1" placeholder="House number and street name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                <input type="text" id="address_line_1" name="address_line_1" value="{{ isset($shippingAddress) ? $shippingAddress->address_line_1 : '' }}" placeholder="House number and street name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
             </div>
 
             <div class="mb-6">
                 <label for="address_line_2" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">Address Line 2</label>
-                <input type="text" id="address_line_2" name="address_line_2" placeholder="Apartment, suite, unit etc." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                <input type="text" id="address_line_2" name="address_line_2" value="{{ isset($shippingAddress) ? $shippingAddress->address_line_2 : '' }}" placeholder="Apartment, suite, unit etc." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
             </div>
 
             <!-- City, State, ZIP -->
@@ -51,7 +51,7 @@
                     <select id="city" name="city" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
                         <option value="">Select a city</option>
                         @foreach($cities as $city)
-                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                        <option value="{{ $city->id }}" {{ isset($shippingAddress) && $shippingAddress->city_id == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -60,13 +60,13 @@
                     <select id="state" name="state" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
                         <option value="">Select a state</option>
                         @foreach($states as $state)
-                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                        <option value="{{ $state->id }}" {{ isset($shippingAddress) && $shippingAddress->state_id == $state->id ? 'selected' : '' }}>{{ $state->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div>
                     <label for="zip_code" class="block text-sm font-montserrat font-medium text-gray-700 mb-2">ZIP Code <span class="text-red-500">*</span></label>
-                    <input type="text" id="zip_code" name="zip_code" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="text" id="zip_code" name="zip_code" value="{{ isset($shippingAddress) ? $shippingAddress->zip_code : '' }}" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
             </div>
 

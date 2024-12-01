@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
+
+    //index
+    public function index()
+    {
+        return view('components.register');
+    }
+
     // Store Customer
     public function register(Request $request)
     {
@@ -85,6 +92,12 @@ class CustomerController extends Controller
         $customer->update();
 
         return back()->with('success', 'Account details updated successfully');
+    }
+
+    // Login Index
+    public function loginIndex()
+    {
+        return view('components.login');
     }
 
     // Login Customer

@@ -5,22 +5,10 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/home', function () {
     return view('home');
 })->name('home');
-
-Route::get('/register', function () {
-    return view('components.register');
-});
-
-Route::get('/login', function () {
-    return view('components.login');
-})->name('login');
 
 // Header Menu  
 Route::get('/inventory', function () {
@@ -69,7 +57,7 @@ Route::get('/my-account', function () {
 
 // Login-Register
 Route::get('/account', function () {
-    return view('components.account');
+    return view('account.account');
 })->name('account');
 
 // Cart
@@ -77,10 +65,7 @@ Route::get('/cart', function () {
     return view('cart.cart');
 });
 
-// Addresses
-Route::get('/shipping-address', [AddressController::class, 'shipping'])->name('account.addresses.shipping');
-Route::get('/billing-address', [AddressController::class, 'billing'])->name('account.addresses.billing');
-Route::get('/account/addresses', [AddressController::class, 'addresses'])->name('account.addresses');
+
 
 
 
@@ -110,18 +95,27 @@ Route::get('/contact-us', function () {
 });
 
 Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
-Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
 
 
-// Routes
+// ------------------------------- Addresses -----------------------------------------------------------
+Route::get('/shipping-address', [AddressController::class, 'shipping'])->name('account.addresses.shipping');
+Route::get('/billing-address', [AddressController::class, 'billing'])->name('account.addresses.billing');
+Route::get('/account/addresses', [AddressController::class, 'addresses'])->name('account.addresses');
+// -------------------------------- End Addresses ------------------------------------------------------
 
-// Customer Registration
+// -------------------------------- Customer Registration -----------------------------------------------
+Route::get('/register', [CustomerController::class, 'index'])->name('customer.index');
 Route::post('/register', [CustomerController::class, 'register'])->name('customer.store');
+// -------------------------------- End Customer Registration -------------------------------------------
 
-// Customer Login
+
+// -------------------------------- Customer Login ------------------------------------------------------
+Route::get('/login', [CustomerController::class, 'loginIndex'])->name('customer.login.index');
 Route::post('/login', [CustomerController::class, 'login'])->name('customer.login');
+// -------------------------------- End Customer Login --------------------------------------------------
 
-// Authenticated Routes
+
+// -------------------------------- Authenticated Routes ------------------------------------------------
 Route::middleware(['auth:customer'])->group(function () {
     // Customer Details
     Route::get('/account/details', [AccountController::class, 'details'])->name('account.details');
@@ -131,8 +125,12 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::get('/account/logout', [AccountController::class, 'logout'])->name('account.logout');
 
     // Customer Addresses
-    // Route::get('/account/addresses', [AddressController::class, 'index'])->name('account.addresses.index');
     Route::post('/account/addresses', [AddressController::class, 'store'])->name('account.addresses.store');
     Route::put('/account/addresses/{address}', [AddressController::class, 'update'])->name('account.addresses.update');
     Route::delete('/account/addresses/{address}', [AddressController::class, 'destroy'])->name('account.addresses.destroy');
+    Route::post('/account/addresses/{address}/set-default', [AddressController::class, 'setDefault'])->name('account.addresses.setDefault');
+
+    // Wishlist
+    Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
 });
+// -------------------------------- End Authenticated Routes ---------------------------------------------

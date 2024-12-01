@@ -18,7 +18,9 @@ class AccountController extends Controller
     // Wishlist
     public function wishlist()
     {
-        return view('account.wishlist');
+        $customer = auth('customer')->user();
+        $wishlists = $customer->wishlists;
+        return view('account.wishlist', compact('wishlists'));
     }
 
    

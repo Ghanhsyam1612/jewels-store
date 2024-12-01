@@ -48,6 +48,11 @@ class Customer extends Authenticatable
         return $this->billingAddresses()->wherePivot('is_default', true)->first();
     }
 
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
     // public function addresses()
     // {
     //     return $this->hasMany(Address::class);

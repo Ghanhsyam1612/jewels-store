@@ -15,4 +15,9 @@ class Diamond extends Model
         'images' => 'json',
         'video_url' => 'json',
     ];
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }

@@ -16,23 +16,32 @@ class AddressController extends Controller
     // Shipping Address
     public function shipping()
     {
-        return view('account.edit-shipping-address');
+        $countries = Country::all();
+        $states = State::all();
+        $cities = City::all();
+        $customer = auth('customer')->user();
+        $shippingAddress = $customer->defaultShippingAddress;
+        return view('account.shipping-address', compact('countries', 'states', 'cities', 'customer', 'shippingAddress'));
     }
 
     // Billing Address
     public function billing()
     {
-        return view('account.edit-billing-address');
+        $countries = Country::all();
+        $states = State::all();
+        $cities = City::all();
+        $customer = auth('customer')->user();
+        $billingAddress = $customer->defaultBillingAddress;
+        return view('account.billing-address', compact('countries', 'states', 'cities', 'customer', 'billingAddress'));
     }
 
     // Addresses
     public function addresses()
     {
-        $countries = Country::all();
-        $states = State::all();
-        $cities = City::all();
         $customer = auth('customer')->user();
-        return view('account.edit-shipping-address', compact('countries', 'states', 'cities', 'customer'));
+        $billingAddress = $customer->defaultBillingAddress;
+        $shippingAddress = $customer->defaultShippingAddress;
+        return view('account.addresses', compact('billingAddress', 'shippingAddress'));
     }
 
     // Store Address
@@ -50,9 +59,7 @@ class AddressController extends Controller
         ]);
 
 
-        $isShippingAddress = $request->routeIs('account.addresses.store.shipping');
-        dd($isShippingAddress);
-        die();
+        $isShippingAddress = $request->routeIs('account.addresses.shipping');
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()],  422);
@@ -153,13 +160,11 @@ class AddressController extends Controller
         return redirect()->back()->with('success', 'Address removed successfully');
     }
 
-    // Get Addresses
-    public function index()
+    // Set Default Address
+    public function setDefault(Address $address)
     {
         $customer = Auth::guard('customer')->user();
-        $shippingAddresses = $customer->shippingAddresses;
-        $billingAddresses = $customer->billingAddresses;
-
-        return view('addresses.index', compact('shippingAddresses', 'billingAddresses'));
+        $customer->addresses()->updateExistingPivot($address->id, ['is_default' => true]);
+        return redirect()->back()->with('success', 'Address set as default successfully');
     }
 }
