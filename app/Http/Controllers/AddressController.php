@@ -59,8 +59,9 @@ class AddressController extends Controller
         ]);
 
 
-        $isShippingAddress = $request->routeIs('account.addresses.shipping');
-
+        $isShippingAddress = $request->input('loadPage') === '/shipping-address';
+        
+      
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()],  422);
         }

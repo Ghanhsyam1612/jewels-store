@@ -18,10 +18,9 @@
                     <h3 class="font-montserrat text-gray-800 text-2xl font-semibold mb-6">
                         We will custom make it for 10-30% less
                     </h3>
-                    <button
-                        class="bg-black text-white font-montserrat font-semibold hover:font-semibold tracking-wide py-3 w-3/5 rounded-sm hover:bg-white hover:text-black border border-black hover:border-black transition-all duration-300 uppercase">
+                    <a href="{{ route('build-a-ring') }}" class="bg-black text-white font-montserrat font-semibold hover:font-semibold tracking-wide py-3 w-3/5 rounded-sm hover:bg-white hover:text-black border border-black hover:border-black transition-all duration-300 uppercase">
                         Start With A Setting
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

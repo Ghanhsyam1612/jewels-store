@@ -21,11 +21,11 @@
 
                 <!-- Buttons Row -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                    <a href="#"
+                    <a href="{{ route('inventory') }}"
                         class="font-montserrat font-semibold tracking-wide px-8 py-4 bg-gray-900 text-white rounded-md hover:bg-dark-blue transition duration-300">
                         Shop Lab Grown Diamonds
                     </a>
-                    <a href="#"
+                    <a href="{{ route('build-a-ring') }}"
                         class="font-montserrat font-semibold tracking-wide px-8 py-4 bg-gray-900 text-white rounded-md hover:bg-dark-blue transition duration-300">
                         Shop Engagement Rings
                     </a>

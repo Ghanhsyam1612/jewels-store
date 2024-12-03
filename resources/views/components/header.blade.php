@@ -56,15 +56,15 @@
                 <!-- Dropdown menu -->
                 <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-52 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="py-2">
-                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Solitaire Diamonds</a>
-                        <a href="/calibrated" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Calibrated Diamonds</a>
-                        <a href="/fancy-shapes-diamonds" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Fancy Shapes Diamonds</a>
+                        <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Solitaire Diamonds</a>
+                        <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Calibrated Diamonds</a>
+                        <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Fancy Shapes Diamonds</a>
                         <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Fancy Color Diamonds</a>
-                        <a href="/fancy-color-melee-diamonds" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Color Melee Diamonds</a>
+                        <a href="{{ route('fancy-color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Color Melee Diamonds</a>
                     </div>
                 </div>
             </div>
-            <a href="/inventory" class="text-gray-700 hover:text-gray-900 font-montserrat text-12px font-semibold leading-[30px] tracking-wide">INVENTORY</a>
+            <a href="{{ route('inventory')}}" class="text-gray-700 hover:text-gray-900 font-montserrat text-12px font-semibold leading-[30px] tracking-wide">INVENTORY</a>
             <div class="relative group">
                 <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">ENGAGEMENT RINGS
                     <span class="ml-1">
@@ -82,9 +82,9 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-gray-900 text-12px leading-[19px] mb-2">Create Your Diamond Ring</h3>
                             <div class="space-y-2">
-                                <a href="/start-with-a-setting" class="block text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">Start With A Setting</a>
-                                <a href="/bespoke-jewellery" class="block text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">Bespoke Jewellery</a>
-                                <a href="/custom-engagement-rings" class="block text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">Custom Engagement Ring</a>
+                                <a href="{{ route('build-a-ring') }}" class="block text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">Start With A Setting</a>
+                                <a href="{{ route('bespoke-jewellery') }}" class="block text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">Bespoke Jewellery</a>
+                                <a href="{{ route('custom-engagement-rings') }}" class="block text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">Custom Engagement Ring</a>
                             </div>
                         </div>
                         <!-- Column 2 -->

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DiamondController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,32 +14,32 @@ Route::get('/', function () {
 // Header Menu  
 Route::get('/inventory', function () {
     return view('components.inventory');
-});
+})->name('inventory');
 
 Route::get('/calibrated', function () {
     return view('lab-diamonds.calibrated');
-});
+})->name('calibrated');
 
 Route::get('/fancy-shapes-diamonds', function () {
     return view('lab-diamonds.fancy-shapes-diamonds');
-});
+})->name('fancy-shapes-diamonds');
 
 Route::get('/fancy-color-melee-diamonds', function () {
     return view('lab-diamonds.fancy-color-melee-diamonds');
-});
+})->name('fancy-color-melee-diamonds');
 
 // Engagement Rings
-Route::get('/start-with-a-setting', function () {
-    return view('engagement-rings.start-with-a-setting');
-});
+Route::get('/build-a-ring', function () {
+    return view('engagement-rings.build-a-ring');
+})->name('build-a-ring');
 
 Route::get('/bespoke-jewellery', function () {
     return view('engagement-rings.bespoke-jewellery');
-});
+})->name('bespoke-jewellery');
 
 Route::get('/custom-engagement-rings', function () {
     return view('engagement-rings.custom-engagement-rings');
-});
+})->name('custom-engagement-rings');
 
 // Fine Jewellery
 Route::get('/stud-earrings', function () {
@@ -114,6 +115,10 @@ Route::get('/login', [CustomerController::class, 'loginIndex'])->name('customer.
 Route::post('/login', [CustomerController::class, 'login'])->name('customer.login');
 // -------------------------------- End Customer Login --------------------------------------------------
 
+// -------------------------------- Diamond Routes ------------------------------------------------------
+Route::get('/diamonds', [DiamondController::class, 'index'])->name('diamonds.index');
+Route::get('/diamond/{diamond}', [DiamondController::class, 'details'])->name('diamonds.details');
+// -------------------------------- End Diamond Routes --------------------------------------------------
 
 // -------------------------------- Authenticated Routes ------------------------------------------------
 Route::middleware(['auth:customer'])->group(function () {

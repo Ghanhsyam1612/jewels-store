@@ -28,7 +28,7 @@
                 <select id="country" name="country" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
                     <option value="">Select a country</option>
                     @foreach($countries as $country)
-                    <option value="{{ $country->id }}" {{ $shippingAddress->country_id == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
+                    <option value="{{ $country->id }}" {{ isset($shippingAddress) && $shippingAddress->country_id == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
                     @endforeach
                 </select>
             </div>
