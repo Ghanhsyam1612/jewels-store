@@ -7,7 +7,7 @@
     </div>
 
     <!-- Main header -->
-    <div id="sticky-header" class="container mx-auto flex items-center justify-between py-4 px-6 border-b bg-white">
+    <div id="sticky-header" class="container mx-auto flex items-center justify-between py-4 px-6 border-b bg-dark-purple">
         <!-- Hamburger menu for mobile -->
         <button id="hamburger-menu" class="md:hidden text-gray-700 hover:text-gray-900">
             {{-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -27,13 +27,17 @@
         <!-- Navigation for desktop -->
         <nav class="hidden md:flex space-x-6">
             <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">DIAMONDS
+                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">DIAMONDS
                     <span class="ml-1">
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </span>
                 </a>
                 <!-- Dropdown menu -->
-                <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-52 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="py-2">
                         <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Solitaire Diamonds</a>
                         <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Calibrated Diamonds</a>
@@ -43,11 +47,15 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('inventory')}}" class="text-gray-700 hover:text-gray-900 font-montserrat text-12px font-semibold leading-[30px] tracking-wide">INVENTORY</a>
+            <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">INVENTORY</a>
             <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">ENGAGEMENT RINGS
+                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">ENGAGEMENT RINGS
                     <span class="ml-1">
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </span>
                 </a>
                 <!-- Dropdown menu -->
@@ -198,9 +206,13 @@
                 </div>
             </div>
             <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">FINE JEWELRY
+                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">FINE JEWELRY
                     <span class="ml-1">
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </span>
                 </a>
                 <!-- Dropdown menu -->
@@ -340,11 +352,15 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="text-gray-700 hover:text-gray-900 font-montserrat text-12px font-semibold leading-[30px] tracking-wide">READY TO SHIP</a>
+            <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">READY TO SHIP</a>
             <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">PRECIOUS STONES    
+                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">PRECIOUS STONES    
                     <span class="ml-1">
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </span>
                 </a>
                 <!-- Dropdown menu -->
