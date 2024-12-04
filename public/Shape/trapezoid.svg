@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 60 60"
+    fill="none" class="group-hover:text-dark-blue mb-2">
+    <g clip-path="url(#clip0_5606_149)">
+        <path d="M15.21 0.51001V59.49L44.79 44.82V15.45L15.21 0.51001Z" stroke="currentColor"
+            stroke-miterlimit="10"></path>
+        <path d="M17.16 4.48999L17.28 55.11L42.52 42.54L42.62 17.43L17.16 4.48999Z"
+            stroke="currentColor" stroke-miterlimit="10"></path>
+        <path d="M19.08 8.39999L19.16 51.03L40.54 40.48L40.6 19.25L19.08 8.39999Z"
+            stroke="currentColor" stroke-miterlimit="10"></path>
+        <path d="M21.03 12.38V47.13L38.54 38.48V21.18L21.03 12.38Z" stroke="currentColor"
+            stroke-miterlimit="10"></path>
+        <path d="M15.21 0.5L21.03 12.38" stroke="currentColor" stroke-miterlimit="10"></path>
+        <path d="M44.79 15.45L38.54 21.17" stroke="currentColor" stroke-miterlimit="10">
+        </path>
+        <path d="M44.79 44.82L38.54 38.48" stroke="currentColor" stroke-miterlimit="10">
+        </path>
+        <path d="M21.03 47.13L15.21 59.5" stroke="currentColor" stroke-miterlimit="10"></path>
+    </g>
+    <defs>
+        <clipPath id="clip0_5606_149">
+            <rect width="60" height="60" fill="white"></rect>
+        </clipPath>
+    </defs>
+</svg>

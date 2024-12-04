@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 60 60"
+    fill="none" class="group-hover:text-dark-blue mb-2">
+    <path d="M18.11 59L5.59998 1H54.4L41.68 59H18.11Z" stroke="currentColor"
+        stroke-miterlimit="10">
+    </path>
+    <path d="M21.84 52.49L11.67 6.75L48.13 6.84L38.03 52.51L21.84 52.49Z" stroke="currentColor"
+        stroke-miterlimit="10"></path>
+    <path d="M25.23 46.59L17.52 12.27H42.3L34.77 46.71L25.23 46.59Z" stroke="currentColor"
+        stroke-miterlimit="10"></path>
+    <path d="M5.59998 1.01001L17.52 12.27" stroke="currentColor" stroke-miterlimit="10">
+    </path>
+    <path d="M54.4001 1.01001L42.3 12.27" stroke="currentColor" stroke-miterlimit="10"></path>
+    <path d="M18.11 58.99L25.23 46.59" stroke="currentColor" stroke-miterlimit="10"></path>
+    <path d="M41.68 58.99L34.77 46.71" stroke="currentColor" stroke-miterlimit="10"></path>
+</svg>

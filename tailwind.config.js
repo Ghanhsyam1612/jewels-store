@@ -19,6 +19,7 @@ export default {
         literata: ['Literata', 'serif'],
       },
       colors: {
+        'primary': 'rgb(48,25,52)',
         'light-blue-1': 'rgb(239, 245, 250)',
         'light-blue-2': 'rgb(247, 249, 251)',
         'light-blue-3': 'rgb(248, 248, 248)',

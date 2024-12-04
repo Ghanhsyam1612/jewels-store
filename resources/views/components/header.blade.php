@@ -10,57 +10,36 @@
     <div id="sticky-header" class="container mx-auto flex items-center justify-between py-4 px-6 border-b bg-white">
         <!-- Hamburger menu for mobile -->
         <button id="hamburger-menu" class="md:hidden text-gray-700 hover:text-gray-900">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            {{-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                 </path>
-            </svg>
+            </svg> --}}
+            <img src="{{ asset('Shape/hamburger.svg') }}" width="24" height="24" class="group-hover:text-dark-blue mb-2" alt="Hamburger Menu">
         </button>
        
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <!-- <img src="/path-to-your-diamond-logo.svg" alt="Diamond Logo" class="h-8"> -->
-            <svg version="1.1" id="Layer_1" width="44" height="30" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 44 30"
-                style="enable-background:new 0 0 44 30;" xml:space="preserve">
-                <style type="text/css">
-                    .st0 {
-                        fill: #231F20;
-                    }
-                </style>
-                <g>
-                    <g>
-                        <path class="st0"
-                            d="M22.03,30L2.24,10.2L12.44,0h19.28l10.05,10.05l-4.69,4.69l-1.82-1.82l2.87-2.87l-7.47-7.47H13.51L5.88,10.2    l16.15,16.15l8.57-8.57l-6.7-6.7l0,0c1.01-1.01,2.64-1.01,3.65,0l6.7,6.7L22.03,30z" />
-                    </g>
-                    <g>
-                        <path class="st0"
-                            d="M21.85,22.63L10.17,10.96L12,9.13l9.85,9.85l3.5-3.5l0,0c1.01,1.01,1.01,2.64,0,3.65L21.85,22.63z" />
-                    </g>
-                </g>
-            </svg>
+            <img src="{{ asset('Shape/diamond-logo.svg') }}" width="44" height="30" alt="Diamond Logo">
         </a>
 
         <!-- Navigation for desktop -->
         <nav class="hidden md:flex space-x-6">
             <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">LAB DIAMONDS
+                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">DIAMONDS
                     <span class="ml-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
                     </span>
                 </a>
                 <!-- Dropdown menu -->
                 <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-52 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="py-2">
-                        <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Solitaire Diamonds</a>
-                        <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Calibrated Diamonds</a>
-                        <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Fancy Shapes Diamonds</a>
-                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Fancy Color Diamonds</a>
-                        <a href="{{ route('fancy-color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100">Color Melee Diamonds</a>
+                        <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Solitaire Diamonds</a>
+                        <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Calibrated Diamonds</a>
+                        <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Fancy Shapes Diamonds</a>
+                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Fancy Color Diamonds</a>
+                        <a href="{{ route('fancy-color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-gray-700 hover:bg-gray-100 font-medium">Color Melee Diamonds</a>
                     </div>
                 </div>
             </div>
@@ -68,11 +47,7 @@
             <div class="relative group">
                 <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">ENGAGEMENT RINGS
                     <span class="ml-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
                     </span>
                 </a>
                 <!-- Dropdown menu -->
@@ -225,11 +200,7 @@
             <div class="relative group">
                 <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">FINE JEWELRY
                     <span class="ml-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
                     </span>
                 </a>
                 <!-- Dropdown menu -->
@@ -371,13 +342,9 @@
             </div>
             <a href="#" class="text-gray-700 hover:text-gray-900 font-montserrat text-12px font-semibold leading-[30px] tracking-wide">READY TO SHIP</a>
             <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">EDUCATION
+                <a href="#" class="text-gray-700 hover:text-gray-900 flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide">PRECIOUS STONES    
                     <span class="ml-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" width="16" height="16" alt="Down Arrow">
                     </span>
                 </a>
                 <!-- Dropdown menu -->
@@ -435,7 +402,7 @@
                             </div>
                         </div>
                         <!-- Column 4 -->
-                        <div>
+                        {{-- <div>
                             <h3 class="font-semibold text-gray-900 text-12px leading-[19px] mb-2">Ring Collections By Carat</h3>
                             <div class="space-y-4">
                                 <a href="#" class="flex items-center text-12px leading-[19px] text-gray-700 hover:bg-gray-100 py-1">
@@ -457,7 +424,7 @@
                                     5 Carat
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
