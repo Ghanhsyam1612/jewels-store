@@ -9,8 +9,9 @@
         Select your perfect lab grown diamond from thousands of ethically sourced diamonds.
     </p>
 
+    <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
     <div class="grid grid-cols-1 md:grid-cols-3 px-10">
-        <!-- Grid Item 1 -->
+        <!-- Shape Svg -->
         <div class="flex items-center">
             <h5 class="text-sm font-montserrat font-semibold mr-3">Shape</h5>
             <div class="flex flex-col">
@@ -138,8 +139,9 @@
                 </div>
             </div>
         </div>
+        <!-- End Shape Svg -->
 
-        {{-- Price Range Slider --}}
+        <!-- Price Range Slider -->
         <div class="flex items-center">
             <h5 class="text-sm font-montserrat font-semibold mr-3">Price</h5>
             <div class="range_container">
@@ -359,8 +361,9 @@
                 controlFromInput(fromSlider, fromInput, toInput, toSlider);
             toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
         </script>
+        <!-- End Price Range Slider -->
 
-        {{-- Carat --}}
+        <!-- Carat Slider -->
         <div class="flex items-center">
             <h5 class="text-sm font-montserrat font-semibold mr-3">Carat</h5>
             <div class="range_carat_container">
@@ -602,8 +605,9 @@
                 controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
             toCaratInput.oninput = () => controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
         </script>
+        <!-- End Carat Slider -->
 
-        {{-- Cut --}}
+        <!-- Cut Slider -->
         <div class="flex items-center">
             <h5 class="text-sm font-montserrat font-semibold mr-3">Cut</h5>
             <div class="range_cut_container">
@@ -688,8 +692,9 @@
                 controlFromInput(fromCutSlider, fromCutInput, toCutInput, toCutSlider);
             toCutInput.oninput = () => controlToInput(toCutSlider, fromCutInput, toCutInput, toCutSlider);
         </script>
+        <!-- End Cut Slider -->
 
-        {{-- Color --}}
+        <!-- Color Slider -->
         <div class="flex items-center">
             <h5 class="text-sm font-montserrat font-semibold mr-3">Color</h5>
             <div class="range_color_container">
@@ -780,8 +785,9 @@
                 controlFromInput(fromColorSliderM, fromColorInputM, toColorInputM, toColorSliderM);
             toColorInputM.oninput = () => controlToInput(toColorSliderM, fromColorInputM, toColorInputM, toColorSliderM);
         </script>
+        <!-- End Color Slider -->
 
-        {{-- Clarity --}}
+        <!-- Clarity Slider -->
         <div class="flex items-center">
             <h5 class="text-sm font-montserrat font-semibold mr-3">Clarity</h5>
             <div class="range_clarity_container">
@@ -873,21 +879,24 @@
                 controlFromInput(fromClaritySlider, fromClarityInput, toClarityInput, toClaritySlider);
             toClarityInput.oninput = () => controlToInput(toClaritySlider, fromClarityInput, toClarityInput, toClaritySlider);
         </script>
-
+        <!-- End Clarity Slider -->
     </div>
+    <!-- End Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
 
+    <!-- Start Advanced Options -->
     <div class="flex felx-row items-center gap-3 px-10 py-5">
         <h3 class="text-sm font-montserrat font-semibold">Advanced Options</h3>
         <div class="flex justify-between items-center w-5/6">
+            <!-- Start Certificate Dropdown , Method Dropdown , Table Dropdown -->
             <div class="flex flex-row items-center gap-4">
-                {{-- Certificate Dropdown --}}
+                <!-- Certificate Dropdown -->
                 <div id="styleDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
-                    {{-- Down Arrow --}}
+                    <!-- Down Arrow -->
                     <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
 
-                    {{-- Up Arrow --}}
+                    <!-- Up Arrow -->
                     <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
 
                     <div id="styleDropdown"
@@ -924,15 +933,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- End Certificate Dropdown -->
 
-                {{-- Method Dropdown --}}
+                <!-- Method Dropdown -->
                 <div id="methodDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
-                    {{-- Down Arrow --}}
+                    <!-- Down Arrow -->
                     <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
 
-                    {{-- Up Arrow --}}
+                    <!-- Up Arrow -->
                     <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
 
                     <div id="methodDropdown"
@@ -961,15 +971,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- End Method Dropdown -->
 
-                {{-- Table --}}
+                <!-- Table Dropdown -->
                 <div id="tableDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Table (%)</label>
-                    {{-- Down Arrow --}}
+                    <!-- Down Arrow -->
                     <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
 
-                    {{-- Up Arrow --}}
+                    <!-- Up Arrow -->
                     <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
 
                     <div id="tableDropdown"
@@ -1222,15 +1233,16 @@
                         </script>
                     </div>
                 </div>
+                <!-- End Table Dropdown -->
 
-                {{-- Depth --}}
+                <!-- Depth Dropdown -->
                 <div id="depthDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Depth (%)</label>
-                    {{-- Down Arrow --}}
+                    <!-- Down Arrow -->
                     <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
 
-                    {{-- Up Arrow --}}
+                    <!-- Up Arrow -->
                     <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
 
                     <div id="depthDropdown"
@@ -1480,12 +1492,13 @@
                         </script>
                     </div>
                 </div>
+                <!-- End Depth Dropdown -->
 
-                {{-- L/W Ratio --}}
+                <!-- L/W Ratio Dropdown -->
                 <div id="lwDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">L/W Ratio</label>
-                    {{-- Down Arrow --}}
+                    <!-- Down Arrow -->
                     <svg id="lwDownArrow" fill="#000000" height="8" width="8" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
@@ -1497,7 +1510,7 @@
                             </path>
                         </g>
                     </svg>
-                    {{-- Up Arrow --}}
+                    <!-- Up Arrow -->
                     <svg id="lwUpArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
@@ -1763,16 +1776,23 @@
                         </script>
                     </div>
                 </div>
-
+                <!-- End L/W Ratio Dropdown -->
             </div>
+            <!-- End Certificate Dropdown , Method Dropdown , Table Dropdown -->
+
+            <!-- Start Type Dropdown -->
             <div class="flex flex-row items-center gap-3">
                 <p class="font-montserrat font-semibold text-sm">Type</p>
                 <a href="/inventory" class="text-xs text-white bg-black border border-gray-300 hover:bg-black p-2 rounded-md font-montserrat transition-all duration-300">WHITE DIAMONDS</a>
                 <a href="#" class="text-xs text-black hover:text-white border border-gray-500 hover:bg-black p-2 rounded-md font-montserrat transition-all duration-300">FANCY COLOR DIAMONDS</a>
             </div>
+            <!-- End Type Dropdown -->
         </div>
     </div>
+    <!-- End Advanced Options -->
 
+
+    <!-- Start Search Box And Clear Filters Button -->
     <div class="flex justify-between items-center px-10 py-5">
         <!-- Left side search box with icon -->
         <div class="relative flex items-center">
@@ -1794,7 +1814,9 @@
             </svg>
         </button>
     </div>
+    <!-- End Search Box And Clear Filters Button -->
 
+    <!-- Start Table -->
     <div class="px-10">
         <table class="w-full border-collapse">
             <thead>
@@ -1851,26 +1873,28 @@
                 </tr>
             </thead>
             <tbody>
-             
-                <!-- Round -->
-                <tr class="border-b cursor-pointer" onclick="toggleDetails(1)">
+                @foreach($diamonds as $diamond)
+
+                <tr class="border-b cursor-pointer" onclick="toggleDetails({{ $diamond->id }})">
                     <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
-                        <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="Round Shape">
-                        <span class="pb-1 font-medium">Round</span>
+                        <img src="{{ asset($diamond->shape_svg) }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="{{ $diamond->shape }} Shape">
+                        <span class="pb-1 font-medium">{{ $diamond->shape }}</span>
                         <span class="text-xs text-red-600 uppercase pb-1">Sale</span>
                     </td>
-                    <td class="py-4 text-sm font-montserrat">1.01</td>
-                    <td class="py-4 text-sm font-montserrat">Excellent</td>
-                    <td class="py-4 text-sm font-montserrat">D</td>
-                    <td class="py-4 text-sm font-montserrat">VS1</td>
+                    <td class="py-4 text-sm font-montserrat">{{ $diamond->carat }}</td>
+                    <td class="py-4 text-sm font-montserrat">{{ $diamond->cut }}</td>
+                    <td class="py-4 text-sm font-montserrat">{{ $diamond->color }}</td>
+                    <td class="py-4 text-sm font-montserrat">{{ $diamond->clarity }}</td>
                     <td class="py-4 text-sm font-montserrat">
                         <span class="text-gray-600 line-through text-xs">$199</span>
-                        <span class="text-red-600">$125</span>
+                        <span class="text-red-600">${{ $diamond->price }}</span>
                     </td>
                     <td class="py-4">
+                        <!-- <a href="{{ route('diamonds.details', $diamond->id) }}" class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</a> -->
                         <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
                     </td>
                 </tr>
+
                 <tr id="details-1" class="hidden transition-all duration-300">
                     <td colspan="7" class="relative">
                         <button onclick="toggleDetails(1)" class="absolute right-4 top-4 text-gray-500 hover:text-black">
@@ -1974,256 +1998,12 @@
                         </div>
                     </td>
                 </tr>
-
-                <!-- Princess -->
-                <tr class="border-b cursor-pointer" onclick="toggleDetails(2)">
-                    <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
-                        <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="Princess Shape">
-                        <span class="pb-1 font-medium">Princess</span>
-                        <span class="text-xs text-red-600 uppercase pb-1">Sale</span>
-                    </td>
-                    <td class="py-4 text-sm font-montserrat">1.52</td>
-                    <td class="py-4 text-sm font-montserrat">Very Good</td>
-                    <td class="py-4 text-sm font-montserrat">E</td>
-                    <td class="py-4 text-sm font-montserrat">VS2</td>
-                    <td class="py-4 text-sm font-montserrat">
-                        <span class="text-gray-600 line-through text-xs">$299</span>
-                        <span class="text-red-600">$199</span>
-                    </td>
-                    <td class="py-4">
-                        <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
-                    </td>
-                </tr>
-                <tr id="details-2" class="hidden">
-                    <td colspan="7" class="relative">
-                        <button onclick="toggleDetails(2)" class="absolute right-4 top-4 text-gray-500 hover:text-black">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                        <div class="grid grid-cols-2 gap-8 my-10">
-                            <!-- Left Side -->
-                            <div class="flex flex-col items-center gap-3">
-                                <div class="flex items-center justify-center">
-                                    <img src="/images/princess.png" class="w-40" alt="">
-                                </div>
-
-                                <div class="text-center">
-                                    <p class="text-2xl font-montserrat font-semibold text-gray-800">Princess Cut Diamond</p>
-                                    <div class="mt-1">
-                                        <span class="text-gray-600 line-through text-lg font-montserrat font-medium">$205</span>
-                                        <span class="text-xl ml-1 font-montserrat font-semibold">$195</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-4 justify-center mt-2">
-                                    <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                        </svg>
-                                        Add to Bag
-                                    </button>
-                                    <button class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        Play Video
-                                    </button>
-                                </div>
-
-                                <a href="#" class="text-black underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
-                                    View Diamond Certificate
-                                </a>
-
-                                <span class="text-xs text-gray-500 mt-1 font-montserrat ">Diamond photo is for visual purposes only. Play Video for a real diamond.</span>
-                            </div>
-
-                            <!-- Right Side -->
-                            <div>
-                                <h3 class="text-lg font-montserrat font-semibold uppercase mb-4">Diamond Details</h3>
-                                <div class="flex flex-col">
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Carat</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">0.70</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Size (mm)</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">
-                                            4.85 x 4.84 x 3.43 mm</span>
-                                    </div>
-                                    <div class="flex flex-row gap-[60px] border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Cut</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">Ideal</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Perfectly-proportioned to return all light that enters for maximum fire. Only 5% of mined diamonds meet this standard.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row gap-[30px] border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Color</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">I</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Slight color noticeable when seen side-by-side with diamonds of better grades. Great value.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row gap-[88px] border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Clarity</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">VS2</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Very slightly included. Easier for an expert to see inclusions under 10x magnification, and generally not visible to the naked eye; slightly more inclusions than VS1.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">In The Box</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">Diamond, IGI Certificate.</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Table & Depth</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">68.00%, 70.90%</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">L/W Ratio</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">1.00</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">SKU</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">LGD14-812</span>
-                                    </div>
-                                    <div class="flex flex-row w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Growth Type</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">CVD</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <!-- Oval -->
-                <tr class="border-b cursor-pointer" onclick="toggleDetails(3)">
-                    <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
-                        <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="Oval Shape">
-                        <span class="pb-1 font-medium">Oval</span>
-                        <span class="text-xs text-red-600 uppercase pb-1">Sale</span>
-                    </td>
-                    <td class="py-4 text-sm font-montserrat">2.03</td>
-                    <td class="py-4 text-sm font-montserrat">Excellent</td>
-                    <td class="py-4 text-sm font-montserrat">F</td>
-                    <td class="py-4 text-sm font-montserrat">VVS1</td>
-                    <td class="py-4 text-sm font-montserrat">
-                        <span class="text-gray-600 line-through text-xs">$429</span>
-                        <span class="text-red-600">$325</span>
-                    </td>
-                    <td class="py-4">
-                        <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
-                    </td>
-                </tr>
-                <tr id="details-3" class="hidden">
-                    <td colspan="7" class="relative">
-                        <button onclick="toggleDetails(3)" class="absolute right-4 top-4 text-gray-500 hover:text-black">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                        <div class="grid grid-cols-2 gap-8 my-10">
-                            <!-- Left Side -->
-                            <div class="flex flex-col items-center gap-3">
-                                <div class="flex items-center justify-center">
-                                    <img src="/images/oval.png" class="w-40" alt="">
-                                </div>
-
-                                <div class="text-center">
-                                    <p class="text-2xl font-montserrat font-semibold text-gray-800">Oval Cut Diamond</p>
-                                    <div class="mt-1">
-                                        <span class="text-gray-600 line-through text-lg font-montserrat font-medium">$759</span>
-                                        <span class="text-xl ml-1 font-montserrat font-semibold">$723</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-4 justify-center mt-2">
-                                    <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                        </svg>
-                                        Add to Bag
-                                    </button>
-                                    <button class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        Play Video
-                                    </button>
-                                </div>
-
-                                <a href="#" class="text-black underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
-                                    View Diamond Certificate
-                                </a>
-
-                                <span class="text-xs text-gray-500 mt-1 font-montserrat ">Diamond photo is for visual purposes only. Play Video for a real diamond.</span>
-                            </div>
-
-                            <!-- Right Side -->
-                            <div>
-                                <h3 class="text-lg font-montserrat font-semibold uppercase mb-4">Diamond Details</h3>
-                                <div class="flex flex-col">
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Carat</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">3.03</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Size (mm)</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">12.06 x 8.09 x 4.96 mm</span>
-                                    </div>
-                                    <div class="flex flex-row gap-5 border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Cut</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">Excellent</span>
-                                            <span class="font-montserrat text-sm text-gray-500">High-quality cut with near-perfect proportions that return nearly all light that enters.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row gap-14 border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Color</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">G</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Nearly colorless. Gemologists will be able to detect some color, but appears colorless to non-experts. Excellent value.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row gap-[45px] border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Clarity</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">SI1</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Slightly included. Easily seen by an expert under 10x magnification but difficult to see with the naked eye.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">In The Box</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">Diamond, IGI Certificate.</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Table & Depth</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">60.00%, 61.30%</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">L/W Ratio</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">1.49</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">SKU</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">LGD14-813</span>
-                                    </div>
-                                    <div class="flex flex-row w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Growth Type</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">CVD</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            
+                @endforeach
             </tbody>
         </table>
     </div>
+    <!-- End Table -->
+
 
     <script>
         let sortOrders = Array(7).fill('asc');
@@ -2282,6 +2062,7 @@
 
 </div>
 
+<!-- Start Toggle Script -->
 <script>
     // Toggle script for showing/hiding elements
     function toggleElement(elementId) {
@@ -2302,8 +2083,8 @@
         });
     });
 </script>
-
-{{-- Certificate Dropdown --}}
+<!-- End Toggle Script -->
+<!-- Start Certificate Dropdown Script -->
 <script>
     const styleIcon = document.getElementById('styleDropdownIcon');
     const styleDropdown = document.getElementById('styleDropdown');
@@ -2333,8 +2114,9 @@
         });
     });
 </script>
+<!-- End Certificate Dropdown Script -->
 
-{{-- Method Dropdown --}}
+<!-- Start Method Dropdown Script -->
 <script>
     const methodIcon = document.getElementById('methodDropdownIcon');
     const methodDropdown = document.getElementById('methodDropdown');
@@ -2364,8 +2146,9 @@
         });
     });
 </script>
+<!-- End Method Dropdown Script -->
 
-{{-- Table Dropdown --}}
+<!-- Start Table Dropdown Script -->
 <script>
     const tableIcon = document.getElementById('tableDropdownIcon');
     const tableDropdown = document.getElementById('tableDropdown');
@@ -2395,8 +2178,9 @@
         });
     });
 </script>
+<!-- End Table Dropdown Script -->
 
-{{-- Depth Dropdown --}}
+<!-- Start Depth Dropdown Script -->
 <script>
     const depthIcon = document.getElementById('depthDropdownIcon');
     const depthDropdown = document.getElementById('depthDropdown');
@@ -2426,8 +2210,9 @@
         });
     });
 </script>
+<!-- End Depth Dropdown Script -->
 
-{{-- L/W Ratio Dropdown --}}
+<!-- Start L/W Ratio Dropdown Script -->
 <script>
     const lwIcon = document.getElementById('lwDropdownIcon');
     const lwDropdown = document.getElementById('lwDropdown');
@@ -2457,5 +2242,5 @@
         });
     });
 </script>
-
+<!-- End L/W Ratio Dropdown Script -->
 @endsection

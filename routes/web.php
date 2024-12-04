@@ -12,9 +12,9 @@ Route::get('/', function () {
 })->name('home');
 
 // Header Menu  
-Route::get('/inventory', function () {
-    return view('components.inventory');
-})->name('inventory');
+// Route::get('/inventory', function () {
+//     return view('components.inventory');
+// })->name('inventory');
 
 Route::get('/calibrated', function () {
     return view('lab-diamonds.calibrated');
@@ -115,10 +115,10 @@ Route::get('/login', [CustomerController::class, 'loginIndex'])->name('customer.
 Route::post('/login', [CustomerController::class, 'login'])->name('customer.login');
 // -------------------------------- End Customer Login --------------------------------------------------
 
-// -------------------------------- Diamond Routes ------------------------------------------------------
-Route::get('/diamonds', [DiamondController::class, 'index'])->name('diamonds.index');
-Route::get('/diamond/{diamond}', [DiamondController::class, 'details'])->name('diamonds.details');
-// -------------------------------- End Diamond Routes --------------------------------------------------
+// -------------------------------- Inventory & Diamond Routes ------------------------------------------
+Route::get('/inventory', [DiamondController::class, 'index'])->name('inventory');
+Route::get('/inventory/diamond/{diamond}', [DiamondController::class, 'details'])->name('diamonds.details');
+// -------------------------------- End Inventory & Diamond Routes --------------------------------------
 
 // -------------------------------- Authenticated Routes ------------------------------------------------
 Route::middleware(['auth:customer'])->group(function () {

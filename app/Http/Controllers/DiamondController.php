@@ -9,7 +9,7 @@ class DiamondController extends Controller
 {
     public function index()
     {
-        $diamonds = Diamond::paginate(10);
+        $diamonds = Diamond::all()->shuffle();
         return view('components.inventory', compact('diamonds'));
     }
 
