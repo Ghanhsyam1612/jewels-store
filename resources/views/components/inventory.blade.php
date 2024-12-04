@@ -894,10 +894,29 @@
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
                     <!-- Down Arrow -->
-                    <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
-
+                    <svg id="downArrow" fill="#000000" height="8" width="8" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path id="XMLID_23_"
+                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                            </path>
+                        </g>
+                    </svg>
                     <!-- Up Arrow -->
-                    <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
+                    <svg id="upArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path style="fill:#000000;"
+                                d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                            </path>
+                        </g>
+                    </svg>
 
                     <div id="styleDropdown"
                         class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
@@ -940,10 +959,29 @@
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
                     <!-- Down Arrow -->
-                    <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
-
+                    <svg id="methodDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path id="XMLID_23_"
+                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                            </path>
+                        </g>
+                    </svg>
                     <!-- Up Arrow -->
-                    <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
+                    <svg id="methodUpArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path style="fill:#000000;"
+                                d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                            </path>
+                        </g>
+                    </svg>
 
                     <div id="methodDropdown"
                         class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
@@ -978,10 +1016,29 @@
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Table (%)</label>
                     <!-- Down Arrow -->
-                    <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
-
+                    <svg id="tableDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path id="XMLID_23_"
+                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                            </path>
+                        </g>
+                    </svg>
                     <!-- Up Arrow -->
-                    <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
+                    <svg id="tableUpArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path style="fill:#000000;"
+                                d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                            </path>
+                        </g>
+                    </svg>
 
                     <div id="tableDropdown"
                         class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
@@ -1240,10 +1297,29 @@
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Depth (%)</label>
                     <!-- Down Arrow -->
-                    <img src="{{ asset('Shape/down-fill-arrow.svg') }}" width="8" height="8" alt="Down Fill Arrow">
-
+                    <svg id="depthDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path id="XMLID_23_"
+                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                            </path>
+                        </g>
+                    </svg>
                     <!-- Up Arrow -->
-                    <img src="{{ asset('Shape/up-fill-arrow.svg') }}" width="8" height="8" alt="Up Fill Arrow">
+                    <svg id="depthUpArrow" class="hidden" height="8" width="8" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path style="fill:#000000;"
+                                d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                            </path>
+                        </g>
+                    </svg>
 
                     <div id="depthDropdown"
                         class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
