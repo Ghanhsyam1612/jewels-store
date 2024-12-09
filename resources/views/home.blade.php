@@ -49,14 +49,14 @@
         <!-- Shop Engagement Rings Section -->
         <section class="py-16">
             <div class="container mx-auto px-10">
-                <h3 class="text-center text-xl font-montserrat font-medium text-gray-800 uppercase py-6">Shop Engagement
+                <h3 class="text-center text-xl font-montserrat font-medium text-primary uppercase py-6">Shop Engagement
                     Rings</h3>
                 <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-9 md:w-full lg:w-5/6">
                     <!-- First Image Card -->
                     <div class="flex flex-col items-start">
                         <img src="/images/Start-with-diamonds.webp" alt="Engagement Ring"
                             class="w-full  h-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                        <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Start with
+                        <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Start with
                             Diamonds</h4>
                     </div>
 
@@ -64,7 +64,7 @@
                     <div class="flex flex-col items-start">
                         <img src="/images/Start-with-setting.webp" alt="Engagement Ring"
                             class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                        <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Start with
+                        <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Start with
                             Setting</h4>
                     </div>
                 </div>
@@ -74,9 +74,9 @@
         <!-- Lab Diamonds in Customisable Shapes Section -->
         <section class="py-16 bg-light-blue-2">
             <div class="container mx-auto px-10">
-                <h3 class="text-center md:text-4xl lg:text-40px font-literata font-medium leading-[59px] text-gray-800 py-3">Lab Diamonds
+                <h3 class="text-center md:text-4xl lg:text-40px font-literata font-medium leading-[59px] text-primary/90 py-3">Lab Diamonds
                     in Customisable Shapes</h3>
-                <p class="text-center text-lg font-montserrat text-gray-600">
+                <p class="text-center text-lg font-montserrat text-primary/80">
                     Explore our collection of 950,000+ IGI/GIA/GCAL certified diamonds
                 </p>
             </div>
@@ -455,7 +455,7 @@
             </div>
             <div class="flex justify-center">
                 <a href="#"
-                        class="font-montserrat font-semibold tracking-wide px-8 py-5 bg-gray-900 text-sm text-white rounded-md hover:bg-dark-blue transition duration-300">
+                        class="font-montserrat font-semibold tracking-wide px-8 py-5 bg-primary text-sm text-gold hover:text-primary rounded-md border border-primary hover:border-primary hover:bg-white transition duration-300">
                         Shop Lab Grown Diamonds
                     </a>
             </div>
@@ -464,28 +464,28 @@
         <!-- Fine Jewellery Section -->
         <section class="py-16">
             <div class="container mx-auto px-6 py-8">
-                <h2 class="text-xl font-montserrat font-medium uppercase text-center text-gray-800">Fine Jewelry</h2>
+                <h2 class="text-xl font-montserrat font-medium uppercase text-center text-primary">Fine Jewelry</h2>
             </div>
             <div class="mx-auto md:mx-6 lg:mx-auto grid grid-cols-1 md:grid-cols-3 gap-9 lg:w-5/6">
                 <!-- First Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Wedding-Rings-01.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Wedding Rings</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Wedding Rings</h4>
                 </div>
 
                 <!-- Second Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Necklaces-01.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Necklaces</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Necklaces</h4>
                 </div>
 
                 <!-- Third Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Earrings-01.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Earrings</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Earrings</h4>
                 </div>
 
                 <!-- Second Row -->
@@ -493,21 +493,21 @@
                 <div class="flex flex-col items-start">
                     <img src="/images/Bracelets-01.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Bracelets</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Bracelets</h4>
                 </div>
 
                 <!-- Fifth Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Pendants-001.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Pendants</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Pendants</h4>
                 </div>
 
                 <!-- Sixth Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Custom-Fine-jewellery-01.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black">Custom Fine Jewelry</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Custom Fine Jewelry</h4>
                 </div>
             </div>
         </section>
@@ -515,7 +515,7 @@
         <!-- Engagement Rings By Style Section -->
         <section class="py-16">
             <div class="container mx-auto px-6 py-8">
-                <h2 class="text-40px font-literata font-medium text-center text-gray-800">Engagement Rings By Style</h2>
+                <h2 class="text-40px font-literata font-medium text-center text-primary">Engagement Rings By Style</h2>
             </div>
             <div class="mx-auto grid grid-cols-1 md:grid-cols-6 md:gap-7 lg:gap-9 md:mx-6 lg:mx-auto lg:w-5/6">
                 
@@ -523,42 +523,42 @@
                 <div class="flex flex-col items-center">
                     <img src="/images/Solitaire-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Solitaire</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Solitaire</h4>
                 </div>
 
                 <!-- Second Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Hidden-Halo-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Halo</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Halo</h4>
                 </div>
 
                 <!-- Third Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Bezel-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Bezel</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Bezel</h4>
                 </div>
 
                 <!-- Fourth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Cluster.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Cluster</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Cluster</h4>
                 </div>
 
                 <!-- Fifth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Three-Stone-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Three Stone</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Three Stone</h4>
                 </div>
 
                 <!-- Sixth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/DiamondBand-ring-01.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Diamond Band</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Diamond Band</h4>
                 </div>
             </div>
 
@@ -569,28 +569,28 @@
                 <div class="flex flex-col items-center">
                     <img src="/images/Unique-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Unique</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Unique</h4>
                 </div>
 
                 <!-- Eighth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Hidden-Halo-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Hidden Halo</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Hidden Halo</h4>
                 </div>
 
                 <!-- Ninth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Dainty-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Dainty</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Dainty</h4>
                 </div>
 
                 <!-- Tenth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Vintage-Inspired-ring.webp" alt="Engagement Ring"
                         class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-black text-center">Vintage Inspired</h4>
+                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Vintage Inspired</h4>
                 </div>
             </div>
         </section>
@@ -598,7 +598,7 @@
         <!-- Diamond Buying Resources -->
         <section class="py-16 bg-light-blue-3">
             <div class="container mx-auto px-6 py-8">
-                <h2 class="text-40px font-literata font-medium text-center text-gray-800">Diamond Buying Resources</h2>
+                <h2 class="text-40px font-literata font-medium text-center text-primary">Diamond Buying Resources</h2>
             </div>
             <!-- First Row - Two Cards -->
             <div class="container mx-auto md:px-8 lg:px-44 grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -606,7 +606,7 @@
                 <div class="flex flex-col rounded-lg overflow-hidden shadow-lg bg-white">
                     <div class="relative">
                         <img src="/images/Why-Choose-Lab-Grown-Diamonds1.webp" alt="Diamond Education" class="w-full h-[300px] object-cover">
-                        <div class="absolute inset-0 flex flex-col justify-end items-start text-black pb-5">
+                        <div class="absolute inset-0 flex flex-col justify-end items-start text-primary pb-5">
                             <h3 class="font-montserrat text-xl font-semibold mb-4 px-6">Why Choose Lab-Created Diamonds?</h3>
                             <p class="text-start px-6 font-montserrat text-sm">Lab-grown diamonds are environmentally friendly and cost-efficient. They undergo the same processing and grading standards as mined diamonds, based on the 4Cs of diamond certification.</p>
                         </div>
@@ -620,7 +620,7 @@
                 <div class="flex flex-col rounded-lg overflow-hidden shadow-lg bg-white">
                     <div class="relative">
                         <img src="/images/What-are-Lab-Grwon-Diamonds.webp" alt="Diamond Buying Guide" class="w-full h-[300px] object-cover">
-                        <div class="absolute inset-0 flex flex-col justify-end items-start text-black pb-5">
+                        <div class="absolute inset-0 flex flex-col justify-end items-start text-primary pb-5">
                             <h3 class="font-montserrat text-xl font-semibold mb-4 px-6">What are Lab Grown Diamonds?</h3>
                             <p class="text-start px-6 font-montserrat text-sm">Lab-grown diamonds are created in a lab using two methods: High-Pressure High-Temperature and Chemical Vapor Deposition, and differ from mined diamonds which are extracted from the earth.</p>
                         </div>
@@ -637,7 +637,7 @@
                     <div class="md:w-1/2">
                         <img src="/images/Lab-Grown-Diamond-Grading-and-Report1.webp" alt="Lab Grown Diamond Guide" class="w-full h-full object-cover">
                     </div>
-                    <div class="md:w-1/2 p-8 flex flex-col justify-center text-black">
+                    <div class="md:w-1/2 p-8 flex flex-col justify-center text-primary">
                         <h3 class="font-montserrat text-xl font-semibold mb-4">Lab Created Diamonds Grading & Certification</h3>
                         <p class="mb-6 text-sm font-montserrat">We send all of our lab-grown diamonds for inspection to renowned institutions such as GIA, IGI, and GCAL.</p>
                         <a href="#" class="font-montserrat text-sm font-semibold tracking-wide hover:text-dark-blue transition duration-300 text-start underline">
@@ -664,7 +664,7 @@
                     <p class="font-montserrat text-white text-sm mb-8">
                         Select your perfect fancy color lab created diamond from thousands of ethically sourced diamonds.
                     </p>
-                    <a href="#" class="inline-block bg-white text-black font-montserrat text-sm font-semibold px-8 py-4 rounded-md hover:bg-black hover:border-white hover:border-2 border-2 border-white hover:text-white transition duration-300 w-fit">
+                    <a href="#" class="inline-block bg-white text-primary font-montserrat text-sm font-semibold px-8 py-4 rounded-md hover:bg-black hover:border-white hover:border-2 border-2 border-white hover:text-white transition duration-300 w-fit">
                         Shop Colored Lab Grown Diamonds
                     </a>
                 </div>
@@ -674,47 +674,47 @@
         <!-- What Our Customers Say -->
         <section class="py-12 bg-light-blue-3">
             <div class="container mx-auto px-6 py-8">
-                <h2 class="text-40px font-literata font-medium text-center text-gray-800 mb-3">What Our Customers Say</h2>
-                <p class="text-center font-montserrat text-lg text-gray-600 tracking-wide">We've served 15631+ customers worldwide and counting</p>
+                <h2 class="text-40px font-literata font-medium text-center text-primary mb-3">What Our Customers Say</h2>
+                <p class="text-center font-montserrat text-lg text-primary/80 tracking-wide">We've served 15631+ customers worldwide and counting</p>
             </div>
             <div class="container mx-auto md:px-8 lg:px-44 mb-10">
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-6 lg:gap-8">
                     <!-- Review Card 1 -->
                     <div class="bg-white rounded-lg p-6 shadow-lg h-full flex flex-col">
-                        <h3 class="font-montserrat text-lg font-semibold mb-3">Reliable, definitely recommend!</h3>
-                        <p class="font-montserrat text-sm text-gray-600 mb-6 flex-grow">
+                        <h3 class="font-montserrat text-lg font-semibold mb-3 text-primary">Reliable, definitely recommend!</h3>
+                        <p class="font-montserrat text-sm text-primary/90 mb-6 flex-grow">
                             I was really scared to make this kind of purchase online. I read all the positive reviews and decided to give them a chance. I’m so glad I did!! My diamond is beautiful! The payment process was quick and easy, my diamond was delivered 10 days after my order was placed.
                         </p>
                         <div class="flex items-center mt-auto">
                             <img src="/images/users/user-1.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
                             <div>
                                 <div class="flex items-center">
-                                    <p class="font-montserrat font-semibold md:w-20 md:text-13px lg:w-full lg:text-sm">Anuschka Grobler</p>
+                                    <p class="font-montserrat font-semibold text-primary md:w-20 md:text-13px lg:w-full lg:text-sm">Anuschka Grobler</p>
                                     <svg class="w-5 h-5 ml-1 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <p class="font-montserrat md:text-13px lg:text-sm text-gray-500">Kentucky</p>
+                                <p class="font-montserrat md:text-13px lg:text-sm text-primary/70">Kentucky</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review Card 2 -->
                     <div class="bg-white rounded-lg p-6 shadow-lg h-full flex flex-col">
-                        <h3 class="font-montserrat text-lg font-semibold mb-3">I had an extremely positive experience…</h3>
-                        <p class="font-montserrat text-sm text-gray-600 mb-6 flex-grow">
+                        <h3 class="font-montserrat text-lg font-semibold mb-3 text-primary">I had an extremely positive experience…</h3>
+                        <p class="font-montserrat text-sm text-primary/90 mb-6 flex-grow">
                             I was looking for rings online and nothing came up within my style/budget until I came across this site. I was skeptical from it being online, but I was always notified of what was happening behind the scenes. I couldn’t be happier with this company.
                         </p>
                         <div class="flex items-center mt-auto">
                             <img src="/images/users/user-2.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
                             <div>
                                 <div class="flex items-center">
-                                    <p class="font-montserrat font-semibold  md:w-20 md:text-13px lg:w-full lg:text-sm">Evan Onuskanych</p>
+                                    <p class="font-montserrat font-semibold text-primary md:w-20 md:text-13px lg:w-full lg:text-sm">Evan Onuskanych</p>
                                     <svg class="w-5 h-5 ml-1 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <p class="font-montserrat md:text-13px lg:text-sm text-gray-500">New York</p>
+                                <p class="font-montserrat md:text-13px lg:text-sm text-primary/70">New York</p>
                             </div>
                         </div>
                     </div>
@@ -761,7 +761,7 @@
         <!-- We’ve been featured in -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto md:px-20 lg:px-[180px]">
-                <h2 class="text-center font-montserrat text-2xl font-medium uppercase mb-10">We've been featured in</h2>
+                <h2 class="text-center font-montserrat text-primary text-2xl font-medium uppercase mb-10">We've been featured in</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-[150px] md:w-[180px] lg:w-[228px]" viewBox="0 0 228 27" fill="none">
                         <path d="M14.2404 11.0073C14.2404 14.0255 14.204 17.0437 14.2631 20.0619C14.2631 20.971 14.0358 21.2073 13.1222 21.1982C9.39492 21.1437 5.66462 21.1437 1.93128 21.1982C1.09492 21.2028 0.872192 20.9528 0.872192 20.1346C0.908556 13.9982 0.908556 7.86339 0.872192 1.73006C0.872192 0.848239 1.08128 0.566422 2.00856 0.580058C5.73583 0.628543 9.46613 0.628543 13.1995 0.580058C14.054 0.580058 14.2676 0.843694 14.2586 1.65733C14.2176 4.77551 14.2404 7.89369 14.2404 11.0073Z" fill="#D02800"/>
@@ -861,13 +861,13 @@
         <!-- Follow us on Instagram -->
         <section class="py-12">
             <div class="container mx-auto">
-                <h2 class="text-center font-medium font-montserrat text-3xl">Follow us on Instagram</h2>
+                <h2 class="text-center font-medium font-montserrat text-primary text-3xl">Follow us on Instagram</h2>
             </div>
             <div class="flex items-center justify-center mt-6 gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.209 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.209 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="black"/>
                 </svg>
-                <a href="#" class="font-montserrat underline">@thejewelstore</a>
+                <a href="#" class="font-montserrat text-primary underline">@thejewelstore</a>
             </div>
             <div class="container mx-auto mt-10">
                 <div class="grid grid-cols-2 md:grid-cols-6 gap-4">

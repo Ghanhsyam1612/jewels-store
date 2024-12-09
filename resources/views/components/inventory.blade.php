@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container mx-auto px-6 py-12">
-    <h1 class="text-4xl font-montserrat font-bold text-center mb-3">
+    <h1 class="text-4xl text-primary font-montserrat font-bold text-center mb-3">
         Certified Lab Grown Diamonds
     </h1>
-    <p class="text-gray-600 text-center font-montserrat text-sm mb-8">
+    <p class="text-primary/80 text-center font-montserrat text-sm mb-8">
         Select your perfect lab grown diamond from thousands of ethically sourced diamonds.
     </p>
 
@@ -13,7 +13,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 px-10">
         <!-- Shape Svg -->
         <div class="flex items-center">
-            <h5 class="text-sm font-montserrat font-semibold mr-3">Shape</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Shape</h5>
             <div class="flex flex-col">
                 <div class="flex mb-1">
                     <!-- Round -->
@@ -143,7 +143,7 @@
 
         <!-- Price Range Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm font-montserrat font-semibold mr-3">Price</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Price</h5>
             <div class="range_container">
                 <div class="form_control">
                     <div class="form_control_container">
@@ -365,7 +365,7 @@
 
         <!-- Carat Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm font-montserrat font-semibold mr-3">Carat</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Carat</h5>
             <div class="range_carat_container">
                 <div class="form_carat_control">
                     <div class="form_carat_control_container">
@@ -609,7 +609,7 @@
 
         <!-- Cut Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm font-montserrat font-semibold mr-3">Cut</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Cut</h5>
             <div class="range_cut_container">
                 <div class="sliders_cut_control">
                     <input id="fromCutSlider" type="range" value="0" min="0" max="4"
@@ -696,7 +696,7 @@
 
         <!-- Color Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm font-montserrat font-semibold mr-3">Color</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
             <div class="range_color_container">
                 <div class="sliders_color_control">
                     <input id="fromColorSliderM" type="range" value="0" min="0" max="10"
@@ -789,7 +789,7 @@
 
         <!-- Clarity Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm font-montserrat font-semibold mr-3">Clarity</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Clarity</h5>
             <div class="range_clarity_container">
                 <div class="sliders_clarity_control">
                     <input id="fromClaritySlider" type="range" value="0" min="0" max="11"
@@ -885,7 +885,7 @@
 
     <!-- Start Advanced Options -->
     <div class="flex felx-row items-center gap-3 px-10 py-5">
-        <h3 class="text-sm font-montserrat font-semibold">Advanced Options</h3>
+        <h3 class="text-sm text-primary font-montserrat font-semibold">Advanced Options</h3>
         <div class="flex justify-between items-center w-5/6">
             <!-- Start Certificate Dropdown , Method Dropdown , Table Dropdown -->
             <div class="flex flex-row items-center gap-4">
@@ -1859,8 +1859,8 @@
             <!-- Start Type Dropdown -->
             <div class="flex flex-row items-center gap-3">
                 <p class="font-montserrat font-semibold text-sm">Type</p>
-                <a href="/inventory" class="text-xs text-white bg-black border border-gray-300 hover:bg-black p-2 rounded-md font-montserrat transition-all duration-300">WHITE DIAMONDS</a>
-                <a href="#" class="text-xs text-black hover:text-white border border-gray-500 hover:bg-black p-2 rounded-md font-montserrat transition-all duration-300">FANCY COLOR DIAMONDS</a>
+                <a href="/inventory" class="text-xs text-white bg-primary border border-gray-300 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">WHITE DIAMONDS</a>
+                <a href="#" class="text-xs text-primary hover:text-white border border-gray-500 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">FANCY COLOR DIAMONDS</a>
             </div>
             <!-- End Type Dropdown -->
         </div>
@@ -1874,7 +1874,7 @@
         <div class="relative flex items-center">
             <input type="text" placeholder="Search by SKU/GIA/IGI/GCAL number" class="w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
             <div class="absolute right-0 h-full flex items-center">
-                <button class="h-full px-4 bg-black">
+                <button class="h-full px-4 bg-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -1895,10 +1895,10 @@
     <!-- Start Table -->
     <div class="px-10">
         <table class="w-full border-collapse">
-            <thead>
+            <thead class="bg-primary">
                 <tr class="border-b">
-                    <th class="py-4 text-left w-1/5">
-                        <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(0)">
+                    <th class="py-4 pl-5 text-left w-1/5">
+                        <div class="flex items-center gap-1 text-gold cursor-pointer" onclick="sortTable(0)">
                             <span class="text-sm font-montserrat font-semibold">Shape</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -1906,7 +1906,7 @@
                         </div>
                     </th>
                     <th class="py-4 text-left">
-                        <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(1)">
+                        <div class="flex items-center gap-1 text-gold cursor-pointer" onclick="sortTable(1)">
                             <span class="text-sm font-montserrat font-semibold">Carat</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -1914,7 +1914,7 @@
                         </div>
                     </th>
                     <th class="py-4 text-left">
-                        <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(2)">
+                        <div class="flex items-center gap-1 text-gold cursor-pointer" onclick="sortTable(2)">
                             <span class="text-sm font-montserrat font-semibold">Cut</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -1922,7 +1922,7 @@
                         </div>
                     </th>
                     <th class="py-4 text-left">
-                        <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(3)">
+                        <div class="flex items-center gap-1 text-gold cursor-pointer" onclick="sortTable(3)">
                             <span class="text-sm font-montserrat font-semibold">Color</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -1930,7 +1930,7 @@
                         </div>
                     </th>
                     <th class="py-4 text-left">
-                        <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(4)">
+                        <div class="flex items-center gap-1 text-gold cursor-pointer" onclick="sortTable(4)">
                             <span class="text-sm font-montserrat font-semibold">Clarity</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -1938,7 +1938,7 @@
                         </div>
                     </th>
                     <th class="py-4 text-left">
-                        <div class="flex items-center gap-1 cursor-pointer" onclick="sortTable(5)">
+                        <div class="flex items-center gap-1 text-gold cursor-pointer" onclick="sortTable(5)">
                             <span class="text-sm font-montserrat font-semibold">Price (USD)</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -1951,7 +1951,7 @@
             <tbody>
                 @foreach($diamonds as $diamond)
 
-                <tr class="border-b cursor-pointer" onclick="toggleDetails({{ $diamond->id }})">
+                <tr class="border-b cursor-pointer pl-5" onclick="toggleDetails({{ $diamond->id }})">
                     <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
                         <img src="{{ asset($diamond->shape_svg) }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="{{ $diamond->shape }} Shape">
                         <span class="pb-1 font-medium">{{ $diamond->shape }}</span>

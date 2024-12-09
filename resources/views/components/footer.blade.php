@@ -1,9 +1,9 @@
-<footer class="bg-gray-900 text-gray-300 py-8">
+<footer class="bg-primary text-gold py-8">
     <div class="container mx-auto md:px-8 lg:px-36">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <!-- Connect With Us -->
             <div>
-                <h3 class="md:text-xs lg:text-lg text-white font-montserrat mb-4">CONNECT WITH US</h3>
+                <h3 class="md:text-xs lg:text-lg text-gold font-montserrat mb-4">CONNECT WITH US</h3>
                 <div class="flex space-x-2 mb-4">
                     <a href="#" class="bg-gray-700 md:p-1 lg:p-2 rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" class="md:h-3 md:w-3 lg:h-5 lg:w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
 
             <!-- Diamond Categories -->
             <div>
-                <h3 class="md:text-xs lg:text-lg text-white font-montserrat mb-4">DIAMOND CATEGORIES</h3>
+                <h3 class="md:text-xs lg:text-lg text-gold font-montserrat mb-4">DIAMOND CATEGORIES</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Color Melee Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Round Calibrated Diamonds</a></li>
@@ -65,7 +65,7 @@
 
             <!-- Help -->
             <div>
-                <h3 class="md:text-xs lg:text-lg text-white font-montserrat mb-4">HELP</h3>
+                <h3 class="md:text-xs lg:text-lg text-gold font-montserrat mb-4">HELP</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="/about-us" class="hover:text-white font-montserrat md:text-xs lg:text-sm">About Us</a></li>
                     <li><a href="/compare-us" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Compare Us</a></li>
@@ -79,7 +79,7 @@
 
             <!-- Privacy -->
             <div>
-                <h3 class="md:text-xs lg:text-lg text-white font-montserrat mb-4">PRIVACY</h3>
+                <h3 class="md:text-xs lg:text-lg text-gold font-montserrat mb-4">PRIVACY</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Crypto Payment</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Shipping Policy</a></li>

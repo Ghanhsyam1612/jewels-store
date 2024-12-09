@@ -7,7 +7,7 @@
     </div>
 
     <!-- Main header -->
-    <div id="sticky-header" class="container mx-auto flex items-center justify-between py-4 px-6 border-b bg-primary">
+    <div id="sticky-header" class="container mx-auto flex items-center justify-between py-4 px-6 bg-primary">
         <!-- Hamburger menu for mobile -->
         <button id="hamburger-menu" class="md:hidden text-gray-700 hover:text-gray-900">
             {{-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -312,10 +312,10 @@
                 </a>
                 <!-- Dropdown menu -->
                 <div class="absolute left-0 -translate-x-1/2 transform mt-2 w-[800px] bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
-                    <div class="grid grid-cols-3 gap-4 py-6">
+                    <div class="grid grid-cols-3 py-6">
                         <!-- Column 1 -->
                         <div class="border-r border-gray-200">
-                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2">Diamond 4C's</h3>
+                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-6">Diamond 4C's</h3>
                             <div class="space-y-2">
                                 <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-6">
                                     Cut
@@ -333,33 +333,33 @@
                         </div>
                         <!-- Column 2 -->
                         <div class="border-r border-gray-200">
-                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2">Diamond Guide</h3>
+                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Diamond Guide</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Certification
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Clarity
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Size Chart
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Price Calculator
                                 </a>
                             </div>
                         </div>
                         <!-- Column 3 -->
                         <div class="">
-                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2">Helpful Guides</h3>
+                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Helpful Guides</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Tips For Cleaning Lab Grown Diamonds
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Facts & Misconceptions
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     Blood Free Diamonds
                                 </a>
                             </div>
