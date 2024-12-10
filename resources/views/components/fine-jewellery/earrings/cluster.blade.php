@@ -23,12 +23,12 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <span class="text-primary text-xs">Diamond Stud Earrings</span>
+            <span class="text-primary text-xs">Cluster Earrings</span>
         </nav>
 
         <div class="flex flex-col items-center justify-center px-40 my-12">
-            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Diamond Stud Earrings</h2>
-            <p class="text-sm text-primary font-montserrat text-center">Stud Earrings are generally very minimalist fashion pieces. These dainty little earrings compliment the wearer. Diamond Stud Earrings are timeless pieces typically held down by a 4-prong setting.</p>
+            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Cluster Earrings</h2>
+            <p class="text-sm text-primary font-montserrat text-center">Cluster earrings are jewelry that contains a collection of crystals or gemstones. Our certified earrings provide the work of the best craftsperson and our utmost patience.</p>
         </div>
 
 

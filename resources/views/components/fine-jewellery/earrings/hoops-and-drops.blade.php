@@ -23,12 +23,12 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <span class="text-primary text-xs">Diamond Stud Earrings</span>
+            <span class="text-primary text-xs">Hoops and Drops Earrings</span>
         </nav>
 
         <div class="flex flex-col items-center justify-center px-40 my-12">
-            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Diamond Stud Earrings</h2>
-            <p class="text-sm text-primary font-montserrat text-center">Stud Earrings are generally very minimalist fashion pieces. These dainty little earrings compliment the wearer. Diamond Stud Earrings are timeless pieces typically held down by a 4-prong setting.</p>
+            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Hoops and Drops Earrings</h2>
+            <p class="text-sm text-primary font-montserrat text-center">A drop earring is attached to the lobe and has a precious stone or ornament dangling from a chain, ring, or similar object. These jewels range in length from really short to excessively long. Droplet earrings and Hoops Drop Earrings are some other names for these earrings.</p>
         </div>
 
 

@@ -13,7 +13,7 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <a href="/earrings" class="text-primary font-medium text-xs">Lab Grown Diamond Earrings</a>
+            <a href="/pendants" class="text-primary font-medium text-xs">Pendants</a>
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -23,12 +23,12 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <span class="text-primary text-xs">Diamond Stud Earrings</span>
+            <span class="text-primary text-xs">Solitaire Pendants</span>
         </nav>
 
         <div class="flex flex-col items-center justify-center px-40 my-12">
-            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Diamond Stud Earrings</h2>
-            <p class="text-sm text-primary font-montserrat text-center">Stud Earrings are generally very minimalist fashion pieces. These dainty little earrings compliment the wearer. Diamond Stud Earrings are timeless pieces typically held down by a 4-prong setting.</p>
+            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Solitaire Pendants</h2>
+            <p class="text-sm text-primary font-montserrat text-center">A solitaire pendant is a type of necklace that features a center stone in the middle. Many people confuse a solitaire center stone with a diamond. Shop best collection of the lab made solitaire pendants.</p>
         </div>
 
 

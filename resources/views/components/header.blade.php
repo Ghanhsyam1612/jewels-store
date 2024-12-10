@@ -40,11 +40,24 @@
                 <!-- Dropdown menu -->
                 <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="py-2">
-                        <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Solitaire Diamonds</a>
-                        <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Calibrated Diamonds</a>
-                        <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Shapes Diamonds</a>
-                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Color Diamonds</a>
-                        <a href="{{ route('fancy-color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Color Melee Diamonds</a>
+                        <!-- Natural Diamond -->
+                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Natural Diamond</a>
+                        
+                        <!-- Lab Diamond with submenu -->
+                        <div class="group/lab relative">
+                            <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Lab Diamond</a>
+                            
+                            <!-- Lab Diamond submenu -->
+                            <div class="absolute left-full top-0 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover/lab:opacity-100 group-hover/lab:visible transition-all duration-300">
+                                <div class="py-2">
+                                    <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Solitaire Diamonds</a>
+                                    <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Calibrated Diamonds</a>
+                                    <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Shapes Diamonds</a>
+                                    <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Color Diamonds</a>
+                                    <a href="{{ route('fancy-color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Color Melee Diamonds</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,7 +78,7 @@
                 </a>
                 <!-- Dropdown menu -->
                 <div class="absolute left-52 -translate-x-1/2 transform mt-2 w-[1000px] bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
-                    <div class="grid grid-cols-3 gap-4 py-6">
+                    <div class="grid grid-cols-3 py-6">
                         <!-- Column 1 -->
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-6">Create Your Diamond Ring</h3>
@@ -193,15 +206,15 @@
                                     {{-- Diamond SVG --}}
                                     Stud Earrings
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/hoops-and-drops" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Hoops and Drops Earrings
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="halo" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Halo Earrings
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="cluster" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Cluster Earrings
                                 </a>
@@ -211,19 +224,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Wedding Rings</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/diamond" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Diamond Rings
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/anniversary" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Anniversary Rings
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/eternity" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Eternity Rings
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/stackable" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Stackable Rings
                                 </a>
@@ -233,19 +246,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Pendants</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/solitaire" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Solitaire Pendants
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/halo" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Halo Pendants
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/diamond-pendants" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Diamond Pendants
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="/chains" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-semibold transition-all duration-200 py-1 pl-3">
                                     {{-- Diamond SVG --}}
                                     Chains
                                 </a>
@@ -258,16 +271,16 @@
                                 <div>
                                     <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Bracelets</h4>
                                     <div class="space-y-2">
-                                        <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
-                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <a href="/tennis-bracelets" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                            {{-- <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12 6v12m-6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
+                                            </svg> --}}
                                             Tennis Bracelets
                                         </a>
-                                        <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
-                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <a href="/solitaire-bracelets" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                            {{-- <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12 6v12m-6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
+                                            </svg> --}}
                                             Solitaire Bracelets
                                         </a>
                                     </div>
@@ -276,16 +289,16 @@
                                 <div>
                                     <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Necklace</h4>
                                     <div class="space-y-2">
-                                        <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
-                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <a href="/diamond-necklaces" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                            {{-- <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12 6v12m-6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
+                                            </svg> --}}
                                             Diamond Necklaces
                                         </a>
-                                        <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
-                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <a href="/tennis-necklaces" class="flex items-center text-12px leading-[19px] text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200 py-1 pl-3">
+                                            {{-- <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12 6v12m-6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
+                                            </svg> --}}
                                             Tennis Necklaces
                                         </a>
                                     </div>
@@ -297,7 +310,7 @@
             </div>
 
             {{-- Ready To Ship --}}
-            <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">READY TO SHIP</a>
+            <a href="/ready-to-ship" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all">READY TO SHIP</a>
             
             {{-- Precious Stones --}}
             <div class="relative group">

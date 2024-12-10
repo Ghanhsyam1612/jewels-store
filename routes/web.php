@@ -42,9 +42,97 @@ Route::get('/custom-engagement-rings', function () {
 })->name('custom-engagement-rings');
 
 // Fine Jewellery
-Route::get('/stud-earrings', function () {
-    return view('components.fine-jewellery.stud');
+Route::get('/earrings', function () {
+    return view('components.fine-jewellery.earrings.earrings');
 });
+
+Route::get('/stud-earrings', function () {
+    return view('components.fine-jewellery.earrings.stud');
+});
+
+Route::get('/hoops-and-drops', function () {
+    return view('components.fine-jewellery.earrings.hoops-and-drops');
+});
+
+Route::get('/halo', function () {
+    return view('components.fine-jewellery.earrings.halo');
+});
+
+Route::get('/cluster', function () {
+    return view('components.fine-jewellery.earrings.cluster');
+});
+
+Route::get('/wedding-rings', function () {
+    return view('components.fine-jewellery.wedding-rings.wedding-rings');
+});
+
+Route::get('/diamond', function () {
+    return view('components.fine-jewellery.wedding-rings.diamond');
+});
+
+Route::get('/anniversary', function () {
+    return view('components.fine-jewellery.wedding-rings.anniversary');
+});
+
+Route::get('/eternity', function () {
+    return view('components.fine-jewellery.wedding-rings.eternity');
+});
+
+Route::get('/stackable', function () {
+    return view('components.fine-jewellery.wedding-rings.stackable');
+});
+
+Route::get('/pendants', function () {
+    return view('components.fine-jewellery.pendants.pendants');
+});
+
+Route::get('/solitaire', function () {
+    return view('components.fine-jewellery.pendants.solitaire');
+});
+
+Route::get('/halo', function () {
+    return view('components.fine-jewellery.pendants.halo');
+});
+
+Route::get('/diamond-pendants', function () {
+    return view('components.fine-jewellery.pendants.diamond-pendants');
+});
+
+Route::get('/chains', function () {
+    return view('components.fine-jewellery.pendants.chains');
+});
+
+Route::get('/bracelets', function () {
+    return view('components.fine-jewellery.bracelets.bracelets');
+});
+
+Route::get('/tennis-bracelets', function () {
+    return view('components.fine-jewellery.bracelets.tennis-bracelets');
+});
+
+Route::get('/solitaire', function () {
+    return view('components.fine-jewellery.bracelets.solitaire-bracelets');
+});
+
+Route::get('/all-diamond-necklaces', function () {
+    return view('components.fine-jewellery.necklaces.all-diamond-necklaces');
+});
+
+Route::get('/diamond-necklaces', function () {
+    return view('components.fine-jewellery.necklaces.diamond-necklaces');
+});
+
+Route::get('/tennis-necklaces', function () {
+    return view('components.fine-jewellery.necklaces.tennis-necklaces');
+});
+
+// Ready To Ship
+Route::get('/ready-to-ship', function () {
+    return view('components.ready-to-ship');
+});
+
+
+
 
 // Product Display Pages
 Route::get('/product', function () {

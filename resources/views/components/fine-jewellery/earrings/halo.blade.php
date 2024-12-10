@@ -23,12 +23,12 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <span class="text-primary text-xs">Diamond Stud Earrings</span>
+            <span class="text-primary text-xs">Halo Earrings</span>
         </nav>
 
         <div class="flex flex-col items-center justify-center px-40 my-12">
-            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Diamond Stud Earrings</h2>
-            <p class="text-sm text-primary font-montserrat text-center">Stud Earrings are generally very minimalist fashion pieces. These dainty little earrings compliment the wearer. Diamond Stud Earrings are timeless pieces typically held down by a 4-prong setting.</p>
+            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Halo Earrings</h2>
+            <p class="text-sm text-primary font-montserrat text-center">Diamond halo stud earrings, also known as halo earrings, are stud earrings with a gemstone halo setting. The center crystal of an earring is held inside a loop of relatively small precious gems, creating a "halo" around the center diamond.</p>
         </div>
 
 
