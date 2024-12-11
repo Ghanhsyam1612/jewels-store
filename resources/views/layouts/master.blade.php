@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- SweetAlert2 CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.css" rel="stylesheet"> -->
+
     <title>Jewels Store</title>
     @vite('resources/css/app.css')
 </head>
@@ -19,6 +22,9 @@
     </main>
 
     @include('components.footer')
+
+    <!-- SweetAlert2 JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.js"></script> -->
 </body>
 
 </html>

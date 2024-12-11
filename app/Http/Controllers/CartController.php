@@ -28,6 +28,7 @@ class CartController extends Controller
 
         // Save the updated cart back into the session
         session()->put('cart', $cart);
+        
         return redirect()->route('cart.index')->with('success', 'Item added to cart successfully');
     }
 
