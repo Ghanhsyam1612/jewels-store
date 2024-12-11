@@ -49,8 +49,7 @@ class DiamondResource extends Resource
                 Forms\Components\TextInput::make('carat')
                     ->required()
                     ->label('Carat')
-                    ->columnSpanFull()
-                    ->numeric(),
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('images')
                     ->label('Images')
                     ->multiple()
@@ -60,28 +59,32 @@ class DiamondResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('video_url')
                     ->label('Video')
-                    ->required()
                     ->directory('diamond_videos')
                     ->preserveFilenames()
                     ->acceptedFileTypes(['video/mp4', 'video/mpeg', 'video/quicktime']),
-                Forms\Components\TextInput::make('price')
+                Forms\Components\TextInput::make('original_price')
                     ->required()
                     ->label('Price')
                     ->numeric()
                     ->prefix('$'),
+                Forms\Components\TextInput::make('mrp')
+                    ->required()
+                    ->label('MRP')
+                    ->numeric()
+                    ->prefix('$'),
                 Forms\Components\TextInput::make('size')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
                 Forms\Components\TextInput::make('l_w_ratio')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
                 Forms\Components\TextInput::make('table')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
                 Forms\Components\TextInput::make('sku')
                     ->label('SKU')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('growth_type')
+                    ->label('Growth Type')
+                    ->required(),
 
             ]);
     }
@@ -94,28 +97,23 @@ class DiamondResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('images')
                     ->getStateUsing(function ($record) {
-                        // return $record->images;
-                        // return json_encode($record->images, true)[0];
+                        return $record->images[0] ?? null;
                     })
                     ->circular(),
                 Tables\Columns\TextColumn::make('shape'),
-                Tables\Columns\TextColumn::make('price')
+                Tables\Columns\TextColumn::make('original_price')
                     ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('carat')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('cut'),
                 Tables\Columns\TextColumn::make('color'),
                 Tables\Columns\TextColumn::make('clarity'),
                 Tables\Columns\TextColumn::make('size')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('l_w_ratio')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('table')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sku')
                     ->label('SKU')

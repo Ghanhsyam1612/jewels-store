@@ -1950,8 +1950,7 @@
             </thead>
             <tbody>
                 @foreach($diamonds as $diamond)
-
-                <tr class="border-b cursor-pointer pl-5" onclick="toggleDetails({{ $diamond->id }})">
+                <tr class="border-b cursor-pointer" onclick="toggleDetails({{ $diamond->id }})">
                     <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
                         <img src="{{ asset($diamond->shape_svg) }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="{{ $diamond->shape }} Shape">
                         <span class="pb-1 font-medium">{{ $diamond->shape }}</span>
@@ -1962,18 +1961,18 @@
                     <td class="py-4 text-sm font-montserrat">{{ $diamond->color }}</td>
                     <td class="py-4 text-sm font-montserrat">{{ $diamond->clarity }}</td>
                     <td class="py-4 text-sm font-montserrat">
-                        <span class="text-gray-600 line-through text-xs">$199</span>
-                        <span class="text-red-600">${{ $diamond->price }}</span>
+
+                        <span class="text-gray-600 line-through text-xs">${{ $diamond->mrp }}</span>
+                        <span class="text-red-600">${{ $diamond->original_price }}</span>
                     </td>
                     <td class="py-4">
-                        <!-- <a href="{{ route('diamonds.details', $diamond->id) }}" class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</a> -->
-                        <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
+                        <button onclick="toggleDetails({{ $diamond->id }})" class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
                     </td>
                 </tr>
 
-                <tr id="details-1" class="hidden transition-all duration-300">
+                <tr id="details-{{ $diamond->id }}" class="hidden transition-all duration-300">
                     <td colspan="7" class="relative">
-                        <button onclick="toggleDetails(1)" class="absolute right-4 top-4 text-gray-500 hover:text-black">
+                        <button onclick="toggleDetails({{ $diamond->id }})" class="absolute right-4 top-4 text-gray-500 hover:text-black">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -1982,24 +1981,35 @@
                             <!-- Left Side -->
                             <div class="flex flex-col items-center gap-3">
                                 <div class="flex items-center justify-center">
-                                    <img src="/images/round.png" class="w-40" alt="">
+                                    <img src="{{ asset($diamond->images[0]) }}" class="w-40" alt="{{ $diamond->name }}">
                                 </div>
 
                                 <div class="text-center">
-                                    <p class="text-2xl font-montserrat font-semibold text-gray-800">Round Diamond</p>
+                                    <p class="text-2xl font-montserrat font-semibold text-gray-800">{{ ucwords($diamond->name) }}</p>
                                     <div class="mt-1">
-                                        <span class="text-gray-600 line-through text-lg font-montserrat font-medium">$199</span>
-                                        <span class="text-xl ml-1 font-montserrat font-semibold">$125</span>
+                                        <span class="text-gray-600 line-through text-lg font-montserrat font-medium">${{ $diamond->mrp }}</span>
+                                        <span class="text-xl ml-1 font-montserrat font-semibold">${{ $diamond->original_price }}</span>
                                     </div>
                                 </div>
 
                                 <div class="flex gap-4 justify-center mt-2">
-                                    <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <form action="{{ route('cart.add') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $diamond->id }}">
+                                        <input type="hidden" name="images" value="{{ $diamond->images[0] }}">
+                                        <input type="hidden" name="name" value="{{ $diamond->name }}">
+                                        <input type="hidden" name="original_price" value="{{ $diamond->original_price }}">
+                                        <input type="hidden" name="mrp" value="{{ $diamond->mrp }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                         </svg>
-                                        Add to Bag
-                                    </button>
+                                            Add to Bag
+                                        </button>
+                                    </form>
+                                    @if($diamond->video_url)
+                                    <a href="{{ asset($diamond->video_url) }}" target="_blank">
                                     <button class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -2007,6 +2017,8 @@
                                         </svg>
                                         Play Video
                                     </button>
+                                    </a>
+                                    @endif
                                 </div>
 
                                 <a href="#" class="text-black underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
@@ -2022,31 +2034,31 @@
                                 <div class="flex flex-col">
                                     <div class="flex flex-row border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Carat</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">0.51</span>
+                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">{{ $diamond->carat }}</span>
                                     </div>
                                     <div class="flex flex-row border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Size (mm)</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">5.15 - 5.19 x 3.11 mm</span>
+                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">{{ $diamond->size }} mm</span>
                                     </div>
                                     <div class="flex flex-row gap-5 border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Cut</span>
                                         <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">Excellent</span>
-                                            <span class="font-montserrat text-sm text-gray-500">High-quality cut with near-perfect proportions that return nearly all light that enters.</span>
+                                            <span class="font-montserrat font-semibold text-gray-600">{{ $diamond->cut }}</span>
+                                            <span class="font-montserrat text-sm text-gray-500">{{ $diamond->cut_description }}</span>
                                         </div>
                                     </div>
                                     <div class="flex flex-row gap-16 border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Color</span>
                                         <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">D</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Completely colorless, displaying the most desirable icy white brilliance. Very rare in nature and the most expensive color.</span>
+                                            <span class="font-montserrat font-semibold text-gray-600">{{ $diamond->color }}</span>
+                                            <span class="font-montserrat text-sm text-gray-500">{{ $diamond->color_description }}</span>
                                         </div>
                                     </div>
                                     <div class="flex flex-row gap-9 border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Clarity</span>
                                         <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">IF</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Internally flawless. The highest clarity grade, with no flaws or inclusions. Very rare and expensive.</span>
+                                            <span class="font-montserrat font-semibold text-gray-600">{{ $diamond->clarity }}</span>
+                                            <span class="font-montserrat text-sm text-gray-500">{{ $diamond->clarity_description }}</span>
                                         </div>
                                     </div>
                                     <div class="flex flex-row border-b w-full py-3">
@@ -2055,19 +2067,19 @@
                                     </div>
                                     <div class="flex flex-row border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Table & Depth</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">60.00%, 60.10%</span>
+                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">{{ $diamond->table }}%</span>
                                     </div>
                                     <div class="flex flex-row border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">L/W Ratio</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">0.99</span>
+                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">{{ $diamond->l_w_ratio }}</span>
                                     </div>
                                     <div class="flex flex-row border-b w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">SKU</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">LGD14-667</span>
+                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">{{ $diamond->sku }}</span>
                                     </div>
                                     <div class="flex flex-row w-full py-3">
                                         <span class="font-montserrat text-base text-gray-500 uppercase w-40">Growth Type</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">HPHT</span>
+                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">{{ $diamond->growth_type }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -2087,7 +2099,7 @@
         function sortTable(columnIndex) {
             const table = document.querySelector('table');
             const tbody = table.querySelector('tbody');
-            const rows = Array.from(tbody.querySelectorAll('tr:not([id^="details-"])'));
+            const rows = Array.from(tbody.querySelectorAll(`tr:not([id^="details-${id}"])`));
 
             rows.sort((a, b) => {
                 const aValue = a.cells[columnIndex].textContent;

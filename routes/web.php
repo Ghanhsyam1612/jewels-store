@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
 use Illuminate\Support\Facades\Route;
@@ -150,9 +151,9 @@ Route::get('/account', function () {
 })->name('account');
 
 // Cart
-Route::get('/cart', function () {
-    return view('cart.cart');
-});
+// Route::get('/cart', function () {
+//     return view('cart.cart');
+// });
 
 
 
@@ -184,6 +185,14 @@ Route::get('/contact-us', function () {
 });
 
 Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
+
+
+// ---------------------------------- Cart Routes -----------------------------------------------------
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+// ---------------------------------- End    Routes -------------------------------------------------
 
 
 // ------------------------------- Addresses -----------------------------------------------------------

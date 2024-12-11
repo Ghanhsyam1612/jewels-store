@@ -462,7 +462,7 @@
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                 </svg>
                 <span class="absolute -top-1 -right-1 bg-white text-dark-purple text-xs font-semibold rounded-full h-4 w-4 flex items-center justify-center">
-                    0
+                    {{ count(session('cart', [])) }}
                 </span>
             </a>
         </div>
