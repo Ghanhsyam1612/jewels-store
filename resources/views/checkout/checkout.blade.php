@@ -151,7 +151,7 @@
                                     <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" class="h-6">
                                     <span class="ml-3 font-medium font-montserrat">Pay with PayPal</span>
                                 </div>
-                                <input type="radio" name="payment" class="h-4 w-4 text-custom" value="paypal" checked id="paypalRadio"/>
+                                <input type="radio" name="payment" class="h-4 w-4 text-custom" value="paypal" id="paypalRadio"/>
                             </div>
                             <div class="mt-3 payment-form paypal-form hidden p-4">
                                 <div class="space-y-3">

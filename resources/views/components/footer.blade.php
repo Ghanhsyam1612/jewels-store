@@ -36,11 +36,11 @@
                         </svg>
                     </a>
                 </div>
-                <div class="bg-white p-2 rounded mb-4">
-                    <img src="{{ asset('images/trustpilot.png') }}" alt="Trustpilot" class="w-full h-auto">
+                <div class="bg-white w-4/6 p-2 rounded mb-4">
+                    <img src="{{ asset('Shape/trustpilot-review.svg') }}" alt="Trustpilot" class="w-full h-auto">
                 </div>
-                <div class="bg-white p-2 rounded mb-4">
-                    <img src="{{ asset('images/google-rating.png') }}" alt="Google Rating" class="w-full h-auto">
+                <div class="bg-white w-4/6 p-2 rounded mb-4">
+                    <img src="{{ asset('Shape/gr1.svg') }}" alt="Google Rating" class="w-full h-auto">
                 </div>
                 <p class="md:text-xs lg:text-sm font-montserrat">+1 646-288-0810</p>
                 <p class="md:text-xs lg:text-sm font-montserrat">55W 47th St., Suite #790</p>
