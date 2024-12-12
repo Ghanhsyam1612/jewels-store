@@ -25,9 +25,13 @@ Route::get('/fancy-shapes-diamonds', function () {
     return view('lab-diamonds.fancy-shapes-diamonds');
 })->name('fancy-shapes-diamonds');
 
-Route::get('/fancy-color-melee-diamonds', function () {
-    return view('lab-diamonds.fancy-color-melee-diamonds');
-})->name('fancy-color-melee-diamonds');
+Route::get('/fancy-color-diamonds', function () {
+    return view('lab-diamonds.fancy-color-diamonds');
+})->name('fancy-color-diamonds');
+
+Route::get('/color-melee-diamonds', function () {
+    return view('lab-diamonds.color-melee-diamonds');
+})->name('color-melee-diamonds');
 
 // Engagement Rings
 Route::get('/build-a-ring', function () {

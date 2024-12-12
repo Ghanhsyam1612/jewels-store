@@ -53,8 +53,8 @@
                                     <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Solitaire Diamonds</a>
                                     <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Calibrated Diamonds</a>
                                     <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Shapes Diamonds</a>
-                                    <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Color Diamonds</a>
-                                    <a href="{{ route('fancy-color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Color Melee Diamonds</a>
+                                    <a href="/fancy-color-diamonds" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Fancy Color Diamonds</a>
+                                    <a href="{{ route('color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:bg-primary hover:text-gold font-medium transition-all duration-200">Color Melee Diamonds</a>
                                 </div>
                             </div>
                         </div>
