@@ -155,6 +155,11 @@ Route::get('/account', function () {
 //     return view('cart.cart');
 // });
 
+// Checkout
+Route::get('/checkout', function () {
+    return view('checkout.checkout');
+});
+
 
 
 
