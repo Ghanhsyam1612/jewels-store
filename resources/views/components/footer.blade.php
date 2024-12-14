@@ -57,7 +57,7 @@
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">GIA Certified Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">GCAL Certified Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Fancy Shape Diamonds</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Custom Shape Diamonds</a></li>
+                    <li><a href="/categories/custom-shape-diamonds" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Custom Shape Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Lab Grown Diamond Engagement Rings</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Diamond Price Calculator</a></li>
                 </ul>
@@ -81,15 +81,15 @@
             <div>
                 <h3 class="md:text-xs lg:text-lg text-gold font-montserrat mb-4">PRIVACY</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Crypto Payment</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Shipping Policy</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Return/Refund Policy</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Price Match Policy</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Jewelry Insurance</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Promo Code</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Feedback Form</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Terms Of Use</a></li>
+                    {{-- <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Crypto Payment</a></li> --}}
+                    <li><a href="/shipping-policy" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Shipping Policy</a></li>
+                    <li><a href="/return-refund-policy" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Return/Refund Policy</a></li>
+                    <li><a href="/price-match-policy" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Price Match Policy</a></li>
+                    {{-- <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Jewelry Insurance</a></li> --}}
+                    {{-- <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Promo Code</a></li> --}}
+                    <li><a href="/feedback" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Feedback Form</a></li>
+                    <li><a href="/privacy-policy" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Privacy Policy</a></li>
+                    <li><a href="/terms-of-use" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Terms Of Use</a></li>
                 </ul>
             </div>
         </div>

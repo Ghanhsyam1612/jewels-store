@@ -164,7 +164,10 @@ Route::get('/checkout', function () {
     return view('checkout.checkout');
 });
 
-
+// Footer Categories
+Route::get('/categories/custom-shape-diamonds', function () {
+    return view('categories.custom-shape-diamonds');
+});
 
 
 
@@ -192,6 +195,33 @@ Route::get('/faq', function () {
 Route::get('/contact-us', function () {
     return view('components.help.contact-us');
 });
+
+// Footer Privacy
+Route::get('/shipping-policy', function () {
+    return view('privacy.shipping-policy');
+});
+
+Route::get('/return-refund-policy', function () {
+    return view('privacy.return-refund-policy');
+});
+
+Route::get('/price-match-policy', function () {
+    return view('privacy.price-match-policy');
+});
+
+Route::get('/feedback', function () {
+    return view('privacy.feedback');
+});
+
+Route::get('/privacy-policy', function () {
+    return view('privacy.privacy-policy');
+});
+
+Route::get('/terms-of-use', function () {
+    return view('privacy.terms-of-use');
+});
+
+
 
 Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
 

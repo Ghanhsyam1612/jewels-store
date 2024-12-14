@@ -9,6 +9,7 @@ export default {
     extend: {
       fontSize: {
         '8px': '8px',
+        '10px': '10px',
         '12px': '12px',
         '13px': '13px',
         '40px': '40px',

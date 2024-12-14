@@ -3,19 +3,217 @@
 @section('content')
 <div class="container mx-auto px-6 py-12">
     <h1 class="text-4xl text-primary font-montserrat font-bold text-center mb-3">
-        Certified Lab Grown Diamonds
+        Certified Fancy Color Lab Grown Diamonds
     </h1>
     <p class="text-primary/80 text-center font-montserrat text-sm mb-8">
-        Select your perfect lab grown diamond from thousands of ethically sourced diamonds.
+        Select your perfect fancy color lab created diamond from thousands of ethically sourced diamonds.
     </p>
 
-    <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
-    <div class="grid grid-cols-1 md:grid-cols-2 px-32">
+    {{-- Start Color --}}
+    <div class="flex items-center px-10">
+        <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
+        <div class="flex flex-col">
+            <div class="flex mb-1 flex-row gap-5">
+                <!-- Color Options -->
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <img src="{{ asset('images/color/yellow.png') }}" class="w-11 h-11" alt="Yellow">
+                    <span class="text-primary">Yellow</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="pink">
+                    <img src="{{ asset('images/color/pink.png') }}" class="w-11 h-11" alt="Pink">
+                    <span class="text-primary">Pink</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="purple">
+                    <img src="{{ asset('images/color/purple.png') }}" class="w-11 h-11" alt="Purple">
+                    <span class="text-primary">Purple</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="red">
+                    <img src="{{ asset('images/color/red.png') }}" class="w-11 h-11" alt="Red">
+                    <span class="text-primary">Red</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="blue">
+                    <img src="{{ asset('images/color/blue.png') }}" class="w-11 h-11" alt="Blue">
+                    <span class="text-primary">Blue</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="green">
+                    <img src="{{ asset('images/color/green.png') }}" class="w-11 h-11" alt="Green">
+                    <span class="text-primary">Green</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="orange">
+                    <img src="{{ asset('images/color/orange.png') }}" class="w-11 h-11" alt="Orange">
+                    <span class="text-primary">Orange</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="brown">
+                    <img src="{{ asset('images/color/brown.png') }}" class="w-11 h-11" alt="Brown">
+                    <span class="text-primary">Brown</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="black">
+                    <img src="{{ asset('images/color/black.png') }}" class="w-11 h-11" alt="Black">
+                    <span class="text-primary">Black</span>
+                </a>
+    
+                <a href="#"
+                    class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="gray">
+                    <img src="{{ asset('images/color/gray.png') }}" class="w-11 h-11" alt="Gray">
+                    <span class="text-primary">Gray</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {{-- End Color --}}
+
+    {{-- Start Intensity Color --}}
+    <div class="flex items-center px-10">
+        <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
+        <div class="flex flex-col">
+            <div class="flex mb-1 flex-row gap-5">
+                <!-- Fancy Light (0.20) -->
+                <a href="#"
+                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/20">
+                        <g transform="translate(0,53) scale(0.1,-0.1)">
+                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                        </g>
+                    </svg>
+                    <span class="text-primary text-10px">Fancy Light</span>
+                </a>
+                
+                <!-- Fancy (0.30) -->
+                <a href="#"
+                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/30">
+                        <g transform="translate(0,53) scale(0.1,-0.1)">
+                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                        </g>
+                    </svg>
+                    <span class="text-primary text-10px">Fancy</span>
+                </a>
+
+                <!-- Fancy Intense (0.40) -->
+                <a href="#"
+                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/40">
+                        <g transform="translate(0,53) scale(0.1,-0.1)">
+                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                        </g>
+                    </svg>
+                    <span class="text-primary text-10px">Fancy Intense</span>
+                </a>
+
+                <!-- Fancy Vivid (0.60) -->
+                <a href="#"
+                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/60">
+                        <g transform="translate(0,53) scale(0.1,-0.1)">
+                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                        </g>
+                    </svg>
+                    <span class="text-primary text-10px">Fancy Vivid</span>
+                </a>
+
+                <!-- Fancy Deep (0.80) -->
+                <a href="#"
+                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/80">
+                        <g transform="translate(0,53) scale(0.1,-0.1)">
+                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                        </g>
+                    </svg>
+                    <span class="text-primary text-10px">Fancy Deep</span>
+                </a>
+
+                <!-- Fancy Dark (100) -->
+                <a href="#"
+                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
+                    data-color="yellow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500">
+                        <g transform="translate(0,53) scale(0.1,-0.1)">
+                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                        </g>
+                    </svg>
+                    <span class="text-primary text-10px">Fancy Dark</span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    {{-- End Intensity Color --}}
+
+    <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider, Intensity Color -->
+    <div class="grid grid-cols-1 md:grid-cols-3 px-10">
         <!-- Shape Svg -->
-        <div class="flex items-center">
+        <div class="flex items-center pt-4">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Shape</h5>
-            <div class="flex flex-col">
-                <div class="flex mb-1 flex-row gap-5">
+            <div class="flex flex-col pt-2">
+                <div class="flex mb-1 flex-row gap-3">
                     <!-- Round -->
                     <a href="#"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
@@ -2114,6 +2312,7 @@
     });
 </script>
 <!-- End Toggle Script -->
+
 <!-- Start Certificate Dropdown Script -->
 <script>
     const styleIcon = document.getElementById('styleDropdownIcon');
@@ -2273,4 +2472,48 @@
     });
 </script>
 <!-- End L/W Ratio Dropdown Script -->
+
+{{-- Start Color Selection --}}
+<script>
+    // Get all color items
+    const colorItems = document.querySelectorAll('.color-item');
+
+    // Loop through each color item and add a click event
+    colorItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Remove 'border-primary', 'text-primary' and 'active' classes from all items
+            colorItems.forEach(el => {
+                el.classList.remove('border-primary', 'text-primary', 'ring-1', 'ring-primary');
+            });
+
+            // Add 'border-primary', 'text-primary', and a ring effect to the clicked item
+            item.classList.add('border-primary', 'text-primary', 'ring-1', 'ring-primary');
+        });
+    });
+</script>
+{{-- End Color Selection --}}
+
+{{-- Start Color Selection --}}
+<script>
+    // Get all color items
+    const intensityColorItems = document.querySelectorAll('.intensity-color-item');
+
+    // Loop through each color item and add a click event
+    intensityColorItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Remove 'border-primary', 'text-primary' and 'active' classes from all items
+            intensityColorItems.forEach(el => {
+                el.classList.remove('border-primary', 'text-primary', 'ring-1', 'ring-primary');
+            });
+
+            // Add 'border-primary', 'text-primary', and a ring effect to the clicked item
+            item.classList.add('border-primary', 'text-primary', 'ring-1', 'ring-primary');
+        });
+    });
+</script>
+{{-- End Color Selection --}}
 @endsection
