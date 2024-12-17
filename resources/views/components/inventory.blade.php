@@ -1991,16 +1991,22 @@
                                         <span class="text-xl ml-1 font-montserrat font-semibold">${{ $diamond->original_price }}</span>
                                     </div>
                                 </div>
-
                                 <div class="flex gap-4 justify-center mt-2">
                                     <form action="{{ route('cart.add') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $diamond->id }}">
-                                        <input type="hidden" name="images" value="{{ $diamond->images[0] }}">
                                         <input type="hidden" name="name" value="{{ $diamond->name }}">
+                                        <input type="hidden" name="shape" value="{{ $diamond->shape }}">
                                         <input type="hidden" name="original_price" value="{{ $diamond->original_price }}">
-                                        <input type="hidden" name="mrp" value="{{ $diamond->mrp }}">
+                                        <input type="hidden" name="carat" value="{{ $diamond->carat }}">
+                                        <input type="hidden" name="cut" value="{{ $diamond->cut }}">
+                                        <input type="hidden" name="color" value="{{ $diamond->color }}">
+                                        <input type="hidden" name="clarity" value="{{ $diamond->clarity }}">
+                                        <input type="hidden" name="images" value="{{ $diamond->images[0] }}">
+                                        <input type="hidden" name="size" value="{{ $diamond->size }}">
+                                        <input type="hidden" name="sku" value="{{ $diamond->sku }}">
                                         <input type="hidden" name="quantity" value="1">
+                                        <input type="hidden" name="mrp" value="{{ $diamond->mrp }}">
                                         <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />

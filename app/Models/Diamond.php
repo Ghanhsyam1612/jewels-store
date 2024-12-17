@@ -23,6 +23,11 @@ class Diamond extends Model
         return $this->hasMany(Wishlist::class);
     }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     // Function to get SVG path dynamically
     public function getShapeSvgAttribute()
     {

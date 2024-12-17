@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
 use Illuminate\Support\Facades\Route;
@@ -159,10 +160,7 @@ Route::get('/account', function () {
 //     return view('cart.cart');
 // });
 
-// Checkout
-Route::get('/checkout', function () {
-    return view('checkout.checkout');
-});
+
 
 // Footer Categories
 Route::get('/categories/custom-shape-diamonds', function () {
@@ -231,7 +229,18 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
-// ---------------------------------- End    Routes -------------------------------------------------
+// ---------------------------------- End Cart Routes -------------------------------------------------
+
+// ---------------------------------- Checkout Routes -------------------------------------------------
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout/process', [CheckoutController::class, 'checkoutProcess'])->name('checkout.process');
+// ---------------------------------- End Checkout Routes -------------------------------------------------
+
+// ---------------------------------- Wishlist Routes -------------------------------------------------
+Route::get('/wishlist', [AccountController::class, 'wishlist'])->name('wishlist');
+Route::post('/wishlist/add', [AccountController::class, 'addToWishlist'])->name('wishlist.add');
+Route::post('/wishlist/remove', [AccountController::class, 'removeFromWishlist'])->name('wishlist.remove');
+// ---------------------------------- End Wishlist Routes -------------------------------------------------
 
 
 // ------------------------------- Addresses -----------------------------------------------------------

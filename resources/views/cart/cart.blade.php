@@ -11,16 +11,19 @@
                 <div class="flex flex-row justify-between items-start gap-10">
                     <!-- Product Image -->
                     <div class="w-1/6">
-                        <img src="{{ asset($item['images']) }}"" alt="Diamond" class="w-20 h-20">
-                        <p class="text-xs text-black font-montserrat mt-1">Sample Image <br>  Only</p>
+                        <img src="{{ asset($item['images']) }}" alt="Diamond" class="w-20 h-20">
+                        <p class="text-xs text-black font-montserrat mt-1">Sample Image <br> Only</p>
                     </div>
 
                     <!-- Product Details -->
                     <div class="w-2/6">
                         <div>
                             <h3 class="text-lg font-semibold font-literata">{{ ucwords($item['name']) }}</h3>
-                            <p class="text-sm text-black font-montserrat mt-1"><span class="font-semibold">Metal:</span> 18K White Gold</p>
-                            <p class="text-sm text-black font-montserrat"><span class="font-semibold">Carat Weight:</span> 1.5 Carat</p>
+                            <p class="text-sm text-black font-montserrat mt-1"><span class="font-semibold">Shape:</span> {{ $item['shape'] }}</p>
+                            <p class="text-sm text-black font-montserrat"><span class="font-semibold">Carat:</span> {{ $item['carat'] }}</p>
+                            <p class="text-sm text-black font-montserrat"><span class="font-semibold">Cut:</span> {{ $item['cut'] }}</p>
+                            <p class="text-sm text-black font-montserrat"><span class="font-semibold">Color:</span> {{ $item['color'] }}</p>
+                            <p class="text-sm text-black font-montserrat"><span class="font-semibold">Clarity:</span> {{ $item['clarity'] }}</p>
                         </div>
                     </div>
 
@@ -69,10 +72,11 @@
                 @php
                 $subtotal = 0;
                 foreach ($cart as $item) {
-                    $subtotal += $item['original_price'] * $item['quantity'];
+                $subtotal += $item['original_price'] * $item['quantity'];
                 }
-                $tax = $subtotal * 0.1; // Example tax rate of 10%
-                $total = $subtotal + $tax;
+
+                $shipping = $subtotal >= 500 ? 0 : 35;
+                $total = $subtotal + $shipping;
                 @endphp
 
                 <div class="space-y-3 mb-6">
@@ -82,11 +86,13 @@
                     </div>
                     <div class="flex justify-between text-sm font-montserrat">
                         <span class="font-semibold font-montserrat">Shipping</span>
-                        <span class="font-semibold font-montserrat">Free</span>
-                    </div>
-                    <div class="flex justify-between text-sm font-montserrat">
-                        <span class="font-semibold font-montserrat">Tax</span>
-                        <span class="font-semibold font-montserrat" id="tax">${{ number_format($tax, 2) }}</span>
+                        <span class="font-semibold font-montserrat" id="shipping">
+                            @if($shipping == 0)
+                            Free
+                            @else
+                            ${{ number_format($shipping, 2) }}
+                            @endif
+                        </span>
                     </div>
                     <div class="border-t pt-3">
                         <div class="flex justify-between font-semibold">
@@ -96,9 +102,12 @@
                     </div>
                 </div>
 
-                <button class="w-full bg-gray-900 text-white py-3 rounded-md hover:bg-gray-800 transition font-montserrat">
-                    Proceed to Checkout
-                </button>
+                <a href="{{ route('checkout') }}">
+                    <button class="w-full bg-gray-900 text-white py-3 rounded-md hover:bg-gray-800 transition font-montserrat">
+                        Proceed to Checkout
+                    </button>
+                </a>
+                <p class="text-sm font-montserrat text-gray-400">*Shipping is free for orders above <span class="font-bold text-gray-700">$500</span></p>
             </div>
         </div>
     </div>
@@ -119,9 +128,6 @@
         // Update the price for the item
         const priceElement = document.querySelector(`.price[data-id="${productId}"]`);
         priceElement.textContent = `$${(newValue * pricePerUnit).toFixed(2)}`;
-
-        // Update the cart subtotal, tax, and total
-        updateCartTotals();
 
         // Send the updated quantity to the server
         updateCart(input, newValue);
@@ -145,7 +151,10 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    console.log('Cart updated successfully!');
+                    // Update subtotal, shipping, and total dynamically
+                    document.getElementById('subtotal').textContent = `$${data.subtotal}`;
+                    document.getElementById('shipping').textContent = data.shipping;
+                    document.getElementById('total').textContent = `$${data.total}`;
                 } else {
                     alert('Failed to update cart.');
                 }
