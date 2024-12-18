@@ -7,6 +7,14 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '600px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1920px',
+      },
       fontSize: {
         '8px': '8px',
         '10px': '10px',

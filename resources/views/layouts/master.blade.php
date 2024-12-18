@@ -14,7 +14,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen max-w-screen-3xl mx-auto bg-gray-50">
     @include('components.header')
 
     <main class="flex-grow">

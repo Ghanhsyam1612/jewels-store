@@ -3,16 +3,16 @@
 @section('content')
     <div class="bg-gray-50">
         <!-- Hero Section -->
-        <section class="relative md:h-[600px] lg:h-[550px] flex md:pt-12 lg:items-center justify-center">
+        <section class="relative h-[550px] md:h-[600px] lg:h-[450px] xl:h-[480px] flex md:pt-12 lg:items-center justify-center">
             <div class="absolute inset-0">
-                <img src="/images/Certified-bnr.png" alt="Certified Banner" class="w-full h-full object-cover">
+                <img src="/images/Certified-bnr.png" alt="Certified Banner" class="w-full h-full object-cover xl:object-cover">
             </div>
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Text Rows -->
-                <div class="text-center mb-8">
+                <div class="text-center mt-4 py-8 md:px-14">
                     <h1
-                        class="font-literata text-44px md:text-44px lg:text-5xl tracking-wide font-medium text-primary mb-4">
-                        Beautiful, Certified Lab <br> Grown Diamonds
+                        class="font-literata text-3xl md:text-44px md:leading-[59px] lg:text-5xl tracking-wide font-medium text-primary mb-4">
+                        Beautiful, Certified Lab Grown Diamonds
                     </h1>
                     <p class="font-montserrat text-lg md:text-xl text-primary max-w-3xl mx-auto">
                         Mining free. Direct to you. No middlemen
@@ -22,16 +22,16 @@
                 <!-- Buttons Row -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
                     <a href="{{ route('inventory') }}"
-                        class="font-montserrat font-semibold tracking-wide px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300">
+                        class="font-montserrat font-semibold tracking-wide text-center w-full md:w-3/5 lg:w-2/5 xl:w-2/6 md:px-8 lg:px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300">
                         Shop Lab Grown Diamonds
                     </a>
                     <a href="{{ route('build-a-ring') }}"
-                        class="font-montserrat font-semibold tracking-wide px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300">
+                        class="font-montserrat font-semibold tracking-wide text-center w-full md:w-3/5 lg:w-2/5 xl:w-2/6 md:px-8 lg:px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300">
                         Shop Engagement Rings
                     </a>
                 </div>
             </div>
-            <div class="absolute md:bottom-8 lg:bottom-0 ">
+            <div class="absolute px-6 bottom-10 md:bottom-8 lg:bottom-0 ">
                 <img src="/images/Certified-bnr-tablet.png" alt="Certified Banner" class="lg:hidden">
             </div>
         </section>
@@ -39,7 +39,7 @@
         <!-- Learn More Section -->
         <section class="py-4 bg-light-grey">
             <div class="container mx-auto px-6">
-                <p class="text-sm tracking-wide font-montserrat leading-5 text-center text-gray-800">
+                <p class="text-xs md:text-sm tracking-wide font-montserrat leading-5 text-center text-gray-800">
                     Buy now, pay later with Klarna.
                     <a href="#" class="hover:text-blue-800 underline">Learn More</a>
                 </p>
@@ -47,16 +47,17 @@
         </section>
 
         <!-- Shop Engagement Rings Section -->
-        <section class="py-16">
-            <div class="container mx-auto px-10">
-                <h3 class="text-center text-xl font-montserrat font-medium text-primary uppercase py-6">Shop Engagement
-                    Rings</h3>
-                <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-9 md:w-full lg:w-5/6">
+        <section class="py-7 lg:py-16">
+            <div class="container mx-auto px-4 md:px-10">
+                <h3 class="text-center text-base md:text-2xl font-montserrat font-medium text-primary uppercase py-6">
+                    Shop Engagement Rings
+                </h3>
+                <div class="mx-auto grid grid-cols-2 gap-4 md:gap-9 md:w-full lg:w-5/6">
                     <!-- First Image Card -->
                     <div class="flex flex-col items-start">
                         <img src="/images/Start-with-diamonds.webp" alt="Engagement Ring"
-                            class="w-full  h-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                        <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Start with
+                            class="w-full h-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
+                        <h4 class="text-xs md:text-base uppercase font-medium font-montserrat tracking-widest text-primary">Start with
                             Diamonds</h4>
                     </div>
 
@@ -64,7 +65,7 @@
                     <div class="flex flex-col items-start">
                         <img src="/images/Start-with-setting.webp" alt="Engagement Ring"
                             class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                        <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Start with
+                        <h4 class="text-xs md:text-base uppercase font-medium font-montserrat tracking-widest text-primary">Start with
                             Setting</h4>
                     </div>
                 </div>
@@ -72,19 +73,19 @@
         </section>
 
         <!-- Lab Diamonds in Customisable Shapes Section -->
-        <section class="py-16 bg-light-blue-2">
+        <section class="py-7 xl:py-10 2xl:py-16 bg-light-blue-2">
             <div class="container mx-auto px-10">
-                <h3 class="text-center md:text-4xl lg:text-40px font-literata font-medium leading-[59px] text-primary/90 py-3">Lab Diamonds
-                    in Customisable Shapes</h3>
-                <p class="text-center text-lg font-montserrat text-primary/80">
+                <h3 class="text-center text-2xl md:text-4xl lg:text-40px font-literata font-medium md:leading-[59px] text-primary/90 py-3">
+                    Lab Diamonds in Customisable Shapes</h3>
+                <p class="text-center text-base md:text-lg font-montserrat text-primary/80">
                     Explore our collection of 950,000+ IGI/GIA/GCAL certified diamonds
                 </p>
             </div>
-            <div class="flex flex-col my-12 md:mx-8 lg:mx-[180px]">
-                <div class="grid md:grid-cols-5 lg:grid-cols-10 lg:mb-5">
+            <div class="flex flex-col mx-5 my-8 md:mx-8 lg:mx-20">
+                <div class="grid grid-cols-3 gap-7 md:gap-2 lg:gap-5 md:grid-cols-5 lg:grid-cols-10 lg:mb-5">
                     <!-- Round -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_62)">
@@ -103,7 +104,7 @@
 
                     <!-- Princess -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -115,7 +116,7 @@
 
                     <!-- Radiant -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="60" viewBox="0 0 48 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_70)">
@@ -134,7 +135,7 @@
 
                     <!-- Asscher -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_74)">
@@ -153,7 +154,7 @@
 
                     <!-- Cushion -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_78)">
@@ -172,7 +173,7 @@
 
                     <!-- Oval -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="44" height="60" viewBox="0 0 44 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_82)">
@@ -192,7 +193,7 @@
 
                     <!-- Emerald -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="60" viewBox="0 0 46 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_86)">
@@ -211,7 +212,7 @@
 
                     <!-- Pear -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="38" height="60" viewBox="0 0 38 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_90)">
@@ -230,7 +231,7 @@
 
                     <!-- Marquise -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 30 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_94)">
@@ -249,7 +250,7 @@
 
                     <!-- Heart -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="62" height="60" viewBox="0 0 62 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_98)">
@@ -266,11 +267,11 @@
                         </svg>
                         Heart
                     </a>
-                </div>
-                <div class="grid md:grid-cols-5 lg:grid-cols-10">
+                {{-- </div>
+                <div class="grid md:grid-cols-5 lg:grid-cols-10"> --}}
                     <!-- Rose Cut -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <path
@@ -282,7 +283,7 @@
 
                     <!-- Old European -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_107)">
@@ -302,7 +303,7 @@
 
                     <!-- Half Moon -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 30 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <path
@@ -314,7 +315,7 @@
 
                     <!-- Baguette Trapezoid -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <path d="M18.11 59L5.59998 1H54.4L41.68 59H18.11Z" stroke="currentColor" stroke-miterlimit="10">
@@ -333,7 +334,7 @@
 
                     <!-- Baguette -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <path
@@ -345,7 +346,7 @@
 
                     <!-- Hexagon -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_129)">
@@ -375,7 +376,7 @@
 
                     <!-- Kite -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_141)">
@@ -394,7 +395,7 @@
 
                     <!-- Old Mine -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 38 38"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <path
@@ -406,7 +407,7 @@
 
                     <!-- Trapezoid -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_149)">
@@ -434,7 +435,7 @@
 
                     <!-- Triangular -->
                     <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
+                        class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                             fill="none" class="group-hover:text-dark-blue mb-2">
                             <g clip-path="url(#clip0_5606_160)">
@@ -462,146 +463,142 @@
         </section>
 
         <!-- Fine Jewellery Section -->
-        <section class="py-16">
-            <div class="container mx-auto px-6 py-8">
-                <h2 class="text-xl font-montserrat font-medium uppercase text-center text-primary">Fine Jewelry</h2>
+        <section class="py-7 md:py-16">
+            <div class="container mx-auto px-6 pb-7">
+                <h2 class="text-base md:text-xl lg:text-2xl 2xl:text-3xl font-montserrat font-medium uppercase text-center text-primary">Fine Jewelry</h2>
             </div>
-            <div class="mx-auto md:mx-6 lg:mx-auto grid grid-cols-1 md:grid-cols-3 gap-9 lg:w-5/6">
+            <div class="mx-4 md:mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-9 md:w-5/6">
                 <!-- First Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Wedding-Rings-01.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Wedding Rings</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-3">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Wedding Rings</h4>
                 </div>
 
-                <!-- Second Image Card -->
+                <!-- Second Image Card -->  
                 <div class="flex flex-col items-start">
                     <img src="/images/Necklaces-01.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Necklaces</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-3">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Necklaces</h4>
                 </div>
 
                 <!-- Third Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Earrings-01.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Earrings</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-3">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Earrings</h4>
                 </div>
 
                 <!-- Second Row -->
                 <!-- Fourth Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Bracelets-01.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Bracelets</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-3">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Bracelets</h4>
                 </div>
 
                 <!-- Fifth Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Pendants-001.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Pendants</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-3">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Pendants</h4>
                 </div>
 
                 <!-- Sixth Image Card -->
                 <div class="flex flex-col items-start">
                     <img src="/images/Custom-Fine-jewellery-01.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Custom Fine Jewelry</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-3">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary">Custom Fine Jewelry</h4>
                 </div>
             </div>
         </section>
 
         <!-- Engagement Rings By Style Section -->
-        <section class="py-16">
+        <section class="py-7 xl:py-10 2xl:py-16">
             <div class="container mx-auto px-6 py-8">
-                <h2 class="text-40px font-literata font-medium text-center text-primary">Engagement Rings By Style</h2>
+                <h2 class="text-2xl md:text-3xl lg:text-40px font-literata font-medium text-center text-primary">Engagement Rings By Style</h2>
             </div>
-            <div class="mx-auto grid grid-cols-1 md:grid-cols-6 md:gap-7 lg:gap-9 md:mx-6 lg:mx-auto lg:w-5/6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-7 lg:gap-9 mx-4 md:mx-4 lg:mx-auto lg:w-5/6">
                 
                 <!-- First Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Solitaire-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Solitaire</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Solitaire</h4>
                 </div>
 
                 <!-- Second Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Hidden-Halo-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Halo</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Halo</h4>
                 </div>
 
                 <!-- Third Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Bezel-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Bezel</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Bezel</h4>
                 </div>
 
                 <!-- Fourth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Cluster.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Cluster</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Cluster</h4>
                 </div>
 
                 <!-- Fifth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Three-Stone-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Three Stone</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Three Stone</h4>
                 </div>
 
                 <!-- Sixth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/DiamondBand-ring-01.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Diamond Band</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Diamond Band</h4>
                 </div>
-            </div>
 
-            <!-- Second Row - Centered -->
-            <div class="mx-auto grid grid-cols-1 md:grid-cols-6 md:gap-7 lg:gap-9 md:mx-6 lg:mx-auto lg:w-5/6 mt-9 lg:items-center">
-                <div></div>
                 <!-- Seventh Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Unique-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Unique</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Unique</h4>
                 </div>
 
                 <!-- Eighth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Hidden-Halo-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Hidden Halo</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Hidden Halo</h4>
                 </div>
 
                 <!-- Ninth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Dainty-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Dainty</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Dainty</h4>
                 </div>
 
                 <!-- Tenth Image Card -->
                 <div class="flex flex-col items-center">
                     <img src="/images/Vintage-Inspired-ring.webp" alt="Engagement Ring"
-                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-5">
-                    <h4 class="text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Vintage Inspired</h4>
+                        class="w-full object-cover rounded-lg transition duration-300 hover:scale-105 mb-2">
+                    <h4 class="text-xs md:text-sm uppercase font-semibold font-montserrat tracking-widest text-primary text-center">Vintage Inspired</h4>
                 </div>
             </div>
         </section>
 
         <!-- Diamond Buying Resources -->
-        <section class="py-16 bg-light-blue-3">
+        <section class="py-5 lg:py-10 xl:py-16 bg-light-blue-3">
             <div class="container mx-auto px-6 py-8">
-                <h2 class="text-40px font-literata font-medium text-center text-primary">Diamond Buying Resources</h2>
+                <h2 class="text-2xl md:text-40px font-literata font-medium text-center text-primary">Diamond Buying Resources</h2>
             </div>
             <!-- First Row - Two Cards -->
-            <div class="container mx-auto md:px-8 lg:px-44 grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="container px-4 md:mx-auto md:px-8 lg:px-14 xl:px-24 2xl:px-28 grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <!-- First Card -->
                 <div class="flex flex-col rounded-lg overflow-hidden shadow-lg bg-white">
                     <div class="relative">
@@ -632,7 +629,7 @@
             </div>
 
             <!-- Second Row - Single Card with Image and Text -->
-            <div class="container mx-auto md:px-8 lg:px-44">
+            <div class="container px-4 md:mx-auto md:px-8 lg:px-14 xl:px-24 2xl:px-28">
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col md:flex-row">
                     <div class="md:w-1/2">
                         <img src="/images/Lab-Grown-Diamond-Grading-and-Report1.webp" alt="Lab Grown Diamond Guide" class="w-full h-full object-cover">
@@ -651,20 +648,21 @@
         <!-- Shop Colored Lab Diamonds -->
         <section class="relative h-[400px] mb-12">
             <!-- Background Image -->
-            <div class="absolute inset-0">
+            <div class="absolute inset-0 hidden md:block">
                 <img src="/images/Lab-Grown-Color-Diamond-1-scaled-1.webp" alt="Colored Lab Diamonds" class="w-full h-full object-cover">
             </div>
             
             <!-- Content Container -->
-            <div class="container mx-auto md:pl-8 md:pr-72 lg:px-44 relative h-full">
-                <div class="flex flex-col justify-center h-full max-w-2xl">
-                    <h2 class="font-literata text-white text-40px font-medium mb-4">
+            <div class="container mx-auto md:pl-8 md:pr-72 lg:px-14 xl:px-24 2xl:px-44 relative h-full">
+                <img src="/images/mobile-Lab-Grown-Color-Diamond.webp" alt="Colored Lab Diamonds" class="w-full h-1/2 object-cover md:hidden">
+                <div class="flex flex-col justify-center items-center md:items-start h-4/6 md:h-full max-w-2xl bg-black md:bg-transparent">
+                    <h2 class="font-literata text-white text-xl md:text-40px md:leading-10 font-medium mb-4">
                         Shop Colored Lab Diamonds
                     </h2>
-                    <p class="font-montserrat text-white text-sm mb-8">
+                    <p class="text-center md:text-left font-montserrat text-white text-sm mb-8 px-3 md:px-0 lg:w-2/3">
                         Select your perfect fancy color lab created diamond from thousands of ethically sourced diamonds.
                     </p>
-                    <a href="#" class="inline-block bg-white text-primary font-montserrat text-sm font-semibold px-8 py-4 rounded-md hover:bg-black hover:border-white hover:border-2 border-2 border-white hover:text-white transition duration-300 w-fit">
+                    <a href="#" class="inline-block bg-white text-primary font-montserrat text-sm font-semibold px-4 md:px-8 py-4 rounded-md hover:bg-black hover:border-white hover:border-2 border-2 border-white hover:text-white transition duration-300 w-fit">
                         Shop Colored Lab Grown Diamonds
                     </a>
                 </div>
@@ -672,13 +670,13 @@
         </section>
 
         <!-- What Our Customers Say -->
-        <section class="py-12 bg-light-blue-3">
-            <div class="container mx-auto px-6 py-8">
-                <h2 class="text-40px font-literata font-medium text-center text-primary mb-3">What Our Customers Say</h2>
-                <p class="text-center font-montserrat text-lg text-primary/80 tracking-wide">We've served 15631+ customers worldwide and counting</p>
+        <section class="py-5 xl:py-12 bg-light-blue-3">
+            <div class="container mx-auto px-4 py-8">
+                <h2 class="text-2xl md:text-3xl lg:text-40px font-literata font-medium text-center text-primary mb-3">What Our Customers Say</h2>
+                <p class="text-center font-montserrat text-base md:text-lg text-primary/80 tracking-wide">We've served 15631+ customers worldwide and counting</p>
             </div>
-            <div class="container mx-auto md:px-8 lg:px-44 mb-10">
-                <div class="grid grid-cols-1 md:grid-cols-3 md:gap-6 lg:gap-8">
+            <div class="container mx-auto px-4 md:px-4 lg:px-14 xl:px-24 2xl:px-44 mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
                     <!-- Review Card 1 -->
                     <div class="bg-white rounded-lg p-6 shadow-lg h-full flex flex-col">
                         <h3 class="font-montserrat text-lg font-semibold mb-3 text-primary">Reliable, definitely recommend!</h3>
@@ -741,7 +739,7 @@
                 </div>
             </div>
             <a href="#" class="flex justify-center cursor-pointer">
-                <svg width="311" height="48" viewBox="0 0 311 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-2/3 md:w-2/5 lg:w-60" viewBox="0 0 311 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="311" height="48" rx="5" fill="#00B67A"/>
                     <g clip-path="url(#clip0_107_42)">
                     <path d="M208.682 18.5061H218.577V20.3523H214.686V30.7304H212.547V20.3523H208.673V18.5061H208.682ZM218.154 21.8792H219.983V23.5873H220.018C220.078 23.3458 220.19 23.1129 220.354 22.8886C220.518 22.6643 220.716 22.4486 220.949 22.2674C221.182 22.0776 221.441 21.931 221.726 21.8102C222.011 21.6981 222.304 21.6377 222.597 21.6377C222.821 21.6377 222.985 21.6463 223.072 21.6549C223.158 21.6635 223.244 21.6808 223.339 21.6894V23.5701C223.201 23.5442 223.063 23.527 222.916 23.5097C222.77 23.4924 222.632 23.4838 222.494 23.4838C222.166 23.4838 221.855 23.5528 221.562 23.6822C221.269 23.8116 221.018 24.0101 220.803 24.2602C220.587 24.519 220.415 24.8296 220.285 25.2092C220.156 25.5888 220.095 26.0201 220.095 26.5119V30.7218H218.146V21.8792H218.154ZM232.302 30.7304H230.387V29.4968H230.353C230.111 29.9454 229.757 30.2991 229.283 30.5665C228.808 30.8339 228.325 30.972 227.834 30.972C226.669 30.972 225.824 30.6873 225.306 30.1093C224.788 29.5313 224.53 28.6599 224.53 27.4953V21.8792H226.479V27.3055C226.479 28.0819 226.626 28.6341 226.928 28.9533C227.221 29.2725 227.644 29.4364 228.179 29.4364C228.593 29.4364 228.929 29.376 229.205 29.2466C229.481 29.1172 229.706 28.9533 229.87 28.7376C230.042 28.5305 230.163 28.2717 230.241 27.9784C230.318 27.6851 230.353 27.3659 230.353 27.0208V21.8878H232.302V30.7304ZM235.624 27.8922C235.684 28.4615 235.9 28.8584 236.271 29.0913C236.65 29.3156 237.099 29.4364 237.625 29.4364C237.806 29.4364 238.013 29.4191 238.246 29.3932C238.479 29.3674 238.704 29.307 238.902 29.2293C239.109 29.1517 239.273 29.0309 239.411 28.8756C239.54 28.7203 239.601 28.5219 239.592 28.2717C239.583 28.0216 239.489 27.8145 239.316 27.6592C239.143 27.4953 238.928 27.3745 238.66 27.271C238.393 27.1761 238.091 27.0899 237.746 27.0208C237.401 26.9518 237.056 26.8742 236.702 26.7965C236.34 26.7189 235.986 26.6154 235.65 26.5032C235.313 26.3911 235.011 26.2358 234.744 26.0374C234.476 25.8476 234.261 25.5974 234.105 25.2955C233.941 24.9935 233.864 24.6226 233.864 24.174C233.864 23.6909 233.985 23.294 234.218 22.9662C234.45 22.6384 234.752 22.3796 235.106 22.1812C235.468 21.9827 235.865 21.8447 236.305 21.7584C236.745 21.6808 237.168 21.6377 237.565 21.6377C238.022 21.6377 238.462 21.6894 238.876 21.7843C239.29 21.8792 239.67 22.0345 240.006 22.2588C240.343 22.4745 240.619 22.7592 240.843 23.1042C241.067 23.4493 241.205 23.872 241.266 24.3638H239.23C239.135 23.8979 238.928 23.5787 238.591 23.4234C238.255 23.2595 237.867 23.1819 237.435 23.1819C237.297 23.1819 237.133 23.1905 236.944 23.2164C236.754 23.2423 236.581 23.2854 236.409 23.3458C236.245 23.4062 236.107 23.5011 235.986 23.6218C235.874 23.7426 235.814 23.8979 235.814 24.0963C235.814 24.3379 235.9 24.5277 236.064 24.6743C236.228 24.821 236.443 24.9418 236.711 25.0453C236.978 25.1402 237.28 25.2264 237.625 25.2955C237.97 25.3645 238.324 25.4421 238.686 25.5198C239.04 25.5974 239.385 25.7009 239.73 25.8131C240.075 25.9252 240.377 26.0805 240.645 26.2789C240.912 26.4773 241.128 26.7189 241.292 27.0122C241.456 27.3055 241.542 27.6765 241.542 28.1078C241.542 28.6341 241.421 29.074 241.179 29.445C240.938 29.8073 240.627 30.1093 240.248 30.3336C239.868 30.5579 239.437 30.7304 238.971 30.8339C238.505 30.9374 238.039 30.9892 237.582 30.9892C237.021 30.9892 236.504 30.9288 236.029 30.7994C235.555 30.67 235.141 30.4802 234.796 30.23C234.45 29.9712 234.174 29.652 233.976 29.2725C233.778 28.8929 233.674 28.4356 233.657 27.9094H235.624V27.8922ZM242.059 21.8792H243.535V19.2221H245.484V21.8792H247.244V23.3372H245.484V28.0647C245.484 28.2717 245.493 28.4443 245.51 28.5996C245.527 28.7462 245.571 28.8756 245.631 28.9791C245.691 29.0827 245.786 29.1603 245.916 29.2121C246.045 29.2638 246.209 29.2897 246.433 29.2897C246.571 29.2897 246.709 29.2897 246.847 29.2811C246.985 29.2725 247.123 29.2552 247.261 29.2207V30.7304C247.046 30.7563 246.83 30.7735 246.632 30.7994C246.425 30.8253 246.218 30.8339 246.002 30.8339C245.484 30.8339 245.07 30.7822 244.76 30.6873C244.449 30.5924 244.199 30.4457 244.026 30.2559C243.845 30.0661 243.733 29.8332 243.664 29.5485C243.604 29.2638 243.56 28.936 243.552 28.5737V23.3544H242.077V21.8792H242.059ZM248.624 21.8792H250.471V23.0784H250.505C250.781 22.5607 251.161 22.1984 251.652 21.9741C252.144 21.7498 252.67 21.6377 253.248 21.6377C253.947 21.6377 254.551 21.7584 255.069 22.0086C255.586 22.2502 256.018 22.5866 256.363 23.018C256.708 23.4493 256.958 23.9497 257.131 24.519C257.303 25.0884 257.389 25.7009 257.389 26.3479C257.389 26.9432 257.312 27.5212 257.156 28.0733C257.001 28.6341 256.768 29.1258 256.458 29.5571C256.147 29.9885 255.75 30.3249 255.267 30.5837C254.784 30.8426 254.223 30.972 253.568 30.972C253.283 30.972 252.998 30.9461 252.714 30.8943C252.429 30.8426 252.153 30.7563 251.894 30.6441C251.635 30.532 251.385 30.3853 251.169 30.2042C250.945 30.023 250.764 29.816 250.609 29.583H250.574V34H248.624V21.8792ZM255.44 26.3134C255.44 25.9166 255.388 25.5284 255.284 25.1488C255.181 24.7692 255.026 24.4414 254.819 24.1481C254.612 23.8548 254.353 23.6218 254.051 23.4493C253.74 23.2768 253.386 23.1819 252.99 23.1819C252.17 23.1819 251.549 23.4666 251.135 24.0359C250.721 24.6053 250.514 25.3645 250.514 26.3134C250.514 26.762 250.565 27.1761 250.678 27.5557C250.79 27.9353 250.945 28.2631 251.169 28.5392C251.385 28.8152 251.644 29.0309 251.946 29.1862C252.248 29.3501 252.601 29.4277 252.998 29.4277C253.447 29.4277 253.818 29.3328 254.128 29.1517C254.439 28.9705 254.689 28.729 254.888 28.4443C255.086 28.151 255.233 27.8231 255.319 27.4522C255.397 27.0812 255.44 26.7016 255.44 26.3134ZM258.882 18.5061H260.831V20.3523H258.882V18.5061ZM258.882 21.8792H260.831V30.7304H258.882V21.8792ZM262.574 18.5061H264.524V30.7304H262.574V18.5061ZM270.502 30.972C269.795 30.972 269.165 30.8512 268.613 30.6183C268.061 30.3853 267.595 30.0575 267.207 29.652C266.827 29.238 266.534 28.7462 266.335 28.1768C266.137 27.6075 266.034 26.9777 266.034 26.2962C266.034 25.6233 266.137 25.0021 266.335 24.4328C266.534 23.8634 266.827 23.3717 267.207 22.9576C267.586 22.5435 268.061 22.2243 268.613 21.9914C269.165 21.7584 269.795 21.6377 270.502 21.6377C271.21 21.6377 271.839 21.7584 272.392 21.9914C272.944 22.2243 273.409 22.5521 273.798 22.9576C274.177 23.3717 274.471 23.8634 274.669 24.4328C274.867 25.0021 274.971 25.6233 274.971 26.2962C274.971 26.9777 274.867 27.6075 274.669 28.1768C274.471 28.7462 274.177 29.238 273.798 29.652C273.418 30.0661 272.944 30.3853 272.392 30.6183C271.839 30.8512 271.21 30.972 270.502 30.972ZM270.502 29.4277C270.934 29.4277 271.313 29.3328 271.632 29.1517C271.952 28.9705 272.21 28.729 272.417 28.4356C272.624 28.1423 272.771 27.8059 272.875 27.4349C272.97 27.064 273.021 26.6844 273.021 26.2962C273.021 25.9166 272.97 25.5456 272.875 25.1661C272.78 24.7865 272.624 24.4587 272.417 24.1653C272.21 23.872 271.952 23.6391 271.632 23.4579C271.313 23.2768 270.934 23.1819 270.502 23.1819C270.071 23.1819 269.691 23.2768 269.372 23.4579C269.053 23.6391 268.794 23.8807 268.587 24.1653C268.38 24.4587 268.233 24.7865 268.13 25.1661C268.035 25.5456 267.983 25.9166 267.983 26.2962C267.983 26.6844 268.035 27.064 268.13 27.4349C268.225 27.8059 268.38 28.1423 268.587 28.4356C268.794 28.729 269.053 28.9705 269.372 29.1517C269.691 29.3415 270.071 29.4277 270.502 29.4277ZM275.54 21.8792H277.016V19.2221H278.965V21.8792H280.725V23.3372H278.965V28.0647C278.965 28.2717 278.974 28.4443 278.991 28.5996C279.008 28.7462 279.051 28.8756 279.112 28.9791C279.172 29.0827 279.267 29.1603 279.397 29.2121C279.526 29.2638 279.69 29.2897 279.914 29.2897C280.052 29.2897 280.19 29.2897 280.328 29.2811C280.466 29.2725 280.604 29.2552 280.742 29.2207V30.7304C280.527 30.7563 280.311 30.7735 280.113 30.7994C279.906 30.8253 279.698 30.8339 279.483 30.8339C278.965 30.8339 278.551 30.7822 278.241 30.6873C277.93 30.5924 277.68 30.4457 277.507 30.2559C277.326 30.0661 277.214 29.8332 277.145 29.5485C277.085 29.2638 277.041 28.936 277.033 28.5737V23.3544H275.558V21.8792H275.54Z" fill="white"/>
@@ -759,11 +757,11 @@
         </section>
 
         <!-- We’ve been featured in -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto md:px-20 lg:px-[180px]">
-                <h2 class="text-center font-montserrat text-primary text-2xl font-medium uppercase mb-10">We've been featured in</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[150px] md:w-[180px] lg:w-[228px]" viewBox="0 0 228 27" fill="none">
+        <section class="py-6 md:py-8 lg:py-12 2xl:py-20 bg-gray-50">
+            <div class="container mx-auto px-6 md:px-20 lg:px-24 xl:px-[180px]">
+                <h2 class="text-center font-montserrat text-primary text-lg lg:text-2xl font-medium uppercase mb-5 md:mb-8">We've been featured in</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-10 items-center justify-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[130px] md:w-[180px] lg:w-[228px]" viewBox="0 0 228 27" fill="none">
                         <path d="M14.2404 11.0073C14.2404 14.0255 14.204 17.0437 14.2631 20.0619C14.2631 20.971 14.0358 21.2073 13.1222 21.1982C9.39492 21.1437 5.66462 21.1437 1.93128 21.1982C1.09492 21.2028 0.872192 20.9528 0.872192 20.1346C0.908556 13.9982 0.908556 7.86339 0.872192 1.73006C0.872192 0.848239 1.08128 0.566422 2.00856 0.580058C5.73583 0.628543 9.46613 0.628543 13.1995 0.580058C14.054 0.580058 14.2676 0.843694 14.2586 1.65733C14.2176 4.77551 14.2404 7.89369 14.2404 11.0073Z" fill="#D02800"/>
                         <path d="M165.459 0.693743C166.786 0.693743 168.113 0.634652 169.436 0.693743C171.709 0.811925 173.672 1.60283 174.836 3.66192C176.263 6.23011 175.177 9.41192 172.259 10.7756C171.045 11.3437 171.118 11.8665 171.563 12.8256C172.65 15.0093 173.998 17.053 175.577 18.9119C175.72 19.1077 175.915 19.2593 176.14 19.3494C176.365 19.4394 176.611 19.4642 176.849 19.421C177.436 19.3528 177.59 19.6165 177.604 20.1756C177.618 20.7347 177.34 20.9074 176.813 20.8937C175.831 20.8937 174.845 20.8392 173.868 20.8937C173.581 20.9164 173.293 20.855 173.041 20.7169C172.788 20.5789 172.581 20.3702 172.445 20.1165C170.657 17.7419 169.162 15.1594 167.995 12.4256C167.472 11.121 166.536 11.5165 165.722 11.5483C164.745 11.6165 165.304 12.4847 165.268 12.9483C165.186 14.7665 165.236 16.5483 165.231 18.3483C165.231 18.9256 165.09 19.5892 166.077 19.4165C166.777 19.2892 166.686 19.7937 166.718 20.2392C166.759 20.7756 166.513 20.8892 166.027 20.8801C164.359 20.8801 162.69 20.8801 161.027 20.8801C160.622 20.8801 160.24 20.9028 160.263 20.2937C160.286 19.8119 160.295 19.3847 160.949 19.471C161.677 19.571 161.704 19.1528 161.704 18.6028C161.704 13.3937 161.704 8.18465 161.704 2.97556C161.704 2.43465 161.704 1.99829 160.959 2.09374C160.318 2.17556 160.281 1.75283 160.268 1.26192C160.245 0.521016 160.781 0.698289 161.177 0.693743C162.613 0.684652 164.054 0.693743 165.459 0.693743ZM165.245 6.08011V7.68465C165.245 10.0574 165.245 9.95738 167.709 10.0892C169.527 10.1847 170.704 9.45738 171.427 7.88011C171.802 7.13635 171.949 6.29857 171.85 5.47152C171.752 4.64446 171.412 3.86484 170.872 3.23011C170.086 2.21193 167.122 1.46647 165.681 2.16647C164.659 2.66193 165.445 3.89374 165.263 4.77102C165.212 5.20556 165.205 5.6443 165.245 6.08011Z" fill="#040404"/>
                         <path d="M21.8722 0.694048C23.3358 0.798594 25.1131 0.494048 26.8722 0.898594C29.4858 1.50314 31.2449 3.02587 31.9358 5.62587C32.8949 9.11992 32.854 12.813 31.8177 16.285C30.9722 19.1441 28.5449 20.8031 25.2131 20.8713C22.7086 20.9259 20.2131 20.8986 17.704 20.8713C17.2995 20.8713 16.6722 21.1759 16.6131 20.3304C16.5631 19.6486 16.7677 19.3168 17.4949 19.4213C18.1358 19.5077 18.0449 19.044 18.0449 18.6668C18.0449 13.4122 18.0449 8.15314 18.0449 2.89859C18.0449 2.2395 17.8267 2.04405 17.2086 2.09859C16.5904 2.15314 16.6313 1.75768 16.5995 1.33496C16.5631 0.780412 16.8495 0.689503 17.3086 0.694048C18.7313 0.703139 20.154 0.694048 21.8722 0.694048ZM21.5722 10.7759C21.5722 13.3577 21.5722 15.9395 21.5722 18.5031C21.5722 18.8713 21.3313 19.3395 22.0677 19.485C25.4404 20.1668 27.7767 18.7713 28.5904 15.4259C29.2304 12.7148 29.3139 9.90199 28.8358 7.15769C28.1722 3.10314 26.7131 2.00314 22.5586 2.07587C21.6767 2.07587 21.5313 2.39405 21.5449 3.16223C21.5995 5.69859 21.5722 8.23496 21.5722 10.7759Z" fill="#030303"/>
@@ -781,7 +779,7 @@
                         <path d="M62.4131 10.7757C62.4131 13.3075 62.4131 15.8393 62.4131 18.3711C62.4131 19.0393 62.4586 19.5484 63.3222 19.403C64.0677 19.2757 64.0495 19.7348 64.0722 20.2711C64.104 21.0166 63.6177 20.8575 63.1904 20.862C61.4722 20.862 59.754 20.862 58.0359 20.862C57.4995 20.862 57.1268 20.862 57.1268 20.1257C57.1268 19.3893 57.5222 19.3302 58.0359 19.3984C58.7949 19.4984 58.9449 19.1257 58.9177 18.4893C58.8995 13.3378 58.8995 8.17871 58.9177 3.01204C58.9177 2.32568 58.7268 2.00295 58.0086 2.10295C57.4086 2.18477 57.1222 1.98022 57.1268 1.31204C57.1268 0.471132 57.7177 0.707495 58.1449 0.70295C59.8177 0.684768 61.4843 0.684768 63.1449 0.70295C63.5268 0.70295 64.054 0.484767 64.054 1.25295C64.054 1.83477 63.9495 2.20749 63.254 2.10295C62.3177 1.96659 62.3949 2.59386 62.3949 3.20295C62.4177 5.73022 62.4131 8.26204 62.4131 10.7757Z" fill="#010101"/>
                     </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[150px] md:w-[120px] lg:w-[161px]" viewBox="0 0 161 59" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[130px] md:w-[120px] lg:w-[161px]" viewBox="0 0 161 59" fill="none">
                         <path d="M66.5543 12.9727C69.0088 10.2682 72.0906 9.75909 75.4179 10.7C78.7452 11.6409 80.277 14.1955 80.9088 17.4045C81.0504 18.1248 81.1235 18.8569 81.127 19.5909C81.127 24.5545 81.127 29.5182 81.1497 34.4818C81.1497 35.1818 81.0043 35.4455 80.2406 35.4273C77.9861 35.3788 75.7285 35.3788 73.4679 35.4273C72.6952 35.4273 72.4634 35.2455 72.4725 34.45C72.5134 30.5273 72.4997 26.6045 72.4725 22.6864C72.4797 22.0272 72.4295 21.3687 72.3225 20.7182C72.0543 19.2773 71.1361 18.4455 69.8225 18.3227C69.1627 18.2246 68.4892 18.3562 67.9149 18.6955C67.3406 19.0348 66.9004 19.5611 66.6679 20.1864C66.3722 20.9678 66.2407 21.8018 66.2816 22.6364C66.2816 26.5591 66.2816 30.4773 66.3043 34.4C66.3043 35.2409 66.0725 35.45 65.2588 35.4318C63.0709 35.3712 60.8831 35.3712 58.6952 35.4318C57.8497 35.4318 57.5861 35.2364 57.5906 34.35C57.627 26.5773 57.6179 18.8 57.5906 11.0273C57.5906 7.35 57.5543 3.67727 57.5361 0H57.9543C58.2588 0.336364 58.6634 0.186364 59.027 0.190909C61.4316 0.190909 63.8407 0.218182 66.2497 0.227273L66.2906 12.9545L66.4179 13.1136L66.5543 12.9727Z" fill="#3E0289"/>
                         <path d="M0.217926 10.8364C2.9452 10.8364 5.70429 10.9001 8.4452 10.8637C9.28156 10.8637 9.71793 11.0546 10.0316 11.9046C11.5407 15.9319 13.1316 19.9273 14.6952 23.9319C14.8316 24.2728 14.977 24.6092 15.1497 24.9728C15.527 24.7273 15.5543 24.3546 15.677 24.0637C17.2952 19.9728 18.9225 15.8819 20.5088 11.7637C20.5632 11.4784 20.7252 11.2249 20.9612 11.0557C21.1973 10.8865 21.4894 10.8145 21.777 10.8546C24.1361 10.9137 26.4997 10.8773 28.8634 10.8773C30.0543 10.8773 30.0588 10.8773 29.6043 11.9728L16.8225 42.7273C16.127 44.4682 16.127 44.4682 14.2543 44.4682H7.99974C6.88611 44.4682 6.88156 44.4682 7.33156 43.3955C8.33156 41.0319 9.33156 38.6682 10.3497 36.3092C10.4589 36.0998 10.5197 35.8685 10.5275 35.6325C10.5354 35.3965 10.4902 35.1617 10.3952 34.9455C7.11944 27.2485 3.85277 19.5501 0.595199 11.8501C0.50429 11.6364 0.472471 11.3637 0.217926 11.2546V10.8364Z" fill="#40048A"/>
                         <path d="M160.218 0.454545C157.273 7.52727 154.329 14.6045 151.386 21.6864C151.168 22.2227 150.823 22.2727 150.336 22.2727C147.523 22.2727 144.704 22.2273 141.895 22.2727C140.9 22.2727 140.913 21.9955 141.236 21.2273C144.054 14.5091 146.854 7.78333 149.636 1.05C149.844 0.738482 149.959 0.374359 149.968 0L150.386 0C150.691 0.35 151.1 0.195455 151.463 0.2C154.027 0.2 156.595 0.2 159.159 0.2C159.523 0.213636 159.936 0.0727273 160.218 0.454545Z" fill="#40048A"/>
@@ -795,7 +793,7 @@
                         <path d="M143.668 24.3499C144.41 24.3419 145.147 24.4829 145.833 24.7645C146.52 25.0461 147.144 25.4626 147.667 25.9895C148.19 26.5163 148.602 27.1426 148.878 27.8315C149.155 28.5204 149.29 29.2577 149.277 29.9999C149.267 31.5608 148.641 33.0545 147.533 34.1548C146.426 35.2551 144.929 35.8727 143.368 35.8727C142.619 35.8729 141.877 35.7233 141.187 35.4328C140.497 35.1422 139.871 34.7165 139.348 34.1808C138.824 33.6451 138.413 33.0101 138.139 32.3131C137.865 31.6162 137.732 30.8715 137.75 30.1227C137.778 28.5754 138.416 27.1017 139.524 26.0211C140.631 24.9406 142.12 24.3401 143.668 24.3499Z" fill="#40048A"/>
                     </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[150px] md:w-[155px] lg:w-[139px]" viewBox="0 0 139 29" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[130px] md:w-[155px] lg:w-[139px]" viewBox="0 0 139 29" fill="none">
                         <path d="M43.2925 28.0645H36.0197C37.7106 27.2964 37.4516 25.7918 37.4379 24.4282C37.4152 21.8509 37.4379 19.2736 37.4379 16.7009C37.4379 14.3873 36.1606 13.3509 33.8697 13.81C32.4516 14.0918 32.4516 14.0918 32.4516 15.5373C32.4516 18.7191 32.4516 21.9009 32.4516 25.0827C32.4516 26.2782 32.6152 27.3555 33.7652 28.0509H26.5697C28.2561 27.2191 28.1152 25.8645 28.1106 24.5373C28.0834 18.3736 28.0561 12.21 28.0834 6.04636C28.0834 4.72363 27.6879 3.77363 26.3243 3.31909C28.4925 3.11454 30.6606 2.99181 32.5061 1.22363V13.2555C32.8925 13.1327 33.1243 13.0691 33.3425 12.9873C34.2475 12.595 35.1731 12.2521 36.1152 11.96C36.7538 11.7849 37.4239 11.7571 38.0749 11.8787C38.7258 12.0004 39.3406 12.2683 39.8729 12.6623C40.4052 13.0563 40.8411 13.566 41.1476 14.153C41.4542 14.74 41.6234 15.389 41.6425 16.0509C41.747 18.8827 41.6879 21.7191 41.6834 24.5509C41.6697 25.9509 42.0243 27.1827 43.2925 28.0645Z" fill="black"/>
                         <path d="M23.2015 1.84155V10.8188C22.6472 8.77963 21.6682 6.88058 20.3288 5.2461C18.5106 3.16428 16.3424 1.837 13.4743 1.89609C10.6061 1.95519 8.70153 3.2961 7.60608 5.86428C6.79484 7.88333 6.43342 10.0549 6.54699 12.2279C6.61972 14.9552 6.62426 17.6825 6.88335 20.3597C7.08335 22.437 7.8879 24.3688 9.6379 25.6915C12.4197 27.7915 17.1379 28.2915 20.547 24.1325C21.789 22.5625 22.6984 20.7561 23.2197 18.8234C23.2788 18.6279 23.3243 18.4325 23.3834 18.2416C23.3834 18.1915 23.4424 18.1552 23.5379 18.0325V27.7506C23.4879 27.7506 23.4106 27.7506 23.3924 27.7188C22.4152 26.0188 21.8424 25.8188 20.0243 26.5961C18.3243 27.3188 16.6424 28.1234 14.7515 28.1643C5.82881 28.3552 -0.389376 21.1688 0.26517 13.7825C0.801534 7.77337 4.47426 2.62791 11.4697 1.41428C14.0093 0.901217 16.647 1.23493 18.9788 2.36428C19.3697 2.55519 19.7697 2.72791 20.1697 2.8961C21.7379 3.55519 22.1833 3.41882 23.2015 1.84155Z" fill="black"/>
                         <path d="M74.8152 28.0279C76.5288 27.2961 76.7743 26.0688 76.7425 24.6006C76.6834 21.6188 76.7425 18.637 76.7425 15.6597C76.7499 15.2305 76.6051 14.8125 76.3339 14.4797C76.0627 14.1469 75.6825 13.9209 75.2606 13.8415L80.9106 12.3279L80.9925 13.437C81.5801 13.1354 82.1875 12.8742 82.8106 12.6552C83.8925 12.3642 85.0016 11.9779 86.097 11.987C88.5152 11.987 90.5061 14.2006 90.5243 16.6824C90.5243 19.4097 90.5606 22.1824 90.5243 24.9279C90.5015 26.187 90.747 27.2597 92.1106 28.0097H84.647C86.0106 27.1779 86.2061 25.9915 86.1834 24.6642C86.1379 21.937 86.1834 19.2097 86.1834 16.4824C86.1834 14.487 85.2743 13.6324 83.2743 13.7552H83.1015C81.0652 13.9461 80.9697 14.0415 80.9743 16.0779C80.9743 19.087 80.9819 22.0961 80.997 25.1052C80.997 26.7506 81.1106 26.9961 82.4288 28.0324L74.8152 28.0279Z" fill="black"/>
@@ -814,7 +812,7 @@
                         <path d="M62.7834 1.20954V3.38227C62.3976 2.83628 61.9754 2.31693 61.5198 1.82772C61.2796 1.57116 60.9806 1.37682 60.6486 1.26146C60.3167 1.1461 59.9616 1.11317 59.6141 1.1655C59.2666 1.21783 58.937 1.35385 58.6537 1.56186C58.3704 1.76987 58.1419 2.04362 57.9879 2.35954C57.5419 3.12798 57.3032 3.99914 57.2952 4.88762C57.2872 5.77611 57.5103 6.65141 57.9425 7.42772C58.8198 9.10045 60.6698 9.24591 61.8516 7.79591C62.2027 7.31384 62.5274 6.81311 62.8243 6.29591V8.69136C62.3508 8.73322 61.8822 8.81843 61.4243 8.94591C60.5583 9.29044 59.6052 9.35107 58.7025 9.11907C57.7999 8.88706 56.9942 8.37441 56.4016 7.655C55.8459 6.87292 55.5518 5.93505 55.5616 4.97569C55.5714 4.01632 55.8845 3.08465 56.4561 2.31409C57.5243 0.900452 59.538 0.414087 61.4016 1.06863C61.8557 1.16588 62.319 1.21313 62.7834 1.20954Z" fill="black"/>
                     </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[150px] md:w-[140px] lg:w-[159px]" viewBox="0 0 159 31" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[130px] md:w-[140px] lg:w-[159px]" viewBox="0 0 159 31" fill="none">
                         <path d="M16.6596 5.77715C16.4256 4.88526 16.0788 4.02684 15.6278 3.2226C15.1414 2.44988 14.8505 2.23624 13.1914 2.23624H10.4232V16.6544C10.4232 19.0135 10.6732 19.3135 13.4732 19.4953V20.3862H4.58233V19.4771C7.3096 19.2953 7.55051 19.0226 7.55051 16.6362V2.23624H5.00051C3.3596 2.23624 2.88233 2.43169 2.36415 3.29079C1.93586 4.08302 1.59157 4.91786 1.33688 5.78169H0.400513C0.586876 3.89988 0.768694 1.94078 0.855058 0.327148H1.57779C2.03233 1.03624 2.35506 1.0226 3.20051 1.0226H15.0187C15.846 1.0226 16.1187 0.890785 16.5732 0.327148H17.3187C17.3187 1.69078 17.4414 3.92715 17.5914 5.69533L16.6596 5.77715Z" fill="#010101"/>
                         <path d="M29.2641 8.59987C27.7641 8.75441 27.6278 8.86805 27.6278 10.4635V17.8226C27.6278 19.418 27.7823 19.5317 29.2641 19.668V20.3862H23.3278V19.668C24.846 19.4771 24.9641 19.418 24.9641 17.8226V14.1862H19.7732V17.8226C19.7732 19.418 19.946 19.5135 21.3869 19.668V20.3862H15.4778V19.668C16.9005 19.5135 17.1096 19.418 17.1096 17.8226V10.4635C17.1096 8.86805 16.9369 8.7135 15.4778 8.59987V7.88623H21.3869V8.59987C19.9278 8.73168 19.7732 8.86805 19.7732 10.4635V13.1908H24.9641V10.4635C24.9641 8.86805 24.7687 8.75441 23.3278 8.59987V7.88623H29.2641V8.59987Z" fill="#010101"/>
                         <path d="M41.4505 17.1137C41.3551 17.6319 40.8187 19.841 40.646 20.3774H30.646V19.6865C32.396 19.5137 32.5096 19.4183 32.5096 17.8046V10.4637C32.5096 8.82737 32.2824 8.71373 30.9733 8.6001V7.88646H37.2415C39.2596 7.88646 39.9324 7.88646 40.2051 7.8501C40.2051 8.19555 40.3187 9.77283 40.396 10.9637L39.646 11.0592C39.4939 10.4123 39.2091 9.80396 38.8096 9.27283C38.4642 8.88646 38.2142 8.77283 37.2324 8.77283H35.9915C35.2642 8.77283 35.1869 8.80919 35.1869 9.46374V13.4819H37.0687C38.146 13.4819 38.3369 13.191 38.6278 11.8274H39.3778V16.1137H38.6278C38.3187 14.691 38.1733 14.4592 37.0505 14.4592H35.1733V17.7637C35.1733 19.091 35.2096 19.4956 36.4051 19.5137H37.7687C38.8414 19.5137 39.1324 19.3819 39.5551 18.8637C40.0275 18.2763 40.4217 17.6299 40.7278 16.941L41.4505 17.1137Z" fill="#010101"/>
@@ -859,17 +857,17 @@
         </section>
 
         <!-- Follow us on Instagram -->
-        <section class="py-12">
+        <section class="py-6 md:py-8 lg:py-12">
             <div class="container mx-auto">
-                <h2 class="text-center font-medium font-montserrat text-primary text-3xl">Follow us on Instagram</h2>
+                <h2 class="text-center font-medium font-montserrat text-primary text-xl md:text-3xl">Follow us on Instagram</h2>
             </div>
-            <div class="flex items-center justify-center mt-6 gap-2">
+            <div class="flex items-center justify-center mt-2 md:mt-4 gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.209 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.209 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="black"/>
                 </svg>
                 <a href="#" class="font-montserrat text-primary underline">@thejewelstore</a>
             </div>
-            <div class="container mx-auto mt-10">
+            <div class="container mx-auto mt-4 md:mt-10">
                 <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
                     <div>
                         <img class="w-full h-5/6 object-cover" src="/images/instagram/Image-1.webp" alt="Instagram post 1">

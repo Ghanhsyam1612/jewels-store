@@ -3,70 +3,81 @@
 @section('content')
 
 <div class="container pt-8">
-    <nav class="flex items-center text-sm font-montserrat mb-4 bg-light-grey-1 px-40 py-3">
-        <a href="/" class="text-dark-blue text-xs hover:underline">Home</a> 
+    <nav class="flex items-center text-sm font-montserrat mb-4 px-40 py-3">
+        <a href="/" class="text-primary text-xs font-medium">Home</a>
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z" fill="#0F0F0F"></path> </g></svg>
-        <span class="text-dark-blue text-xs">Calibrated Diamond</span>
+        <span class="text-primary text-xs">Calibrated Diamond</span>
     </nav>
 
     <div class="flex flex-col md:flex-row gap-8 px-40 mb-12">
         <!-- Left side - Photo -->
-        <div class="md:w-1/2">
+        <div class="md:w-1/2 relative">
             <img src="/images/Buy-Loose-Melee-Wholesale-Diamond.jpg" alt="Diamond" class="w-full">
+            <!-- Wishlist heart icon -->
+            <div class="absolute top-2 right-2">
+                <button id="wishlist-heart" onclick="toggleHeart()" class="bg-white rounded-full p-2 shadow-md cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="heart-icon" class="h-6 w-6 text-black" viewBox="0 0 24 24" fill="black">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.42 3.42 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87C14.96 5.99 16.46 5 18 5c2.08 0 3.5 1.42 3.5 3.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
+        
+        
+        
 
         <!-- Right side - Details -->
         <div class="md:w-1/2 space-y-4">
-            <h1 class="text-xl font-montserrat font-semibold mb-4">Calibrated Lab Grown Diamond</h1>
+            <h1 class="text-xl text-primary font-montserrat font-semibold mb-4">Calibrated Lab Grown Diamond</h1>
             <!-- Size and Purity Dropdowns -->
             <div class="flex gap-4 mb-4">
                 <div class="w-1/2">
-                    <label class="block text-13px font-montserrat font-semibold mb-2">Size</label>
-                    <select class="w-full p-2 border border-gray-300">
-                        <option class="text-xs">Choose an option</option>
-                        <option class="text-xs" se>1 MM-1.1 MM (200 diamonds/Ct)</option>
-                        <option class="text-xs">1.1 MM-1.2 MM (155 diamonds/Ct)</option>
-                        <option class="text-xs">1.2 MM-1.3 MM (118 diamonds/Ct)</option>
-                        <option class="text-xs">1.3 MM-1.4 MM (96 diamonds/Ct)</option>
-                        <option class="text-xs">1.4 MM-1.5 MM (80 diamonds/Ct)</option>
-                        <option class="text-xs">1.5 MM-1.6 MM (69 diamonds/Ct)</option>
-                        <option class="text-xs">1.6 MM-1.7 MM (59 diamonds/Ct)</option>
-                        <option class="text-xs">1.7 MM-1.8 MM (43 diamonds/Ct)</option>
-                        <option class="text-xs">1.8 MM-1.9 MM (37 diamonds/Ct)</option>
-                        <option class="text-xs">1.9 MM-2 MM (33 diamonds/Ct)</option>
-                        <option class="text-xs">2 MM-2.1 MM (29 diamonds/Ct)</option>
-                        <option class="text-xs">2.1 MM-2.2 MM (25 diamonds/Ct)</option>
-                        <option class="text-xs">2.2 MM-2.3 MM (22 diamonds/Ct)</option>
-                        <option class="text-xs">2.3 MM-2.4 MM (19 diamonds/Ct)</option>
-                        <option class="text-xs">2.4 MM-2.5 MM (17 diamonds/Ct)</option>
-                        <option class="text-xs">2.5 MM-2.6 MM (14 diamonds/Ct)</option>
-                        <option class="text-xs">2.6 MM-2.7 MM (13 diamonds/Ct)</option>
-                        <option class="text-xs">2.7 MM-2.8 MM (12 diamonds/Ct)</option>
-                        <option class="text-xs">2.8 MM-2.9 MM (11 diamonds/Ct)</option>
-                        <option class="text-xs">2.9 MM-3 MM (10 diamonds/Ct)</option>
-                        <option class="text-xs">3 MM-3.1 MM (9 diamonds/Ct)</option>
-                        <option class="text-xs">3.1 MM-3.2 MM (8 diamonds/Ct)</option>
-                        <option class="text-xs">3.2 MM-3.3 MM (7 diamonds/Ct)</option>
-                        <option class="text-xs">3.3 MM-3.4 MM (7 diamonds/Ct)</option>
-                        <option class="text-xs">3.4 MM-3.5 MM (6 diamonds/Ct)</option>
-                        <option class="text-xs">3.5 MM-3.6 MM (6 diamonds/Ct)</option>
-                        <option class="text-xs">3.6 MM-3.7 MM (6 diamonds/Ct)</option>
-                        <option class="text-xs">3.7 MM-3.8 MM (5 diamonds/Ct)</option>
-                        <option class="text-xs">3.8 MM-3.9 MM (5 diamonds/Ct)</option>
-                        <option class="text-xs">3.9 MM-4 MM (4 diamonds/Ct)</option>
-                        <option class="text-xs">4 MM-4.1 MM (4 diamonds/Ct)</option>
-                        <option class="text-xs">4.1 MM-4.2 MM (4 diamonds/Ct)</option>
-                        <option class="text-xs">4.2 MM-4.3 MM (3 diamonds/Ct)</option>
-                        <option class="text-xs">4.3 MM-4.4 MM (3 diamonds/Ct)</option>
+                    <label class="block text-13px text-primary font-montserrat font-semibold mb-2">Size</label>
+                    <select class="w-full font-montserrat p-2 border border-gray-300 outline-none">
+                        <option class="text-xs text-primary">Choose an option</option>
+                        <option class="text-xs text-primary">1 MM-1.1 MM (200 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.1 MM-1.2 MM (155 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.2 MM-1.3 MM (118 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.3 MM-1.4 MM (96 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.4 MM-1.5 MM (80 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.5 MM-1.6 MM (69 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.6 MM-1.7 MM (59 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.7 MM-1.8 MM (43 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.8 MM-1.9 MM (37 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">1.9 MM-2 MM (33 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2 MM-2.1 MM (29 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.1 MM-2.2 MM (25 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.2 MM-2.3 MM (22 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.3 MM-2.4 MM (19 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.4 MM-2.5 MM (17 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.5 MM-2.6 MM (14 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.6 MM-2.7 MM (13 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.7 MM-2.8 MM (12 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.8 MM-2.9 MM (11 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">2.9 MM-3 MM (10 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3 MM-3.1 MM (9 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.1 MM-3.2 MM (8 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.2 MM-3.3 MM (7 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.3 MM-3.4 MM (7 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.4 MM-3.5 MM (6 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.5 MM-3.6 MM (6 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.6 MM-3.7 MM (6 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.7 MM-3.8 MM (5 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.8 MM-3.9 MM (5 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">3.9 MM-4 MM (4 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">4 MM-4.1 MM (4 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">4.1 MM-4.2 MM (4 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">4.2 MM-4.3 MM (3 diamonds/Ct)</option>
+                        <option class="text-xs text-primary">4.3 MM-4.4 MM (3 diamonds/Ct)</option>
                     </select>
                 </div>
 
                 <div class="w-1/2">
-                    <label class="block text-xs font-montserrat font-semibold mb-2">Purity</label>
-                    <select class="w-full p-2 border border-gray-300">
-                        <option class="text-xs">Choose an option</option>
-                        <option class="text-xs">VS-SI</option>
-                        <option class="text-xs">VVS-VS</option>
+                    <label class="block text-13px text-primary font-montserrat font-semibold mb-2">Purity</label>
+                    <select class="w-full font-montserrat p-2 border border-gray-300 outline-none">
+                        <option class="text-xs text-primary">Choose an option</option>
+                        <option class="text-xs text-primary">VS-SI</option>
+                        <option class="text-xs text-primary">VVS-VS</option>
                     </select>
                 </div>
             </div>
@@ -74,31 +85,31 @@
             <div class="flex gap-4 mb-6">
                 <!-- Colors Dropdown -->
                 <div class="w-1/2">
-                    <label class="block text-xs font-montserrat font-semibold mb-2">Available Colors</label>
-                    <select class="w-full p-2 border border-gray-300">
-                        <option class="text-xs">Choose an option</option>
-                        <option class="text-xs">DEF</option>
-                        <option class="text-xs">GHI</option>
+                    <label class="block text-13px text-primary font-montserrat font-semibold mb-2">Available Colors</label>
+                    <select class="w-full p-2 font-montserrat border border-gray-300 outline-none">
+                        <option class="text-xs text-primary">Choose an option</option>
+                        <option class="text-xs text-primary">DEF</option>
+                        <option class="text-xs text-primary">GHI</option>
                     </select>
                 </div>
 
                 <!-- Quantity -->
                 <div class="w-1/2">
-                    <label class="block text-xs font-montserrat font-semibold mb-2">Quantity</label>
+                    <label class="block text-13px text-primary font-montserrat font-semibold mb-2">Quantity</label>
                     <input type="number" min="1" value="1" class="w-24 p-2 border border-gray-300">
                 </div>
             </div>
 
             <!-- Price -->
             <div class="mb-6 flex items-center">
-                <span class="text-3xl font-montserrat font-semibold text-dark-blue">$1.00</span>
-                <p class="text-2xl font-montserrat">&nbsp;/&nbsp;</p>
-                <p class="text-sm font-montserrat">Per Diamond</p>
+                <span class="text-3xl font-montserrat font-semibold text-primary">$1.00</span>
+                <p class="text-2xl text-primary font-montserrat">&nbsp;/&nbsp;</p>
+                <p class="text-sm text-primary font-montserrat">Per Diamond</p>
             </div>
 
             <div class="flex gap-4">
                 <!-- Add to Bag Button -->
-                <a href="#" class="uppercase font-montserrat font-semibold tracking-wide px-20 py-3 bg-gray-900 text-white rounded-md hover:bg-dark-blue transition duration-300">
+                <a href="#" class="uppercase font-montserrat font-semibold tracking-wide px-20 py-3 bg-primary/90 text-white rounded-md hover:bg-primary transition duration-300">
                     Add To Bag
                 </a>
 
@@ -111,8 +122,8 @@
     </div>
 
     <div class="mx-auto px-4 py-16 bg-light-blue-3">
-        <h2 class="text-4xl font-montserrat font-semibold text-center mb-4">Buy Directly From Us. No Middleman</h2>
-        <p class="text-center font-montserrat text-gray-600 mb-12 max-w-4xl mx-auto">
+        <h2 class="text-4xl text-primary font-montserrat font-semibold text-center mb-4">Buy Directly From Us. No Middleman</h2>
+        <p class="text-center font-montserrat text-primary mb-12 max-w-4xl mx-auto">
             Our prices are lower than the regular sellers because we directly give you diamonds from our factory. No Middleman.
         </p>
 
@@ -124,7 +135,7 @@
                     style="enable-background:new 0 0 44 30;" xml:space="preserve">
                     <style type="text/css">
                         .st0 {
-                            fill: #231F20;
+                            fill: #301934;
                         }
                     </style>
                     <g>
@@ -138,26 +149,26 @@
                         </g>
                     </g>
                 </svg>
-                <h3 class="text-xl font-montserrat font-semibold tracking-wide">Loose Grown Diamond</h3>
-                <p class="font-montserrat text-xs text-gray-600">
+                <h3 class="text-xl text-primary font-montserrat font-semibold tracking-wide">Loose Grown Diamond</h3>
+                <p class="font-montserrat text-xs text-primary">
                     (We as a Manufacturer)
                 </p>
             </div>
 
             <div class="flex flex-col items-center gap-2">
-                <span class="text-sm font-montserrat">Directly Selling To</span>
+                <span class="text-sm text-primary font-montserrat">Directly Selling To</span>
                 <svg width="127" height="8" viewBox="0 0 127 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M126.354 4.35355C126.549 4.15829 126.549 3.84171 126.354 3.64645L123.172 0.464466C122.976 0.269204 122.66 0.269204 122.464 0.464466C122.269 0.659728 122.269 0.976311 122.464 1.17157L125.293 4L122.464 6.82843C122.269 7.02369 122.269 7.34027 122.464 7.53553C122.66 7.7308 122.976 7.7308 123.172 7.53553L126.354 4.35355ZM0 4.5H126V3.5H0V4.5Z" fill="black"/>
+                    <path d="M126.354 4.35355C126.549 4.15829 126.549 3.84171 126.354 3.64645L123.172 0.464466C122.976 0.269204 122.66 0.269204 122.464 0.464466C122.269 0.659728 122.269 0.976311 122.464 1.17157L125.293 4L122.464 6.82843C122.269 7.02369 122.269 7.34027 122.464 7.53553C122.66 7.7308 122.976 7.7308 123.172 7.53553L126.354 4.35355ZM0 4.5H126V3.5H0V4.5Z" fill="#301934"/>
                     </svg>
             </div>
 
             <!-- Card 2 -->
             <div class="bg-light-grey-2 flex flex-col items-center justify-center gap-2 rounded-lg p-6">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2299 1.7666H20.6631C21.8896 1.7666 22.8934 2.77045 22.8934 3.99695V5.66951C22.8934 6.896 21.8896 7.89986 20.6631 7.89986H20.2299C19.0026 7.89986 17.9995 6.896 17.9995 5.66951V3.99695C17.9995 2.77045 19.0026 1.7666 20.2299 1.7666ZM12.1403 0H12.8597C14.8971 0 16.5641 1.66693 16.5641 3.70439V6.48208C16.5641 8.51953 14.8971 10.1865 12.8597 10.1865H12.1403C10.1029 10.1865 8.43594 8.51953 8.43594 6.48208V3.70439C8.43594 1.66693 10.1029 0 12.1403 0ZM12.4996 25L11.2683 23.3628L11.8325 14.7677H13.1675L13.7317 23.3628L12.4996 25ZM7.92156 11.9354H10.0506L10.7716 13.0815C11.0617 13.542 11.1445 14.0436 11.0191 14.5724C11.0079 14.6182 11.0006 14.6648 10.9982 14.7123L10.4332 23.3073C10.4324 23.3258 10.4316 23.3443 10.4316 23.3628H4.93731V14.9196C4.93731 13.2784 6.28034 11.9354 7.92156 11.9354ZM14.9494 11.9354H17.0784C18.7197 11.9354 20.0627 13.2784 20.0627 14.9196V23.3628H14.5684C14.5684 23.3443 14.5676 23.3258 14.5668 23.3073L14.0018 14.7123C13.9986 14.6648 13.9921 14.6182 13.9809 14.5724C13.8555 14.0436 13.9383 13.542 14.2284 13.0815L14.9494 11.9354ZM4.33692 1.7666H4.77013C5.99662 1.7666 7.00048 2.77045 7.00048 3.99695V5.66951C7.00048 6.896 5.99662 7.89986 4.77013 7.89986H4.33692C3.10963 7.89986 2.10657 6.896 2.10657 5.66951V3.99695C2.10657 2.77045 3.10963 1.7666 4.33692 1.7666ZM7.30992 8.95274C7.47227 8.95274 7.629 8.97444 7.77849 9.01543C8.11445 9.5909 8.56132 10.094 9.08937 10.4967C9.09339 10.5289 9.09741 10.5602 9.09982 10.5923H7.92156C5.5393 10.5923 3.59508 12.5374 3.59508 14.9196V15.8335H0V10.7499C0 9.76129 0.808552 8.95274 1.79714 8.95274C3.63446 8.95274 5.47259 8.95274 7.30992 8.95274ZM23.2029 8.95274C24.1914 8.95274 25 9.76129 25 10.7499V15.8335H21.4049V14.9196C21.4049 12.5374 19.4607 10.5923 17.0784 10.5923H15.9002C15.9026 10.5602 15.9066 10.5289 15.9106 10.4967C16.4387 10.094 16.8855 9.5909 17.2215 9.01543C17.371 8.97444 17.5277 8.95274 17.6893 8.95274C19.5274 8.95274 21.3655 8.95274 23.2029 8.95274Z" fill="#333333"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2299 1.7666H20.6631C21.8896 1.7666 22.8934 2.77045 22.8934 3.99695V5.66951C22.8934 6.896 21.8896 7.89986 20.6631 7.89986H20.2299C19.0026 7.89986 17.9995 6.896 17.9995 5.66951V3.99695C17.9995 2.77045 19.0026 1.7666 20.2299 1.7666ZM12.1403 0H12.8597C14.8971 0 16.5641 1.66693 16.5641 3.70439V6.48208C16.5641 8.51953 14.8971 10.1865 12.8597 10.1865H12.1403C10.1029 10.1865 8.43594 8.51953 8.43594 6.48208V3.70439C8.43594 1.66693 10.1029 0 12.1403 0ZM12.4996 25L11.2683 23.3628L11.8325 14.7677H13.1675L13.7317 23.3628L12.4996 25ZM7.92156 11.9354H10.0506L10.7716 13.0815C11.0617 13.542 11.1445 14.0436 11.0191 14.5724C11.0079 14.6182 11.0006 14.6648 10.9982 14.7123L10.4332 23.3073C10.4324 23.3258 10.4316 23.3443 10.4316 23.3628H4.93731V14.9196C4.93731 13.2784 6.28034 11.9354 7.92156 11.9354ZM14.9494 11.9354H17.0784C18.7197 11.9354 20.0627 13.2784 20.0627 14.9196V23.3628H14.5684C14.5684 23.3443 14.5676 23.3258 14.5668 23.3073L14.0018 14.7123C13.9986 14.6648 13.9921 14.6182 13.9809 14.5724C13.8555 14.0436 13.9383 13.542 14.2284 13.0815L14.9494 11.9354ZM4.33692 1.7666H4.77013C5.99662 1.7666 7.00048 2.77045 7.00048 3.99695V5.66951C7.00048 6.896 5.99662 7.89986 4.77013 7.89986H4.33692C3.10963 7.89986 2.10657 6.896 2.10657 5.66951V3.99695C2.10657 2.77045 3.10963 1.7666 4.33692 1.7666ZM7.30992 8.95274C7.47227 8.95274 7.629 8.97444 7.77849 9.01543C8.11445 9.5909 8.56132 10.094 9.08937 10.4967C9.09339 10.5289 9.09741 10.5602 9.09982 10.5923H7.92156C5.5393 10.5923 3.59508 12.5374 3.59508 14.9196V15.8335H0V10.7499C0 9.76129 0.808552 8.95274 1.79714 8.95274C3.63446 8.95274 5.47259 8.95274 7.30992 8.95274ZM23.2029 8.95274C24.1914 8.95274 25 9.76129 25 10.7499V15.8335H21.4049V14.9196C21.4049 12.5374 19.4607 10.5923 17.0784 10.5923H15.9002C15.9026 10.5602 15.9066 10.5289 15.9106 10.4967C16.4387 10.094 16.8855 9.5909 17.2215 9.01543C17.371 8.97444 17.5277 8.95274 17.6893 8.95274C19.5274 8.95274 21.3655 8.95274 23.2029 8.95274Z" fill="#301934"/>
                     </svg>
-                <h3 class="text-xl font-montserrat font-semibold tracking-wide">You (as Buyer)</h3>
-                <p class="font-montserrat text-xs text-gray-600">
+                <h3 class="text-xl text-primary font-montserrat font-semibold tracking-wide">You (as Buyer)</h3>
+                <p class="font-montserrat text-xs text-primary">
                     (Jewellery Owners, Diamond Traders)
                 </p>
             </div>
@@ -167,10 +178,10 @@
     <div class="max-w-7xl mx-auto px-4 md:px-40 py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <!-- Left side content -->
         <div class="flex flex-col gap-6">
-            <h2 class="text-4xl font-montserrat font-semibold tracking-wide">
+            <h2 class="text-4xl text-primary font-montserrat font-semibold tracking-wide">
                 40+ Years of Experience in Diamond Industry
             </h2>
-            <p class="font-montserrat text-gray-600 leading-relaxed">
+            <p class="font-montserrat text-primary leading-relaxed">
                 We are India based Manufacturer and has served more than 400+ Customers Internationally.
             </p>
         </div>
@@ -193,10 +204,10 @@
 
         <!-- Right side content -->
         <div class="flex flex-col gap-6">
-            <h2 class="text-4xl font-montserrat font-semibold tracking-wide">
+            <h2 class="text-4xl text-primary font-montserrat font-semibold tracking-wide">
                 Top Quality In The Market With International Certificates
             </h2>
-            <p class="font-montserrat text-gray-600 leading-relaxed">
+            <p class="font-montserrat text-primary leading-relaxed">
                 We are India based Manufacturer and has served more than 400+ Customers Internationally.
             </p>
         </div>
@@ -204,46 +215,46 @@
 
     <section class="py-12">
         <div class="container mx-auto px-6 py-8">
-            <h2 class="text-2xl font-montserrat uppercase font-medium text-center text-gray-800 mb-3">See what our customers are saying</h2>
+            <h2 class="text-2xl font-montserrat uppercase font-medium text-center text-primary mb-3">See what our customers are saying</h2>
         </div>
         <div class="container mx-auto md:px-8 lg:px-44 mb-10">
             <div class="grid grid-cols-1 md:grid-cols-3 md:gap-6 lg:gap-8">
                 <!-- Review Card 1 -->
                 <div class="bg-white rounded-lg p-6 shadow-lg h-full flex flex-col">
                     <h3 class="font-montserrat text-lg font-semibold mb-3">I've ordered my custom earrings from…</h3>
-                    <p class="font-montserrat text-sm text-gray-600 mb-6 flex-grow">
+                    <p class="font-montserrat text-sm text-primary mb-6 flex-grow">
                         I've ordered my custom earrings from this company, and it turned out great! Only critique would be towards the packaging of the diamond; it came in a clear plastic container, which was definitely out of place for something that has a price tag of $1,700.
                     </p>
                     <div class="flex items-center mt-auto">
                         <img src="/images/users/user-1.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
                         <div>
                             <div class="flex items-center">
-                                <p class="font-montserrat font-semibold md:w-20 md:text-13px lg:w-full lg:text-sm">Eric Park</p>
+                                <p class="font-montserrat text-primary font-semibold md:w-20 md:text-13px lg:w-full lg:text-sm">Eric Park</p>
                                 <svg class="w-5 h-5 ml-1 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="font-montserrat md:text-13px lg:text-sm text-gray-500">CA</p>
+                            <p class="font-montserrat md:text-13px lg:text-sm text-primary">CA</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Review Card 2 -->
                 <div class="bg-white rounded-lg p-6 shadow-lg h-full flex flex-col">
-                    <h3 class="font-montserrat text-lg font-semibold mb-3">Great purchase experience</h3>
-                    <p class="font-montserrat text-sm text-gray-600 mb-6 flex-grow">
+                    <h3 class="font-montserrat text-lg text-primary font-semibold mb-3">Great purchase experience</h3>
+                    <p class="font-montserrat text-sm text-primary mb-6 flex-grow">
                         I’m in Las Vegas and ordered lab grown diamonds from this company and got them fast and exactly as advertised.
                     </p>
                     <div class="flex items-center mt-auto">
                         <img src="/images/users/user-2.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
                         <div>
                             <div class="flex items-center">
-                                <p class="font-montserrat font-semibold  md:w-20 md:text-13px lg:w-full lg:text-sm">Michael Montoya</p>
+                                <p class="font-montserrat text-primary font-semibold  md:w-20 md:text-13px lg:w-full lg:text-sm">Michael Montoya</p>
                                 <svg class="w-5 h-5 ml-1 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="font-montserrat md:text-13px lg:text-sm text-gray-500">United States</p>
+                            <p class="font-montserrat md:text-13px lg:text-sm text-primary">United States</p>
                         </div>
                     </div>
                 </div>
@@ -251,19 +262,19 @@
                 <!-- Review Card 3 -->
                 <div class="bg-white rounded-lg p-6 shadow-lg h-full flex flex-col">
                     <h3 class="font-montserrat text-lg font-semibold mb-3">Amazing customer service</h3>
-                    <p class="font-montserrat text-sm text-gray-600 mb-6 flex-grow">
+                    <p class="font-montserrat text-sm text-primary mb-6 flex-grow">
                         Amazing customer service and beautiful ring that I got so many compliments. I can’t stop looking at my ring! Super happy, 5 star ⭐️ service
                     </p>
                     <div class="flex items-center mt-auto">
                         <img src="/images/users/user-3.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
                         <div>
                             <div class="flex items-center">
-                                <p class="font-montserrat font-semibold md:w-20 md:text-13px lg:w-full lg:text-sm">Maria Spiteri</p>
+                                <p class="font-montserrat text-primary font-semibold md:w-20 md:text-13px lg:w-full lg:text-sm">Maria Spiteri</p>
                                 <svg class="w-5 h-5 ml-1 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="font-montserrat md:text-13px lg:text-sm text-gray-500">South Korea</p>
+                            <p class="font-montserrat  md:text-13px lg:text-sm text-primary">South Korea</p>
                         </div>
                     </div>
                 </div>
@@ -288,7 +299,7 @@
     </section>
 
     <section class="bg-light-grey-1 px-40 py-12">
-        <h3 class="text-2xl flex justify-center font-montserrat font-semibold uppercase mb-12">Shop by Shape</h3>
+        <h3 class="text-2xl flex justify-center text-primary  font-montserrat font-semibold uppercase mb-12">Shop by Shape</h3>
         <div class="grid md:grid-cols-5 gap-8 lg:mb-5 px-40">
             <!-- Round -->
             <a href="#"
@@ -477,5 +488,33 @@
         </div>
     </section>
 </div>
+
+<script>
+    function toggleHeart() {
+        const heartIcon = document.getElementById('heart-icon');
+        const isRed = heartIcon.getAttribute('fill') === 'red';
+
+        // Toggle fill color
+        if (isRed) {
+            heartIcon.setAttribute('fill', 'black');
+        } else {
+            heartIcon.setAttribute('fill', 'red');
+        }
+
+        // Optional: Make an AJAX request to Laravel backend to update the wishlist status
+        fetch('/wishlist/toggle', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ itemId: 1 }) // replace `1` with the actual item ID
+        }).then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.error('Error:', error));
+    }
+</script>
+
+
 
 @endsection
