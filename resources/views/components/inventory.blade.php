@@ -17,122 +17,122 @@
             <div class="flex flex-col">
                 <div class="flex mb-1">
                     <!-- Round -->
-                    <a href="#"
+                    <a href="{{ route('inventory', ['shape' => 'round']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" alt="Round Shape">
                     </a>
 
                     <!-- Princess -->
-                    <a href="#"
+                    <a href="{{ route('inventory', ['shape' => 'princess']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25" alt="Princess Shape">
                     </a>
 
                     <!-- Radiant -->
-                    <a href="#"
+                    <a href="{{route('inventory', ['shape' => 'radiant'])}}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25" alt="Radiant Shape">
                     </a>
 
                     <!-- Asscher -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'asscher'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25" alt="Asscher Shape">
                     </a>
 
                     <!-- Cushion -->
-                    <a href="#"
+                    <a href="{{ route('inventory', ['shape' => 'cushion'])}}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/cushion.svg') }}" width="25" height="25" alt="Cushion Shape">
                     </a>
 
                     <!-- Oval -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'oval'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                     </a>
 
                     <!-- Emerald -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'emerald'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25" alt="Emerald Shape">
                     </a>
 
                     <!-- Pear -->
-                    <a href="#"
+                    <a href="{{ route('inventory', ['shape' => 'pear' ])}}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/pear.svg') }}" width="25" height="25" alt="Pear Shape">
                     </a>
 
                     <!-- Marquise -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'marquise'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25" alt="Marquise Shape">
                     </a>
 
                     <!-- Heart -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'heart'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                     </a>
                 </div>
                 <div class="flex">
                     <!-- Rose Cut -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'rose-cut'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25" alt="Rose Cut Shape">
                     </a>
 
                     <!-- Old European -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'old-european'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25" alt="Old European Shape">
                     </a>
 
                     <!-- Half Moon -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'half-moon'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25" alt="Half Moon Shape">
                     </a>
 
                     <!-- Baguette Trapezoid -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'baguette-trapezoid'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
                         <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25" alt="Baguette Trapezoid Shape">
                     </a>
 
                     <!-- Baguette -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'baguette'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25" alt="Baguette Shape">
                     </a>
 
                     <!-- Hexagon -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'hexagon'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25" alt="Hexagon Shape">
                     </a>
 
                     <!-- Kite -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'kite'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
                     </a>
 
                     <!-- Old Mine -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'old-mine'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25" alt="Old Mine Shape">
                     </a>
 
                     <!-- Trapezoid -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => 'trapezoid'])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25" alt="Trapezoid Shape">
                     </a>
 
                     <!-- Triangular -->
-                    <a href="#"
+                    <a href="route('inventory', ['shape' => ''])"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25" alt="Triangular Shape">
                     </a>
@@ -369,12 +369,14 @@
             <div class="range_carat_container">
                 <div class="form_carat_control">
                     <div class="form_carat_control_container">
-                        <input class="form_carat_control_container__carat__input" type="number" id="fromCaratInput"
-                            value="0.00" min="0" max="60" />
+                        <input class="form_carat_control_container__carat__input"
+                            type="number"
+                            id="fromCaratInput"
+                            value="0.00" min="0" max="60" step="0.01" />
                     </div>
                     <div class="form_carat_control_container">
                         <input class="form_carat_control_container__carat__input" type="number" id="toCaratInput"
-                            value="60.00" min="0" max="60" />
+                            value="60.00" min="0" max="60" step="0.01" />
                     </div>
                 </div>
                 <div class="sliders_carat_control">
@@ -612,10 +614,8 @@
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Cut</h5>
             <div class="range_cut_container">
                 <div class="sliders_cut_control">
-                    <input id="fromCutSlider" type="range" value="0" min="0" max="4"
-                        step="1" />
-                    <input id="toCutSlider" type="range" value="4" min="0" max="4"
-                        step="1" />
+                    <input id="fromCutSlider"  type="range" value="0" min="0" max="4" step="1" />
+                    <input id="toCutSlider"  type="range" value="4" min="0" max="4" step="1" />
                 </div>
                 <div class="flex justify-center gap-10 font-montserrat text-xs text-gray-500 font-medium">
                     <span>Good</span>
@@ -680,6 +680,8 @@
             const toCutSlider = document.querySelector("#toCutSlider");
             const fromCutInput = document.querySelector("#fromCutInput");
             const toCutInput = document.querySelector("#toCutInput");
+            
+
 
             // Initially filling the slider using default values...
             fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#733D80", toCutSlider);
@@ -2009,20 +2011,20 @@
                                         <input type="hidden" name="mrp" value="{{ $diamond->mrp }}">
                                         <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                        </svg>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                            </svg>
                                             Add to Bag
                                         </button>
                                     </form>
                                     @if($diamond->video_url)
                                     <a href="{{ asset($diamond->video_url) }}" target="_blank">
-                                    <button class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        Play Video
-                                    </button>
+                                        <button class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Play Video
+                                        </button>
                                     </a>
                                     @endif
                                 </div>
