@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto px-6 py-12">
-    <h1 class="text-4xl text-primary font-montserrat font-bold text-center mb-3">
+    <h1 class="text-xl lg:text-4xl text-primary font-montserrat font-bold text-center mb-3">
         Certified Fancy Color Lab Grown Diamonds
     </h1>
     <p class="text-primary/80 text-center font-montserrat text-sm mb-8">
@@ -10,10 +10,10 @@
     </p>
 
     {{-- Start Color --}}
-    <div class="flex items-center px-10">
+    <div class="flex items-center px-10 xl:px-4">
         <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
         <div class="flex flex-col">
-            <div class="flex mb-1 flex-row gap-5">
+            <div class="mb-1 grid grid-cols-2 lg:grid-cols-10 gap-5">
                 <!-- Color Options -->
                 <a href="#"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
@@ -93,7 +93,7 @@
     <div class="flex items-center px-10">
         <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
         <div class="flex flex-col">
-            <div class="flex mb-1 flex-row gap-5">
+            <div class="grid grid-cols-2 lg:grid-cols-6 mb-1 gap-5">
                 <!-- Fancy Light (0.20) -->
                 <a href="#"
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-24 rounded-md hover:border-primary hover:text-primary transition"
@@ -1022,11 +1022,11 @@
     <!-- End Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
 
     <!-- Start Advanced Options -->
-    <div class="flex felx-row items-center gap-3 px-10 py-5">
+    <div class="flex flex-col lg:flex-row items-center gap-3 px-10 py-5">
         <h3 class="text-sm text-primary font-montserrat font-semibold">Advanced Options</h3>
-        <div class="flex justify-between items-center w-5/6">
+        <div class="flex flex-col lg:flex-row justify-between items-center w-5/6">
             <!-- Start Certificate Dropdown , Method Dropdown , Table Dropdown -->
-            <div class="flex flex-row items-center gap-4">
+            <div class="flex flex-col lg:flex-row items-center gap-4">
                 <!-- Certificate Dropdown -->
                 <div id="styleDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
