@@ -6,12 +6,10 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Header Menu  
 // Route::get('/inventory', function () {

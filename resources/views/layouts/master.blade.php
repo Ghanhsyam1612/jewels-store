@@ -10,7 +10,7 @@
     <!-- SweetAlert2 CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.css" rel="stylesheet"> -->
 
-    <title>Jewels Store</title>
+    <title>Roaya Diamond</title>
     @vite('resources/css/app.css')
 </head>
 
