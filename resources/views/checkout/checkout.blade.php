@@ -125,12 +125,13 @@
         <!-- End of Left Side Order Summary  and Shipping Information -->
 
         <!-- Right Side Payment Method -->
+
         <div class="space-y-8">
             <div class="bg-white rounded-lg p-6 space-y-6">
                 <h2 class="text-xl font-semibold font-montserrat">Payment Method</h2>
                 <div class="space-y-4">
                     <!-- Direct Bank Transfer -->
-                    <div class="border rounded-lg p-4">
+                    <!-- <div class="border rounded-lg p-4">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <i class="fas fa-university text-2xl"></i>
@@ -154,10 +155,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Credit/Debit Card -->
-                    <div class="border rounded-lg p-4">
+                    <!-- <div class="border rounded-lg p-4">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <i class="fas fa-credit-card text-2xl"></i>
@@ -193,10 +194,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- PayPal -->
-                    <div class="border rounded-lg p-4">
+                    <!-- <div class="border rounded-lg p-4">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg"
@@ -217,7 +218,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- PayPal Security Notice -->
                     <p class="text-sm text-gray-600 font-montserrat">
@@ -233,16 +234,69 @@
                         </span>
                     </div>
 
-                    <button class="w-full bg-primary text-white py-3 rounded-md !rounded-button font-medium flex items-center justify-center gap-2 font-montserrat">
+                    <div id="paypal-button-container"></div>
+                    <!-- <button id="paypal-button-container" class="w-full bg-primary text-white py-3 rounded-md !rounded-button font-medium flex items-center justify-center gap-2 font-montserrat">
                         <i class="fab fa-paypal"></i>
                         Pay
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
         <!-- End of Right Side Payment Method -->
     </div>
 </main>
+
+<!-- PayPal Button Integration -->
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=USD"></script>
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: "{{ number_format($total, 2, '.', '') }}"
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                fetch('/checkout/process', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            payment_method: 'paypal',
+                            full_name: document.querySelector('input[name="full_name"]').value,
+                            email: document.querySelector('input[name="email"]').value,
+                            phone: document.querySelector('input[name="phone"]').value,
+                            address: document.querySelector('input[name="address"]').value,
+                            city: document.querySelector('input[name="city"]').value,
+                            state: document.querySelector('input[name="state"]').value,
+                            zip: document.querySelector('input[name="zip"]').value,
+                            country: document.querySelector('select[name="country"]').value,
+                            transaction_id: data.orderID,
+                            amount: details.purchase_units[0].amount.value
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = '/checkout/success';
+                        } else {
+                            alert('Payment failed: ' + data.message);
+                        }
+                    });
+            });
+        },
+        onError: function(err) {
+            alert('An error occurred during the payment process. Please try again.');
+        }
+    }).render('#paypal-button-container');
+</script>
+
 
 <script>
     // Get all the radio buttons
