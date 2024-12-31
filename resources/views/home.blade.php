@@ -154,7 +154,7 @@
                 </a>
                 </div>
                 
-                <div class="grid md:grid-cols-5 lg:grid-cols-10">
+                {{-- <div class="grid md:grid-cols-5 lg:grid-cols-10"> --}}
 
                 <!-- Rose Cut -->
                 <a href="{{route('inventory', ['shape' => 'rose-cut'])}}"
@@ -339,7 +339,7 @@
                     </svg>
                     Triangular
                 </a>
-            </div>
+            {{-- </div> --}}
         </div>
         <div class="flex justify-center">
             <a href="{{route('inventory')}}"

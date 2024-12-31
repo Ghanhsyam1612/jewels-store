@@ -329,117 +329,55 @@
                             }
                         </style>
                         <script>
-                            // Controls the slider using from Input....
-                            function controlMobileFromInput(mobile_fromSlider, mobile_fromInput, mobile_toInput, mobile_toSlider) {
-                                const [from, to] = getParsed(mobile_fromInput, mobile_toInput);
-                                fillSlider(mobile_fromInput, mobile_toInput, "#C6C6C6", "#733D80", mobile_toSlider);
-                                mobile_fromSlider.value = from;
-                                document.getElementById('fromValue').innerText = from;
-
-                                if (from > to) {
-                                    mobile_fromSlider.value = to;
-                                    mobile_fromInput.value = to;
-                                } else {
-                                    mobile_fromSlider.value = from;
-                                }
-                            }
-
-                            // Controls the slider using to Input....
-                            function controlMobileToInput(mobile_toSlider, mobile_fromInput, mobile_toInput, mobile_fromSlider) {
-                                const [from, to] = getParsed(mobile_fromInput, mobile_toInput);
-                                fillSlider(mobile_fromInput, mobile_toInput, "#C6C6C6", "#733D80", mobile_fromSlider);
-                                setToggleAccessible(mobile_toInput);
-                                mobile_toSlider.value = to;
-                                document.getElementById('toValue').innerText = to;
-
-                                if (from <= to) {
-                                    mobile_toSlider.value = to;
-                                    mobile_toInput.value = to;
-                                } else {
-                                    mobile_toInput.value = from;
-                                }
-                            }
-
-                            // Sliding event of the From slider
-                            function controlMobileFromSlider(mobile_fromSlider, mobile_toSlider, mobile_fromInput) {
-                                const [from, to] = getParsed(mobile_fromSlider, mobile_toSlider);
-                                fillSlider(mobile_fromSlider, mobile_toSlider, "#C6C6C6", "#733D80", mobile_toSlider);
-                                mobile_fromInput.value = from;
-                                document.getElementById('fromValue').innerText = from;
-
-                                if (from > to) {
-                                    mobile_fromInput.value = to;
-                                    mobile_toInput.value = from;
-                                }
-                            }
-
-                            // Sliding event of the To slider
-                            function controlMobileToSlider(mobile_fromSlider, mobile_toSlider, mobile_toInput) {
-                                const [from, to] = getParsed(mobile_fromSlider, mobile_toSlider);
-                                fillSlider(mobile_fromSlider, mobile_toSlider, "#C6C6C6", "#733D80", mobile_toSlider);
-                                setToggleAccessible(mobile_toSlider);
-                                mobile_toSlider.value = to;
-                                mobile_toInput.value = to;
-                                document.getElementById('toValue').innerText = to;
-
-                                if (from > to) {
-                                    mobile_fromInput.value = to;
-                                    mobile_toInput.value = from;
-                                }
-                            }
-
-                            // Parsing values of the Inputs
-                            function getParsed(mobile_currentFrom, mobile_currentTo) {
-                                const mobile_from = parseInt(mobile_currentFrom.value, 10);
-                                const mobile_to = parseInt(mobile_currentTo.value, 10);
-                                return [mobile_from, mobile_to];
-                            }
-
-                            // Changing and Filling the color in the selected part...
-                            function fillSlider(mobile_from, mobile_to, sliderColor, rangeColor, mobile_controlSlider) {
-                                let rangeDistance = mobile_to.max - mobile_to.min;
-                                let mobile_fromPosition = mobile_from.value - mobile_to.min;
-                                let mobile_toPosition = mobile_to.value - mobile_to.min;
-                                if (mobile_fromPosition > mobile_toPosition) {
-                                    let spare = mobile_fromPosition;
-                                    mobile_fromPosition = mobile_toPosition;
-                                    mobile_toPosition = spare;
-                                }
-                                mobile_controlSlider.style.background = `linear-gradient(
-                          to right,
-                          ${sliderColor} 0%,
-                          ${sliderColor} ${(mobile_fromPosition / rangeDistance) * 100}%,
-                          ${rangeColor} ${(mobile_fromPosition / rangeDistance) * 100}%,
-                          ${rangeColor} ${(mobile_toPosition / rangeDistance) * 100}%, 
-                          ${sliderColor} ${(mobile_toPosition / rangeDistance) * 100}%, 
-                          ${sliderColor} 100%)`;
-                            }
-
-                            // Making sure the toggle which we are using is accessible to change the range
-                            function setToggleAccessible(mobile_currentTarget) {
-                                const mobile_toSlider = document.querySelector("#mobile_toSlider");
-                                if (Number(mobile_currentTarget.value) <= 0) {
-                                    mobile_toSlider.style.zIndex = 2;
-                                } else {
-                                    mobile_toSlider.style.zIndex = 0;
-                                }
-                            }
-
                             const mobile_fromSlider = document.querySelector("#mobile_fromSlider");
                             const mobile_toSlider = document.querySelector("#mobile_toSlider");
                             const mobile_fromInput = document.querySelector("#mobile_fromInput");
                             const mobile_toInput = document.querySelector("#mobile_toInput");
-
-                            // Initially filling the slider using default values...
-                            fillSlider(mobile_fromSlider, mobile_toSlider, "#C6C6C6", "#733D80", mobile_toSlider);
-                            setToggleAccessible(mobile_toSlider);
-
-                            // Assigning listener methods to respective events.
-                            mobile_fromSlider.oninput = () => controlMobileFromSlider(mobile_fromSlider, mobile_toSlider, mobile_fromInput);
-                            mobile_toSlider.oninput = () => controlMobileToSlider(mobile_fromSlider, mobile_toSlider, mobile_toInput);
-                            mobile_fromInput.oninput = () =>
-                                controlMobileFromInput(mobile_fromSlider, mobile_fromInput, mobile_toInput, mobile_toSlider);
-                            mobile_toInput.oninput = () => controlMobileToInput(mobile_toSlider, mobile_fromInput, mobile_toInput, mobile_fromSlider);
+                        
+                            function updateSliderColors() {
+                                const min = parseInt(mobile_fromSlider.min);
+                                const max = parseInt(mobile_toSlider.max);
+                                const from = parseInt(mobile_fromInput.value);
+                                const to = parseInt(mobile_toInput.value);
+                        
+                                const percentFrom = ((from - min) / (max - min)) * 100;
+                                const percentTo = ((to - min) / (max - min)) * 100;
+                        
+                                // Show only the selected color between the two endpoints
+                                mobile_fromSlider.style.background = `linear-gradient(to right, #733D80 ${percentFrom}%, #733D80 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
+                                mobile_toSlider.style.background = mobile_fromSlider.style.background;
+                            }
+                        
+                            function syncFromInput() {
+                                let value = Math.min(parseInt(mobile_fromInput.value), parseInt(mobile_toInput.value));
+                                mobile_fromInput.value = value;
+                                mobile_fromSlider.value = value;
+                                updateSliderColors();
+                            }
+                        
+                            function syncToInput() {
+                                let value = Math.max(parseInt(mobile_toInput.value), parseInt(mobile_fromInput.value));
+                                mobile_toInput.value = value;
+                                mobile_toSlider.value = value;
+                                updateSliderColors();
+                            }
+                        
+                            function syncFromSlider() {
+                                mobile_fromInput.value = mobile_fromSlider.value;
+                                updateSliderColors();
+                            }
+                        
+                            function syncToSlider() {
+                                mobile_toInput.value = mobile_toSlider.value;
+                                updateSliderColors();
+                            }
+                        
+                            mobile_fromInput.addEventListener("input", syncFromInput);
+                            mobile_toInput.addEventListener("input", syncToInput);
+                            mobile_fromSlider.addEventListener("input", syncFromSlider);
+                            mobile_toSlider.addEventListener("input", syncToSlider);
+                        
+                            updateSliderColors();
                         </script>
                     </div>
                 </div>
@@ -604,12 +542,11 @@
                             }
                         </style>
                         <script>
-                            // Controls the slider using from Input....
-                            function controlMobileFromInput(mobile_fromCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_toCaratSlider) {
+                            // Controls the slider using from Input
+                            function controlMobileFromInput(mobile_fromCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_controlSlider) {
                                 const [from, to] = getParsed(mobile_fromCaratInput, mobile_toCaratInput);
-                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider);
                                 mobile_fromCaratSlider.value = from;
-
+                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_controlSlider); // <-- Dynamic Color Update
                                 if (from > to) {
                                     mobile_fromCaratSlider.value = to;
                                     mobile_fromCaratInput.value = to;
@@ -618,14 +555,12 @@
                                 }
                             }
 
-                            // Controls the slider using to Input....
-                            function controlMobileToInput(mobile_toCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_fromCaratSlider) {
+                            // Controls the slider using to Input
+                            function controlMobileToInput(mobile_toCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_controlSlider) {
                                 const [from, to] = getParsed(mobile_fromCaratInput, mobile_toCaratInput);
-                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider);
-                                setToggleAccessible(mobile_toCaratInput);
                                 mobile_toCaratSlider.value = to;
-                                mobile_toCaratInput.value = to;
-
+                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_controlSlider); // <-- Dynamic Color Update
+                                setToggleAccessible(mobile_toCaratInput);
                                 if (from <= to) {
                                     mobile_toCaratSlider.value = to;
                                     mobile_toCaratInput.value = to;
@@ -637,8 +572,7 @@
                             // Sliding event of the From slider
                             function controlMobileFromSlider(mobile_fromCaratSlider, mobile_toCaratSlider, mobile_fromCaratInput) {
                                 const [from, to] = getParsed(mobile_fromCaratSlider, mobile_toCaratSlider);
-                                console.log([from, to]);
-                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider);
+                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider); // <-- Dynamic Color Update
                                 mobile_fromCaratInput.value = from;
                                 if (from > to) {
                                     mobile_fromCaratInput.value = to;
@@ -649,7 +583,7 @@
                             // Sliding event of the To slider
                             function controlMobileToSlider(mobile_fromCaratSlider, mobile_toCaratSlider, mobile_toCaratInput) {
                                 const [from, to] = getParsed(mobile_fromCaratSlider, mobile_toCaratSlider);
-                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider);
+                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider); // <-- Dynamic Color Update
                                 setToggleAccessible(mobile_toCaratInput);
                                 mobile_toCaratSlider.value = to;
                                 mobile_toCaratInput.value = to;
@@ -661,13 +595,13 @@
 
                             // Parsing values of the Inputs with 2 decimal places
                             function getParsed(currentFrom, currentTo) {
-                                const from = parseFloat(currentFrom.value).toFixed(2);
-                                const to = parseFloat(currentTo.value).toFixed(2);
+                                const from = parseFloat(currentFrom.value).toFixed(2); // <-- Precision to 2 decimal places
+                                const to = parseFloat(currentTo.value).toFixed(2);     // <-- Precision to 2 decimal places
                                 return [parseFloat(from), parseFloat(to)];
                             }
 
-                            // Changing and Filling the color in the selected part...
-                            function fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, sliderColor, rangeColor, controlSlider) {
+                            // Changing and Filling the color in the selected part
+                            function fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, sliderColor, rangeColor, mobile_controlSlider) {
                                 let rangeDistance = mobile_toCaratSlider.max - mobile_toCaratSlider.min;
                                 let fromPosition = mobile_fromCaratSlider.value - mobile_toCaratSlider.min;
                                 let toPosition = mobile_toCaratSlider.value - mobile_toCaratSlider.min;
@@ -676,17 +610,17 @@
                                     fromPosition = toPosition;
                                     toPosition = spare;
                                 }
-                                controlSlider.style.background = `linear-gradient(
-                          to right,
-                          ${sliderColor} 0%,
-                          ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                          ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                          ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                          ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                          ${sliderColor} 100%)`;
+                                mobile_controlSlider.style.background = `linear-gradient(
+                                    to right,
+                                    ${sliderColor} 0%,
+                                    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                                    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                                    ${sliderColor} 100%)`; // <-- Updates color fill dynamically
                             }
 
-                            // Making sure the toggle which we are using is accessible to change the range
+                            // Ensures accessibility for toggles
                             function setToggleAccessible(currentTarget) {
                                 const mobile_toCaratSlider = document.querySelector("#mobile_toCaratSlider");
                                 if (Number(currentTarget.value) <= 0) {
@@ -696,6 +630,7 @@
                                 }
                             }
 
+                            // Element References
                             const mobile_fromCaratSlider = document.querySelector("#mobile_fromCaratSlider");
                             const mobile_toCaratSlider = document.querySelector("#mobile_toCaratSlider");
                             const mobile_fromCaratInput = document.querySelector("#mobile_fromCaratInput");
@@ -707,16 +642,21 @@
                             mobile_fromCaratInput.step = "0.01";
                             mobile_toCaratInput.step = "0.01";
 
-                            // Initially filling the slider using default values...
-                            fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider);
+                            // Initial slider fill and setup
+                            fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider); // <-- Initial color setup
                             setToggleAccessible(mobile_toCaratSlider);
 
-                            // Assigning listener methods to respective events.
+                            // Event Listeners for Sliders and Inputs
                             mobile_fromCaratSlider.oninput = () => controlMobileFromSlider(mobile_fromCaratSlider, mobile_toCaratSlider, mobile_fromCaratInput);
                             mobile_toCaratSlider.oninput = () => controlMobileToSlider(mobile_fromCaratSlider, mobile_toCaratSlider, mobile_toCaratInput);
-                            mobile_fromCaratInput.oninput = () =>
+                            mobile_fromCaratInput.oninput = () => {
                                 controlMobileFromInput(mobile_fromCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_toCaratSlider);
-                            mobile_toCaratInput.oninput = () => controlMobileToInput(mobile_toCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_fromCaratSlider);
+                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider); // <-- Instant color update
+                            };
+                            mobile_toCaratInput.oninput = () => {
+                                controlMobileToInput(mobile_toCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_fromCaratSlider);
+                                fillSlider(mobile_fromCaratSlider, mobile_toCaratSlider, "#C6C6C6", "#733D80", mobile_toCaratSlider); // <-- Instant color update
+                            };
                         </script>
                         <!-- End Carat Slider -->
                     </div>
@@ -2321,12 +2261,10 @@
                 <div class="range_container">
                     <div class="form_control">
                         <div class="form_control_container">
-                            <input class="form_control_container__time__input" type="number" id="fromInput"
-                                value="100" min="100" max="100000" />
+                            <input class="form_control_container__time__input" type="number" id="fromInput" value="100" min="100" max="100000" />
                         </div>
                         <div class="form_control_container">
-                            <input class="form_control_container__time__input" type="number" id="toInput"
-                                value="100000" min="100" max="100000" />
+                            <input class="form_control_container__time__input" type="number" id="toInput" value="100000" min="100" max="100000" />
                         </div>
                     </div>
                     <div class="sliders_control">
@@ -2346,185 +2284,96 @@
                     width: 80%;
                     margin: 5% auto;
                 }
-
+            
                 .sliders_control {
                     position: relative;
                     min-height: 35px;
                     display: flex;
                     align-items: center;
                 }
-
+            
                 .form_control {
-                    position: relative;
                     display: flex;
                     justify-content: space-between;
-                    font-size: 24px;
-                    color: #635a5a;
                     width: 100%;
                 }
-
+            
                 input[type="range"]::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    pointer-events: all;
                     width: 16px;
                     height: 16px;
                     background-color: #fff;
-                    border-radius: 100%;
+                    border-radius: 50%;
                     box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
                     cursor: pointer;
+                    position: relative;
+                    z-index: 5;
                 }
-
-                input[type="range"]::-moz-range-thumb {
-                    -webkit-appearance: none;
-                    pointer-events: all;
-                    width: 24px;
-                    height: 24px;
-                    background-color: #fff;
-                    border-radius: 50%;
-                    box-shadow: 0 0 0 1px #c6c6c6;
-                    cursor: pointer;
-                }
-
-                input[type="range"]::-webkit-slider-thumb:hover {
-                    background: #f7f7f7;
-                }
-
-                input[type="range"]::-webkit-slider-thumb:active {
-                    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                }
-
+            
                 input[type="number"] {
-                    color: #8a8383;
                     width: 100%;
                     font-size: 13px;
                     border: 1px solid #c6c6c6;
                     border-radius: 4px;
                     padding: 4px;
                 }
-
-                input[type="number"]::-webkit-inner-spin-button,
-                input[type="number"]::-webkit-outer-spin-button {
-                    opacity: 1;
-                }
-
+            
                 input[type="range"] {
-                    -webkit-appearance: none;
-                    appearance: none;
                     height: 4px;
                     width: 100%;
                     position: absolute;
                     background-color: #c6c6c6;
-                    pointer-events: none;
                     border-radius: 8px;
-                }
-
-                #fromSlider {
-                    height: 0;
-                    z-index: 1;
                 }
             </style>
             <script>
-                // Controls the slider using from Input....
-                function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
-                    const [from, to] = getParsed(fromInput, toInput);
-                    fromSlider.value = from;
-                    fillSlider(fromSlider, toInput, "#C6C6C6", "#733D80", controlSlider);
-                    if (from > to) {
-                        fromSlider.value = to;
-                        fromInput.value = to;
-                    } else {
-                        fromInput.value = from;
-                    }
-                }
-
-                // Controls the slider using to Input....
-                function controlToInput(toSlider, fromInput, toInput, controlSlider) {
-                    const [from, to] = getParsed(fromInput, toInput);
-                    toSlider.value = to;
-                    fillSlider(fromInput, toInput, "#C6C6C6", "#733D80", controlSlider);
-                    setToggleAccessible(toInput);
-                    if (from <= to) {
-                        toInput.value = to;
-                    } else {
-                        toInput.value = from;
-                    }
-                }
-
-                // Sliding event of the From slider
-                function controlFromSlider(fromSlider, toSlider, fromInput) {
-                    const [from, to] = getParsed(fromSlider, toSlider);
-                    fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
-                    fromInput.value = from;
-                    if (from > to) {
-                        fromInput.value = to;
-                        toSlider.value = from;
-                    }
-                }
-
-                // Sliding event of the To slider
-                function controlToSlider(fromSlider, toSlider, toInput) {
-                    const [from, to] = getParsed(fromSlider, toSlider);
-                    fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
-                    setToggleAccessible(toSlider);
-                    toInput.value = to;
-                    if (from > to) {
-                        fromInput.value = to;
-                        toInput.value = from;
-                    }
-                }
-
-                // Parsing values of the Inputs
-                function getParsed(currentFrom, currentTo) {
-                    const from = parseInt(currentFrom.value, 10);
-                    const to = parseInt(currentTo.value, 10);
-                    return [from, to];
-                }
-
-                // Changing and Filling the color in the selected part...
-                function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-                    let rangeDistance = to.max - to.min;
-                    let fromPosition = from.value - to.min;
-                    let toPosition = to.value - to.min;
-                    if (fromPosition > toPosition) {
-                        let spare = fromPosition;
-                        fromPosition = toPosition;
-                        toPosition = spare;
-                    }
-                    controlSlider.style.background = `linear-gradient(
-              to right,
-              ${sliderColor} 0%,
-              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} 100%)`;
-                }
-
-                // Making sure the toggle which we are using is accessible to change the range
-                function setToggleAccessible(currentTarget) {
-                    const toSlider = document.querySelector("#toSlider");
-                    if (Number(currentTarget.value) <= 0) {
-                        toSlider.style.zIndex = 2;
-                    } else {
-                        toSlider.style.zIndex = 0;
-                    }
-                }
-
                 const fromSlider = document.querySelector("#fromSlider");
                 const toSlider = document.querySelector("#toSlider");
                 const fromInput = document.querySelector("#fromInput");
                 const toInput = document.querySelector("#toInput");
-
-                // Initially filling the slider using default values...
-                fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
-                setToggleAccessible(toSlider);
-
-                // Assigning listener methods to respective events.
-                fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-                toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-                fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-                toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+            
+                function updateSliderColors() {
+                    const min = parseInt(fromSlider.min);
+                    const max = parseInt(toSlider.max);
+                    const from = parseInt(fromInput.value);
+                    const to = parseInt(toInput.value);
+            
+                    const percentFrom = ((from - min) / (max - min)) * 100;
+                    const percentTo = ((to - min) / (max - min)) * 100;
+            
+                    fromSlider.style.background = `linear-gradient(to right, #c6c6c6 ${percentFrom}%, #733D80 ${percentFrom}%, #733D80 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
+                    toSlider.style.background = fromSlider.style.background;
+                }
+            
+                function syncFromInput() {
+                    let value = Math.min(parseInt(fromInput.value), parseInt(toInput.value));
+                    fromInput.value = value;
+                    fromSlider.value = value;
+                    updateSliderColors();
+                }
+            
+                function syncToInput() {
+                    let value = Math.max(parseInt(toInput.value), parseInt(fromInput.value));
+                    toInput.value = value;
+                    toSlider.value = value;
+                    updateSliderColors();
+                }
+            
+                function syncFromSlider() {
+                    fromInput.value = fromSlider.value;
+                    updateSliderColors();
+                }
+            
+                function syncToSlider() {
+                    toInput.value = toSlider.value;
+                    updateSliderColors();
+                }
+            
+                fromInput.addEventListener("input", syncFromInput);
+                toInput.addEventListener("input", syncToInput);
+                fromSlider.addEventListener("input", syncFromSlider);
+                toSlider.addEventListener("input", syncToSlider);
+            
+                updateSliderColors();
             </script>
             <!-- End Price Range Slider -->
 
@@ -2535,11 +2384,11 @@
                     <div class="form_carat_control">
                         <div class="form_carat_control_container">
                             <input class="form_carat_control_container__carat__input" type="number"
-                                id="fromCaratInput" value="0.00" min="0" max="60" step="0.01" />
+                                id="fromCaratInput" value="0.00" min="0.00" max="60.00" step="0.01" />
                         </div>
                         <div class="form_carat_control_container">
                             <input class="form_carat_control_container__carat__input" type="number" id="toCaratInput"
-                                value="60.00" min="0" max="60" step="0.01" />
+                                value="60.00" min="0.00" max="60.00" step="0.01" />
                         </div>
                     </div>
                     <div class="sliders_carat_control">
@@ -2656,12 +2505,11 @@
                 }
             </style>
             <script>
-                // Controls the slider using from Input....
+                // Controls the slider using from Input
                 function controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
                     const [from, to] = getParsed(fromCaratInput, toCaratInput);
-                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider);
                     fromCaratSlider.value = from;
-
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider); // <-- Dynamic Color Update
                     if (from > to) {
                         fromCaratSlider.value = to;
                         fromCaratInput.value = to;
@@ -2670,14 +2518,12 @@
                     }
                 }
 
-                // Controls the slider using to Input....
+                // Controls the slider using to Input
                 function controlToInput(toCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
                     const [from, to] = getParsed(fromCaratInput, toCaratInput);
-                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider);
-                    setToggleAccessible(toCaratInput);
                     toCaratSlider.value = to;
-                    toCaratInput.value = to;
-
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider); // <-- Dynamic Color Update
+                    setToggleAccessible(toCaratInput);
                     if (from <= to) {
                         toCaratSlider.value = to;
                         toCaratInput.value = to;
@@ -2689,8 +2535,7 @@
                 // Sliding event of the From slider
                 function controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput) {
                     const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
-                    console.log([from, to]);
-                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Dynamic Color Update
                     fromCaratInput.value = from;
                     if (from > to) {
                         fromCaratInput.value = to;
@@ -2701,7 +2546,7 @@
                 // Sliding event of the To slider
                 function controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput) {
                     const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
-                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Dynamic Color Update
                     setToggleAccessible(toCaratInput);
                     toCaratSlider.value = to;
                     toCaratInput.value = to;
@@ -2713,12 +2558,12 @@
 
                 // Parsing values of the Inputs with 2 decimal places
                 function getParsed(currentFrom, currentTo) {
-                    const from = parseFloat(currentFrom.value).toFixed(2);
-                    const to = parseFloat(currentTo.value).toFixed(2);
+                    const from = parseFloat(currentFrom.value).toFixed(2); // <-- Precision to 2 decimal places
+                    const to = parseFloat(currentTo.value).toFixed(2);     // <-- Precision to 2 decimal places
                     return [parseFloat(from), parseFloat(to)];
                 }
 
-                // Changing and Filling the color in the selected part...
+                // Changing and Filling the color in the selected part
                 function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
                     let rangeDistance = to.max - to.min;
                     let fromPosition = from.value - to.min;
@@ -2729,16 +2574,16 @@
                         toPosition = spare;
                     }
                     controlSlider.style.background = `linear-gradient(
-              to right,
-              ${sliderColor} 0%,
-              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} 100%)`;
+                        to right,
+                        ${sliderColor} 0%,
+                        ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                        ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                        ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                        ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                        ${sliderColor} 100%)`; // <-- Updates color fill dynamically
                 }
 
-                // Making sure the toggle which we are using is accessible to change the range
+                // Ensures accessibility for toggles
                 function setToggleAccessible(currentTarget) {
                     const toCaratSlider = document.querySelector("#toCaratSlider");
                     if (Number(currentTarget.value) <= 0) {
@@ -2748,6 +2593,7 @@
                     }
                 }
 
+                // Element References
                 const fromCaratSlider = document.querySelector("#fromCaratSlider");
                 const toCaratSlider = document.querySelector("#toCaratSlider");
                 const fromCaratInput = document.querySelector("#fromCaratInput");
@@ -2759,17 +2605,23 @@
                 fromCaratInput.step = "0.01";
                 toCaratInput.step = "0.01";
 
-                // Initially filling the slider using default values...
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                // Initial slider fill and setup
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Initial color setup
                 setToggleAccessible(toCaratSlider);
 
-                // Assigning listener methods to respective events.
+                // Event Listeners for Sliders and Inputs
                 fromCaratSlider.oninput = () => controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput);
                 toCaratSlider.oninput = () => controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput);
-                fromCaratInput.oninput = () =>
+                fromCaratInput.oninput = () => {
                     controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
-                toCaratInput.oninput = () => controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Instant color update
+                };
+                toCaratInput.oninput = () => {
+                    controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
+                    fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Instant color update
+                };
             </script>
+
             <!-- End Carat Slider -->
 
             <!-- Cut Slider -->

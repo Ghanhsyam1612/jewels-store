@@ -11,10 +11,12 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.css" rel="stylesheet"> -->
 
     <title>Roaya Diamond</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
     @vite('resources/css/app.css')
+
 </head>
 
-<body class="flex flex-col min-h-screen md:max-w-screen-3xl mx-auto bg-gray-50">
+<body class="flex flex-col min-h-screen md:max-w-screen-3xl mx-auto bg-gray-50 font-montserrat">
     @include('components.header')
 
     <main class="flex-grow">
