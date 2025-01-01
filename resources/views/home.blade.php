@@ -152,10 +152,7 @@
                     <img src="{{ asset('Shape/heart.svg') }}" width="60" height="60" alt="Heart Shape">
                     Heart
                 </a>
-                </div>
                 
-                {{-- <div class="grid md:grid-cols-5 lg:grid-cols-10"> --}}
-
                 <!-- Rose Cut -->
                 <a href="{{route('inventory', ['shape' => 'rose-cut'])}}"
                     class="uppercase font-montserrat text-13px text-center leading-5 font-medium flex flex-col items-center hover:text-dark-blue md:mb-5">
@@ -339,7 +336,8 @@
                     </svg>
                     Triangular
                 </a>
-            {{-- </div> --}}
+        </div>
+
         </div>
         <div class="flex justify-center">
             <a href="{{route('inventory')}}"

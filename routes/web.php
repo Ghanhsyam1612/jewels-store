@@ -163,59 +163,60 @@ Route::get('/account', function () {
 // Footer Categories
 Route::get('/categories/custom-shape-diamonds', function () {
     return view('categories.custom-shape-diamonds');
-});
+})->name('custom-shape-diamonds');
+
 
 
 
 // Footer Help
 Route::get('/about-us', function () {
     return view('components.help.about');
-});
+})->name('about-us');
 
 Route::get('/compare-us', function () {
     return view('components.help.compare-us');
-});
+})->name('compare-us');
 
 Route::get('/why-choose-us', function () {
     return view('components.help.why-choose-us');
-});
+})->name('why-choose-us');
 
-Route::get('/diamond-size-chart', function () {
-    return view('components.help.diamond-size-chart');
-});
+// Route::get('/diamond-size-chart', function () {
+//     return view('components.help.diamond-size-chart');
+// })->name('diamond-size-chart');
 
 Route::get('/faq', function () {
     return view('components.help.faq');
-});
+})->name('faq');
 
 Route::get('/contact-us', function () {
     return view('components.help.contact-us');
-});
+})->name('contact-us');
 
 // Footer Privacy
 Route::get('/shipping-policy', function () {
     return view('privacy.shipping-policy');
-});
+})->name('shipping-policy');
 
 Route::get('/return-refund-policy', function () {
     return view('privacy.return-refund-policy');
-});
+})->name('return-refund-policy');
 
 Route::get('/price-match-policy', function () {
     return view('privacy.price-match-policy');
-});
+})->name('price-match-policy');
 
 Route::get('/feedback', function () {
     return view('privacy.feedback');
-});
+})->name('feedback');
 
 Route::get('/privacy-policy', function () {
     return view('privacy.privacy-policy');
-});
+})->name('privacy-policy');
 
 Route::get('/terms-of-use', function () {
     return view('privacy.terms-of-use');
-});
+})->name('terms-of-use');
 
 
 

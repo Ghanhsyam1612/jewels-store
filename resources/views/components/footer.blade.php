@@ -51,15 +51,15 @@
             <div>
                 <h3 class="md:text-xs lg:text-lg text-gold font-montserrat font-semibold mb-4">DIAMOND CATEGORIES</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Color Melee Diamonds</a></li>
+                    <li><a href="{{ route('color-melee-diamonds') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Color Melee Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Round Calibrated Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">IGI Certified Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">GIA Certified Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">GCAL Certified Diamonds</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Fancy Shape Diamonds</a></li>
-                    <li><a href="/categories/custom-shape-diamonds" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Custom Shape Diamonds</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Lab Grown Diamond Engagement Rings</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Diamond Price Calculator</a></li>
+                    <li><a href="{{ route('fancy-shapes-diamonds') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Fancy Shape Diamonds</a></li>
+                    <li><a href="{{ route('custom-shape-diamonds') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Custom Shape Diamonds</a></li>
+                    <li><a href="{{ route('bespoke-jewellery') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Lab Grown Diamond Engagement Rings</a></li>
+                    {{-- <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Diamond Price Calculator</a></li> --}}
                 </ul>
             </div>
 
@@ -67,13 +67,13 @@
             <div>
                 <h3 class="md:text-xs lg:text-lg text-gold font-montserrat font-semibold mb-4">HELP</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="/about-us" class="hover:text-white font-montserrat md:text-xs lg:text-sm">About Us</a></li>
-                    <li><a href="/compare-us" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Compare Us</a></li>
-                    <li><a href="/why-choose-us" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Why Choose Us</a></li>
+                    <li><a href="{{ route('about-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">About Us</a></li>
+                    <li><a href="{{ route('compare-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Compare Us</a></li>
+                    <li><a href="{{ route('why-choose-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Why Choose Us</a></li>
                     {{-- <li><a href="/diamond-size-chart" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Diamond Size Chart</a></li> --}}
                     <li><a href="{{ asset('pdf/ring-sizer.pdf') }}" target="_blank" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Ring Sizer</a></li>
-                    <li><a href="/faq" class="hover:text-white font-montserrat md:text-xs lg:text-sm">FAQ</a></li>
-                    <li><a href="/contact-us" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Contact Us</a></li>
+                    <li><a href="{{ route('faq') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">FAQ</a></li>
+                    <li><a href="{{ route('contact-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm">Contact Us</a></li>
                 </ul>
             </div>
 

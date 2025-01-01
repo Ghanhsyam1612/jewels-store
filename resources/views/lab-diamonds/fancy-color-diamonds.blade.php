@@ -90,7 +90,7 @@
     {{-- End Color --}}
 
     {{-- Start Intensity Color --}}
-    <div class="flex items-center px-10">
+    <div class="flex items-center px-10 xl:px-4">
         <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
         <div class="flex flex-col">
             <div class="grid grid-cols-2 lg:grid-cols-6 mb-1 gap-5">
