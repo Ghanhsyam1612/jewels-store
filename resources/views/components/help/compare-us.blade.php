@@ -6,7 +6,7 @@
             <div class="flex flex-col">
                 <div class="flex flex-col items-center text-center space-y-4">
                     <h3 class="text-3xl lg:text-5xl font-semibold text-gray-900 font-montserrat">How do we compare?</h3>
-                    <img src="/images/banner-3.webp" alt="Lab Grown Diamonds" class="w-full h-auto object-cover rounded-lg">
+                    <img src="/images/banner-3.webp" alt="Roaya Diamonds" class="w-full h-auto object-cover rounded-lg">
                     <p class="text-gray-600 font-montserrat px-4 md:px-40">
                         Roaya Diamonds delivers the very best value. We believe we can make a difference by more carats
                         and less prices.
@@ -27,15 +27,15 @@
                                 <thead class="flex flex-row">
                                     <tr class="bg-light-pink">
                                         <th class="flex flex-col justify-between items-center border border-gray-300 p-4 text-sm font-normal font-montserrat h-40 w-40">
-                                            <img src="/images/roaya-logo.png" alt="Lab Grown Diamond" class="w-16 h-16 object-cover mb-6">
-                                            <p>Lab Grown Diamond</p>
+                                            <img src="/images/roaya-black.svg" alt="Lab Grown Diamond" class="h-12 object-cover mb-6">
+                                            <p>Roaya Diamond</p>
                                         </th>
                                     </tr>
                                     @foreach(['Clean Origin', 'Miadonna', 'Ritani', '1215 Diamonds', 'Brilliant Earth', 'James Allen', 'With Clarity'] as $brand)
                                     <tr class="flex flex-row">
                                         <th class="flex flex-col justify-between items-center border border-gray-300 py-10 text-sm font-normal font-montserrat h-40 w-40 bg-white">
                                             <h5 class="font-bold uppercase">{{ $brand }}</h5>
-                                            <p class="px-8">Lab Grown Diamonds</p>
+                                            <p class="px-8">Roaya Diamonds</p>
                                         </th>
                                     </tr>
                                     @endforeach
@@ -68,34 +68,15 @@
                             <thead class="flex flex-row">
                                 <tr class="bg-light-pink">
                                     <th class="flex flex-col justify-between items-center border border-gray-300 p-4 text-sm font-normal font-montserrat h-40 w-40">
-                                        <svg version="1.1" id="Layer_1" width="44" height="30"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px" y="0px" viewBox="0 0 44 30" style="enable-background:new 0 0 44 30;"
-                                            xml:space="preserve">
-                                            <style type="text/css">
-                                                .st0 {
-                                                    fill: #231F20;
-                                                }
-                                            </style>
-                                            <g>
-                                                <g>
-                                                    <path class="st0"
-                                                        d="M22.03,30L2.24,10.2L12.44,0h19.28l10.05,10.05l-4.69,4.69l-1.82-1.82l2.87-2.87l-7.47-7.47H13.51L5.88,10.2    l16.15,16.15l8.57-8.57l-6.7-6.7l0,0c1.01-1.01,2.64-1.01,3.65,0l6.7,6.7L22.03,30z" />
-                                                </g>
-                                                <g>
-                                                    <path class="st0"
-                                                        d="M21.85,22.63L10.17,10.96L12,9.13l9.85,9.85l3.5-3.5l0,0c1.01,1.01,1.01,2.64,0,3.65L21.85,22.63z" />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        <p>Lab Grown Diamond</p>
+                                        <img src="/images/roaya-black.svg" alt="Roaya Diamonds" class="h-12 object-cover mb-6">
+                                        <p>Roaya Diamonds</p>
                                     </th>
                                 </tr>
                                 @foreach(['Clean Origin', 'Miadonna', 'Ritani', '1215 Diamonds', 'Brilliant Earth', 'James Allen', 'With Clarity'] as $brand)
                                 <tr class="flex flex-row">
                                     <th class="flex flex-col justify-between items-center border border-gray-300 py-10 text-sm font-normal font-montserrat h-40 w-40 bg-white">
                                         <h5 class="font-bold uppercase">{{ $brand }}</h5>
-                                        <p class="px-8">Lab Grown Diamonds</p>
+                                        <p class="px-8">Roaya Diamonds</p>
                                     </th>
                                 </tr>
                                 @endforeach
@@ -177,7 +158,7 @@
                             <tr class="flex flex-row">
                                 <th class="flex flex-col justify-between items-center border border-gray-300 py-10 text-sm font-normal font-montserrat h-40 w-40 bg-white">
                                     <h5 class="font-bold uppercase">{{ $brand }}</h5>
-                                    <p class="px-8">Lab Grown Diamonds</p>
+                                    <p class="px-8">Roaya Diamonds</p>
                                 </th>
                             </tr>
                             @endforeach
@@ -239,7 +220,7 @@
                             <tr class="flex flex-row">
                                 <th class="flex flex-col justify-between items-center border border-gray-300 py-10 text-sm font-normal font-montserrat h-40 w-40 bg-white">
                                     <h5 class="font-bold uppercase">{{ $brand }}</h5>
-                                    <p class="px-8">Lab Grown Diamonds</p>
+                                    <p class="px-8">Roaya Diamonds</p>
                                 </th>
                             </tr>
                             @endforeach
