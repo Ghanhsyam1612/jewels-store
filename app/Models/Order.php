@@ -11,6 +11,12 @@ class Order extends Model
     protected $guarded = [];
     protected $table = 'orders';
 
+    static $SHIPPING_STATUS_PENDING = 'pending';
+    static $SHIPPING_STATUS_PROCESSING = 'processing';
+    static $SHIPPING_STATUS_SHIPPED = 'shipped';
+    static $SHIPPING_STATUS_COMPLETED = 'completed';
+
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

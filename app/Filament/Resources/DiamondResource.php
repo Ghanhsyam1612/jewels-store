@@ -4,8 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Enums\Color;
 use App\Enums\Cut;
-use App\Enums\Shape;
 use App\Enums\Clarity;
+use App\Enums\Shape;
 use App\Filament\Resources\DiamondResource\Pages;
 use App\Filament\Resources\DiamondResource\RelationManagers;
 use App\Models\Diamond;
@@ -34,22 +34,30 @@ class DiamondResource extends Resource
                     ->label('Shape')
                     ->options(Shape::class)
                     ->required(),
-                Forms\Components\Select::make('cut')
-                    ->label('Cut')
-                    ->options(Cut::class)
-                    ->required(),
                 Forms\Components\Select::make('color')
                     ->label('Color')
                     ->options(Color::class)
+                    ->required(),
+                Forms\Components\TextInput::make('original_price')
+                    ->required()
+                    ->label('Price')
+                    ->numeric()
+                    ->prefix('$'),
+                Forms\Components\TextInput::make('mrp')
+                    ->required()
+                    ->label('MRP')
+                    ->numeric()
+                    ->prefix('$'),
+
+                Forms\Components\Select::make('cut')
+                    ->label('Cut')
+                    ->options(Cut::class)
                     ->required(),
                 Forms\Components\Select::make('clarity')
                     ->label('Clarity')
                     ->options(Clarity::class)
                     ->required(),
-                Forms\Components\TextInput::make('carat')
-                    ->required()
-                    ->label('Carat')
-                    ->columnSpanFull(),
+
                 Forms\Components\FileUpload::make('images')
                     ->label('Images')
                     ->multiple()
@@ -62,16 +70,9 @@ class DiamondResource extends Resource
                     ->directory('diamond_videos')
                     ->preserveFilenames()
                     ->acceptedFileTypes(['video/mp4', 'video/mpeg', 'video/quicktime']),
-                Forms\Components\TextInput::make('original_price')
-                    ->required()
-                    ->label('Price')
-                    ->numeric()
-                    ->prefix('$'),
-                Forms\Components\TextInput::make('mrp')
-                    ->required()
-                    ->label('MRP')
-                    ->numeric()
-                    ->prefix('$'),
+
+                Forms\Components\TextInput::make('carat')
+                    ->required(),
                 Forms\Components\TextInput::make('size')
                     ->required(),
                 Forms\Components\TextInput::make('l_w_ratio')
@@ -80,12 +81,9 @@ class DiamondResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('sku')
                     ->label('SKU')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('growth_type')
-                    ->label('Growth Type')
                     ->required(),
-
+                Forms\Components\TextInput::make('growth_type')
+                    ->maxLength(255),
             ]);
     }
 
@@ -95,25 +93,23 @@ class DiamondResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('images')
-                    ->getStateUsing(function ($record) {
-                        return $record->images[0] ?? null;
-                    })
-                    ->circular(),
                 Tables\Columns\TextColumn::make('shape'),
                 Tables\Columns\TextColumn::make('original_price')
-                    ->money()
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('carat')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('cut'),
                 Tables\Columns\TextColumn::make('color'),
                 Tables\Columns\TextColumn::make('clarity'),
                 Tables\Columns\TextColumn::make('size')
-                    ->sortable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('l_w_ratio')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('table')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sku')
                     ->label('SKU')
@@ -126,6 +122,11 @@ class DiamondResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('mrp')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('growth_type')
+                    ->searchable(),
             ])
             ->filters([
                 //

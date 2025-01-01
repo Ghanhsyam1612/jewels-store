@@ -4,14 +4,12 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CustomerResource\Pages;
 use App\Filament\Resources\CustomerResource\RelationManagers;
-use App\Models\Country;
 use App\Models\Customer;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -25,36 +23,32 @@ class CustomerResource extends Resource
     {
         return $form
             ->schema([
-                // Personal Information
-                Forms\Components\Section::make('Personal Information')
+                Forms\Components\Section::make('Customer Details')
                     ->schema([
                         Forms\Components\TextInput::make('first_name')
-                            ->maxLength(255)
                             ->required()
-                            ->default(null),
+                            ->maxLength(255),
                         Forms\Components\TextInput::make('last_name')
-                            ->maxLength(255)
                             ->required()
-                            ->default(null),
+                            ->maxLength(255),
                         Forms\Components\TextInput::make('display_name')
-                            ->maxLength(255)
-                            ->default(null),
+                            ->required()
+                            ->maxLength(255),
                         Forms\Components\TextInput::make('email')
                             ->email()
-                            ->maxLength(255)
+                            ->unique(ignoreRecord: true)
                             ->required()
-                            ->default(null),
+                            ->maxLength(255),
                         Forms\Components\TextInput::make('phone')
                             ->tel()
-                            ->maxLength(255)
                             ->required()
-                            ->default(null),
+                            ->maxLength(255),
                         Forms\Components\TextInput::make('password')
                             ->password()
-                            ->required()
-                            ->maxLength(255)
-                            ->default(null),
-                    ])->columns(2),
+                            ->maxLength(255),
+                    ])
+                    ->columns(2)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -63,17 +57,23 @@ class CustomerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')
-                    ->searchable(),
+                    ->sortable()
+                    ->searchable()
+                    ->icon('heroicon-o-user'),
                 Tables\Columns\TextColumn::make('last_name')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('display_name')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                    ->sortable()
+                    ->searchable()
+                    ->icon('heroicon-o-envelope'),
                 Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('country'),
-                // ->getStateUsing(fn($record): ?string => $record->addresses->first()?->country ? Country::find($record->addresses->first()->country)->name : null),  
+                    ->sortable()
+                    ->searchable()
+                    ->icon('heroicon-o-phone'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -87,7 +87,11 @@ class CustomerResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

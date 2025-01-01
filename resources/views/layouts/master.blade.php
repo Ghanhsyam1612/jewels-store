@@ -11,7 +11,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.css" rel="stylesheet"> -->
 
     <title>Roaya Diamond</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" href="{{ asset('favicon/favicon.ico') }}">
     @vite('resources/css/app.css')
 
 </head>
