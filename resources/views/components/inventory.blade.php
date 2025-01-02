@@ -239,8 +239,8 @@
                                         max="100000" />
                                 </div>
                                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
-                                    <span>$100</span></span>
-                                    <span>$100,000</span></span>
+                                    <span>$100</span>
+                                    <span>$100,000</span>
                                 </div>
                             </div>
                         </div>
@@ -2092,7 +2092,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             function toggleFilter(id) {
                 const content = document.getElementById(id);
@@ -3899,7 +3898,7 @@
         <!-- Start Search Box And Clear Filters Button -->
         <div class="flex justify-between items-center md:px-10 py-5">
             <!-- Left side search box with icon -->
-            <div class="relative flex items-center">
+            <div class="relative flex items-center w-full md:w-96">
                 <input type="text" placeholder="Search by SKU/GIA/IGI/GCAL number"
                     class="w-full md:w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
                 <div class="absolute right-0 h-full flex items-center">
@@ -3914,7 +3913,7 @@
             </div>
 
             <!-- Right side clear filter button -->
-            <button class="flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-black">
+            <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-black">
                 <span>Clear Filters</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">

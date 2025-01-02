@@ -5,23 +5,7 @@
 <div class="container mx-auto px-4 py-12">
     <h1 class="text-3xl font-montserrat font-semibold text-center mb-12">Frequently Asked Questions</h1>
     
-    <div class="flex flex-col md:flex-row gap-8">
-        <!-- Left Side Navigation -->
-        <div class="md:w-1/4">
-            <nav class="space-y-2 sticky top-20">
-                <a href="#about" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('about', event)">About Us</a>
-                <a href="#insurance" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('insurance', event)">Insurance & Care</a>
-                <a href="#order-ring-size" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('order-ring-size', event)">Order & Ring Sizes</a>
-                <a href="#our-diamonds-jewelry" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('our-diamonds-jewelry', event)">Our Diamond & Jewelry</a>
-                <a href="#lab-created-diamonds" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('lab-created-diamonds', event)">Lab Created Diamonds</a>
-                <a href="#payments" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('payments', event)">Payments</a>
-                <a href="#shipping" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('shipping', event)">Shipping</a>
-                <a href="#returns-refund" class="block font-montserrat py-2 px-4 rounded hover:bg-gray-100 transition" onclick="scrollToSection('returns-refund', event)">Returns & Refund</a>
-            </nav>
-        </div>
-
-        <!-- Right Side FAQ Content -->
-        <div class="md:w-3/4"> 
+    <div class="xl:w-3/5 flex flex-col justify-center mx-auto w-full gap-8">
             <!-- About Us -->
             <section id="about" class="mb-12">
                 <h2 class="text-2xl font-montserrat font-semibold mb-6">About Us</h2>
@@ -33,7 +17,7 @@
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </button>
-                        <div class="faq-content hidden">
+                        <div class="faq-content hidden transition-all duration-300 ease-in-out max-h-0 overflow-hidden opacity-0">
                             <p class="text-gray-600 font-montserrat mt-2">
                                 We are a leading manufacturer and retailer of lab-grown diamonds with our own manufacturing unit in India called Loose Grown Diamond. We specialize in creating high-quality, certified lab-grown diamonds and serve customers globally with direct-to-consumer pricing and exceptional service.
                             </p>
@@ -181,21 +165,8 @@
                     </div>
                 </div>
             </section>
-        </div>
     </div>
 </div>
-
-<script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
 
 <script>
     function toggleFaq(button) {
@@ -204,14 +175,47 @@
         const svg = button.querySelector('svg');
         
         // Toggle the content visibility
-        content.classList.toggle('hidden');
-        
-        // Rotate the arrow icon
         if (content.classList.contains('hidden')) {
-            svg.style.transform = 'rotate(0deg)';
-        } else {
+            content.classList.remove('hidden');
+            content.style.maxHeight = content.scrollHeight + 'px'; // Set to full height
+            content.style.opacity = '1';
             svg.style.transform = 'rotate(180deg)';
+        } else {
+            content.style.maxHeight = '0'; // Set to 0 for closing
+            content.style.opacity = '0';
+            svg.style.transform = 'rotate(0deg)';
+            
+            // Use a timeout to remove the hidden class after the transition
+            setTimeout(() => {
+                content.classList.add('hidden');
+            }, 300); // Match this duration with the CSS transition duration
         }
+    }
+</script>
+
+<script>
+    function showFaqSection(sectionId, event) {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+        
+        // Hide all FAQ contents
+        document.querySelectorAll('.faq-content').forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Show the selected FAQ section
+        const selectedContent = document.querySelector(`#${sectionId} .faq-content`);
+        if (selectedContent) {
+            selectedContent.classList.remove('hidden');
+        }
+        
+        // Smooth scroll to the section
+        const target = document.querySelector(`#${sectionId}`);
+        const targetOffset = target.getBoundingClientRect().top + window.scrollY - document.querySelector('h1').offsetHeight; // Adjust scroll position
+        window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth'
+        });
     }
 </script>
 
