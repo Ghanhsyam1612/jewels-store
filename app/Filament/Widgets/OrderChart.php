@@ -14,19 +14,19 @@ class OrderChart extends ChartWidget
 
     protected function getData(): array
     {
-        // $ordersPerMonth = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
-        //     ->whereYear('created_at', date('Y'))
-        //     ->groupBy('month')
-        //     ->orderBy('month')
-        //     ->pluck('count')
-        //     ->toArray();
+        $ordersPerMonth = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('count')
+            ->toArray();
 
         return [
             'datasets' => [
                 [
                     'label' => 'Orders',
-                    'data' => [2433, 3454, 4566, 3300, 5545, 5765, 6787, 8767, 7565, 8576, 9686, 8996],
-                    // 'data' => array_pad($ordersPerMonth, 12, 0), // Pad with zeros for months with no orders
+                    // 'data' => [2433, 3454, 4566, 3300, 5545, 5765, 6787, 8767, 7565, 8576, 9686, 8996],
+                    'data' => array_pad($ordersPerMonth, 12, 0), // Pad with zeros for months with no orders
                     'fill' => 'start',
                 ],
             ],

@@ -64,13 +64,16 @@ class DiamondResource extends Resource
                     ->image()
                     ->directory('diamond_images')
                     ->preserveFilenames()
+                    ->disk('public')
+                    ->maxSize(20480) // 20MB in kilobytes
                     ->required(),
                 Forms\Components\FileUpload::make('video_url')
                     ->label('Video')
                     ->directory('diamond_videos')
                     ->preserveFilenames()
+                    ->disk('public')
+                    ->maxSize(20480) // 20MB in kilobytes
                     ->acceptedFileTypes(['video/mp4', 'video/mpeg', 'video/quicktime']),
-
                 Forms\Components\TextInput::make('carat')
                     ->required(),
                 Forms\Components\TextInput::make('size')
