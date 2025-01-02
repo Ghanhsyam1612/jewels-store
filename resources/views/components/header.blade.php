@@ -93,52 +93,52 @@
                             <div class="grid grid-cols-2 gap-2">
                                 {{-- Solitaire --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3 group">
-                                    <img src="{{ asset('images/style-shape/Solitaire.png') }}" alt="Solitaire" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Solitaire.png') }}" alt="Solitaire" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Solitaire</span>
                                 </a>
                                 {{-- Halo --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
-                                    <img src="{{ asset('images/style-shape/Halo.png') }}" alt="Halo" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Halo.png') }}" alt="Halo" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Halo</span>
                                 </a>
                                 {{-- Diamond Band --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
-                                    <img src="{{ asset('images/style-shape/Diamond Band.png') }}" alt="Diamond Band" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Diamond Band.png') }}" alt="Diamond Band" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Diamond Band</span>
                                 </a>
                                 {{-- Hidden Halo --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
-                                    <img src="{{ asset('images/style-shape/Hidden Halo.png') }}" alt="Hidden Halo" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Hidden Halo.png') }}" alt="Hidden Halo" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Hidden Halo</span>
                                 </a>
                                 {{-- Three Stone --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pt-1 pl-3">
-                                    <img src="{{ asset('images/style-shape/Three Stone.png') }}" alt="Three Stone" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Three Stone.png') }}" alt="Three Stone" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Three Stone</span>
                                 </a>
                                 {{-- Bezel --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pt-1 pl-3">
-                                    <img src="{{ asset('images/style-shape/Bezel.png') }}" alt="Bezel" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Bezel.png') }}" alt="Bezel" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Bezel</span>
                                 </a>
                                 {{-- Cluster --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
-                                    <img src="{{ asset('images/style-shape/Cluster.png') }}" alt="Cluster" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Cluster.png') }}" alt="Cluster" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Cluster</span>
                                 </a>
                                 {{-- Dainty --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
-                                    <img src="{{ asset('images/style-shape/Dainty.png') }}" alt="Dainty" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Dainty.png') }}" alt="Dainty" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Dainty</span>
                                 </a>
                                 {{-- Unique --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
-                                    <img src="{{ asset('images/style-shape/Unique.png') }}" alt="Unique" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Unique.png') }}" alt="Unique" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Unique</span>
                                 </a>
                                 {{-- Vintage Inspired --}}
                                 <a href="#" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
-                                    <img src="{{ asset('images/style-shape/Vintage Rings.png') }}" alt="Vintage Rings" class="w-9 text-gray-500">
+                                    <img src="{{ asset('images/style-shape/Vintage Rings.png') }}" alt="Vintage Rings" class="!w-9 text-gray-500" style="width: 36px;">
                                     <span class="text-primary text-xs">Vintage Inspired</span>
                                 </a>
                             </div>
