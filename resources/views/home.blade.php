@@ -22,11 +22,11 @@
             <!-- Buttons Row -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
                 <a href="{{ route('inventory') }}"
-                    class="font-montserrat font-semibold tracking-wide text-center w-full md:w-3/5 lg:w-2/5 xl:w-2/6 md:px-8 lg:px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300">
+                    class="font-montserrat font-semibold tracking-wide text-center w-full md:w-3/5 lg:w-2/5 xl:w-2/6 md:px-8 lg:px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300" style="color: rgb(240,186,64);">
                     Shop Lab Grown Diamonds
                 </a>
                 <a href="{{ route('build-a-ring') }}"
-                    class="font-montserrat font-semibold tracking-wide text-center w-full md:w-3/5 lg:w-2/5 xl:w-2/6 md:px-8 lg:px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300">
+                    class="font-montserrat font-semibold tracking-wide text-center w-full md:w-3/5 lg:w-2/5 xl:w-2/6 md:px-8 lg:px-8 py-4 bg-primary text-gold rounded-md hover:bg-white hover:text-primary border hover:border-primary transition duration-300" style="color: rgb(240,186,64);">
                     Shop Engagement Rings
                 </a>
             </div>
@@ -81,7 +81,7 @@
                 Explore our collection of 950,000+ IGI/GIA/GCAL certified diamonds
             </p>
         </div>
-        <div class="flex flex-col mx-5 my-8 md:mx-8 lg:mx-20">
+        <div class="flex flex-col mx-5 my-5 md:mx-8 lg:mx-20">
             <div class="grid grid-cols-3 gap-7 md:gap-2 lg:gap-5 md:grid-cols-5 lg:grid-cols-10 lg:mb-5">
                 <!-- Round -->
                 <div class="hover:bg-light-blue-1 p-4">
@@ -264,11 +264,9 @@
                 </div>
             </div>
         </div>
-
-        </div>
         <div class="flex justify-center">
             <a href="{{route('inventory')}}"
-                class="font-montserrat font-semibold tracking-wide px-8 py-5 bg-primary text-sm text-gold hover:text-primary rounded-md border border-primary hover:border-primary hover:bg-white transition duration-300">
+                class="font-montserrat font-semibold tracking-wide px-8 py-5 bg-primary text-sm text-gold hover:text-primary rounded-md border border-primary hover:border-primary hover:bg-white transition duration-300" style="color: rgb(240,186,64);">
                 Shop Lab Grown Diamonds
             </a>
         </div>

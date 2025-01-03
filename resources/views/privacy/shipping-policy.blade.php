@@ -66,7 +66,18 @@
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-semibold text-primary font-montserrat mb-4">Frequently Asked Questions</h2>
       
-      <div class="space-y-4">
+      <div class="border p-4">
+          <button type="button" class="w-full flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+              <h3 class="font-montserrat font-medium text-left text-sm lg:text-base">Do you offer free shipping?</h3>
+              <img src="{{ asset('images/down-arrow.png') }}" alt="Arrow Down" class="w-2.5 h-2.5 transform transition-transform duration-300">
+          </button>
+          <div class="faq-content hidden transition-all duration-300 ease-in-out max-h-0 overflow-hidden opacity-0">
+              <p class="text-gray-600 text-sm lg:text-base font-montserrat mt-2">
+                We offer free standard shipping on orders above $500. You can also choose other shipping methods for an additional cost.
+              </p>
+          </div>
+      </div>
+
 
         <div class="border p-4">
             <button type="button" class="w-full flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">

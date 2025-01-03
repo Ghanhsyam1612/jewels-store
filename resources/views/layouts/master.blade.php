@@ -14,6 +14,12 @@
     <link rel="icon" href="{{ asset('favicon/favicon.ico') }}">
     @vite('resources/css/app.css')
 
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+
+
 </head>
 
 <body class="flex flex-col min-h-screen md:max-w-screen-3xl mx-auto bg-gray-50 font-montserrat">

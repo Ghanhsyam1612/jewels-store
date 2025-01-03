@@ -27,6 +27,58 @@
                 </div>
             </div>
 
+            <!-- Add Try On Button below the main image -->
+            <div class="mt-4">
+                <button onclick="openTryOn()" class="flex items-center justify-center w-full py-2 px-4 bg-dark-blue text-white rounded-md hover:bg-opacity-90 transition duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Virtual Try On
+                </button>
+            </div>
+
+            <!-- Try On Modal -->
+            <div id="tryOnModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
+                <div class="bg-white rounded-lg p-8 max-w-2xl w-full">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-semibold">Virtual Try On</h3>
+                        <button onclick="closeTryOn()" class="text-gray-500 hover:text-gray-700">&times;</button>
+                    </div>
+
+                    <!-- Try On Options -->
+                    <div id="tryOnOptions" class="flex gap-4 justify-center mb-6">
+                        <button onclick="showUploadOption()" class="bg-dark-blue text-white px-6 py-3 rounded-md hover:bg-opacity-90">
+                            Upload Image
+                        </button>
+                        <button onclick="showCameraOption()" class="bg-dark-blue text-white px-6 py-3 rounded-md hover:bg-opacity-90">
+                            Take Photo
+                        </button>
+                    </div>
+
+                    <!-- Upload Image Section -->
+                    <div id="uploadSection" class="hidden">
+                        <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)" class="mb-4">
+                        <div id="uploadPreview" class="relative w-full h-[400px] bg-gray-100 flex items-center justify-center">
+                            <img id="uploadedImage" class="max-h-full max-w-full" style="display: none;">
+                            <img id="jewelryOverlay" src="" class="absolute w-20 h-20 cursor-move" style="display: none;">
+                        </div>
+                    </div>
+
+                    <!-- Camera Section -->
+                    <div id="cameraSection" class="hidden">
+                        <video id="camera" autoplay playsinline class="w-full h-[400px] bg-gray-100 mb-4"></video>
+                        <button onclick="capturePhoto()" class="bg-dark-blue text-white px-6 py-2 rounded-md hover:bg-opacity-90">
+                            Capture
+                        </button>
+                        <div id="capturePreview" class="relative w-full h-[400px] bg-gray-100 hidden">
+                            <img id="capturedImage" class="max-h-full max-w-full">
+                            <img id="jewelryOverlayCam" src="" class="absolute cursor-move" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal -->
             <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
                 <div class="relative">
@@ -408,44 +460,174 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-
-
-<script>
-    function changeImage(src) {
-        document.getElementById('mainImage').src = src;
-    }
-
-    function openModal() {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const mainImg = document.getElementById('mainImage');
-        modalImg.src = mainImg.src;
-        modal.classList.remove('hidden');
-    }
-
-    function closeModal() {
-        document.getElementById('imageModal').classList.add('hidden');
-    }
-</script>
+</div>
 
 <script>
-    function toggleFaq(button) {
-        // Get the content div that follows the button
-        const content = button.nextElementSibling;
-        const svg = button.querySelector('svg');
+// Keep all existing scripts
+
+// Add new try-on functionality
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+function openTryOn() {
+    document.getElementById('tryOnModal').classList.remove('hidden');
+}
+
+function showUploadOption() {
+    document.getElementById('uploadSection').classList.remove('hidden');
+    document.getElementById('cameraSection').classList.add('hidden');
+    document.getElementById('tryOnOptions').classList.add('hidden');
+}
+
+function showCameraOption() {
+    document.getElementById('cameraSection').classList.remove('hidden');
+    document.getElementById('uploadSection').classList.add('hidden');
+    document.getElementById('tryOnOptions').classList.add('hidden');
+    
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            document.getElementById('camera').srcObject = stream;
+        })
+        .catch(err => {
+            console.error('Error accessing camera:', err);
+            alert('Unable to access camera. Please ensure you have granted camera permissions.');
+        });
+}
+
+function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const uploadedImage = document.getElementById('uploadedImage');
+            uploadedImage.src = e.target.result;
+            uploadedImage.style.display = 'block';
+            
+            const jewelryOverlay = document.getElementById('jewelryOverlay');
+            jewelryOverlay.src = document.getElementById('mainImage').src;
+            jewelryOverlay.style.display = 'block';
+            
+            // Reset position
+            xOffset = 0;
+            yOffset = 0;
+            setTranslate(0, 0, jewelryOverlay);
+            
+            // Add drag events
+            jewelryOverlay.addEventListener('mousedown', dragStart);
+            jewelryOverlay.addEventListener('touchstart', dragStart);
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function capturePhoto() {
+    const video = document.getElementById('camera');
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+    
+    document.getElementById('capturedImage').src = canvas.toDataURL('image/png');
+    document.getElementById('capturePreview').classList.remove('hidden');
+    document.getElementById('camera').style.display = 'none';
+    
+    const jewelryOverlay = document.getElementById('jewelryOverlayCam');
+    jewelryOverlay.src = document.getElementById('mainImage').src;
+    jewelryOverlay.style.display = 'block';
+    
+    // Reset position
+    xOffset = 0;
+    yOffset = 0;
+    setTranslate(0, 0, jewelryOverlay);
+    
+    // Add drag events
+    jewelryOverlay.addEventListener('mousedown', dragStart);
+    jewelryOverlay.addEventListener('touchstart', dragStart);
+}
+
+function dragStart(e) {
+    if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+    } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+    }
+
+    if (e.target === document.getElementById('jewelryOverlay') || 
+        e.target === document.getElementById('jewelryOverlayCam')) {
+        isDragging = true;
+    }
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', dragEnd);
+    document.addEventListener('touchend', dragEnd);
+}
+
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
         
-        // Toggle the content visibility
-        content.classList.toggle('hidden');
-        
-        // Rotate the arrow icon
-        if (content.classList.contains('hidden')) {
-            svg.style.transform = 'rotate(0deg)';
+        if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+            currentY = e.touches[0].clientY - initialY;
         } else {
-            svg.style.transform = 'rotate(180deg)';
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
         }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, document.getElementById('jewelryOverlay'));
+        setTranslate(currentX, currentY, document.getElementById('jewelryOverlayCam'));
     }
+}
+
+function setTranslate(xPos, yPos, el) {
+    if (el && el.style) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+}
+
+function dragEnd() {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+    
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('touchmove', drag);
+    document.removeEventListener('mouseup', dragEnd);
+    document.removeEventListener('touchend', dragEnd);
+}
+
+function closeTryOn() {
+    document.getElementById('tryOnModal').classList.add('hidden');
+    document.getElementById('uploadSection').classList.add('hidden');
+    document.getElementById('cameraSection').classList.add('hidden');
+    document.getElementById('tryOnOptions').classList.remove('hidden');
+    
+    // Reset camera if active
+    const camera = document.getElementById('camera');
+    if (camera.srcObject) {
+        camera.srcObject.getTracks().forEach(track => track.stop());
+    }
+    
+    // Reset preview sections
+    document.getElementById('uploadedImage').style.display = 'none';
+    document.getElementById('jewelryOverlay').style.display = 'none';
+    document.getElementById('capturePreview').classList.add('hidden');
+    document.getElementById('camera').style.display = 'block';
+    document.getElementById('jewelryOverlayCam').style.display = 'none';
+}
 </script>
 
 @endsection
