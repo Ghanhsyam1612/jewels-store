@@ -1,11 +1,4 @@
 <header class="bg-primary font-montserrat">
-    <!-- Top bar -->
-    <div class="bg-black text-white text-xs py-1 px-4">
-        <div class="container mx-auto text-center">
-            INTERNATIONAL SHIPPING & FREE RETURNS (USA) &nbsp; | &nbsp; WE PRICE MATCH &nbsp; | &nbsp; 100% MONEY BACK GUARANTEE
-        </div>
-    </div>
-
     <!-- Main header -->
     <div id="sticky-header" class="mx-auto flex items-center justify-between py-4 px-6 bg-primary max-w-screen-3xl">
         <!-- Hamburger menu for mobile -->

@@ -2105,12 +2105,12 @@
                         <span class="text-red-600">$119</span>
                     </td>
                     <td class="py-4">
-                        <button onclick="toggleDetails(1)" class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
+                        <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
                     </td>
                 </tr>
 
                 {{-- <tr id="details-{{ $diamond->id }}" class="hidden transition-all duration-300"> --}}
-                <tr id="details-1" class="hidden transition-all duration-300">
+                <tr id="details-1" class="content hidden transition-all duration-200 ease-in-out max-h-0 overflow-hidden opacity-0">
                     <td colspan="7" class="relative">
                         <button onclick="toggleDetails(1)" class="absolute right-4 top-4 text-gray-500 hover:text-black">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2171,57 +2171,65 @@
                             <!-- Right Side -->
                             <div>
                                 <h3 class="text-lg font-montserrat font-semibold uppercase mb-4">Diamond Details</h3>
-                                <div class="flex flex-col">
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Carat</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">0.25</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Size (mm)</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">0.25 mm</span>
-                                    </div>
-                                    <div class="flex flex-row gap-5 border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Cut</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">Good</span>
-                                            <span class="font-montserrat text-sm text-gray-500">Good</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row gap-16 border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Color</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">G</span>
-                                            <span class="font-montserrat text-sm text-gray-500">G</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row gap-9 border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Clarity</span>
-                                        <div class="flex flex-col">
-                                            <span class="font-montserrat font-semibold text-gray-600">SI2</span>
-                                            <span class="font-montserrat text-sm text-gray-500">SI2</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">In The Box</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">Diamond, IGI Certificate.</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Table & Depth</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">58% & 62%</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">L/W Ratio</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">1.00</span>
-                                    </div>
-                                    <div class="flex flex-row border-b w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">SKU</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">1234567890</span>
-                                    </div>
-                                    <div class="flex flex-row w-full py-3">
-                                        <span class="font-montserrat text-base text-gray-500 uppercase w-40">Growth Type</span>
-                                        <span class="font-montserrat font-semibold text-gray-600 uppercase">HPHT</span>
-                                    </div>
-                                </div>
+                                <table class="w-full border-collapse">
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Carat</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">0.25</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Size (mm)</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">0.25 mm</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Cut</td>
+                                            <td class="py-2">
+                                                <div class="flex flex-col">
+                                                    <span class="font-montserrat font-semibold text-gray-600">Good</span>
+                                                    <span class="font-montserrat text-sm text-gray-500">Good</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Color</td>
+                                            <td class="py-2">
+                                                <div class="flex flex-col">
+                                                    <span class="font-montserrat font-semibold text-gray-600">G</span>
+                                                    <span class="font-montserrat text-sm text-gray-500">G</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Clarity</td>
+                                            <td class="py-2">
+                                                <div class="flex flex-col">
+                                                    <span class="font-montserrat font-semibold text-gray-600">SI2</span>
+                                                    <span class="font-montserrat text-sm text-gray-500">SI2</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">In The Box</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">Diamond, IGI Certificate.</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Table & Depth</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">58% & 62%</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">L/W Ratio</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">1.00</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">SKU</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">1234567890</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Growth Type</td>
+                                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">HPHT</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </td>
@@ -2292,26 +2300,38 @@
 
 <!-- Start Toggle Script -->
 <script>
-    // Toggle script for showing/hiding elements
-    function toggleElement(elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+    function toggleDetails(id) {
+        const detailsRow = document.getElementById(`details-${id}`);
+        
+        // Close all other open details rows
+        document.querySelectorAll('.content').forEach(otherContent => {
+            if (otherContent !== detailsRow) {
+                otherContent.style.maxHeight = '0';
+                otherContent.style.opacity = '0';
+                otherContent.classList.add('hidden');
+            }
+        });
+
+        // Toggle the content visibility
+        if (detailsRow.classList.contains('hidden')) {
+            detailsRow.classList.remove('hidden');
+            detailsRow.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
+            detailsRow.style.maxHeight = detailsRow.scrollHeight + 'px';
+            detailsRow.style.opacity = '1';
+        } else {
+            detailsRow.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
+            detailsRow.style.maxHeight = '0';
+            detailsRow.style.opacity = '0';
+            
+            setTimeout(() => {
+                detailsRow.classList.add('hidden');
+            }, 300);
         }
     }
-
-    // Add click event listeners to toggle buttons/elements
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleButtons = document.querySelectorAll('[data-toggle]');
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-toggle');
-                toggleElement(targetId);
-            });
-        });
-    });
 </script>
 <!-- End Toggle Script -->
+
+
 
 <!-- Start Certificate Dropdown Script -->
 <script>
