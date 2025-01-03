@@ -3,17 +3,17 @@
 @section('content')
 
 
-  <!-- Shipping Policy Section -->
+  <!-- Feedback Section -->
   <section class="container mx-auto py-12 px-6">
     <div class="max-w-full flex flex-col items-center space-y-3">
 
-        <h2 class="text-3xl font-montserrat text-primary font-semibold text-center mb-3">Get in Touch</h2>
-        <p class="text-lg font-montserrat text-primary text-center mb-8">Fill out the form below or email us at <a href="mailto:support@roayadiamond.com" class="text-primary font-medium">support@roayadiamond.com</a></p>
-        <p class="text-lg font-montserrat text-primary text-center mb-8"><span class="font-medium">Call us at</span> <a href="tel:+16462880810" class="text-primary">+1 646-288-0810</a></p>
-        <p class="text-lg font-montserrat text-primary text-center mb-8"><span class="font-medium">Address:</span> 55W 47th St., Suite #790, New York, NY-10036, USA</p>
+        <h2 class="text-xl lg:text-3xl font-montserrat text-primary font-semibold text-center mb-3">Get in Touch</h2>
+        <p class="text-base lg:text-lg font-montserrat text-primary text-center mb-8">Fill out the form below or email us at <a href="mailto:support@roayadiamond.com" class="text-primary font-medium">support@roayadiamond.com</a></p>
+        <p class="text-base lg:text-lg font-montserrat text-primary text-center mb-8"><span class="font-medium">Call us at</span> <a href="tel:+16462880810" class="text-primary">+1 646-288-0810</a></p>
+        <p class="text-base lg:text-lg font-montserrat text-primary text-center mb-8"><span class="font-medium">Address:</span> 55W 47th St., Suite #790, New York, NY-10036, USA</p>
 
 
-        <form action="" method="POST" enctype="multipart/form-data" class="space-y-6 w-3/5">
+        <form action="" method="POST" enctype="multipart/form-data" class="space-y-6 w-full max-w-xl xl:max-w-2xl">
             @csrf
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -40,7 +40,7 @@
 
             <div>
                 <textarea name="description" id="description" rows="5"
-                    class="mt-1 block w-full rounded-md border border-gray-300 font-montserrat text-sm text-gray-400 p-2">Your Message*</textarea>
+                    class="mt-1 block w-full rounded-md border border-gray-300 font-montserrat text-sm text-gray-400 p-2" placeholder="Your Message*"></textarea>
             </div>
 
             <div class="text-end">
