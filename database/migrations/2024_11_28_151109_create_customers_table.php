@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('password')->nullable();
-            $table->foreignId('address_id')->nullable()->constrained('addresses')->cascadeOnDelete();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

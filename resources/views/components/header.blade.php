@@ -943,7 +943,7 @@
             </div> --}}
 
             {{-- Account --}}
-            <a href="{{ auth('customer')->check() ? route('account.my-account') : route('account') }}" class="text-gold hover:text-white cursor-pointer"  style="color: rgb(240,186,64);">
+            <a href="{{ auth('customer')->check()  ? route('account.my-account') : route('account') }}" class="text-gold hover:text-white cursor-pointer"  style="color: rgb(240,186,64);">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" stroke-width="2" />

@@ -33,7 +33,8 @@ class DiamondController extends Controller
         }
 
 
-        $diamonds = $query->get()->shuffle();
+        $diamonds = $query->get()->shuffle()->take(10);
+        // $diamonds = $query->inRandomOrder()->paginate(10);
 
         return view('components.inventory', compact('diamonds'));
     }

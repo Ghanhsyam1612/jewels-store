@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Jobs\WelcomeEmailJob;
 
 
 class CustomerController extends Controller
@@ -44,6 +45,7 @@ class CustomerController extends Controller
                     'first_name' => $request->full_name,
                     'phone' => $request->country_code . $request->phone,
                     'email' => $request->email,
+                    'is_email_verified' => true,
                     'password' => Hash::make($request->password),
                 ]
             );
@@ -51,7 +53,7 @@ class CustomerController extends Controller
             DB::commit();
 
             // Send the welcome email
-            Mail::to($customer->email)->send(new WelcomeMail($customer));
+            WelcomeEmailJob::dispatch($customer);
 
             return redirect()->route('home')->with('success', 'Customer registered successfully');
         } catch (\Exception $e) {

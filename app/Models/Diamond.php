@@ -14,6 +14,7 @@ class Diamond extends Model
     protected $casts = [
         'images' => 'array',
         'video_url' => 'json',
+        'certificate_link' => 'json'
     ];
 
 

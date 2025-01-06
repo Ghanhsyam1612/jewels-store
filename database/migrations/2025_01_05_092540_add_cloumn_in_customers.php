@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->dropForeign(['address_id']);
-            $table->dropColumn('address_id');
+            $table->boolean('is_email_verified')->after('email')->default(false);
         });
     }
 
@@ -23,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->foreignId('address_id')->nullable()->constrained('addresses')->cascadeOnDelete();
+            $table->dropColumn('is_email_verified');
         });
     }
 };

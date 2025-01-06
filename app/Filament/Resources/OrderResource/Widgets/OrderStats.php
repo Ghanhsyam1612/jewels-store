@@ -33,24 +33,24 @@ class OrderStats extends BaseWidget
             ->count();
 
         return [
-            // Stat::make('Orders', Order::count())
-            //     ->chart(
-            //         $orderData
-            //             ->map(fn(TrendValue $value) => $value->aggregate)
-            //             ->toArray()
-            //     ),
-            // Stat::make('Open orders', Order::whereIn('status', ['processing'])->count()),
-            // Stat::make('Average price', number_format(Order::avg('total'), 2)),
+            Stat::make('Orders', Order::count())
+                ->chart(
+                    $orderData
+                        ->map(fn(TrendValue $value) => $value->aggregate)
+                        ->toArray()
+                ),
+            Stat::make('Open orders', Order::whereIn('status', ['processing'])->count()),
+            Stat::make('Average price', number_format(Order::avg('total'), 2)),
 
 
-            Stat::make('Orders', 1500)
-            ->chart(
-                $orderData
-                    ->map(fn(TrendValue $value) => $value->aggregate)
-                    ->toArray()
-            ),
-            Stat::make('Open orders', 1000),
-            Stat::make('Average price', 100),
+            // Stat::make('Orders', 1500)
+            // ->chart(
+            //     $orderData
+            //         ->map(fn(TrendValue $value) => $value->aggregate)
+            //         ->toArray()
+            // ),
+            // Stat::make('Open orders', 1000),
+            // Stat::make('Average price', 100),
         ];
     }
 }

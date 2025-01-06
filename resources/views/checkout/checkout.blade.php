@@ -56,7 +56,7 @@
                                 @endif
                             </span>
                         </div>
-                        <p class="text-sm font-montserrat text-gray-400">
+                        <p class="text-center text-sm font-montserrat text-gray-400 py-4">
                             Shipping is free for orders above <span class="font-bold text-gray-700">$500</span>
                         </p>
                         <div class="flex justify-between font-semibold text-lg mt-4">
@@ -277,7 +277,7 @@
                             state: document.querySelector('input[name="state"]').value,
                             zip: document.querySelector('input[name="zip"]').value,
                             country: document.querySelector('select[name="country"]').value,
-                            transaction_id: data.orderID,
+                            transaction_id: details.id,
                             amount: details.purchase_units[0].amount.value
                         })
                     })

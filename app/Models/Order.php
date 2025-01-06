@@ -16,6 +16,8 @@ class Order extends Model
     static $SHIPPING_STATUS_SHIPPED = 'shipped';
     static $SHIPPING_STATUS_COMPLETED = 'completed';
 
+    
+
 
     public function customer()
     {

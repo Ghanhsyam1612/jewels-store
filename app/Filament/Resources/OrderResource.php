@@ -155,13 +155,12 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('order_number')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('customer.display_name')
+                Tables\Columns\TextColumn::make('customer.first_name')
                     ->sortable()
                     ->searchable()
                     ->icon('heroicon-o-user'),
                 Tables\Columns\TextColumn::make('shipping_status')
-                    ->badge()
-                    ->color(fn($state) => OrderStatus::getColors()[$state]),
+                    ->badge(),
                 Tables\Columns\TextColumn::make('total')
                     ->numeric()
                     ->sortable()
@@ -224,6 +223,27 @@ class OrderResource extends Resource
                     }),
             ])
             ->actions([
+                Tables\Actions\Action::make('accept')
+                    ->label('Accept Order')
+                    ->color('success')
+                    ->action(function (Order $record) {
+                        $record->update(['shipping_status' => 'processing']);
+                        Notification::make()
+                            ->title('Order accepted successfully.')
+                            ->success()
+                            ->send();
+                    }),
+
+                Tables\Actions\Action::make('cancel')
+                    ->label('Cancel Order')
+                    ->color('danger')
+                    ->action(function (Order $record) {
+                        $record->update(['shipping_status' => 'completed']);
+                        Notification::make()
+                            ->title('Order canceled successfully.')
+                            ->success()
+                            ->send();
+                    }),
                 Tables\Actions\EditAction::make(),
             ])
             ->groupedBulkActions([
@@ -254,6 +274,12 @@ class OrderResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return Order::count();
+    }
+
+
+    public static function canCreate(): bool
+    {
+        return false;
     }
 
 

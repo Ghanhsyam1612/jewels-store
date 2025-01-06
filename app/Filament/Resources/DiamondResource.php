@@ -28,35 +28,28 @@ class DiamondResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('shape')
                     ->label('Shape')
-                    ->options(Shape::class)
-                    ->required(),
+                    ->options(Shape::class),
                 Forms\Components\Select::make('color')
                     ->label('Color')
-                    ->options(Color::class)
-                    ->required(),
+                    ->options(Color::class),
                 Forms\Components\TextInput::make('original_price')
-                    ->required()
                     ->label('Price')
                     ->numeric()
                     ->prefix('$'),
                 Forms\Components\TextInput::make('mrp')
-                    ->required()
                     ->label('MRP')
                     ->numeric()
                     ->prefix('$'),
 
                 Forms\Components\Select::make('cut')
                     ->label('Cut')
-                    ->options(Cut::class)
-                    ->required(),
+                    ->options(Cut::class),
                 Forms\Components\Select::make('clarity')
                     ->label('Clarity')
-                    ->options(Clarity::class)
-                    ->required(),
+                    ->options(Clarity::class),
 
                 Forms\Components\FileUpload::make('images')
                     ->label('Images')
@@ -65,8 +58,7 @@ class DiamondResource extends Resource
                     ->directory('diamond_images')
                     ->preserveFilenames()
                     ->disk('public')
-                    ->maxSize(20480) // 20MB in kilobytes
-                    ->required(),
+                    ->maxSize(20480), // 20MB in kilobytes
                 Forms\Components\FileUpload::make('video_url')
                     ->label('Video')
                     ->directory('diamond_videos')
@@ -74,17 +66,12 @@ class DiamondResource extends Resource
                     ->disk('public')
                     ->maxSize(20480) // 20MB in kilobytes
                     ->acceptedFileTypes(['video/mp4', 'video/mpeg', 'video/quicktime']),
-                Forms\Components\TextInput::make('carat')
-                    ->required(),
-                Forms\Components\TextInput::make('size')
-                    ->required(),
-                Forms\Components\TextInput::make('l_w_ratio')
-                    ->required(),
-                Forms\Components\TextInput::make('table')
-                    ->required(),
+                Forms\Components\TextInput::make('carat'),
+                Forms\Components\TextInput::make('size'),
+                Forms\Components\TextInput::make('l_w_ratio'),
+                Forms\Components\TextInput::make('table'),
                 Forms\Components\TextInput::make('sku')
-                    ->label('SKU')
-                    ->required(),
+                    ->label('SKU'),
                 Forms\Components\TextInput::make('growth_type')
                     ->maxLength(255),
             ]);

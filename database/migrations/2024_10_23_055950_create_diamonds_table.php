@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('diamonds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->enum('shape', [
-                'ROUND', 
+                'ROUND',
                 'PRINCESS',
                 'RADIANT',
                 'ASSCHER',
@@ -34,20 +34,29 @@ return new class extends Migration
                 'KITE',
                 'OLD_MINE',
                 'TRAPEZOID',
-                'TRIANGULAR'
-            ]);
-            $table->integer('price');
-            $table->integer('carat');
-            $table->enum('cut', ['GOOD', 'VERY GOOD', 'EXCELLENT', 'IDEAL']);
-            $table->enum('color', ['M' ,'L' ,'K' , 'J' , 'I' ,'H' , 'G' , 'F' , 'E' , 'D']);
-            $table->enum('clarity', ['IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2', 'I1', 'I2', 'I3']);
-            $table->json('images');
-            $table->integer('size');
-            $table->integer('l_w_ratio');
-            $table->integer('table');
-            $table->string('sku');
-            $table->json('video_url');
+                'TRIANGULAR',
+                'EUROPEAN',
+                'LOZENGE',
+                'CRISS'
+            ])->nullable();
+            $table->decimal('original_price', 10, 2)->nullable();
+            $table->decimal('mrp', 10, 2)->nullable();
+            $table->string('carat')->nullable();
+            $table->enum('cut', ['GOOD', 'VERY GOOD', 'EXCELLENT', 'IDEAL'])->nullable();
+            $table->enum('color', ['M', 'L', 'K', 'J', 'I', 'H', 'G', 'F', 'E', 'D'])->nullable();
+            $table->enum('clarity', ['IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2', 'I1', 'I2', 'I3'])->nullable();
+            $table->json('images')->nullable();
+            $table->string('size')->nullable();
+            $table->string('l_w_ratio')->nullable();
+            $table->string('table')->nullable();
+            $table->string('sku')->nullable();
+            $table->string('lab')->nullable();
+            $table->string('certificate_number')->nullable();
+            $table->json('video_url')->nullable();
+            $table->json('certificate_link')->nullable();
+            $table->string('growth_type')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
