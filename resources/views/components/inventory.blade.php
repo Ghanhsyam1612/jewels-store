@@ -4005,7 +4005,7 @@
                                     <span class="text-red-600">${{ $diamond->original_price }}</span>
                                 </td>
                                 <td class="py-4">
-                                    <button class="px-4 py-2 text-sm font-montserrat text-white bg-primary rounded hover:bg-white border border-primary hover:text-primary transition-all duration-300">View
+                                    <button class="px-4 py-2 text-sm font-montserrat text-gold bg-primary rounded hover:bg-white border border-primary hover:text-primary transition-all duration-300">View
                                         More</button>
                                 </td>
                             </tr>
@@ -4163,8 +4163,17 @@
                                 </td>
                             </tr>
                         @endforeach
+
+                        
                     </tbody>
+                    
                 </table>
+                {{-- Load More Button --}}
+                <div class="flex justify-center mt-4">
+                    <button class="px-6 py-2.5 text-sm border border-primary bg-primary text-gold rounded-sm hover:bg-white hover:border-primary hover:text-primary transition-colors flex items-center font-montserrat gap-2">
+                        Load More
+                    </button>
+                </div>
             </div>
         </div>
         <!-- End Table -->
