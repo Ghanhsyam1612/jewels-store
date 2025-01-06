@@ -52,7 +52,7 @@
                 <h3 class="md:text-xs lg:text-lg text-gold font-montserrat font-semibold mb-4" style="color: rgb(240,186,64);">DIAMOND CATEGORIES</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="{{ route('color-melee-diamonds') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Color Melee Diamonds</a></li>
-                    <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Round Calibrated Diamonds</a></li>
+                    <li><a href="{{ route('calibrated') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Round Calibrated Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">IGI Certified Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">GIA Certified Diamonds</a></li>
                     <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">GCAL Certified Diamonds</a></li>

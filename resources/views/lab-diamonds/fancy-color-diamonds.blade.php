@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container mx-auto px-6 py-12">
-    <h1 class="text-xl lg:text-4xl text-primary font-montserrat font-bold text-center mb-3">
+<div class="container mx-auto px-4 lg:px-6 py-12">
+    <h1 class="text-xl lg:text-4xl text-primary font-montserrat font-bold text-center mb-3 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
         Certified Fancy Color Lab Grown Diamonds
     </h1>
-    <p class="text-primary/80 text-center font-montserrat text-sm mb-8">
+    <p class="text-primary/80 text-center font-montserrat text-sm mb-4 md:mb-8 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
         Select your perfect fancy color lab created diamond from thousands of ethically sourced diamonds.
     </p>
 
@@ -207,95 +207,168 @@
     </div>
     {{-- End Intensity Color --}}
 
-    <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider, Intensity Color -->
-    <div class="grid grid-cols-1 md:grid-cols-3 px-10">
+    <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
+    <div class="hidden lg:grid lg:grid-cols-3 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
         <!-- Shape Svg -->
-        <div class="flex items-center pt-4">
+        <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Shape</h5>
-            <div class="flex flex-col pt-2">
-                <div class="flex mb-1 flex-row gap-3">
+            <div class="flex flex-col">
+                <div class="flex mb-1">
                     <!-- Round -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
+                    <a href="{{ route('inventory', ['shape' => 'round']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" alt="Round Shape">
                     </a>
 
                     <!-- Princess -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
-                        <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25" alt="Princess Shape">
+                    <a href="{{ route('inventory', ['shape' => 'princess']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25"
+                            alt="Princess Shape">
                     </a>
 
                     <!-- Radiant -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
-                        <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25" alt="Radiant Shape">
+                    <a href="{{ route('inventory', ['shape' => 'radiant']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25"
+                            alt="Radiant Shape">
                     </a>
 
                     <!-- Asscher -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
-                        <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25" alt="Asscher Shape">
+                    <a href="{{ route('inventory', ['shape' => 'asscher']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25"
+                            alt="Asscher Shape">
                     </a>
 
                     <!-- Cushion -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
-                        <img src="{{ asset('Shape/cushion.svg') }}" width="25" height="25" alt="Cushion Shape">
+                    <a href="{{ route('inventory', ['shape' => 'cushion']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/cushion.svg') }}" width="25" height="25"
+                            alt="Cushion Shape">
                     </a>
 
                     <!-- Oval -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
+                    <a href="{{ route('inventory', ['shape' => 'oval']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                     </a>
 
                     <!-- Emerald -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
-                        <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25" alt="Emerald Shape">
+                    <a href="{{ route('inventory', ['shape' => 'emerald']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25"
+                            alt="Emerald Shape">
                     </a>
 
                     <!-- Pear -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
+                    <a href="{{ route('inventory', ['shape' => 'pear']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/pear.svg') }}" width="25" height="25" alt="Pear Shape">
                     </a>
 
                     <!-- Marquise -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
-                        <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25" alt="Marquise Shape">
+                    <a href="{{ route('inventory', ['shape' => 'marquise']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25"
+                            alt="Marquise Shape">
                     </a>
 
                     <!-- Heart -->
-                    <a href="#"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center">
+                    <a href="{{ route('inventory', ['shape' => 'heart']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                     </a>
                 </div>
-                
+                <div class="flex">
+                    <!-- Rose Cut -->
+                    <a href="{{ route('inventory', ['shape' => 'rose-cut']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25"
+                            alt="Rose Cut Shape">
+                    </a>
+
+                    <!-- Old European -->
+                    <a href="{{ route('inventory', ['shape' => 'old-european']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25"
+                            alt="Old European Shape">
+                    </a>
+
+                    <!-- Half Moon -->
+                    <a href="{{ route('inventory', ['shape' => 'half-moon']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25"
+                            alt="Half Moon Shape">
+                    </a>
+
+                    <!-- Baguette Trapezoid -->
+                    <a href="{{ route('inventory', ['shape' => 'baguette-trapezoid']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
+                        <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25"
+                            alt="Baguette Trapezoid Shape">
+                    </a>
+
+                    <!-- Baguette -->
+                    <a href="{{ route('inventory', ['shape' => 'baguette']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25"
+                            alt="Baguette Shape">
+                    </a>
+
+                    <!-- Hexagon -->
+                    <a href="{{ route('inventory', ['shape' => 'hexagon']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25"
+                            alt="Hexagon Shape">
+                    </a>
+
+                    <!-- Kite -->
+                    <a href="{{ route('inventory', ['shape' => 'kite']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
+                    </a>
+
+                    <!-- Old Mine -->
+                    <a href="{{ route('inventory', ['shape' => 'old-mine']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25"
+                            alt="Old Mine Shape">
+                    </a>
+
+                    <!-- Trapezoid -->
+                    <a href="{{ route('inventory', ['shape' => 'trapezoid']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25"
+                            alt="Trapezoid Shape">
+                    </a>
+
+                    <!-- Triangular -->
+                    <a href="{{ route('inventory', ['shape' => '']) }}"
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
+                            alt="Triangular Shape">
+                    </a>
+                </div>
             </div>
         </div>
         <!-- End Shape Svg -->
 
         <!-- Price Range Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm text-primary font-montserrat font-semibold mt-4">Price</h5>
-            <div class="range_container">
-                <div class="form_control">
-                    <div class="form_control_container">
-                        <input class="form_control_container__time__input" type="number" id="fromInput"
-                            value="100" min="100" max="100000" />
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Price</h5>
+            <div class="fc_price_range_container">
+                <div class="fc_price_form_control">
+                    <div class="fc_price_form_control_container">
+                        <input class="fc_price_form_control_container__time__input" type="number" id="fc_price_fromInput" value="100" min="100" max="100000" />
                     </div>
-                    <div class="form_control_container">
-                        <input class="form_control_container__time__input" type="number" id="toInput"
-                            value="100000" min="100" max="100000" />
+                    <div class="fc_price_form_control_container">
+                        <input class="fc_price_form_control_container__time__input" type="number" id="fc_price_toInput" value="100000" min="100" max="100000" />
                     </div>
                 </div>
-                <div class="sliders_control">
-                    <input id="fromSlider" type="range" value="100" min="100" max="100000" />
-                    <input id="toSlider" type="range" value="100000" min="100" max="100000" />
+                <div class="fc_price_sliders_control">
+                    <input id="fc_price_fromSlider" type="range" value="100" min="100" max="100000" />
+                    <input id="fc_price_toSlider" type="range" value="100000" min="100" max="100000" />
                 </div>
                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>$100</span>
@@ -304,215 +377,117 @@
             </div>
         </div>
         <style>
-            .range_container {
+            .fc_price_range_container {
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                margin: 5% 3%;
+                margin: 5% auto;
             }
-
-            .sliders_control {
+        
+            .fc_price_sliders_control {
                 position: relative;
                 min-height: 35px;
                 display: flex;
                 align-items: center;
             }
-
-            .form_control {
-                position: relative;
+        
+            .fc_price_form_control {
                 display: flex;
                 justify-content: space-between;
-                font-size: 24px;
-                color: #635a5a;
                 width: 100%;
             }
-
+        
             input[type="range"]::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
                 width: 16px;
                 height: 16px;
                 background-color: #fff;
-                border-radius: 100%;
+                border-radius: 50%;
                 box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
                 cursor: pointer;
-                /* margin-top: -9px; */
+                position: relative;
+                z-index: 5;
             }
-
-            input[type="range"]::-moz-range-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 24px;
-                height: 24px;
-                background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
-                cursor: pointer;
-            }
-
-            input[type="range"]::-webkit-slider-thumb:hover {
-                background: #f7f7f7;
-            }
-
-            input[type="range"]::-webkit-slider-thumb:active {
-                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-            }
-
+        
             input[type="number"] {
-                color: #8a8383;
                 width: 100%;
-                /* height: 30px; */
                 font-size: 13px;
                 border: 1px solid #c6c6c6;
                 border-radius: 4px;
                 padding: 4px;
             }
-
-            input[type="number"]::-webkit-inner-spin-button,
-            input[type="number"]::-webkit-outer-spin-button {
-                opacity: 1;
-            }
-
+        
             input[type="range"] {
-                -webkit-appearance: none;
-                appearance: none;
                 height: 4px;
                 width: 100%;
                 position: absolute;
                 background-color: #c6c6c6;
-                pointer-events: none;
                 border-radius: 8px;
-            }
-
-            #fromSlider {
-                height: 0;
-                z-index: 1;
             }
         </style>
         <script>
-            // Controls the slider using from Input....
-            function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
-                const [from, to] = getParsed(fromInput, toInput);
-                fillSlider(fromInput, toInput, "#C6C6C6", "#733D80", controlSlider);
-                fromSlider.value = from;
-
-                if (from > to) {
-                    fromSlider.value = to;
-                    fromInput.value = to;
-                } else {
-                    fromSlider.value = from;
-                }
+            const fc_price_fromSlider = document.querySelector("#fc_price_fromSlider");
+            const fc_price_toSlider = document.querySelector("#fc_price_toSlider");
+            const fc_price_fromInput = document.querySelector("#fc_price_fromInput");
+            const fc_price_toInput = document.querySelector("#fc_price_toInput");
+        
+            function updateSliderColors() {
+                const min = parseInt(fromSlider.min);
+                const max = parseInt(toSlider.max);
+                const from = parseInt(fromInput.value);
+                const to = parseInt(toInput.value);
+        
+                const percentFrom = ((from - min) / (max - min)) * 100;
+                const percentTo = ((to - min) / (max - min)) * 100;
+        
+                fc_price_fromSlider.style.background = `linear-gradient(to right, #c6c6c6 ${percentFrom}%, #301914 ${percentFrom}%, #301914 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
+                fc_price_toSlider.style.background = fc_price_fromSlider.style.background;
             }
-
-            // Controls the slider using to Input....
-            function controlToInput(toSlider, fromInput, toInput, controlSlider) {
-                const [from, to] = getParsed(fromInput, toInput);
-                fillSlider(fromInput, toInput, "#C6C6C6", "#733D80", controlSlider);
-                setToggleAccessible(toInput);
-                toSlider.value = to;
-                toInput.value = to;
-
-                if (from <= to) {
-                    toSlider.value = to;
-                    toInput.value = to;
-                } else {
-                    toInput.value = from;
-                }
+        
+            function syncFromInput() {
+                let value = Math.min(parseInt(fc_price_fromInput.value), parseInt(fc_price_toInput.value));
+                fc_price_fromInput.value = value;
+                fc_price_fromSlider.value = value;
+                updateSliderColors();
             }
-
-            // Sliding event of the From slider
-            function controlFromSlider(fromSlider, toSlider, fromInput) {
-                const [from, to] = getParsed(fromSlider, toSlider);
-                console.log([from, to]);
-                fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
-                fromInput.value = from;
-                if (from > to) {
-                    fromInput.value = to;
-                    toInput.value = from;
-                }
+        
+            function syncToInput() {
+                let value = Math.max(parseInt(fc_price_toInput.value), parseInt(fc_price_fromInput.value));
+                fc_price_toInput.value = value;
+                fc_price_toSlider.value = value;
+                updateSliderColors();
             }
-
-            // Sliding event of the To slider
-            function controlToSlider(fromSlider, toSlider, toInput) {
-                const [from, to] = getParsed(fromSlider, toSlider);
-                fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
-                setToggleAccessible(toSlider);
-                toSlider.value = to;
-                toInput.value = to;
-                if (from > to) {
-                    fromInput.value = to;
-                    toInput.value = from;
-                }
+        
+            function syncFromSlider() {
+                fc_price_fromInput.value = fc_price_fromSlider.value;
+                updateSliderColors();
             }
-
-            // Parsign values of the Inputs
-            function getParsed(currentFrom, currentTo) {
-                const from = parseInt(currentFrom.value, 10);
-                const to = parseInt(currentTo.value, 10);
-                return [from, to];
+        
+            function syncToSlider() {
+                fc_price_toInput.value = fc_price_toSlider.value;
+                updateSliderColors();
             }
-
-            // Changing and Filling the color in the selected part...
-            function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-                let rangeDistance = to.max - to.min;
-                let fromPosition = from.value - to.min;
-                let toPosition = to.value - to.min;
-                if (fromPosition > toPosition) {
-                    let spare = fromPosition;
-                    fromPosition = toPosition;
-                    toPosition = spare;
-                }
-                controlSlider.style.background = `linear-gradient(
-              to right,
-              ${sliderColor} 0%,
-              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} 100%)`;
-            }
-
-            // Making sure the toggle which we are using is accesible to change the range
-            function setToggleAccessible(currentTarget) {
-                const toSlider = document.querySelector("#toSlider");
-                if (Number(currentTarget.value) <= 0) {
-                    toSlider.style.zIndex = 2;
-                } else {
-                    toSlider.style.zIndex = 0;
-                }
-            }
-
-            const fromSlider = document.querySelector("#fromSlider");
-            const toSlider = document.querySelector("#toSlider");
-            const fromInput = document.querySelector("#fromInput");
-            const toInput = document.querySelector("#toInput");
-
-            // Initially filling the slider using default values...
-            fillSlider(fromSlider, toSlider, "#C6C6C6", "#733D80", toSlider);
-            setToggleAccessible(toSlider);
-
-            // Assigning listner methonds to respective events.
-            fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-            toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-            fromInput.oninput = () =>
-                controlFromInput(fromSlider, fromInput, toInput, toSlider);
-            toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+        
+            fc_price_fromInput.addEventListener("input", syncFromInput);
+            fc_price_toInput.addEventListener("input", syncToInput);
+            fc_price_fromSlider.addEventListener("input", syncFromSlider);
+            fc_price_toSlider.addEventListener("input", syncToSlider);
+        
+            updateSliderColors();
         </script>
         <!-- End Price Range Slider -->
 
         <!-- Carat Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm text-primary font-montserrat font-semibold mt-4">Carat</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Carat</h5>
             <div class="range_carat_container">
                 <div class="form_carat_control">
                     <div class="form_carat_control_container">
-                        <input class="form_carat_control_container__carat__input" type="number" id="fromCaratInput"
-                            value="0.00" min="0" max="60" />
+                        <input class="form_carat_control_container__carat__input" type="number"
+                            id="fromCaratInput" value="0.00" min="0.00" max="60.00" step="0.01" />
                     </div>
                     <div class="form_carat_control_container">
                         <input class="form_carat_control_container__carat__input" type="number" id="toCaratInput"
-                            value="60.00" min="0" max="60" />
+                            value="60.00" min="0.00" max="60.00" step="0.01" />
                     </div>
                 </div>
                 <div class="sliders_carat_control">
@@ -530,7 +505,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                margin: 5% 3%;
+                margin: 5% auto;
             }
 
             .sliders_carat_control {
@@ -620,21 +595,20 @@
             }
 
             /* #fromCaratSlider {
-                        height: 0;
-                        z-index: 3;
-                    } */
+                                height: 0;
+                                z-index: 3;
+                            } */
             #toCaratSlider {
                 height: 0;
                 z-index: 4;
             }
         </style>
         <script>
-            // Controls the slider using from Input....
+            // Controls the slider using from Input
             function controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
                 const [from, to] = getParsed(fromCaratInput, toCaratInput);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider);
                 fromCaratSlider.value = from;
-
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", controlSlider); // <-- Dynamic Color Update
                 if (from > to) {
                     fromCaratSlider.value = to;
                     fromCaratInput.value = to;
@@ -643,14 +617,12 @@
                 }
             }
 
-            // Controls the slider using to Input....
+            // Controls the slider using to Input
             function controlToInput(toCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
                 const [from, to] = getParsed(fromCaratInput, toCaratInput);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider);
-                setToggleAccessible(toCaratInput);
                 toCaratSlider.value = to;
-                toCaratInput.value = to;
-
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", controlSlider); // <-- Dynamic Color Update
+                setToggleAccessible(toCaratInput);
                 if (from <= to) {
                     toCaratSlider.value = to;
                     toCaratInput.value = to;
@@ -662,8 +634,7 @@
             // Sliding event of the From slider
             function controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput) {
                 const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
-                console.log([from, to]);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Dynamic Color Update
                 fromCaratInput.value = from;
                 if (from > to) {
                     fromCaratInput.value = to;
@@ -674,7 +645,7 @@
             // Sliding event of the To slider
             function controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput) {
                 const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Dynamic Color Update
                 setToggleAccessible(toCaratInput);
                 toCaratSlider.value = to;
                 toCaratInput.value = to;
@@ -686,12 +657,12 @@
 
             // Parsing values of the Inputs with 2 decimal places
             function getParsed(currentFrom, currentTo) {
-                const from = parseFloat(currentFrom.value).toFixed(2);
-                const to = parseFloat(currentTo.value).toFixed(2);
+                const from = parseFloat(currentFrom.value).toFixed(2); // <-- Precision to 2 decimal places
+                const to = parseFloat(currentTo.value).toFixed(2);     // <-- Precision to 2 decimal places
                 return [parseFloat(from), parseFloat(to)];
             }
 
-            // Changing and Filling the color in the selected part...
+            // Changing and Filling the color in the selected part
             function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
                 let rangeDistance = to.max - to.min;
                 let fromPosition = from.value - to.min;
@@ -702,16 +673,16 @@
                     toPosition = spare;
                 }
                 controlSlider.style.background = `linear-gradient(
-              to right,
-              ${sliderColor} 0%,
-              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-              ${sliderColor} 100%)`;
+                    to right,
+                    ${sliderColor} 0%,
+                    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${sliderColor} 100%)`; // <-- Updates color fill dynamically
             }
 
-            // Making sure the toggle which we are using is accessible to change the range
+            // Ensures accessibility for toggles
             function setToggleAccessible(currentTarget) {
                 const toCaratSlider = document.querySelector("#toCaratSlider");
                 if (Number(currentTarget.value) <= 0) {
@@ -721,6 +692,7 @@
                 }
             }
 
+            // Element References
             const fromCaratSlider = document.querySelector("#fromCaratSlider");
             const toCaratSlider = document.querySelector("#toCaratSlider");
             const fromCaratInput = document.querySelector("#fromCaratInput");
@@ -732,22 +704,28 @@
             fromCaratInput.step = "0.01";
             toCaratInput.step = "0.01";
 
-            // Initially filling the slider using default values...
-            fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider);
+            // Initial slider fill and setup
+            fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Initial color setup
             setToggleAccessible(toCaratSlider);
 
-            // Assigning listener methods to respective events.
+            // Event Listeners for Sliders and Inputs
             fromCaratSlider.oninput = () => controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput);
             toCaratSlider.oninput = () => controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput);
-            fromCaratInput.oninput = () =>
+            fromCaratInput.oninput = () => {
                 controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
-            toCaratInput.oninput = () => controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Instant color update
+            };
+            toCaratInput.oninput = () => {
+                controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Instant color update
+            };
         </script>
+
         <!-- End Carat Slider -->
 
         <!-- Cut Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm text-primary font-montserrat font-semibold pb-4">Cut</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Cut</h5>
             <div class="range_cut_container">
                 <div class="sliders_cut_control">
                     <input id="fromCutSlider" type="range" value="0" min="0" max="4"
@@ -768,7 +746,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                margin: 5% 5%;
+                margin: 5% auto;
             }
 
             .sliders_cut_control {
@@ -819,8 +797,10 @@
             const fromCutInput = document.querySelector("#fromCutInput");
             const toCutInput = document.querySelector("#toCutInput");
 
+
+
             // Initially filling the slider using default values...
-            fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#733D80", toCutSlider);
+            fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#301914", toCutSlider);
             setToggleAccessible(toCutSlider);
 
             // Assigning listener methods to respective events.
@@ -834,7 +814,7 @@
 
         <!-- Color Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm text-primary font-montserrat font-semibold pb-4">Color</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
             <div class="range_color_container">
                 <div class="sliders_color_control">
                     <input id="fromColorSliderM" type="range" value="0" min="0" max="10"
@@ -861,7 +841,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                margin: 5% 3%;
+                margin: 5% auto;
             }
 
             .sliders_color_control {
@@ -913,7 +893,7 @@
             const toColorInputM = document.querySelector("#toColorInputM");
 
             // Initially filling the slider using default values...
-            fillSlider(fromColorSliderM, toColorSliderM, "#C6C6C6", "#733D80", toColorSliderM);
+            fillSlider(fromColorSliderM, toColorSliderM, "#C6C6C6", "#301914", toColorSliderM);
             setToggleAccessible(toColorSliderM);
 
             // Assigning listener methods to respective events.
@@ -927,7 +907,7 @@
 
         <!-- Clarity Slider -->
         <div class="flex items-center">
-            <h5 class="text-sm text-primary font-montserrat font-semibold pb-4">Clarity</h5>
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Clarity</h5>
             <div class="range_clarity_container">
                 <div class="sliders_clarity_control">
                     <input id="fromClaritySlider" type="range" value="0" min="0" max="11"
@@ -951,11 +931,12 @@
             </div>
         </div>
         <style>
+            .range_carat_container,
             .range_clarity_container {
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                margin: 5% 3%;
+                margin: 5% auto;
             }
 
             .sliders_clarity_control {
@@ -1007,7 +988,7 @@
             const toClarityInput = document.querySelector("#toClarityInput");
 
             // Initially filling the slider using default values...
-            fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#733D80", toClaritySlider);
+            fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#301914", toClaritySlider);
             setToggleAccessible(toClaritySlider);
 
             // Assigning listener methods to respective events.
@@ -1064,7 +1045,7 @@
                             <button class="p-2 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
@@ -1129,7 +1110,7 @@
                             <button class="p-2 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
@@ -1186,7 +1167,7 @@
                             <button class="p-2 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
@@ -1467,7 +1448,7 @@
                             <button class="p-2 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
@@ -1745,7 +1726,7 @@
                             <button class="p-2 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
@@ -2005,12 +1986,11 @@
     </div>
     <!-- End Advanced Options -->
 
-
     <!-- Start Search Box And Clear Filters Button -->
-    <div class="flex justify-between items-center px-10 py-5">
+    <div class="flex justify-between items-center md:px-10 py-5">
         <!-- Left side search box with icon -->
-        <div class="relative flex items-center">
-            <input type="text" placeholder="Search by SKU/GIA/IGI/GCAL number" class="w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
+        <div class="relative flex items-center w-full md:w-96">
+            <input type="text" placeholder="Search by SKU/GIA/IGI/GCAL number" class="w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:text-xs placeholder:font-medium focus:outline-none focus:border-black">
             <div class="absolute right-0 h-full flex items-center">
                 <button class="h-full px-4 bg-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -2021,7 +2001,7 @@
         </div>
 
         <!-- Right side clear filter button -->
-        <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-black">
+        <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-primary">
             <span>Clear Filters</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -2031,8 +2011,8 @@
     <!-- End Search Box And Clear Filters Button -->
 
     <!-- Start Table -->
-    <div class="px-10">
-        <table class="w-full border-collapse">
+    <div class="overflow-x-auto md:px-10">
+        <table class="min-w-[800px]">
             <thead class="bg-primary">
                 <tr class="border-b">
                     <th class="py-4 pl-5 text-left w-1/5">
@@ -2105,14 +2085,14 @@
                         <span class="text-red-600">$119</span>
                     </td>
                     <td class="py-4">
-                        <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View More</button>
+                        <button class="px-4 py-2 text-sm font-montserrat text-gold bg-primary rounded hover:bg-white border border-primary hover:text-primary hover:border-primary transition-all duration-300">View More</button>
                     </td>
                 </tr>
 
                 {{-- <tr id="details-{{ $diamond->id }}" class="hidden transition-all duration-300"> --}}
                 <tr id="details-1" class="content hidden transition-all duration-200 ease-in-out max-h-0 overflow-hidden opacity-0">
                     <td colspan="7" class="relative">
-                        <button onclick="toggleDetails(1)" class="absolute right-4 top-4 text-gray-500 hover:text-black">
+                        <button onclick="toggleDetails(1)" class="absolute right-4 top-4 text-gray-500 hover:text-primary">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -2141,7 +2121,7 @@
                                         <input type="hidden" name="original_price" value="$119">
                                         <input type="hidden" name="mrp" value="$199">
                                         <input type="hidden" name="quantity" value="1">
-                                        <button class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
+                                        <button class="px-6 py-2.5 bg-primary text-sm text-gold rounded-sm hover:bg-white hover:text-primary transition-colors duration-300 flex items-center font-montserrat border border-primary gap-2">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                         </svg>
@@ -2150,7 +2130,7 @@
                                     </form>
                                     {{-- @if($diamond->video_url) --}}
                                     <a href="#" target="_blank">
-                                    <button class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
+                                    <button class="px-6 py-2.5 text-sm border border-primary text-primary rounded-sm hover:bg-primary hover:text-gold hover:border-primary transition-colors duration-300 flex items-center font-montserrat gap-2">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -2161,7 +2141,7 @@
                                     {{-- @endif --}}
                                 </div>
 
-                                <a href="#" class="text-black underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
+                                <a href="#" class="text-primary underline-offset-2 underline text-center mt-1 text-xs font-montserrat font-bold">
                                     View Diamond Certificate
                                 </a>
 
@@ -2170,7 +2150,7 @@
 
                             <!-- Right Side -->
                             <div>
-                                <h3 class="text-lg font-montserrat font-semibold uppercase mb-4">Diamond Details</h3>
+                                <h3 class="text-lg text-primary font-montserrat font-semibold uppercase mb-4">Diamond Details</h3>
                                 <table class="w-full border-collapse">
                                     <tbody>
                                         <tr class="border-b">
@@ -2239,7 +2219,6 @@
         </table>
     </div>
     <!-- End Table -->
-
 
     <script>
         let sortOrders = Array(7).fill('asc');
@@ -2330,8 +2309,6 @@
     }
 </script>
 <!-- End Toggle Script -->
-
-
 
 <!-- Start Certificate Dropdown Script -->
 <script>

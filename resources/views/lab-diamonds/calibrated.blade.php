@@ -3,20 +3,20 @@
 @section('content')
 
 <div class="w-full mx-auto pt-8">
-    <nav class="flex items-center text-sm font-montserrat mb-4 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40 py-3">
+    <nav class="flex items-center text-sm font-montserrat mb-4 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 py-3">
         <a href="/" class="text-primary text-xs lg:text-sm font-medium">Home</a>
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z" fill="#0F0F0F"></path> </g></svg>
         <span class="text-primary text-xs lg:text-sm">Calibrated Diamond</span>
     </nav>
 
-    <div class="flex flex-col lg:flex-row gap-6 xl:gap-8 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40 lg:mb-9 xl:mb-12">
+    <div class="flex flex-col lg:flex-row gap-6 xl:gap-8 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 lg:mb-9 xl:mb-12">
         <!-- Left side - Photo -->
         <div class="md:mx-auto md:w-3/4 lg:w-1/2 x relative">
             <img src="/images/Buy-Loose-Melee-Wholesale-Diamond.jpg" alt="Diamond" class="w-full">
             <!-- Wishlist heart icon -->
             <div class="absolute top-2 right-2">
                 <button id="wishlist-heart" onclick="toggleHeart()" class="bg-white rounded-full p-2 shadow-md cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="heart-icon" class="h-6 w-6 text-black" viewBox="0 0 24 24" fill="black">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="heart-icon" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.42 3.42 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87C14.96 5.99 16.46 5 18 5c2.08 0 3.5 1.42 3.5 3.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                 </button>
@@ -156,7 +156,7 @@
 
             <div class="flex gap-4">
                 <!-- Add to Bag Button -->
-                <a href="#" class="flex items-center uppercase text-sm lg:text-base font-montserrat font-semibold tracking-wide px-10 py-2 md:px-32 lg:px-20 lg:py-3 xl:px-32 bg-primary/90 text-white rounded-md hover:bg-primary transition duration-300">
+                <a href="#" class="flex items-center uppercase text-sm lg:text-base font-montserrat font-semibold tracking-wide px-10 py-2 md:px-32 lg:px-20 lg:py-3 xl:px-32 bg-primary/90 text-gold rounded-md hover:bg-primary transition duration-300" style="color: rgb(240,186,64);">
                     Add To Bag
                 </a>
 
@@ -176,27 +176,9 @@
 
         <div class="xl:max-w-7xl mx-auto px-4 md:px-12 lg:px-20 xl:px-40 2xl:px-16 grid grid-cols-1 md:grid-cols-3 md:gap-4 lg:gap-8 items-center">
             <!-- Card 1 -->
-            <div class="bg-light-grey-2 flex flex-col items-center justify-center gap-2 rounded-lg p-6">
-                <svg version="1.1" id="Layer_1" width="44" height="30" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 44 30"
-                    style="enable-background:new 0 0 44 30;" xml:space="preserve">
-                    <style type="text/css">
-                        .st0 {
-                            fill: #301934;
-                        }
-                    </style>
-                    <g>
-                        <g>
-                            <path class="st0"
-                                d="M22.03,30L2.24,10.2L12.44,0h19.28l10.05,10.05l-4.69,4.69l-1.82-1.82l2.87-2.87l-7.47-7.47H13.51L5.88,10.2    l16.15,16.15l8.57-8.57l-6.7-6.7l0,0c1.01-1.01,2.64-1.01,3.65,0l6.7,6.7L22.03,30z" />
-                        </g>
-                        <g>
-                            <path class="st0"
-                                d="M21.85,22.63L10.17,10.96L12,9.13l9.85,9.85l3.5-3.5l0,0c1.01,1.01,1.01,2.64,0,3.65L21.85,22.63z" />
-                        </g>
-                    </g>
-                </svg>
-                <h3 class="text-xl text-center text-primary font-montserrat font-semibold tracking-wide">Loose Grown Diamond</h3>
+            <div class="bg-light-grey-2 flex flex-col items-center justify-center gap-2 rounded-lg p-6 h-44">
+                <img src="/images/roaya-black.svg" alt="Roaya Diamond" class="w-20 h-24">
+                <h3 class="text-xl text-center text-primary font-montserrat font-semibold tracking-wide">Roaya Diamond</h3>
                 <p class="font-montserrat text-xs text-primary">
                     (We as a Manufacturer)
                 </p>
@@ -210,7 +192,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-light-grey-2 flex flex-col items-center justify-center gap-2 rounded-lg p-6">
+            <div class="bg-light-grey-2 flex flex-col items-center justify-center gap-2 rounded-lg p-6 h-44">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2299 1.7666H20.6631C21.8896 1.7666 22.8934 2.77045 22.8934 3.99695V5.66951C22.8934 6.896 21.8896 7.89986 20.6631 7.89986H20.2299C19.0026 7.89986 17.9995 6.896 17.9995 5.66951V3.99695C17.9995 2.77045 19.0026 1.7666 20.2299 1.7666ZM12.1403 0H12.8597C14.8971 0 16.5641 1.66693 16.5641 3.70439V6.48208C16.5641 8.51953 14.8971 10.1865 12.8597 10.1865H12.1403C10.1029 10.1865 8.43594 8.51953 8.43594 6.48208V3.70439C8.43594 1.66693 10.1029 0 12.1403 0ZM12.4996 25L11.2683 23.3628L11.8325 14.7677H13.1675L13.7317 23.3628L12.4996 25ZM7.92156 11.9354H10.0506L10.7716 13.0815C11.0617 13.542 11.1445 14.0436 11.0191 14.5724C11.0079 14.6182 11.0006 14.6648 10.9982 14.7123L10.4332 23.3073C10.4324 23.3258 10.4316 23.3443 10.4316 23.3628H4.93731V14.9196C4.93731 13.2784 6.28034 11.9354 7.92156 11.9354ZM14.9494 11.9354H17.0784C18.7197 11.9354 20.0627 13.2784 20.0627 14.9196V23.3628H14.5684C14.5684 23.3443 14.5676 23.3258 14.5668 23.3073L14.0018 14.7123C13.9986 14.6648 13.9921 14.6182 13.9809 14.5724C13.8555 14.0436 13.9383 13.542 14.2284 13.0815L14.9494 11.9354ZM4.33692 1.7666H4.77013C5.99662 1.7666 7.00048 2.77045 7.00048 3.99695V5.66951C7.00048 6.896 5.99662 7.89986 4.77013 7.89986H4.33692C3.10963 7.89986 2.10657 6.896 2.10657 5.66951V3.99695C2.10657 2.77045 3.10963 1.7666 4.33692 1.7666ZM7.30992 8.95274C7.47227 8.95274 7.629 8.97444 7.77849 9.01543C8.11445 9.5909 8.56132 10.094 9.08937 10.4967C9.09339 10.5289 9.09741 10.5602 9.09982 10.5923H7.92156C5.5393 10.5923 3.59508 12.5374 3.59508 14.9196V15.8335H0V10.7499C0 9.76129 0.808552 8.95274 1.79714 8.95274C3.63446 8.95274 5.47259 8.95274 7.30992 8.95274ZM23.2029 8.95274C24.1914 8.95274 25 9.76129 25 10.7499V15.8335H21.4049V14.9196C21.4049 12.5374 19.4607 10.5923 17.0784 10.5923H15.9002C15.9026 10.5602 15.9066 10.5289 15.9106 10.4967C16.4387 10.094 16.8855 9.5909 17.2215 9.01543C17.371 8.97444 17.5277 8.95274 17.6893 8.95274C19.5274 8.95274 21.3655 8.95274 23.2029 8.95274Z" fill="#301934"/>
                     </svg>

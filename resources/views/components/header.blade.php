@@ -33,20 +33,20 @@
                 <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="py-2">
                         <!-- Natural Diamond -->
-                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Natural Diamond</a>
+                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Natural Diamond</a>
                         
                         <!-- Lab Diamond with submenu -->
                         <div class="group/lab relative">
-                            <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Lab Diamond</a>
+                            <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Lab Diamond</a>
                             
                             <!-- Lab Diamond submenu -->
                             <div class="absolute left-full top-0 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover/lab:opacity-100 group-hover/lab:visible transition-all duration-300">
                                 <div class="py-2">
-                                    <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Solitaire Diamonds</a>
-                                    <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Calibrated Diamonds</a>
-                                    <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Fancy Shapes Diamonds</a>
-                                    <a href="/fancy-color-diamonds" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Fancy Color Diamonds</a>
-                                    <a href="{{ route('color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semiboldfan font-medium transition-all duration-200">Color Melee Diamonds</a>
+                                    <a href="{{ route('inventory') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Solitaire Diamonds</a>
+                                    <a href="{{ route('calibrated') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Calibrated Diamonds</a>
+                                    <a href="{{ route('fancy-shapes-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Fancy Shapes Diamonds</a>
+                                    <a href="/fancy-color-diamonds" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Fancy Color Diamonds</a>
+                                    <a href="{{ route('color-melee-diamonds') }}" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Color Melee Diamonds</a>
                                 </div>
                             </div>
                         </div>
@@ -75,9 +75,9 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-6">Create Your Diamond Ring</h3>
                             <div class="space-y-2">
-                                <a href="{{ route('build-a-ring') }}" class="block text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">Start With A Setting</a>
-                                <a href="{{ route('bespoke-jewellery') }}" class="block text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">Bespoke Jewellery</a>
-                                <a href="{{ route('custom-engagement-rings') }}" class="block text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">Custom Engagement Ring</a>
+                                <a href="{{ route('build-a-ring') }}" class="block text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">Start With A Setting</a>
+                                <a href="{{ route('bespoke-jewellery') }}" class="block text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">Bespoke Jewellery</a>
+                                <a href="{{ route('custom-engagement-rings') }}" class="block text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">Custom Engagement Ring</a>
                             </div>
                         </div>
                         <!-- Column 2 -->
@@ -214,19 +214,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Earrings</h3>
                             <div class="space-y-2">
-                                <a href="/stud-earrings" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/stud-earrings" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Stud Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Stud Earrings</span>
                                 </a>
-                                <a href="/hoops-and-drops" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/hoops-and-drops" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Hoops and Drops Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Hoops and Drops Earrings</span>
                                 </a>
-                                <a href="halo" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="halo" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Halo Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Halo Earrings</span>
                                 </a>
-                                <a href="cluster" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="cluster" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Cluster Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Cluster Earrings</span>
                                 </a>
@@ -236,19 +236,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Wedding Rings</h3>
                             <div class="space-y-2">
-                                <a href="/diamond" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/diamond" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Diamond Rings.svg') }}" alt="Diamond Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Diamond Rings</span>
                                 </a>
-                                <a href="/anniversary" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/anniversary" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Anniversary Rings.svg') }}" alt="Anniversary Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Anniversary Rings</span>
                                 </a>
-                                <a href="/eternity" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/eternity" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Eternity Rings.svg') }}" alt="Eternity Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Eternity Rings</span>
                                 </a>
-                                <a href="/stackable" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/stackable" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Stackable Rings.svg') }}" alt="Stackable Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Stackable Rings</span>
                                 </a>
@@ -258,19 +258,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Pendants</h3>
                             <div class="space-y-2">
-                                <a href="/solitaire" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/solitaire" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Solitaire Pendants.svg') }}" alt="Solitaire Pendants" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Solitaire Pendants</span>
                                 </a>
-                                <a href="/halo" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/halo" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Halo Pendants.svg') }}" alt="Halo Pendants" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Halo Pendants</span>
                                 </a>
-                                <a href="/diamond-pendants" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                <a href="/diamond-pendants" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Diamond Pendant.svg') }}" alt="Diamond Pendants" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Diamond Pendants</span>
                                 </a>
-                                <a href="/chains" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-semibold transition-all duration-200 pl-3">
+                                <a href="/chains" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-semibold transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Chains" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Chains</span>
                                 </a>
@@ -283,11 +283,11 @@
                                 <div>
                                     <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Bracelets</h4>
                                     <div class="space-y-2">
-                                        <a href="/tennis-bracelets" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                        <a href="/tennis-bracelets" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/Tennis Bracelets.svg') }}" alt="Tennis Bracelets" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Tennis Bracelets</span>
                                         </a>
-                                        <a href="/solitaire-bracelets" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                        <a href="/solitaire-bracelets" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/Solitaire Braclates.svg') }}" alt="Solitaire Bracelets" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Solitaire Bracelets</span>
                                         </a>
@@ -297,11 +297,11 @@
                                 <div>
                                     <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Necklace</h4>
                                     <div class="space-y-2">
-                                        <a href="/diamond-necklaces" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                        <a href="/diamond-necklaces" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Diamond Necklaces" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Diamond Necklaces</span>
                                         </a>
-                                        <a href="/tennis-necklaces" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 pl-3">
+                                        <a href="/tennis-necklaces" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Tennis Necklaces" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Tennis Necklaces</span>
                                         </a>
@@ -334,16 +334,16 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-6">Diamond 4C's</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">
                                     Cut
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">
                                     Clarity
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">
                                     Color
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-gray-700 hover:bg-gray-100text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-6">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-gray-700 hover:bg-gray-100text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-6">
                                     Carat
                                 </a>
                             </div>
@@ -352,16 +352,16 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Diamond Guide</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Certification
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Clarity
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Size Chart
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Diamond Price Calculator
                                 </a>
                             </div>
@@ -370,13 +370,13 @@
                         <div class="">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Helpful Guides</h3>
                             <div class="space-y-2">
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Tips For Cleaning Lab Grown Diamonds
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Facts & Misconceptions
                                 </a>
-                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semiboldfan font-medium transition-all duration-200 py-1 pl-3">
+                                <a href="#" class="flex items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 py-1 pl-3">
                                     Blood Free Diamonds
                                 </a>
                             </div>

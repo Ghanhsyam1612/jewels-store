@@ -1167,7 +1167,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-black">
+                                                class="text-primary">
                                                 <line x1="18" y1="6" x2="6" y2="18">
                                                 </line>
                                                 <line x1="6" y1="6" x2="18" y2="18">
@@ -1229,7 +1229,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-black">
+                                                class="text-primary">
                                                 <line x1="18" y1="6" x2="6" y2="18">
                                                 </line>
                                                 <line x1="6" y1="6" x2="18" y2="18">
@@ -1515,7 +1515,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-black">
+                                                class="text-primary">
                                                 <line x1="18" y1="6" x2="6" y2="18">
                                                 </line>
                                                 <line x1="6" y1="6" x2="18" y2="18">
@@ -1798,7 +1798,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-black">
+                                                class="text-primary">
                                                 <line x1="18" y1="6" x2="6" y2="18">
                                                 </line>
                                                 <line x1="6" y1="6" x2="18" y2="18">
@@ -2946,7 +2946,7 @@
                                 <button class="p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                         <line x1="18" y1="6" x2="6" y2="18"></line>
                                         <line x1="6" y1="6" x2="18" y2="18"></line>
                                     </svg>
@@ -3012,7 +3012,7 @@
                                 <button class="p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                         <line x1="18" y1="6" x2="6" y2="18"></line>
                                         <line x1="6" y1="6" x2="18" y2="18"></line>
                                     </svg>
@@ -3070,7 +3070,7 @@
                                 <button class="p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                         <line x1="18" y1="6" x2="6" y2="18"></line>
                                         <line x1="6" y1="6" x2="18" y2="18"></line>
                                     </svg>
@@ -3352,7 +3352,7 @@
                                 <button class="p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                         <line x1="18" y1="6" x2="6" y2="18"></line>
                                         <line x1="6" y1="6" x2="18" y2="18"></line>
                                     </svg>
@@ -3631,7 +3631,7 @@
                                 <button class="p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-black">
+                                        stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                         <line x1="18" y1="6" x2="6" y2="18"></line>
                                         <line x1="6" y1="6" x2="18" y2="18"></line>
                                     </svg>
@@ -3913,7 +3913,7 @@
             </div>
 
             <!-- Right side clear filter button -->
-            <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-black">
+            <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary hover:text-white">
                 <span>Clear Filters</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -4005,7 +4005,7 @@
                                     <span class="text-red-600">${{ $diamond->original_price }}</span>
                                 </td>
                                 <td class="py-4">
-                                    <button class="px-4 py-2 text-sm font-montserrat text-white bg-black rounded hover:bg-white border border-black hover:text-black transition-all duration-300">View
+                                    <button class="px-4 py-2 text-sm font-montserrat text-white bg-primary rounded hover:bg-white border border-primary hover:text-primary transition-all duration-300">View
                                         More</button>
                                 </td>
                             </tr>
@@ -4013,7 +4013,7 @@
                             <tr id="details-{{ $diamond->id }}" class="content hidden transition-all duration-200 ease-in-out max-h-0 overflow-hidden opacity-0">
                                 <td colspan="7" class="relative">
                                     <button onclick="toggleDetails({{ $diamond->id }})"
-                                        class="absolute right-4 top-4 text-gray-500 hover:text-black">
+                                        class="absolute right-4 top-4 text-gray-500 hover:text-primary">
                                         <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4062,8 +4062,8 @@
                                                     <input type="hidden" name="sku" value="{{ $diamond->sku }}">
                                                     <input type="hidden" name="quantity" value="1">
                                                     <input type="hidden" name="mrp" value="{{ $diamond->mrp }}">
-                                                    <button
-                                                        class="px-6 py-2.5 bg-black text-sm text-white rounded-sm hover:bg-white hover:text-black transition-colors flex items-center font-montserrat border border-black gap-2">
+                                                    <buttonz
+                                                        class="px-6 py-2.5 bg-primary text-sm text-white rounded-sm hover:bg-white hover:text-primary transition-colors flex items-center font-montserrat border border-primary gap-2">
                                                         <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                             viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -4076,7 +4076,7 @@
                                                 @if ($diamond->video_url)
                                                     <a href="{{ asset($diamond->video_url) }}" target="_blank">
                                                         <button
-                                                            class="px-6 py-2.5 text-sm border border-black text-black rounded-sm hover:bg-black hover:text-white transition-colors flex items-center font-montserrat gap-2">
+                                                            class="px-6 py-2.5 text-sm border border-primary text-primary  rounded-sm hover:bg-primary hover:text-gold transition-colors flex items-center font-montserrat gap-2">
                                                             <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                                 viewBox="0 0 24 24">
                                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -4093,7 +4093,7 @@
                                             </div>
 
                                             <a href="#"
-                                                class="text-black underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
+                                                class="text-primary underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
                                                 View Diamond Certificate
                                             </a>
 
