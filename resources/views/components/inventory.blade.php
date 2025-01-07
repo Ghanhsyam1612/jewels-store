@@ -3910,7 +3910,10 @@
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> 
+
+            
+              
 
             <!-- Right side clear filter button -->
             <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary hover:text-white">
@@ -3987,7 +3990,94 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Start Loader -->
+                        <div class="loader">
+                            <div class="dot dot-1"></div>
+                            <div class="dot dot-2"></div>
+                            <div class="dot dot-3"></div>
+                            <div class="dot dot-4"></div>
+                            <div class="dot dot-5"></div>
+                        </div>
+            
+                        <style>
+                            .loader {
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                            justify-content: center;
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            align-items: center;
+                            height: 100%;
+                            }
+
+                            .dot {
+                            display: inline-block;
+                            width: 12px;
+                            height: 12px;
+                            margin-right: 6px;
+                            border-radius: 50%;
+                            -webkit-animation: dot-pulse2 1.5s ease-in-out infinite;
+                            animation: dot-pulse2 1.5s ease-in-out infinite;
+                            }
+
+                            .dot-1 {
+                            background-color: #301914;
+                            -webkit-animation-delay: 0s;
+                            animation-delay: 0s;
+                            }
+
+                            .dot-2 {
+                            background-color: #301914;
+                            -webkit-animation-delay: 0.3s;
+                            animation-delay: 0.3s;
+                            }
+
+                            .dot-3 {
+                            background-color: #301914;
+                            -webkit-animation-delay: 0.6s;
+                            animation-delay: 0.6s;
+                            }
+
+                            .dot-4 {
+                            background-color: #301914;
+                            -webkit-animation-delay: 0.9s;
+                            animation-delay: 0.9s;
+                            }
+
+                            .dot-5 {
+                            background-color: #301914;
+                            -webkit-animation-delay: 1.2s;
+                            animation-delay: 1.2s;
+                            }
+
+                            @keyframes dot-pulse2 {
+                                0% {
+                                    -webkit-transform: scale(0.5);
+                                    transform: scale(0.5);
+                                    opacity: 0.5;
+                                }
+
+                                50% {
+                                    -webkit-transform: scale(1);
+                                    transform: scale(1);
+                                    opacity: 1;
+                                }
+
+                                100% {
+                                    -webkit-transform: scale(0.5);
+                                    transform: scale(0.5);
+                                    opacity: 0.5;
+                                }
+                            }
+
+                        </style>
+                        <!-- End Loader -->
+                          
                         @foreach ($diamonds as $diamond)
+                        
                             <tr class="border-b cursor-pointer" onclick="toggleDetails({{ $diamond->id }})">
                                 <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
                                     <img src="{{ asset($diamond->shape_svg) }}" width="25" height="25"
