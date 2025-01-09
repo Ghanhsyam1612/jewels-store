@@ -28,6 +28,10 @@ class CheckoutController extends Controller
             $validatedData = $request->validated();
 
             $cart = session()->get('cart', []);
+            if (empty($cart)) {
+                return redirect()->back()->with('error', 'Your cart is empty.');
+            }
+
             $total = 0;
 
             foreach ($cart as $item) {
@@ -75,7 +79,10 @@ class CheckoutController extends Controller
             }
 
             // Update Order Status
-            $order->update(['payment_status' => Order::$PAYMENT_STATUS_COMPLETED]);
+            $order->update([
+                'payment_status' => Order::$PAYMENT_STATUS_COMPLETED,
+                'shipping_status' => Order::$SHIPPING_STATUS_PROCESSING,
+            ]);
 
             // Send Order Confirmation Email
             // Mail::to($validatedData['shipping_address']['email'])->send(new OrderConfirmationEmail($order));
