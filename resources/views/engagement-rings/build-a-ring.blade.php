@@ -34,9 +34,9 @@
                     <!-- Right arrow -->
                     <div class="absolute right-[-15px] top-0 h-full w-[15px] z-10">
                         <div class="w-0 h-0 absolute
-                            border-t-[37px] border-t-transparent
+                            border-t-[40px] border-t-transparent
                             border-l-[15px] border-l-gold
-                            border-b-[37px] border-b-transparent">  
+                            border-b-[40px] border-b-transparent">  
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,10 @@
                                 border-b-[33px] border-b-transparent
                                 md:border-t-[37px] md:border-t-transparent
                                 md:border-l-[15px] md:border-l-slate-300
-                                md:border-b-[37px] md:border-b-transparent">
+                                md:border-b-[37px] md:border-b-transparent
+                                lg:border-t-[40px] lg:border-t-transparent
+                                lg:border-l-[15px] lg:border-l-slate-300
+                                lg:border-b-[40px] lg:border-b-transparent">
                             </div>
                         </div>
                     </div>
@@ -94,10 +97,13 @@
                             <div class="w-0 h-0 absolute
                                 border-t-[33px] border-t-transparent
                                 border-l-[8px] border-l-slate-200
-                                border-b-[33px] border-b-transparent
+                                border-b-[33px] border-b-transparent    
                                 md:border-t-[37px] md:border-t-transparent
                                 md:border-l-[10px] md:border-l-slate-200
-                                md:border-b-[37px] md:border-b-transparent">
+                                md:border-b-[37px] md:border-b-transparent
+                                lg:border-t-[40px] lg:border-t-transparent
+                                lg:border-l-[15px] lg:border-l-slate-200
+                                lg:border-b-[40px] lg:border-b-transparent">
                             </div>
                         </div>
                     </div>

@@ -316,7 +316,11 @@
             {{-- Ready To Ship --}}
             <a href="/ready-to-ship" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">READY TO SHIP</a>
             
+            {{-- Antique Cut Diamonds --}}
+            <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a>
+
             {{-- Precious Stones --}}
+            <!--
             <div class="relative group">
                 <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES    
                     <span class="ml-1">
@@ -327,10 +331,8 @@
                         </svg>
                     </span>
                 </a>
-                <!-- Dropdown menu -->
                 <div class="absolute lg:-left-40 xl:left-0 -translate-x-1/2 transform mt-2 w-[800px] bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="grid grid-cols-3 py-6">
-                        <!-- Column 1 -->
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-6">Diamond 4C's</h3>
                             <div class="space-y-2">
@@ -348,7 +350,6 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Column 2 -->
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Diamond Guide</h3>
                             <div class="space-y-2">
@@ -366,7 +367,6 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Column 3 -->
                         <div class="">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Helpful Guides</h3>
                             <div class="space-y-2">
@@ -381,7 +381,6 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Column 4 -->
                         {{-- <div>
                             <h3 class="font-semibold text-gray-900 text-12px leading-[19px] mb-2">Ring Collections By Carat</h3>
                             <div class="space-y-4">
@@ -407,7 +406,7 @@
                         </div> --}}
                     </div>
                 </div>
-            </div>
+            </div> -->
         </nav>
 
         <!-- Mobile menu -->
