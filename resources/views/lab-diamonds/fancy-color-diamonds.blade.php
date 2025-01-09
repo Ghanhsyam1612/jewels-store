@@ -357,18 +357,18 @@
         <!-- Price Range Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Price</h5>
-            <div class="fc_price_range_container">
-                <div class="fc_price_form_control">
-                    <div class="fc_price_form_control_container">
-                        <input class="fc_price_form_control_container__time__input" type="number" id="fc_price_fromInput" value="100" min="100" max="100000" />
+            <div class="range_container">
+                <div class="form_control">
+                    <div class="form_control_container">
+                        <input class="form_control_container__time__input" type="number" id="fromInput" value="100" min="100" max="100000" />
                     </div>
-                    <div class="fc_price_form_control_container">
-                        <input class="fc_price_form_control_container__time__input" type="number" id="fc_price_toInput" value="100000" min="100" max="100000" />
+                    <div class="form_control_container">
+                        <input class="form_control_container__time__input" type="number" id="toInput" value="100000" min="100" max="100000" />
                     </div>
                 </div>
-                <div class="fc_price_sliders_control">
-                    <input id="fc_price_fromSlider" type="range" value="100" min="100" max="100000" />
-                    <input id="fc_price_toSlider" type="range" value="100000" min="100" max="100000" />
+                <div class="sliders_control">
+                    <input id="fromSlider" type="range" value="100" min="100" max="100000" />
+                    <input id="toSlider" type="range" value="100000" min="100" max="100000" />
                 </div>
                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>$100</span>
@@ -377,21 +377,21 @@
             </div>
         </div>
         <style>
-            .fc_price_range_container {
+            .range_container {
                 display: flex;
                 flex-direction: column;
                 width: 80%;
                 margin: 5% auto;
             }
         
-            .fc_price_sliders_control {
+            .sliders_control {
                 position: relative;
                 min-height: 35px;
                 display: flex;
                 align-items: center;
             }
         
-            .fc_price_form_control {
+            .form_control {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
@@ -425,10 +425,10 @@
             }
         </style>
         <script>
-            const fc_price_fromSlider = document.querySelector("#fc_price_fromSlider");
-            const fc_price_toSlider = document.querySelector("#fc_price_toSlider");
-            const fc_price_fromInput = document.querySelector("#fc_price_fromInput");
-            const fc_price_toInput = document.querySelector("#fc_price_toInput");
+            const fromSlider = document.querySelector("#fromSlider");
+            const toSlider = document.querySelector("#toSlider");
+            const fromInput = document.querySelector("#fromInput");
+            const toInput = document.querySelector("#toInput");
         
             function updateSliderColors() {
                 const min = parseInt(fromSlider.min);
@@ -439,38 +439,38 @@
                 const percentFrom = ((from - min) / (max - min)) * 100;
                 const percentTo = ((to - min) / (max - min)) * 100;
         
-                fc_price_fromSlider.style.background = `linear-gradient(to right, #c6c6c6 ${percentFrom}%, #301914 ${percentFrom}%, #301914 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
-                fc_price_toSlider.style.background = fc_price_fromSlider.style.background;
+                fromSlider.style.background = `linear-gradient(to right, #c6c6c6 ${percentFrom}%, #301914 ${percentFrom}%, #301914 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
+                toSlider.style.background = fromSlider.style.background;
             }
         
             function syncFromInput() {
-                let value = Math.min(parseInt(fc_price_fromInput.value), parseInt(fc_price_toInput.value));
-                fc_price_fromInput.value = value;
-                fc_price_fromSlider.value = value;
+                let value = Math.min(parseInt(fromInput.value), parseInt(toInput.value));
+                fromInput.value = value;
+                fromSlider.value = value;
                 updateSliderColors();
             }
         
             function syncToInput() {
-                let value = Math.max(parseInt(fc_price_toInput.value), parseInt(fc_price_fromInput.value));
-                fc_price_toInput.value = value;
-                fc_price_toSlider.value = value;
+                let value = Math.max(parseInt(toInput.value), parseInt(fromInput.value));
+                toInput.value = value;
+                toSlider.value = value;
                 updateSliderColors();
             }
         
             function syncFromSlider() {
-                fc_price_fromInput.value = fc_price_fromSlider.value;
+                fromInput.value = fromSlider.value;
                 updateSliderColors();
             }
         
             function syncToSlider() {
-                fc_price_toInput.value = fc_price_toSlider.value;
+                toInput.value = toSlider.value;
                 updateSliderColors();
             }
         
-            fc_price_fromInput.addEventListener("input", syncFromInput);
-            fc_price_toInput.addEventListener("input", syncToInput);
-            fc_price_fromSlider.addEventListener("input", syncFromSlider);
-            fc_price_toSlider.addEventListener("input", syncToSlider);
+            fromInput.addEventListener("input", syncFromInput);
+            toInput.addEventListener("input", syncToInput);
+            fromSlider.addEventListener("input", syncFromSlider);
+            toSlider.addEventListener("input", syncToSlider);
         
             updateSliderColors();
         </script>
@@ -664,6 +664,8 @@
 
             // Changing and Filling the color in the selected part
             function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                // Update the sliderColor to the new primary color
+                const newSliderColor = "#301914"; // New primary color
                 let rangeDistance = to.max - to.min;
                 let fromPosition = from.value - to.min;
                 let toPosition = to.value - to.min;
@@ -674,12 +676,12 @@
                 }
                 controlSlider.style.background = `linear-gradient(
                     to right,
-                    ${sliderColor} 0%,
-                    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${newSliderColor} 0%,
+                    ${newSliderColor} ${(fromPosition / rangeDistance) * 100}%,
                     ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
                     ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                    ${sliderColor} 100%)`; // <-- Updates color fill dynamically
+                    ${newSliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} 100%)`; // <-- Updates color fill dynamically
             }
 
             // Ensures accessibility for toggles
@@ -2012,7 +2014,7 @@
 
     <!-- Start Table -->
     <div class="overflow-x-auto md:px-10">
-        <table class="min-w-[800px]">
+        <table class="min-w-[800px] lg:w-full">
             <thead class="bg-primary">
                 <tr class="border-b">
                     <th class="py-4 pl-5 text-left w-1/5">

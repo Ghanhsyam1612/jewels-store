@@ -4178,7 +4178,7 @@
                                             <input type="hidden" name="sku" value="{{ $diamond->sku }}">
                                             <input type="hidden" name="quantity" value="1">
                                             <input type="hidden" name="mrp" value="{{ $diamond->mrp }}">
-                                            <buttonz
+                                            <button
                                                 class="px-6 py-2.5 bg-primary text-sm text-white rounded-sm hover:bg-white hover:text-primary transition-colors flex items-center font-montserrat border border-primary gap-2">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -4192,7 +4192,7 @@
                                         @if ($diamond->video_url)
                                         <a href="{{ asset($diamond->video_url) }}" target="_blank">
                                             <button
-                                                class="px-6 py-2.5 text-sm border border-primary text-primary  rounded-sm hover:bg-primary hover:text-gold transition-colors flex items-center font-montserrat gap-2">
+                                                class="px-6 py-2.5 text-sm border border-primary text-primary  rounded-sm hover:bg-primary hover:text-white transition-colors flex items-center font-montserrat gap-2">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
