@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('display_name')->nullable();
             $table->string('email')->nullable();
+            $table->boolean('is_email_verified')->default(false);
             $table->string('phone')->nullable();
             $table->string('password')->nullable();
             $table->timestamps();

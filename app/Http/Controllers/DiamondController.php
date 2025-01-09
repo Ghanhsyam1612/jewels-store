@@ -16,14 +16,14 @@ class DiamondController extends Controller
             $query->where('shape', $request->shape);
         }
 
-        // // Filter by price range
-        // if($request->filled('minPrice') && $request->filled('maxPrice')){
-        //     $query->whereBetween('original_price', [$request->min_price, $request->max_price]);
-        // }
+        // Filter by price range
+        if ($request->has('minPrice') && $request->has('maxPrice')) {
+            $query->whereBetween('original_price', [(int)$request->minPrice, (int)$request->maxPrice]);
+        }
 
         // Filter by Carat Range
-        if ($request->filled('min_carat') && $request->filled('max_carat')) {
-            $query->whereBetween('carat', [$request->min_carat, $request->max_carat]);
+        if ($request->has('minCarat') && $request->has('maxCarat')) {
+            $query->whereBetween('carat', [$request->minCarat, $request->maxCarat]);
         }
 
 
@@ -32,10 +32,9 @@ class DiamondController extends Controller
             $query->whereBetween('cut', [$request->fromCutSlider, $request->toCutSlider]);
         }
 
+        // $diamonds = $query->get()->shuffle()->take(10);
 
-        $diamonds = $query->get()->shuffle()->take(10);
-        // $diamonds = $query->inRandomOrder()->paginate(10);
-
+        $diamonds = $query->inRandomOrder()->paginate(10);
         return view('components.inventory', compact('diamonds'));
     }
 

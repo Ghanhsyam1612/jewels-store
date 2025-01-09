@@ -11,10 +11,23 @@ class Order extends Model
     protected $guarded = [];
     protected $table = 'orders';
 
+    // Shipping Status
     static $SHIPPING_STATUS_PENDING = 'pending';
     static $SHIPPING_STATUS_PROCESSING = 'processing';
     static $SHIPPING_STATUS_SHIPPED = 'shipped';
     static $SHIPPING_STATUS_COMPLETED = 'completed';
+    static $SHIPPING_STATUS_CANCELLED = 'cancelled';
+
+    // Payment Status
+    static $PAYMENT_STATUS_PENDING = 'pending';
+    static $PAYMENT_STATUS_COMPLETED = 'completed';
+    static $PAYMENT_STATUS_FAILED = 'failed';
+
+    protected $casts = [
+        'order_date' => 'datetime',
+        'shipping_address' => 'array',
+        'billing_address' => 'array',
+    ];
 
     
 

@@ -8,6 +8,7 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CheckoutCreateRequest;
 
 class CheckoutController extends Controller
 {
@@ -18,45 +19,36 @@ class CheckoutController extends Controller
         return view('checkout.checkout', compact('cart'));
     }
 
-    public function checkoutProcess(Request $request)
+    public function checkoutProcess(CheckoutCreateRequest $request)
     {
-        $validatedData = $request->validate([
-            'full_name' => 'required|string',
-            'email' => 'required|email',
-            'phone' => 'required|string',
-            'address' => 'required|string',
-            'city' => 'required|string',
-            'state' => 'required|string',
-            'zip' => 'required|string',
-            'country' => 'required|string',
-            'payment_method' => 'required|in:bank_transfer,card,paypal',
-        ]);
-        $cart = session()->get('cart', []);
-        $total = 0;
-        foreach ($cart as $item) {
-            $total += $item['original_price'] * $item['quantity'];
-        }
-        $shipping = $total >= 500 ? 0 : 35;
-        $total = $total + $shipping;
+
+        DB::beginTransaction();
 
         try {
+            $validatedData = $request->validated();
+
+            $cart = session()->get('cart', []);
+            $total = 0;
+
+            foreach ($cart as $item) {
+                $total += $item['original_price'] * $item['quantity'];
+            }
+
+            $shipping = $total >= 500 ? 0 : 35;
+            $total = $total + $shipping;
+
+            // Create Order
             $order = Order::create([
                 'customer_id' => Auth::user()->id,
                 'order_number' => 'ORD-' . rand(100000, 999999),
-                'subtotal' => $total,
+                'order_date' => now(),
+                'shipping_status' => Order::$SHIPPING_STATUS_PENDING,
                 'shipping_cost' => $shipping,
-                'total' => $total,
-                'shipping_status' => 'pending',
-                'payment_status' => 'pending',
-                'payment_method' => $validatedData['payment_method'],
-                'full_name' => $validatedData['full_name'],
-                'email' => $validatedData['email'],
-                'phone' => $validatedData['phone'],
-                'address' => $validatedData['address'],
-                'city' => $validatedData['city'],
-                'state' => $validatedData['state'],
-                'zip' => $validatedData['zip'],
-                'country' => $validatedData['country'],
+                'tax_amount' => 0,
+                'total_amount' => $total,
+                'discount_amount' => 0,
+                'shipping_address' => $validatedData['shipping_address'],
+                'billing_address' => $validatedData['billing_address'],
             ]);
 
             // Create Order Items
@@ -66,21 +58,35 @@ class CheckoutController extends Controller
                     'diamond_id' => $item['id'],
                     'quantity' => $item['quantity'],
                     'price' => $item['original_price'],
+                    'subtotal' => $item['original_price'] * $item['quantity'],
                 ]);
             }
-            // Create Payment Record
-            Payment::create([
-                'order_id' => $order->id,
-                'payment_method' => $validatedData['payment_method'],
-                'transaction_id' => 'TRX-' . rand(100000, 999999),
-                'amount' => $total,
-                'status' => 'pending',
-                'payment_details' => json_encode($validatedData),
-            ]);
+            // Create Payment Record (Check if payment method is provided)
+            if ($request->has('payment_method')) {
+                Payment::create([
+                    'order_id' => $order->id,
+                    'payment_method' => $validatedData['payment_method'],
+                    'payment_status' => 'pending',
+                    'transaction_id' => 'TRX-' . rand(100000, 999999),
+                    'payment_amount' => $total,
+                    'currency' => 'USD',
+                    'payment_details' => json_encode($validatedData),
+                ]);
+            }
 
+            // Update Order Status
+            $order->update(['payment_status' => Order::$PAYMENT_STATUS_COMPLETED]);
+
+            // Send Order Confirmation Email
+            // Mail::to($validatedData['shipping_address']['email'])->send(new OrderConfirmationEmail($order));
+
+            // Clear the cart
             session()->forget('cart');
+
             DB::commit();
+            
             return view('checkout.checkout', compact('total'));
+
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Failed to create order: ' . $e->getMessage());

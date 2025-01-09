@@ -13,8 +13,22 @@ class Payment extends Model
     protected $table = 'payments';
 
     protected $casts = [
-        'payment_details' => 'array'
+        'payment_details' => 'array',
+        'payment_date' => 'datetime',
+        'refund_date' => 'datetime',
     ];
+    // Payment Status
+    static $PAYMENT_STATUS_PENDING = 'pending';
+    static $PAYMENT_STATUS_COMPLETED = 'completed';
+    static $PAYMENT_STATUS_FAILED = 'failed';
+
+    // Refund Status
+    static $REFUND_STATUS_PENDING = 'pending';
+    static $REFUND_STATUS_REFUNDED = 'refunded';
+    static $REFUND_STATUS_FAILED = 'failed';
+    static $REFUND_STATUS_CANCELLED = 'cancelled';
+    static $REFUND_STATUS_REFUNDED_PARTIALLY = 'refunded_partially';
+    static $REFUND_STATUS_REFUNDED_FULLY = 'refunded_fully';
 
     public function order()
     {

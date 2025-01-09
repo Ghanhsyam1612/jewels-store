@@ -13,22 +13,20 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained('customers');
+            $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->string('order_number')->unique();
-            $table->decimal('subtotal', 10, 2);
-            $table->decimal('shipping_cost', 10, 2);
-            $table->decimal('total', 10, 2);
-            $table->enum('shipping_status', ['pending', 'processing', 'shipped', 'completed'])->default('pending');
-            $table->string('payment_status');
-            $table->string('payment_method');
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zip');
-            $table->string('country');
+            $table->dateTime('order_date')->nullable();
+            $table->enum('shipping_status', ['pending', 'processing', 'shipped', 'completed', 'cancelled'])->default('pending');
+            $table->decimal('shipping_cost', 10, 2)->default(0);
+            $table->decimal('tax_amount', 10, 2)->default(0);   
+            $table->decimal('total_amount', 10, 2);
+            $table->decimal('discount_amount', 10, 2)->default(0);
+            $table->enum('payment_status', ['pending', 'completed', 'failed'])->default('pending');
+            $table->json('shipping_address')->nullable();
+            $table->json('billing_address')->nullable();
+            $table->string('tracking_number')->nullable();
+            $table->string('coupon_code')->nullable();
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }
