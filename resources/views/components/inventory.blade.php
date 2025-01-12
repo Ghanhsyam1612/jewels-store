@@ -222,163 +222,149 @@
                 </div>
                 <div id="priceDropdown" class="hidden mt-4">
                     <div class="flex items-center">
-                        <div class="mobile_range_container">
-                            <div class="mobile_form_control">
-                                <div class="mobile_form_control_container">
-                                    <input class="mobile_form_control_container__time__input" type="number" id="mobile_fromInput"
-                                        value="100" min="100" max="100000" />
+                        <div class="mobile_range_price_container">
+                            <div class="mobile_form_price_control">
+                                <div class="mobile_form_price_control_container">
+                                    <input class="mobile_form_price_control_container__price__input" type="number"
+                                        id="mobile_fromPriceInput" value="100" min="100" max="100000"
+                                        step="1" />
                                 </div>
-                                <div class="mobile_form_control_container">
-                                    <input class="mobile_form_control_container__time__input" type="number" id="mobile_toInput"
-                                        value="100000" min="100" max="100000" />
+                                <div class="mobile_form_price_control_container">
+                                    <input class="mobile_form_price_control_container__price__input" type="number"
+                                        id="mobile_toPriceInput" value="100000" min="100" max="100000"
+                                        step="1" />
                                 </div>
                             </div>
-                            <div class="mobile_sliders_control">
-                                <input id="mobile_fromSlider" type="range" value="100" min="100"
-                                    max="100000" />
-                                <input id="mobile_toSlider" type="range" value="100000" min="100"
-                                    max="100000" />
+                            <div class="mobile_sliders_price_control">
+                                <input id="mobile_fromPriceSlider" type="range" value="100" min="100"
+                                    max="100000" class="slider" />
+                                <input id="mobile_toPriceSlider" type="range" value="100000" min="100"
+                                    max="100000" class="slider" />
                             </div>
                             <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
-                                <span>$100</span>
-                                <span>$100,000</span>
+                                <span>100</span>
+                                <span>100000</span>
                             </div>
                         </div>
                     </div>
-                    <style>
-                        .mobile_range_container {
-                            display: flex;
-                            flex-direction: column;
-                            width: 80%;
-                            margin: 5% auto;
-                        }
-
-                        .mobile_sliders_control {
-                            position: relative;
-                            min-height: 35px;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .mobile_form_control {
-                            position: relative;
-                            display: flex;
-                            justify-content: space-between;
-                            font-size: 24px;
-                            color: #635a5a;
-                            width: 100%;
-                        }
-
-                        input[type="range"]::-webkit-slider-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #fff;
-                            border-radius: 100%;
-                            box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                            cursor: pointer;
-                        }
-
-                        input[type="range"]::-moz-range-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 24px;
-                            height: 24px;
-                            background-color: #fff;
-                            border-radius: 50%;
-                            box-shadow: 0 0 0 1px #c6c6c6;
-                            cursor: pointer;
-                        }
-
-                        input[type="range"]::-webkit-slider-thumb:hover {
-                            background: #f7f7f7;
-                        }
-
-                        input[type="range"]::-webkit-slider-thumb:active {
-                            box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                        }
-
-                        input[type="number"] {
-                            color: #8a8383;
-                            width: 100%;
-                            font-size: 13px;
-                            border: 1px solid #c6c6c6;
-                            border-radius: 4px;
-                            padding: 4px;
-                        }
-
-                        input[type="number"]::-webkit-inner-spin-button,
-                        input[type="number"]::-webkit-outer-spin-button {
-                            opacity: 1;
-                        }
-
-                        input[type="range"] {
-                            -webkit-appearance: none;
-                            appearance: none;
-                            height: 4px;
-                            width: 100%;
-                            position: absolute;
-                            background-color: #c6c6c6;
-                            pointer-events: none;
-                            border-radius: 8px;
-                        }
-
-                        #mobile_fromSlider {
-                            height: 0;
-                            z-index: 1;
-                        }
-                    </style>
                     <script>
-                        const mobile_fromSlider = document.querySelector("#mobile_fromSlider");
-                        const mobile_toSlider = document.querySelector("#mobile_toSlider");
-                        const mobile_fromInput = document.querySelector("#mobile_fromInput");
-                        const mobile_toInput = document.querySelector("#mobile_toInput");
-
-                        function updateSliderColors() {
-                            const min = parseInt(mobile_fromSlider.min);
-                            const max = parseInt(mobile_toSlider.max);
-                            const from = parseInt(mobile_fromInput.value);
-                            const to = parseInt(mobile_toInput.value);
-
-                            const percentFrom = ((from - min) / (max - min)) * 100;
-                            const percentTo = ((to - min) / (max - min)) * 100;
-
-                            // Show only the selected color between the two endpoints
-                            mobile_fromSlider.style.background = `linear-gradient(to right, #733D80 ${percentFrom}%, #733D80 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
-                            mobile_toSlider.style.background = mobile_fromSlider.style.background;
+                        // Controls the slider using from Input
+                        function controlMobileFromInput(mobile_fromPriceSlider, mobile_fromPriceInput, mobile_toPriceInput, mobile_controlSlider) {
+                            const [from, to] = getParsed(mobile_fromPriceInput, mobile_toPriceInput);
+                            mobile_fromPriceSlider.value = from;
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_controlSlider); // <-- Updated color to purple
+                            if (from > to) {
+                                mobile_fromPriceSlider.value = to;
+                                mobile_fromPriceInput.value = to;
+                            } else {
+                                mobile_fromPriceSlider.value = from;
+                            }
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_controlSlider); // <-- Update color after input
                         }
 
-                        function syncFromInput() {
-                            let value = Math.min(parseInt(mobile_fromInput.value), parseInt(mobile_toInput.value));
-                            mobile_fromInput.value = value;
-                            mobile_fromSlider.value = value;
-                            updateSliderColors();
+                        // Controls the slider using to Input
+                        function controlMobileToInput(mobile_toPriceSlider, mobile_fromPriceInput, mobile_toPriceInput, mobile_controlSlider) {
+                            const [from, to] = getParsed(mobile_fromPriceInput, mobile_toPriceInput);
+                            mobile_toPriceSlider.value = to;
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_controlSlider); // <-- Updated color to purple
+                            setToggleAccessible(mobile_toPriceInput);
+                            if (from <= to) {
+                                mobile_toPriceSlider.value = to;
+                                mobile_toPriceInput.value = to;
+                            } else {
+                                mobile_toPriceInput.value = from;
+                            }
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_controlSlider); // <-- Update color after input
                         }
 
-                        function syncToInput() {
-                            let value = Math.max(parseInt(mobile_toInput.value), parseInt(mobile_fromInput.value));
-                            mobile_toInput.value = value;
-                            mobile_toSlider.value = value;
-                            updateSliderColors();
+                        // Sliding event of the From slider
+                        function controlMobileFromSlider(mobile_fromPriceSlider, mobile_toPriceSlider, mobile_fromPriceInput) {
+                            const [from, to] = getParsed(mobile_fromPriceSlider, mobile_toPriceSlider);
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_toPriceSlider); // <-- Updated color to purple
+                            mobile_fromPriceInput.value = from;
+                            if (from > to) {
+                                mobile_fromPriceInput.value = to;
+                                mobile_toPriceInput.value = from;
+                            }
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_toPriceSlider); // <-- Update color after input
                         }
 
-                        function syncFromSlider() {
-                            mobile_fromInput.value = mobile_fromSlider.value;
-                            updateSliderColors();
+                        // Sliding event of the To slider
+                        function controlMobileToSlider(mobile_fromPriceSlider, mobile_toPriceSlider, mobile_toPriceInput) {
+                            const [from, to] = getParsed(mobile_fromPriceSlider, mobile_toPriceSlider);
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_toPriceSlider); // <-- Updated color to purple
+                            setToggleAccessible(mobile_toPriceInput);
+                            mobile_toPriceSlider.value = to;
+                            mobile_toPriceInput.value = to;
+                            if (from > to) {
+                                mobile_fromPriceInput.value = to;
+                                mobile_toPriceInput.value = from;
+                            }
+                            fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_toPriceSlider); // <-- Update color after input
                         }
 
-                        function syncToSlider() {
-                            mobile_toInput.value = mobile_toSlider.value;
-                            updateSliderColors();
+                        // Parsing values of the Inputs with 2 decimal places
+                        function getParsed(currentFrom, currentTo) {
+                            const from = parseFloat(currentFrom.value).toFixed(2); // <-- Precision to 2 decimal places
+                            const to = parseFloat(currentTo.value).toFixed(2); // <-- Precision to 2 decimal places
+                            return [parseFloat(from), parseFloat(to)];
                         }
 
-                        mobile_fromInput.addEventListener("input", syncFromInput);
-                        mobile_toInput.addEventListener("input", syncToInput);
-                        mobile_fromSlider.addEventListener("input", syncFromSlider);
-                        mobile_toSlider.addEventListener("input", syncToSlider);
+                        // Changing and Filling the color in the selected part
+                        function fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, sliderColor, rangeColor, mobile_controlSlider) {
+                            let rangeDistance = mobile_toPriceSlider.max - mobile_toPriceSlider.min;
+                            let fromPosition = mobile_fromPriceSlider.value - mobile_toPriceSlider.min;
+                            let toPosition = mobile_toPriceSlider.value - mobile_toPriceSlider.min;
+                            if (fromPosition > toPosition) {
+                                let spare = fromPosition;
+                                fromPosition = toPosition;
+                                toPosition = spare;
+                            }
+                            mobile_controlSlider.style.background = `linear-gradient(
+                                    to right,
+                                    ${rangeColor} 0%,
+                                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                                    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                                    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                                    ${rangeColor} 100%)`; // <-- Updates color fill dynamically
+                        }
 
-                        updateSliderColors();
+                        // Ensures accessibility for toggles
+                        function setToggleAccessible(currentTarget) {
+                            const mobile_toPriceSlider = document.querySelector("#mobile_toPriceSlider");
+                            if (Number(currentTarget.value) <= 0) {
+                                mobile_toPriceSlider.style.zIndex = 4;
+                            } else {
+                                mobile_toPriceSlider.style.zIndex = 4;
+                            }
+                        }
+
+                        // Element References
+                        const mobile_fromPriceSlider = document.querySelector("#mobile_fromPriceSlider");
+                        const mobile_toPriceSlider = document.querySelector("#mobile_toPriceSlider");
+                        const mobile_fromPriceInput = document.querySelector("#mobile_fromPriceInput");
+                        const mobile_toPriceInput = document.querySelector("#mobile_toPriceInput");
+
+                        // Set step to 0.01 for finer control
+                        mobile_fromPriceSlider.step = "0.01";
+                        mobile_toPriceSlider.step = "0.01";
+                        mobile_fromPriceInput.step = "0.01";
+                        mobile_toPriceInput.step = "0.01";
+
+                        // Initial slider fill and setup
+                        fillSlider(mobile_fromPriceSlider, mobile_toPriceSlider, "#800080", "#C6C6C6", mobile_toPriceSlider); // <-- Initial color setup to purple
+                        setToggleAccessible(mobile_toPriceSlider);
+
+                        // Event Listeners for Sliders and Inputs
+                        mobile_fromPriceSlider.oninput = () => controlMobileFromSlider(mobile_fromPriceSlider, mobile_toPriceSlider, mobile_fromPriceInput);
+                        mobile_toPriceSlider.oninput = () => controlMobileToSlider(mobile_fromPriceSlider, mobile_toPriceSlider, mobile_toPriceInput);
+                        mobile_fromPriceInput.oninput = () => {
+                            controlMobileFromInput(mobile_fromPriceSlider, mobile_fromPriceInput, mobile_toPriceInput, mobile_toPriceSlider);
+                        };
+                        mobile_toPriceInput.oninput = () => {
+                            controlMobileToInput(mobile_toPriceSlider, mobile_fromPriceInput, mobile_toPriceInput, mobile_fromPriceSlider);
+                        };
                     </script>
                 </div>
             </div>
@@ -439,109 +425,6 @@
                             </div>
                         </div>
                     </div>
-                    <style>
-                        .mobile_range_carat_container {
-                            display: flex;
-                            flex-direction: column;
-                            width: 80%;
-                            margin: 5% auto;
-                        }
-
-                        .mobile_sliders_carat_control {
-                            position: relative;
-                            min-height: 35px;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .mobile_form_carat_control {
-                            display: flex;
-                            justify-content: space-between;
-                            font-size: 24px;
-                            color: #635a5a;
-                        }
-
-                        input[type="range"]#mobile_fromCaratSlider::-webkit-slider-thumb,
-                        input[type="range"]#mobile_toCaratSlider::-webkit-slider-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #fff;
-                            border-radius: 100%;
-                            box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-
-                        input[type="range"]#mobile_fromCaratSlider::-moz-range-thumb,
-                        input[type="range"]#mobile_toCaratSlider::-moz-range-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 24px;
-                            height: 24px;
-                            background-color: #fff;
-                            border-radius: 50%;
-                            box-shadow: 0 0 0 1px #c6c6c6;
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-
-                        input[type="range"]#mobile_fromCaratSlider::-webkit-slider-thumb:hover,
-                        input[type="range"]#mobile_toCaratSlider::-webkit-slider-thumb:hover {
-                            background: #f7f7f7;
-                        }
-
-                        input[type="range"]#mobile_fromCaratSlider::-webkit-slider-thumb:active,
-                        input[type="range"]#mobile_toCaratSlider::-webkit-slider-thumb:active {
-                            box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                            -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                        }
-
-                        input[type="number"]#mobile_fromCaratInput,
-                        input[type="number"]#mobile_toCaratInput {
-                            color: #8a8383;
-                            width: 100%;
-                            /* height: 30px; */
-                            font-size: 13px;
-                            border: 1px solid #c6c6c6;
-                            border-radius: 4px;
-                            padding: 4px;
-                        }
-
-                        input[type="number"]#mobile_fromCaratInput::-webkit-inner-spin-button,
-                        input[type="number"]#mobile_fromCaratInput::-webkit-outer-spin-button {
-                            opacity: 1;
-                        }
-
-                        input[type="number"]#mobile_toCaratInput::-webkit-inner-spin-button,
-                        input[type="number"]#mobile_toCaratInput::-webkit-outer-spin-button {
-                            opacity: 1;
-                        }
-
-                        input[type="range"]#mobile_fromCaratSlider,
-                        input[type="range"]#mobile_toCaratSlider {
-                            -webkit-appearance: none;
-                            appearance: none;
-                            height: 4px;
-                            width: 100%;
-                            position: absolute;
-                            background-color: #c6c6c6;
-                            pointer-events: all;
-                            border-radius: 8px;
-                        }
-
-                        /* #fromCaratSlider {
-                                                height: 0;
-                                                z-index: 3;
-                                            } */
-                        #mobile_toCaratSlider {
-                            height: 0;
-                            z-index: 4;
-                        }
-                    </style>
                     <script>
                         // Controls the slider using from Input
                         function controlMobileFromInput(mobile_fromCaratSlider, mobile_fromCaratInput, mobile_toCaratInput, mobile_controlSlider) {
@@ -613,12 +496,12 @@
                             }
                             mobile_controlSlider.style.background = `linear-gradient(
                                     to right,
-                                    ${sliderColor} 0%,
-                                    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                                    ${rangeColor} 0%,
                                     ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                                    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
                                     ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                                    ${sliderColor} 100%)`; // <-- Updates color fill dynamically
+                                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                                    ${rangeColor} 100%)`; // <-- Updates color fill dynamically
                         }
 
                         // Ensures accessibility for toggles
@@ -709,56 +592,6 @@
                             </div>
                         </div>
                     </div>
-                    <style>
-                        .mobile_range_cut_container {
-                            display: flex;
-                            flex-direction: column;
-                            width: 80%;
-                            margin: 5% auto;
-                        }
-
-                        .mobile_sliders_cut_control {
-                            position: relative;
-                            min-height: 35px;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .mobile_form_cut_control {
-                            display: flex;
-                            justify-content: space-between;
-                            font-size: 24px;
-                            color: #635a5a;
-                        }
-
-                        input[type="range"]#mobile_fromCutSlider::-webkit-slider-thumb,
-                        input[type="range"]#mobile_toCutSlider::-webkit-slider-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #fff;
-                            border-radius: 100%;
-                            box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-
-                        input[type="range"]#mobile_fromCutSlider::-moz-range-thumb,
-                        input[type="range"]#mobile_toCutSlider::-moz-range-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 24px;
-                            height: 24px;
-                            background-color: #fff;
-                            border-radius: 50%;
-                            box-shadow: 0 0 0 1px #c6c6c6;
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-                    </style>
                     <script>
                         const mobile_fromCutSlider = document.querySelector("#mobile_fromCutSlider");
                         const mobile_toCutSlider = document.querySelector("#mobile_toCutSlider");
@@ -833,56 +666,6 @@
                             </div>
                         </div>
                     </div>
-                    <style>
-                        .mobile_range_color_container {
-                            display: flex;
-                            flex-direction: column;
-                            width: 80%;
-                            margin: 5% auto;
-                        }
-
-                        .mobile_sliders_color_control {
-                            position: relative;
-                            min-height: 35px;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .mobile_form_color_control {
-                            display: flex;
-                            justify-content: space-between;
-                            font-size: 24px;
-                            color: #635a5a;
-                        }
-
-                        input[type="range"]#mobile_fromColorSlider::-webkit-slider-thumb,
-                        input[type="range"]#mobile_toColorSlider::-webkit-slider-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #fff;
-                            border-radius: 100%;
-                            box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-
-                        input[type="range"]#mobile_fromColorSlider::-moz-range-thumb,
-                        input[type="range"]#mobile_toColorSlider::-moz-range-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 24px;
-                            height: 24px;
-                            background-color: #fff;
-                            border-radius: 50%;
-                            box-shadow: 0 0 0 1px #c6c6c6;
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-                    </style>
                     <script>
                         const mobile_fromColorSlider = document.querySelector("#mobile_fromColorSlider");
                         const mobile_toColorSlider = document.querySelector("#mobile_toColorSlider");
@@ -956,57 +739,6 @@
                             </div>
                         </div>
                     </div>
-                    <style>
-                        .mobile_range_carat_container,
-                        .mobile_range_clarity_container {
-                            display: flex;
-                            flex-direction: column;
-                            width: 80%;
-                            margin: 5% auto;
-                        }
-
-                        .mobile_sliders_clarity_control {
-                            position: relative;
-                            min-height: 35px;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .mobile_form_clarity_control {
-                            display: flex;
-                            justify-content: space-between;
-                            font-size: 24px;
-                            color: #635a5a;
-                        }
-
-                        input[type="range"]#mobile_fromClaritySlider::-webkit-slider-thumb,
-                        input[type="range"]#mobile_toClaritySlider::-webkit-slider-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #fff;
-                            border-radius: 100%;
-                            box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-
-                        input[type="range"]#mobile_fromClaritySlider::-moz-range-thumb,
-                        input[type="range"]#mobile_toClaritySlider::-moz-range-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 24px;
-                            height: 24px;
-                            background-color: #fff;
-                            border-radius: 50%;
-                            box-shadow: 0 0 0 1px #c6c6c6;
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
-                    </style>
                     <script>
                         const mobile_fromClaritySlider = document.querySelector("#mobile_fromClaritySlider");
                         const mobile_toClaritySlider = document.querySelector("#mobile_toClaritySlider");
@@ -1547,105 +1279,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <style>
-                                    .range_depth_container {
-                                        display: flex;
-                                        flex-direction: column;
-                                        width: 80%;
-                                        margin: 5% auto;
-                                    }
-
-                                    .sliders_depth_control {
-                                        position: relative;
-                                        min-height: 35px;
-                                        display: flex;
-                                        align-items: center;
-                                    }
-
-                                    .form_depth_control {
-                                        display: flex;
-                                        justify-content: space-between;
-                                        font-size: 24px;
-                                        color: #635a5a;
-                                    }
-
-                                    input[type="range"]#fromDepthSlider::-webkit-slider-thumb,
-                                    input[type="range"]#toDepthSlider::-webkit-slider-thumb {
-                                        -webkit-appearance: none;
-                                        pointer-events: all;
-                                        width: 16px;
-                                        height: 16px;
-                                        background-color: #fff;
-                                        border-radius: 100%;
-                                        box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                                        cursor: pointer;
-                                        position: relative;
-                                        z-index: 5;
-                                    }
-
-                                    input[type="range"]#fromDepthSlider::-moz-range-thumb,
-                                    input[type="range"]#toDepthSlider::-moz-range-thumb {
-                                        -webkit-appearance: none;
-                                        pointer-events: all;
-                                        width: 24px;
-                                        height: 24px;
-                                        background-color: #fff;
-                                        border-radius: 50%;
-                                        box-shadow: 0 0 0 1px #c6c6c6;
-                                        cursor: pointer;
-                                        position: relative;
-                                        z-index: 5;
-                                    }
-
-                                    input[type="range"]#fromDepthSlider::-webkit-slider-thumb:hover,
-                                    input[type="range"]#toDepthSlider::-webkit-slider-thumb:hover {
-                                        background: #f7f7f7;
-                                    }
-
-                                    input[type="range"]#fromDepthSlider::-webkit-slider-thumb:active,
-                                    input[type="range"]#toDepthSlider::-webkit-slider-thumb:active {
-                                        box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                        -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                    }
-
-                                    input[type="number"]#rangeInput,
-                                    input[type="number"]#rangeInput {
-                                        color: #8a8383;
-                                        width: 100%;
-                                        /* height: 30px; */
-                                        font-size: 13px;
-                                        border: 1px solid #c6c6c6;
-                                        border-radius: 4px;
-                                        padding: 4px;
-                                    }
-
-                                    input[type="number"]#fromDepthInput::-webkit-inner-spin-button,
-                                    input[type="number"]#fromDepthInput::-webkit-outer-spin-button {
-                                        opacity: 1;
-                                    }
-
-                                    input[type="number"]#toDepthInput::-webkit-inner-spin-button,
-                                    input[type="number"]#toDepthInput::-webkit-outer-spin-button {
-                                        opacity: 1;
-                                    }
-
-                                    input[type="range"]#fromDepthSlider,
-                                    input[type="range"]#toDepthSlider {
-                                        -webkit-appearance: none;
-                                        appearance: none;
-                                        height: 4px;
-                                        width: 100%;
-                                        position: absolute;
-                                        background-color: #c6c6c6;
-                                        pointer-events: all;
-                                        border-radius: 8px;
-                                    }
-
-                                    #toDepthSlider {
-                                        height: 0;
-                                        z-index: 4;
-                                    }
-                                </style>
                                 <script>
                                     // Controls the slider using from Input....
                                     function controlFromInput(fromDepthSlider, fromDepthInput, toDepthInput, controlSlider) {
@@ -1830,105 +1463,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <style>
-                                    .range_lw_container {
-                                        display: flex;
-                                        flex-direction: column;
-                                        width: 80%;
-                                        margin: 5% auto;
-                                    }
-
-                                    .sliders_lw_control {
-                                        position: relative;
-                                        min-height: 35px;
-                                        display: flex;
-                                        align-items: center;
-                                    }
-
-                                    .form_lw_control {
-                                        display: flex;
-                                        justify-content: space-between;
-                                        font-size: 24px;
-                                        color: #635a5a;
-                                    }
-
-                                    input[type="range"]#fromLwSlider::-webkit-slider-thumb,
-                                    input[type="range"]#toLwSlider::-webkit-slider-thumb {
-                                        -webkit-appearance: none;
-                                        pointer-events: all;
-                                        width: 16px;
-                                        height: 16px;
-                                        background-color: #fff;
-                                        border-radius: 100%;
-                                        box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                                        cursor: pointer;
-                                        position: relative;
-                                        z-index: 5;
-                                    }
-
-                                    input[type="range"]#fromLwSlider::-moz-range-thumb,
-                                    input[type="range"]#toLwSlider::-moz-range-thumb {
-                                        -webkit-appearance: none;
-                                        pointer-events: all;
-                                        width: 24px;
-                                        height: 24px;
-                                        background-color: #fff;
-                                        border-radius: 50%;
-                                        box-shadow: 0 0 0 1px #c6c6c6;
-                                        cursor: pointer;
-                                        position: relative;
-                                        z-index: 5;
-                                    }
-
-                                    input[type="range"]#fromLwSlider::-webkit-slider-thumb:hover,
-                                    input[type="range"]#toLwSlider::-webkit-slider-thumb:hover {
-                                        background: #f7f7f7;
-                                    }
-
-                                    input[type="range"]#fromLwSlider::-webkit-slider-thumb:active,
-                                    input[type="range"]#toLwSlider::-webkit-slider-thumb:active {
-                                        box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                        -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                    }
-
-                                    input[type="number"]#rangeInput,
-                                    input[type="number"]#rangeInput {
-                                        color: #8a8383;
-                                        width: 100%;
-                                        /* height: 30px; */
-                                        font-size: 13px;
-                                        border: 1px solid #c6c6c6;
-                                        border-radius: 4px;
-                                        padding: 4px;
-                                    }
-
-                                    input[type="number"]#fromLwInput::-webkit-inner-spin-button,
-                                    input[type="number"]#fromLwInput::-webkit-outer-spin-button {
-                                        opacity: 1;
-                                    }
-
-                                    input[type="number"]#toLwInput::-webkit-inner-spin-button,
-                                    input[type="number"]#toLwInput::-webkit-outer-spin-button {
-                                        opacity: 1;
-                                    }
-
-                                    input[type="range"]#fromLwSlider,
-                                    input[type="range"]#toLwSlider {
-                                        -webkit-appearance: none;
-                                        appearance: none;
-                                        height: 4px;
-                                        width: 100%;
-                                        position: absolute;
-                                        background-color: #c6c6c6;
-                                        pointer-events: all;
-                                        border-radius: 8px;
-                                    }
-
-                                    #toLwSlider {
-                                        height: 0;
-                                        z-index: 4;
-                                    }
-                                </style>
                                 <script>
                                     // Controls the slider using from Input....
                                     function controlFromInput(fromLwSlider, fromLwInput, toLwInput, controlSlider) {
@@ -2450,12 +1984,12 @@
                 }
                 controlSlider.style.background = `linear-gradient(
                         to right,
-                        ${sliderColor} 0%,
-                        ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                        ${rangeColor} 0%,
                         ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                        ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                        ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
                         ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                        ${sliderColor} 100%)`; // <-- Updates color fill dynamically
+                        ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                        ${rangeColor} 100%)`; // <-- Updates color fill dynamically
             }
 
             // Ensures accessibility for toggles
@@ -3129,13 +2663,13 @@
                                     toPosition = spare;
                                 }
                                 controlSlider.style.background = `linear-gradient(
-                      to right,
-                      ${sliderColor} 0%,
-                      ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                      ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                      ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                      ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                      ${sliderColor} 100%)`;
+                              to right,
+                              ${sliderColor} 0%,
+                              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                              ${sliderColor} 100%)`;
                             }
 
                             // Making sure the toggle which we are using is accesible to change the range
@@ -3310,15 +2844,15 @@
                                     fromPosition = toPosition;
                                     toPosition = spare;
                                 }
-                                        controlSlider.style.background = `linear-gradient(
-                            to right,
-                            ${sliderColor} 0%,
-                            ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                            ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                            ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                            ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                            ${sliderColor} 100%)`;
-                                    }
+                                controlSlider.style.background = `linear-gradient(
+                              to right,
+                              ${sliderColor} 0%,
+                              ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                              ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                              ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                              ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                              ${sliderColor} 100%)`;
+                            }
 
                             // Making sure the toggle which we are using is accessible to change the range
                             function setToggleAccessible(currentTarget) {
@@ -3362,10 +2896,10 @@
             <div class="flex flex-row items-center gap-3">
                 <p class="font-montserrat font-semibold text-sm">Type</p>
                 <a href="/inventory"
-                    class="text-xs text-white bg-primary border border-gray-300 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">WHITE
+                    class="text-xs text-gold bg-primary border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">WHITE
                     DIAMONDS</a>
                 <a href="#"
-                    class="text-xs text-primary hover:text-white border border-gray-500 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">FANCY
+                    class="text-xs text-primary hover:text-gold border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">FANCY
                     COLOR DIAMONDS</a>
             </div>
             <!-- End Type Dropdown -->
@@ -3465,90 +2999,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Start Loader -->
-                    <div class="loader">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                        <div class="dot dot-4"></div>
-                        <div class="dot dot-5"></div>
-                    </div>
-
-                    <style>
-                        .loader {
-                            display: -webkit-box;
-                            display: -ms-flexbox;
-                            display: flex;
-                            -webkit-box-pack: center;
-                            -ms-flex-pack: center;
-                            justify-content: center;
-                            -webkit-box-align: center;
-                            -ms-flex-align: center;
-                            align-items: center;
-                            height: 100%;
-                        }
-
-                        .dot {
-                            display: inline-block;
-                            width: 12px;
-                            height: 12px;
-                            margin-right: 6px;
-                            border-radius: 50%;
-                            -webkit-animation: dot-pulse2 1.5s ease-in-out infinite;
-                            animation: dot-pulse2 1.5s ease-in-out infinite;
-                        }
-
-                        .dot-1 {
-                            background-color: #301914;
-                            -webkit-animation-delay: 0s;
-                            animation-delay: 0s;
-                        }
-
-                        .dot-2 {
-                            background-color: #301914;
-                            -webkit-animation-delay: 0.3s;
-                            animation-delay: 0.3s;
-                        }
-
-                        .dot-3 {
-                            background-color: #301914;
-                            -webkit-animation-delay: 0.6s;
-                            animation-delay: 0.6s;
-                        }
-
-                        .dot-4 {
-                            background-color: #301914;
-                            -webkit-animation-delay: 0.9s;
-                            animation-delay: 0.9s;
-                        }
-
-                        .dot-5 {
-                            background-color: #301914;
-                            -webkit-animation-delay: 1.2s;
-                            animation-delay: 1.2s;
-                        }
-
-                        @keyframes dot-pulse2 {
-                            0% {
-                                -webkit-transform: scale(0.5);
-                                transform: scale(0.5);
-                                opacity: 0.5;
-                            }
-
-                            50% {
-                                -webkit-transform: scale(1);
-                                transform: scale(1);
-                                opacity: 1;
-                            }
-
-                            100% {
-                                -webkit-transform: scale(0.5);
-                                transform: scale(0.5);
-                                opacity: 0.5;
-                            }
-                        }
-                    </style>
-                    <!-- End Loader -->
+                    
 
                     @foreach ($diamonds as $diamond)
 
@@ -3575,7 +3026,7 @@
                     </tr>
 
                     <tr id="details-{{ $diamond->id }}" class="content hidden transition-all duration-200 ease-in-out max-h-0 overflow-hidden opacity-0">
-                        <td colspan="7" class="relative">
+                        <td colspan="7" class="relative w-full">
                             <button onclick="toggleDetails({{ $diamond->id }})"
                                 class="absolute right-4 top-4 text-gray-500 hover:text-primary">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor"
@@ -3593,14 +3044,14 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <p class="text-2xl font-montserrat font-semibold text-gray-800">
+                                        <p class="text-2xl font-montserrat font-semibold text-primary">
                                             {{ ucwords($diamond->name) }}
                                         </p>
                                         <div class="mt-1">
                                             <span
                                                 class="text-gray-600 line-through text-lg font-montserrat font-medium">${{ $diamond->mrp }}</span>
                                             <span
-                                                class="text-xl ml-1 font-montserrat font-semibold">${{ $diamond->original_price }}</span>
+                                                class="text-xl text-primary ml-1 font-montserrat font-semibold">${{ $diamond->original_price }}</span>
                                         </div>
                                     </div>
                                     <div class="flex gap-4 justify-center mt-2">
@@ -3668,7 +3119,7 @@
 
                                 <!-- Right Side -->
                                 <div>
-                                    <h3 class="text-lg font-montserrat font-semibold uppercase mb-4">Diamond
+                                    <h3 class="text-lg text-primary font-montserrat font-semibold uppercase mb-4">Diamond
                                         Details</h3>
                                     <table class="w-full">
                                         <tbody>
@@ -3749,7 +3200,15 @@
             let nextPage = currentPage + 1;
 
             // Show loading state
-            button.innerHTML = 'Loading...';
+            button.innerHTML = `
+                    <div class="loader">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                        <div class="dot dot-4"></div>
+                        <div class="dot dot-5"></div>
+                    </div>
+                    `;
             button.disabled = true;
 
             fetch(`/inventory?page=${nextPage}`, {

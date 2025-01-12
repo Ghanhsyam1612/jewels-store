@@ -357,122 +357,248 @@
         <!-- Price Range Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Price</h5>
-            <div class="range_container">
-                <div class="form_control">
-                    <div class="form_control_container">
-                        <input class="form_control_container__time__input" type="number" id="fromInput" value="100" min="100" max="100000" />
+            <div class="range_price_container">
+                <div class="form_price_control">
+                    <div class="form_price_control_container">
+                        <input class="form_price_control_container__carat__input small-input" type="number"
+                            id="fromPriceInput" value="100" min="100" max="1000000" step="1" />
                     </div>
-                    <div class="form_control_container">
-                        <input class="form_control_container__time__input" type="number" id="toInput" value="100000" min="100" max="100000" />
+                    <div class="form_price_control_container">
+                        <input class="form_price_control_container__carat__input small-input" type="number" id="toPriceInput"
+                            value="1000000" min="100" max="1000000" step="1" />
                     </div>
                 </div>
-                <div class="sliders_control">
-                    <input id="fromSlider" type="range" value="100" min="100" max="100000" />
-                    <input id="toSlider" type="range" value="100000" min="100" max="100000" />
+                <div class="sliders_price_control">
+                    <input id="fromPriceSlider" type="range" value="100" min="100" max="1000000" />
+                    <input id="toPriceSlider" type="range" value="1000000" min="100" max="1000000" />
                 </div>
                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
-                    <span>$100</span>
-                    <span>$100,000</span>
+                    <span>100</span>
+                    <span>1000000</span>
                 </div>
             </div>
         </div>
         <style>
-            .range_container {
+            .range_price_container {
                 display: flex;
                 flex-direction: column;
                 width: 80%;
                 margin: 5% auto;
             }
-        
-            .sliders_control {
+
+            .sliders_price_control {
                 position: relative;
                 min-height: 35px;
                 display: flex;
                 align-items: center;
             }
-        
-            .form_control {
+
+            .form_price_control {
                 display: flex;
                 justify-content: space-between;
-                width: 100%;
+                font-size: 24px;
+                color: #635a5a;
             }
-        
-            input[type="range"]::-webkit-slider-thumb {
+
+            .small-input {
+                width: 80px; /* Adjust the width as needed */
+                font-size: 14px; /* Optional: Adjust font size */
+            }
+
+            input[type="range"]#fromPriceSlider::-webkit-slider-thumb,
+            input[type="range"]#toPriceSlider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                pointer-events: all;
                 width: 16px;
                 height: 16px;
                 background-color: #fff;
-                border-radius: 50%;
+                border-radius: 100%;
                 box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
                 cursor: pointer;
                 position: relative;
                 z-index: 5;
             }
-        
-            input[type="number"] {
+
+            input[type="range"]#fromPriceSlider::-moz-range-thumb,
+            input[type="range"]#toPriceSlider::-moz-range-thumb {
+                -webkit-appearance: none;
+                pointer-events: all;
+                width: 24px;
+                height: 24px;
+                background-color: #fff;
+                border-radius: 50%;
+                box-shadow: 0 0 0 1px #c6c6c6;
+                cursor: pointer;
+                position: relative;
+                z-index: 5;
+            }
+
+            input[type="range"]#fromPriceSlider::-webkit-slider-thumb:hover,
+            input[type="range"]#toPriceSlider::-webkit-slider-thumb:hover {
+                background: #f7f7f7;
+            }
+
+            input[type="range"]#fromPriceSlider::-webkit-slider-thumb:active,
+            input[type="range"]#toPriceSlider::-webkit-slider-thumb:active {
+                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+            }
+
+            input[type="number"]#rangeInput,
+            input[type="number"]#rangeInput {
+                color: #8a8383;
                 width: 100%;
                 font-size: 13px;
                 border: 1px solid #c6c6c6;
                 border-radius: 4px;
                 padding: 4px;
             }
-        
-            input[type="range"] {
+
+            input[type="number"]#fromPriceInput::-webkit-inner-spin-button,
+            input[type="number"]#fromPriceInput::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+
+            input[type="number"]#toPriceInput::-webkit-inner-spin-button,
+            input[type="number"]#toPriceInput::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+
+            input[type="range"]#fromPriceSlider,
+            input[type="range"]#toPriceSlider {
+                -webkit-appearance: none;
+                appearance: none;
                 height: 4px;
                 width: 100%;
                 position: absolute;
                 background-color: #c6c6c6;
+                pointer-events: all;
                 border-radius: 8px;
+            }
+
+            #toPriceSlider {
+                height: 0;
+                z-index: 4;
             }
         </style>
         <script>
-            const fromSlider = document.querySelector("#fromSlider");
-            const toSlider = document.querySelector("#toSlider");
-            const fromInput = document.querySelector("#fromInput");
-            const toInput = document.querySelector("#toInput");
-        
-            function updateSliderColors() {
-                const min = parseInt(fromSlider.min);
-                const max = parseInt(toSlider.max);
-                const from = parseInt(fromInput.value);
-                const to = parseInt(toInput.value);
-        
-                const percentFrom = ((from - min) / (max - min)) * 100;
-                const percentTo = ((to - min) / (max - min)) * 100;
-        
-                fromSlider.style.background = `linear-gradient(to right, #c6c6c6 ${percentFrom}%, #301914 ${percentFrom}%, #301914 ${percentTo}%, #c6c6c6 ${percentTo}%)`;
-                toSlider.style.background = fromSlider.style.background;
+            // Controls the slider using from Input
+            function controlFromInput(fromPriceSlider, fromPriceInput, toPriceInput, controlSlider) {
+                const [from, to] = getParsed(fromPriceInput, toPriceInput);
+                fromPriceSlider.value = from;
+                fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", controlSlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    fromPriceSlider.value = to;
+                    fromPriceInput.value = to;
+                } else {
+                    fromPriceSlider.value = from;
+                }
             }
-        
-            function syncFromInput() {
-                let value = Math.min(parseInt(fromInput.value), parseInt(toInput.value));
-                fromInput.value = value;
-                fromSlider.value = value;
-                updateSliderColors();
+
+            // Controls the slider using to Input
+            function controlToInput(toPriceSlider, fromPriceInput, toPriceInput, controlSlider) {
+                const [from, to] = getParsed(fromPriceInput, toPriceInput);
+                toPriceSlider.value = to;
+                fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", controlSlider); // <-- Dynamic Color Update to Purple
+                setToggleAccessible(toPriceInput);
+                if (from <= to) {
+                    toPriceSlider.value = to;
+                    toPriceInput.value = to;
+                } else {
+                    toPriceInput.value = from;
+                }
             }
-        
-            function syncToInput() {
-                let value = Math.max(parseInt(toInput.value), parseInt(fromInput.value));
-                toInput.value = value;
-                toSlider.value = value;
-                updateSliderColors();
+
+            // Sliding event of the From slider
+            function controlFromSlider(fromPriceSlider, toPriceSlider, fromPriceInput) {
+                const [from, to] = getParsed(fromPriceSlider, toPriceSlider);
+                fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", toPriceSlider); // <-- Dynamic Color Update to Purple
+                fromPriceInput.value = from;
+                if (from > to) {
+                    fromPriceInput.value = to;
+                    toPriceInput.value = from;
+                }
             }
-        
-            function syncFromSlider() {
-                fromInput.value = fromSlider.value;
-                updateSliderColors();
+
+            // Sliding event of the To slider
+            function controlToSlider(fromPriceSlider, toPriceSlider, toPriceInput) {
+                const [from, to] = getParsed(fromPriceSlider, toPriceSlider);
+                fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", toPriceSlider); // <-- Dynamic Color Update to Purple
+                setToggleAccessible(toPriceInput);
+                toPriceSlider.value = to;
+                toPriceInput.value = to;
+                if (from > to) {
+                    fromPriceInput.value = to;
+                    toPriceInput.value = from;
+                }
             }
-        
-            function syncToSlider() {
-                toInput.value = toSlider.value;
-                updateSliderColors();
+
+            // Parsing values of the Inputs with 2 decimal places
+            function getParsed(currentFrom, currentTo) {
+                const from = parseFloat(currentFrom.value).toFixed(2); // <-- Precision to 2 decimal places
+                const to = parseFloat(currentTo.value).toFixed(2);     // <-- Precision to 2 decimal places
+                return [parseFloat(from), parseFloat(to)];
             }
-        
-            fromInput.addEventListener("input", syncFromInput);
-            toInput.addEventListener("input", syncToInput);
-            fromSlider.addEventListener("input", syncFromSlider);
-            toSlider.addEventListener("input", syncToSlider);
-        
-            updateSliderColors();
+
+            // Changing and Filling the color in the selected part
+            function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                // Update the sliderColor to the new primary color
+                const newSliderColor = "#733D80"; // New primary color to Purple
+                let rangeDistance = to.max - to.min;
+                let fromPosition = from.value - to.min;
+                let toPosition = to.value - to.min;
+                if (fromPosition > toPosition) {
+                    let spare = fromPosition;
+                    fromPosition = toPosition;
+                    toPosition = spare;
+                }
+                controlSlider.style.background = `linear-gradient(
+                    to right,
+                    ${newSliderColor} 0%,
+                    ${newSliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} 100%)`; // <-- Updates color fill dynamically
+            }
+
+            // Ensures accessibility for toggles
+            function setToggleAccessible(currentTarget) {
+                const toPriceSlider = document.querySelector("#toPriceSlider");
+                if (Number(currentTarget.value) <= 0) {
+                    toPriceSlider.style.zIndex = 4;
+                } else {
+                    toPriceSlider.style.zIndex = 4;
+                }
+            }
+
+            // Element References
+            const fromPriceSlider = document.querySelector("#fromPriceSlider");
+            const toPriceSlider = document.querySelector("#toPriceSlider");
+            const fromPriceInput = document.querySelector("#fromPriceInput");
+            const toPriceInput = document.querySelector("#toPriceInput");
+
+            // Set step to 0.01 for finer control
+            fromPriceSlider.step = "0.01";
+            toPriceSlider.step = "0.01";
+            fromPriceInput.step = "0.01";
+            toPriceInput.step = "0.01";
+
+            // Initial slider fill and setup
+            fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", toPriceSlider); // <-- Initial color setup to Purple
+            setToggleAccessible(toPriceSlider);
+
+            // Event Listeners for Sliders and Inputs
+            fromPriceSlider.oninput = () => controlFromSlider(fromPriceSlider, toPriceSlider, fromPriceInput);
+            toPriceSlider.oninput = () => controlToSlider(fromPriceSlider, toPriceSlider, toPriceInput);
+            fromPriceInput.oninput = () => {
+                controlFromInput(fromPriceSlider, fromPriceInput, toPriceInput, toPriceSlider);
+                fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", toPriceSlider); // <-- Instant color update to Purple
+            };
+            toPriceInput.oninput = () => {
+                controlToInput(toPriceSlider, fromPriceInput, toPriceInput, toPriceSlider);
+                fillSlider(fromPriceSlider, toPriceSlider, "#C6C6C6", "#733D80", toPriceSlider); // <-- Instant color update to Purple
+            };
         </script>
         <!-- End Price Range Slider -->
 
@@ -608,7 +734,7 @@
             function controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
                 const [from, to] = getParsed(fromCaratInput, toCaratInput);
                 fromCaratSlider.value = from;
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", controlSlider); // <-- Dynamic Color Update
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider); // <-- Dynamic Color Update to Purple
                 if (from > to) {
                     fromCaratSlider.value = to;
                     fromCaratInput.value = to;
@@ -621,7 +747,7 @@
             function controlToInput(toCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
                 const [from, to] = getParsed(fromCaratInput, toCaratInput);
                 toCaratSlider.value = to;
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", controlSlider); // <-- Dynamic Color Update
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", controlSlider); // <-- Dynamic Color Update to Purple
                 setToggleAccessible(toCaratInput);
                 if (from <= to) {
                     toCaratSlider.value = to;
@@ -634,7 +760,7 @@
             // Sliding event of the From slider
             function controlFromSlider(fromCaratSlider, toCaratSlider, fromCaratInput) {
                 const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Dynamic Color Update
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Dynamic Color Update to Purple
                 fromCaratInput.value = from;
                 if (from > to) {
                     fromCaratInput.value = to;
@@ -645,7 +771,7 @@
             // Sliding event of the To slider
             function controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput) {
                 const [from, to] = getParsed(fromCaratSlider, toCaratSlider);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Dynamic Color Update
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Dynamic Color Update to Purple
                 setToggleAccessible(toCaratInput);
                 toCaratSlider.value = to;
                 toCaratInput.value = to;
@@ -665,7 +791,7 @@
             // Changing and Filling the color in the selected part
             function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
                 // Update the sliderColor to the new primary color
-                const newSliderColor = "#301914"; // New primary color
+                const newSliderColor = "#733D80"; // New primary color to Purple
                 let rangeDistance = to.max - to.min;
                 let fromPosition = from.value - to.min;
                 let toPosition = to.value - to.min;
@@ -707,7 +833,7 @@
             toCaratInput.step = "0.01";
 
             // Initial slider fill and setup
-            fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Initial color setup
+            fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Initial color setup to Purple
             setToggleAccessible(toCaratSlider);
 
             // Event Listeners for Sliders and Inputs
@@ -715,14 +841,13 @@
             toCaratSlider.oninput = () => controlToSlider(fromCaratSlider, toCaratSlider, toCaratInput);
             fromCaratInput.oninput = () => {
                 controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Instant color update
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Instant color update to Purple
             };
             toCaratInput.oninput = () => {
                 controlToInput(toCaratSlider, fromCaratInput, toCaratInput, toCaratSlider);
-                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#301914", toCaratSlider); // <-- Instant color update
+                fillSlider(fromCaratSlider, toCaratSlider, "#C6C6C6", "#733D80", toCaratSlider); // <-- Instant color update to Purple
             };
         </script>
-
         <!-- End Carat Slider -->
 
         <!-- Cut Slider -->
@@ -730,12 +855,10 @@
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Cut</h5>
             <div class="range_cut_container">
                 <div class="sliders_cut_control">
-                    <input id="fromCutSlider" type="range" value="0" min="0" max="4"
-                        step="1" />
-                    <input id="toCutSlider" type="range" value="4" min="0" max="4"
-                        step="1" />
+                    <input id="fromCutSlider" type="range" value="0" min="0" max="4" />
+                    <input id="toCutSlider" type="range" value="4" min="0" max="4" />
                 </div>
-                <div class="flex justify-center gap-10 font-montserrat text-xs text-gray-500 font-medium">
+                <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>Good</span>
                     <span>Very Good</span>
                     <span>Excellent</span>
@@ -792,25 +915,87 @@
                 position: relative;
                 z-index: 5;
             }
+
+            input[type="range"]#fromCutSlider::-webkit-slider-thumb:hover,
+            input[type="range"]#toCutSlider::-webkit-slider-thumb:hover {
+                background: #f7f7f7;
+            }
+
+            input[type="range"]#fromCutSlider::-webkit-slider-thumb:active,
+            input[type="range"]#toCutSlider::-webkit-slider-thumb:active {
+                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+            }
+
+            input[type="range"]#fromCutSlider,
+            input[type="range"]#toCutSlider {
+                -webkit-appearance: none;
+                appearance: none;
+                height: 4px;
+                width: 100%;
+                position: absolute;
+                background-color: #c6c6c6;
+                pointer-events: all;
+                border-radius: 8px;
+            }
+
+            #toCutSlider {
+                height: 0;
+                z-index: 4;
+            }
         </style>
         <script>
+            // Sliding event of the From slider
+            function controlFromSlider(fromCutSlider, toCutSlider) {
+                const from = fromCutSlider.value;
+                const to = toCutSlider.value;
+                fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#733D80", toCutSlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    toCutSlider.value = from;
+                }
+            }
+
+            // Sliding event of the To slider
+            function controlToSlider(fromCutSlider, toCutSlider) {
+                const from = fromCutSlider.value;
+                const to = toCutSlider.value;
+                fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#733D80", toCutSlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    fromCutSlider.value = to;
+                }
+            }
+
+            // Changing and Filling the color in the selected part
+            function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                const newSliderColor = "#800080"; // New primary color to Purple
+                let rangeDistance = to.max - to.min;
+                let fromPosition = from.value - to.min;
+                let toPosition = to.value - to.min;
+                if (fromPosition > toPosition) {
+                    let spare = fromPosition;
+                    fromPosition = toPosition;
+                    toPosition = spare;
+                }
+                controlSlider.style.background = `linear-gradient(
+                    to right,
+                    ${newSliderColor} 0%,
+                    ${newSliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} 100%)`; // <-- Updates color fill dynamically
+            }
+
+            // Element References
             const fromCutSlider = document.querySelector("#fromCutSlider");
             const toCutSlider = document.querySelector("#toCutSlider");
-            const fromCutInput = document.querySelector("#fromCutInput");
-            const toCutInput = document.querySelector("#toCutInput");
 
+            // Initial slider fill and setup
+            fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#733D80", toCutSlider); // <-- Initial color setup to Purple
 
-
-            // Initially filling the slider using default values...
-            fillSlider(fromCutSlider, toCutSlider, "#C6C6C6", "#301914", toCutSlider);
-            setToggleAccessible(toCutSlider);
-
-            // Assigning listener methods to respective events.
-            fromCutSlider.oninput = () => controlFromSlider(fromCutSlider, toCutSlider, fromCutInput);
-            toCutSlider.oninput = () => controlToSlider(fromCutSlider, toCutSlider, toCutInput);
-            fromCutInput.oninput = () =>
-                controlFromInput(fromCutSlider, fromCutInput, toCutInput, toCutSlider);
-            toCutInput.oninput = () => controlToInput(toCutSlider, fromCutInput, toCutInput, toCutSlider);
+            // Event Listeners for Sliders
+            fromCutSlider.oninput = () => controlFromSlider(fromCutSlider, toCutSlider);
+            toCutSlider.oninput = () => controlToSlider(fromCutSlider, toCutSlider);
         </script>
         <!-- End Cut Slider -->
 
@@ -819,12 +1004,10 @@
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
             <div class="range_color_container">
                 <div class="sliders_color_control">
-                    <input id="fromColorSliderM" type="range" value="0" min="0" max="10"
-                        step="1" />
-                    <input id="toColorSliderM" type="range" value="10" min="0" max="10"
-                        step="1" />
+                    <input id="fromColorSlider" type="range" value="0" min="0" max="10" />
+                    <input id="toColorSlider" type="range" value="10" min="0" max="10" />
                 </div>
-                <div class="flex justify-center gap-7 font-montserrat text-xs text-gray-500 font-medium">
+                <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>M</span>
                     <span>L</span>
                     <span>K</span>
@@ -860,8 +1043,8 @@
                 color: #635a5a;
             }
 
-            input[type="range"]#fromColorSliderM::-webkit-slider-thumb,
-            input[type="range"]#toColorSliderM::-webkit-slider-thumb {
+            input[type="range"]#fromColorSlider::-webkit-slider-thumb,
+            input[type="range"]#toColorSlider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
                 width: 16px;
@@ -874,8 +1057,8 @@
                 z-index: 5;
             }
 
-            input[type="range"]#fromColorSliderM::-moz-range-thumb,
-            input[type="range"]#toColorSliderM::-moz-range-thumb {
+            input[type="range"]#fromColorSlider::-moz-range-thumb,
+            input[type="range"]#toColorSlider::-moz-range-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
                 width: 24px;
@@ -887,24 +1070,88 @@
                 position: relative;
                 z-index: 5;
             }
+
+            input[type="range"]#fromColorSlider::-webkit-slider-thumb:hover,
+            input[type="range"]#toColorSlider::-webkit-slider-thumb:hover {
+                background: #f7f7f7;
+            }
+
+            input[type="range"]#fromColorSlider::-webkit-slider-thumb:active,
+            input[type="range"]#toColorSlider::-webkit-slider-thumb:active {
+                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+            }
+
+            input[type="range"]#fromColorSlider,
+            input[type="range"]#toColorSlider {
+                -webkit-appearance: none;
+                appearance: none;
+                height: 4px;
+                width: 100%;
+                position: absolute;
+                background-color: #c6c6c6;
+                pointer-events: all;
+                border-radius: 8px;
+            }
+
+            #toColorSlider {
+                height: 0;
+                z-index: 4;
+            }
         </style>
         <script>
-            const fromColorSliderM = document.querySelector("#fromColorSliderM");
-            const toColorSliderM = document.querySelector("#toColorSliderM");
-            const fromColorInputM = document.querySelector("#fromColorInputM");
-            const toColorInputM = document.querySelector("#toColorInputM");
+            // Sliding event of the From slider
+            function controlFromSlider(fromColorSlider, toColorSlider) {
+                const from = fromColorSlider.value;
+                const to = toColorSlider.value;
+                fillSlider(fromColorSlider, toColorSlider, "#C6C6C6", "#733D80", toColorSlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    toColorSlider.value = from;
+                }
+            }
 
-            // Initially filling the slider using default values...
-            fillSlider(fromColorSliderM, toColorSliderM, "#C6C6C6", "#301914", toColorSliderM);
-            setToggleAccessible(toColorSliderM);
+            // Sliding event of the To slider
+            function controlToSlider(fromColorSlider, toColorSlider) {
+                const from = fromColorSlider.value;
+                const to = toColorSlider.value;
+                fillSlider(fromColorSlider, toColorSlider, "#C6C6C6", "#733D80", toColorSlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    fromColorSlider.value = to;
+                }
+            }
 
-            // Assigning listener methods to respective events.
-            fromColorSliderM.oninput = () => controlFromSlider(fromColorSliderM, toColorSliderM, fromColorInputM);
-            toColorSliderM.oninput = () => controlToSlider(fromColorSliderM, toColorSliderM, toColorInputM);
-            fromColorInputM.oninput = () =>
-                controlFromInput(fromColorSliderM, fromColorInputM, toColorInputM, toColorSliderM);
-            toColorInputM.oninput = () => controlToInput(toColorSliderM, fromColorInputM, toColorInputM, toColorSliderM);
-        </script>
+            // Changing and Filling the color in the selected part
+            function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                const newSliderColor = "#800080"; // New primary color to Purple
+                let rangeDistance = to.max - to.min;
+                let fromPosition = from.value - to.min;
+                let toPosition = to.value - to.min;
+                if (fromPosition > toPosition) {
+                    let spare = fromPosition;
+                    fromPosition = toPosition;
+                    toPosition = spare;
+                }
+                controlSlider.style.background = `linear-gradient(
+                    to right,
+                    ${newSliderColor} 0%,
+                    ${newSliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} 100%)`; // <-- Updates color fill dynamically
+            }
+
+            // Element References
+            const fromColorSlider = document.querySelector("#fromColorSlider");
+            const toColorSlider = document.querySelector("#toColorSlider");
+
+            // Initial slider fill and setup
+            fillSlider(fromColorSlider, toColorSlider, "#C6C6C6", "#733D80", toColorSlider); // <-- Initial color setup to Purple
+
+            // Event Listeners for Sliders
+            fromColorSlider.oninput = () => controlFromSlider(fromColorSlider, toColorSlider);
+            toColorSlider.oninput = () => controlToSlider(fromColorSlider, toColorSlider);
+        </script>   
         <!-- End Color Slider -->
 
         <!-- Clarity Slider -->
@@ -912,10 +1159,8 @@
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Clarity</h5>
             <div class="range_clarity_container">
                 <div class="sliders_clarity_control">
-                    <input id="fromClaritySlider" type="range" value="0" min="0" max="11"
-                        step="1" />
-                    <input id="toClaritySlider" type="range" value="11" min="0" max="11"
-                        step="1" />
+                    <input id="fromClaritySlider" type="range" value="0" min="0" max="10" />
+                    <input id="toClaritySlider" type="range" value="10" min="0" max="10" />
                 </div>
                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>I2</span>
@@ -929,11 +1174,13 @@
                     <span>VVS1</span>
                     <span>IF</span>
                     <span>FL</span>
+                    <span>F</span>
+                    <span>E</span>
+                    <span>D</span>
                 </div>
             </div>
         </div>
         <style>
-            .range_carat_container,
             .range_clarity_container {
                 display: flex;
                 flex-direction: column;
@@ -982,24 +1229,88 @@
                 position: relative;
                 z-index: 5;
             }
+
+            input[type="range"]#fromClaritySlider::-webkit-slider-thumb:hover,
+            input[type="range"]#toClaritySlider::-webkit-slider-thumb:hover {
+                background: #f7f7f7;
+            }
+
+            input[type="range"]#fromClaritySlider::-webkit-slider-thumb:active,
+            input[type="range"]#toClaritySlider::-webkit-slider-thumb:active {
+                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+            }
+
+            input[type="range"]#fromClaritySlider,
+            input[type="range"]#toClaritySlider {
+                -webkit-appearance: none;
+                appearance: none;
+                height: 4px;
+                width: 100%;
+                position: absolute;
+                background-color: #c6c6c6;
+                pointer-events: all;
+                border-radius: 8px;
+            }
+
+            #toClaritySlider {
+                height: 0;
+                z-index: 4;
+            }
         </style>
         <script>
+            // Sliding event of the From slider
+            function controlFromSlider(fromClaritySlider, toClaritySlider) {
+                const from = fromClaritySlider.value;
+                const to = toClaritySlider.value;
+                fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#733D80", toClaritySlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    toClaritySlider.value = from;
+                }
+            }
+
+            // Sliding event of the To slider
+            function controlToSlider(fromClaritySlider, toClaritySlider) {
+                const from = fromClaritySlider.value;
+                const to = toClaritySlider.value;
+                fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#733D80", toClaritySlider); // <-- Dynamic Color Update to Purple
+                if (from > to) {
+                    fromClaritySlider.value = to;
+                }
+            }
+
+            // Changing and Filling the color in the selected part
+            function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                const newSliderColor = "#800080"; // New primary color to Purple
+                let rangeDistance = to.max - to.min;
+                let fromPosition = from.value - to.min;
+                let toPosition = to.value - to.min;
+                if (fromPosition > toPosition) {
+                    let spare = fromPosition;
+                    fromPosition = toPosition;
+                    toPosition = spare;
+                }
+                controlSlider.style.background = `linear-gradient(
+                    to right,
+                    ${newSliderColor} 0%,
+                    ${newSliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                    ${newSliderColor} 100%)`; // <-- Updates color fill dynamically
+            }
+
+            // Element References
             const fromClaritySlider = document.querySelector("#fromClaritySlider");
             const toClaritySlider = document.querySelector("#toClaritySlider");
-            const fromClarityInput = document.querySelector("#fromClarityInput");
-            const toClarityInput = document.querySelector("#toClarityInput");
 
-            // Initially filling the slider using default values...
-            fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#301914", toClaritySlider);
-            setToggleAccessible(toClaritySlider);
+            // Initial slider fill and setup
+            fillSlider(fromClaritySlider, toClaritySlider, "#C6C6C6", "#733D80", toClaritySlider); // <-- Initial color setup to Purple
 
-            // Assigning listener methods to respective events.
-            fromClaritySlider.oninput = () => controlFromSlider(fromClaritySlider, toClaritySlider, fromClarityInput);
-            toClaritySlider.oninput = () => controlToSlider(fromClaritySlider, toClaritySlider, toClarityInput);
-            fromClarityInput.oninput = () =>
-                controlFromInput(fromClaritySlider, fromClarityInput, toClarityInput, toClaritySlider);
-            toClarityInput.oninput = () => controlToInput(toClaritySlider, fromClarityInput, toClarityInput, toClaritySlider);
-        </script>
+            // Event Listeners for Sliders
+            fromClaritySlider.oninput = () => controlFromSlider(fromClaritySlider, toClaritySlider);
+            toClaritySlider.oninput = () => controlToSlider(fromClaritySlider, toClaritySlider);
+        </script> 
         <!-- End Clarity Slider -->
     </div>
     <!-- End Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
@@ -2002,6 +2313,8 @@
             </div>
         </div>
 
+        
+
         <!-- Right side clear filter button -->
         <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-primary">
             <span>Clear Filters</span>
@@ -2515,4 +2828,46 @@
     });
 </script>
 {{-- End Color Selection --}}
+
+{{-- 
+    <a href="/learn-why-they-are-unmatched" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">LEARN WHY THEY ARE UNMATCHED</a>
+
+<div x-data="{ isOpen: false }">
+    <!-- Trigger Link -->
+    <button @click="isOpen = true" class="text-blue-600 hover:text-blue-800">
+        Open Drawer
+    </button>
+
+    <!-- Drawer Overlay -->
+    <div x-show="isOpen" 
+         class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity"
+         @click="isOpen = false">
+    </div>
+
+    <!-- Drawer Content -->
+    <div x-show="isOpen" 
+         x-transition:enter="transform transition-transform ease-in-out duration-300"
+         x-transition:enter-start="translate-x-full"
+         x-transition:enter-end="translate-x-0"
+         x-transition:leave="transform transition-transform ease-in-out duration-300"
+         x-transition:leave-start="translate-x-0"
+         x-transition:leave-end="translate-x-full"
+         class="fixed right-0 top-0 h-full w-full sm:w-96 bg-white z-50 shadow-lg">
+        
+        <!-- Drawer Header with Close Button -->
+        <div class="p-4 border-b flex justify-between items-center">
+            <h2 class="text-xl font-semibold">Drawer Title</h2>
+            <button @click="isOpen = false; $dispatch('drawer-closed')" class="p-2 hover:bg-gray-100 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="p-4">
+            <p><x-drawer /></p>
+        </div>
+
+    </div>
+</div> --}}
 @endsection

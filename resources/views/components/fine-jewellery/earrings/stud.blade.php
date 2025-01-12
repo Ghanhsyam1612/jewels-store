@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container mb-14">
-        <nav class="flex items-center text-sm font-montserrat mb-4 px-40 py-6">
+        <nav class="flex flex-wrap items-center text-sm font-montserrat mb-4 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 py-3">
             <a href="/" class="text-primary text-xs font-medium hover:underline">Home</a>
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -13,8 +13,8 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <a href="/earrings" class="text-primary font-medium text-xs">Lab Grown Diamond Earrings</a>
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="/earrings" class="text-primary font-medium text-xs mx-1">Lab Grown Diamond Earrings</a>
+            <svg class="w-4 h-4 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -26,9 +26,9 @@
             <span class="text-primary text-xs">Diamond Stud Earrings</span>
         </nav>
 
-        <div class="flex flex-col items-center justify-center px-40 my-12">
-            <h2 class="text-3xl text-primary font-montserrat font-semibold mb-2">Diamond Stud Earrings</h2>
-            <p class="text-sm text-primary font-montserrat text-center">Stud Earrings are generally very minimalist fashion pieces. These dainty little earrings compliment the wearer. Diamond Stud Earrings are timeless pieces typically held down by a 4-prong setting.</p>
+        <div class="flex flex-col lg:items-center justify-center mb-4 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 py-3 lg:my-12">
+            <h2 class="text-xl lg:text-3xl text-primary font-montserrat font-semibold mb-2">Diamond Stud Earrings</h2>
+            <p class="text-sm lg:text-base text-primary font-montserrat lg:text-center">Stud Earrings are generally very minimalist fashion pieces. These dainty little earrings compliment the wearer. Diamond Stud Earrings are timeless pieces typically held down by a 4-prong setting.</p>
         </div>
 
 
@@ -104,6 +104,8 @@
                     <p class="text-primary font-montserrat font-semibold text-sm">$2,499</p>
                 </div>
             </div>
+
+            
         </div>
     
 

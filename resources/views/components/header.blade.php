@@ -319,6 +319,7 @@
             {{-- Antique Cut Diamonds --}}
             <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a>
 
+            
             {{-- Precious Stones --}}
             <!--
             <div class="relative group">
