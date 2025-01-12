@@ -9,9 +9,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CheckoutCreateRequest;
+use App\Services\PayPalService;
 
 class CheckoutController extends Controller
 {
+    protected $paypalService;
+
+    public function __construct(PayPalService $paypalService)
+    {
+        $this->paypalService = $paypalService;
+    }
+
     public function index()
     {
 
@@ -65,30 +73,32 @@ class CheckoutController extends Controller
                     'subtotal' => $item['original_price'] * $item['quantity'],
                 ]);
             }
-            // Create Payment Record (Check if payment method is provided)
-            if ($request->has('payment_method')) {
-                Payment::create([
-                    'order_id' => $order->id,
-                    'payment_method' => $validatedData['payment_method'],
-                    'payment_status' => 'pending',
-                    'transaction_id' => 'TRX-' . rand(100000, 999999),
-                    'payment_amount' => $total,
-                    'currency' => 'USD',
-                    'payment_details' => json_encode($validatedData),
-                ]);
-            }
+            // // Create Payment Record (Check if payment method is provided)
+            // if ($request->has('payment_method')) {
+            //     $approvalLink = $this->paypalService->createPayment($order, $total);
+            //     return redirect($approvalLink);
+            // }
 
-            // Update Order Status
-            $order->update([
-                'payment_status' => Order::$PAYMENT_STATUS_COMPLETED,
-                'shipping_status' => Order::$SHIPPING_STATUS_PROCESSING,
-            ]);
+            // Payment::create([
+            //     'order_id' => $order->id,
+            //     'payment_method' => $validatedData['payment_method'],
+            //     'payment_status' => 'pending',
+            //     'transaction_id' => 'TRX-' . rand(100000, 999999),
+            //     'payment_amount' => $total,
+            //     'currency' => 'USD',
+            //     'payment_details' => json_encode($validatedData),
+            // ]);
+
+            // PayPal Payment Creation
+            $approvalLink = $this->paypalService->createPayment($order, $total);
 
             // Send Order Confirmation Email
             // Mail::to($validatedData['shipping_address']['email'])->send(new OrderConfirmationEmail($order));
 
             // Clear the cart
             session()->forget('cart');
+            return redirect($approvalLink);
+
 
             DB::commit();
             
@@ -98,5 +108,38 @@ class CheckoutController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Failed to create order: ' . $e->getMessage());
         }
+    }
+
+    public function success(Request $request)
+    {
+        return view('checkout.success', ['message' => 'Payment completed successfully.']);
+    }
+
+    public function cancel()
+    {
+        return view('checkout.cancel', ['message' => 'You cancelled the payment.']);
+    }
+
+    public function complete(Request $request)
+    {
+        // Capture PayPal payment logic can be added here if required
+
+        $order = Order::where('order_number', $request->token)->first();
+        if ($order) {
+            $order->update(['payment_status' => Order::$PAYMENT_STATUS_COMPLETED ]);
+        }
+
+        Payment::create([
+            'order_id' => $order->id,
+            'payment_method' => 'paypal',
+            'payment_status' => Order::$PAYMENT_STATUS_COMPLETED,
+            'transaction_id' => $request->token,
+            'payment_amount' => $request->amount,
+            'currency' => 'USD',
+            'payment_details' => json_encode($request->all()),
+        ]);
+
+        
+        return redirect()->route('checkout.success');
     }
 }

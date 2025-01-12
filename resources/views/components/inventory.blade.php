@@ -3379,8 +3379,10 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
                                     stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    <line x1="18" y1="6" x2="6" y2="18">
+                                    </line>
+                                    <line x1="6" y1="6" x2="18" y2="18">
+                                    </line>
                                 </svg>
                             </button>
                         </div>
@@ -3658,8 +3660,10 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
                                     stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    <line x1="18" y1="6" x2="6" y2="18">
+                                    </line>
+                                    <line x1="6" y1="6" x2="18" y2="18">
+                                    </line>
                                 </svg>
                             </button>
                         </div>
@@ -3938,9 +3942,6 @@
             </div>
         </div>
 
-
-
-
         <!-- Right side clear filter button -->
         <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary hover:text-white">
             <span>Clear Filters</span>
@@ -4187,7 +4188,7 @@
                                                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                                 </svg>
                                                 Add to Bag
-                                                </button>
+                                            </button>
                                         </form>
                                         @if ($diamond->video_url)
                                         <a href="{{ asset($diamond->video_url) }}" target="_blank">
@@ -4279,20 +4280,74 @@
                         </td>
                     </tr>
                     @endforeach
-
-
                 </tbody>
-
             </table>
-            {{-- Load More Button --}}
-            <div class="flex justify-center mt-4">
-                <button class="px-6 py-2.5 text-sm border border-primary bg-primary text-gold rounded-sm hover:bg-white hover:border-primary hover:text-primary transition-colors flex items-center font-montserrat gap-2">
-                    Load More
-                </button>
-            </div>
+        </div>
+
+        <div class="flex justify-center mt-4">
+            @if($diamonds->hasMorePages())
+            <button id="load-more" data-page="1" class="px-6 py-2.5 text-sm border border-primary bg-primary text-gold rounded-sm hover:bg-white hover:border-primary hover:text-primary transition-colors flex items-center font-montserrat gap-2">
+                Load More
+            </button>
+            @endif
         </div>
     </div>
     <!-- End Table -->
+    <!-- Start Load More Script -->
+    <script>
+        document.getElementById('load-more').addEventListener('click', function() {
+            let button = this;
+            let currentPage = parseInt(button.getAttribute('data-page'));
+            let nextPage = currentPage + 1;
+
+            // Show loading state
+            button.innerHTML = 'Loading...';
+            button.disabled = true;
+
+            fetch(`/inventory?page=${nextPage}`, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Insert new content before the last table row (load more button row)
+                    const tbody = document.querySelector('table tbody');
+                    tbody.insertAdjacentHTML('beforeend', data.html);
+
+                    // Update the page number
+                    button.setAttribute('data-page', nextPage);
+
+                    // Reset button state
+                    button.innerHTML = 'Load More';
+                    button.disabled = false;
+
+                    // Hide the button if no more pages
+                    if (!data.hasMorePages) {
+                        button.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    button.innerHTML = 'Load More';
+                    button.disabled = false;
+                });
+        });
+
+        // Function to initialize event listeners for new content
+        function initializeEventListeners() {
+            // Add any necessary event listeners for the newly added content
+            // For example, reinitialize the toggleDetails functionality
+            document.querySelectorAll('.content').forEach(content => {
+                if (!content.hasAttribute('data-initialized')) {
+                    content.setAttribute('data-initialized', 'true');
+                    // Add your event listeners here
+                }
+            });
+        }
+    </script>
+
+    <!-- End Load More Script -->
 
     <script>
         let sortOrders = Array(7).fill('asc');
@@ -4790,6 +4845,27 @@
     });
 </script>
 <!-- End Advanced Options Dropdown Script -->
+
+<!-- Load More Button Script -->
+<script>
+    document.getElementById('load-more').addEventListener('click', function() {
+        let button = this;
+        let page = parseInt(button.getAttribute('data-page')) + 1;
+
+        fetch(`/diamonds?page=${page}`)
+            .then(response => response.json())
+            .then(data => {
+                let container = document.getElementById('diamond-container');
+                data.forEach(diamond => {
+                    let div = document.createElement('div');
+                    div.innerHTML = `<p>${diamond.name}</p>`;
+                    container.appendChild(div);
+                });
+                button.setAttribute('data-page', page);
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
 
 
 

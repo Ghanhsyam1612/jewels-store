@@ -233,6 +233,9 @@ Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('ca
 // ---------------------------------- Checkout Routes -------------------------------------------------
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout/process', [CheckoutController::class, 'checkoutProcess'])->name('checkout.process');
+Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+Route::get('/checkout/complete', [CheckoutController::class, 'complete'])->name('checkout.complete');
 // ---------------------------------- End Checkout Routes -------------------------------------------------
 
 // ---------------------------------- Wishlist Routes -------------------------------------------------

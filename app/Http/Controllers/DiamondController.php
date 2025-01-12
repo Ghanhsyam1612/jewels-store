@@ -26,14 +26,22 @@ class DiamondController extends Controller
             $query->whereBetween('carat', [$request->minCarat, $request->maxCarat]);
         }
 
-
         // Filter by cut range
         if ($request->has('fromCutSlider') && $request->has('toCutSlider')) {
             $query->whereBetween('cut', [$request->fromCutSlider, $request->toCutSlider]);
         }
 
-        // $diamonds = $query->get()->shuffle()->take(10);
+        // Check if the request is for loading more diamonds
+        if ($request->ajax()) {
+            $diamonds = $query->inRandomOrder()->paginate(10);
+            $view = view('components.diamond_rows', compact('diamonds'))->render();
+            return response()->json([
+                'html' => $view,
+                'hasMorePages' => $diamonds->hasMorePages()
+            ]);
+        }
 
+        // Default view rendering
         $diamonds = $query->inRandomOrder()->paginate(10);
         return view('components.inventory', compact('diamonds'));
     }

@@ -112,13 +112,13 @@
                                 <label class="block text-sm font-medium text-gray-700 font-montserrat">Postal Code</label>
                                 <input type="text"
                                     class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary"
-                                    name="postal_code"
+                                    name="zip"
                                     required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 font-montserrat">Country</label>
-                            <select class="mt-1 block w-full border border-gray-300 rounded-md py-2.5 outline-none px-4 font-montserrat text-primary" name="country" required>
+                            <select class="mt-1 block w-full border border-gray-300 rounded-md py-2.5 outline-none px-4 font-montserrat text-primary">
                                 <option>United States</option>
                                 <option>Canada</option>
                                 <option>United Kingdom</option>
@@ -255,111 +255,29 @@
 <!-- PayPal Button Integration -->
 <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=USD"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form');
-        const paypalButtonContainer = document.getElementById('paypal-button-container');
-        const requiredFields = form.querySelectorAll('input[required]');
-
-        function validateForm() {
-            let valid = true;
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    valid = false;
-                    field.classList.add('border-red-500');
-                } else {
-                    field.classList.remove('border-red-500');
-                }
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: "{{ number_format($total, 2, '.', '') }}"
+                    }
+                }]
             });
-            return valid;
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                console.log(details);
+                window.location.href = '/checkout/complete?token=' + data.orderID;
+            });
+        },
+        onCancel: function() {
+            window.location.href = '/checkout/cancel';
+        },
+        onError: function(err) {
+            alert('An error occurred during the payment process. Please try again.');
         }
-
-        paypal.Buttons({
-            onClick: function() {
-                if (!validateForm()) {
-                    alert('Please fill in all required fields');
-                    return false;
-                }
-                return true;
-            },
-
-            createOrder: function(data, actions) {
-                // Show loading state
-                document.body.classList.add('cursor-wait');
-
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: "{{ number_format($total, 2, '.', '') }}"
-                        },
-                        description: "Order #{{ time() }}"
-                    }],
-                    application_context: {
-                        shipping_preference: 'SET_PROVIDED_ADDRESS',
-                        user_action: 'PAY_NOW'
-                    }
-                });
-            },
-
-            onApprove: async function(data, actions) {
-                try {
-                    const details = await actions.order.capture();
-                    const formData = {
-                        payment_method: 'paypal',
-                        shipping_address: {
-                            full_name: document.querySelector('input[name="full_name"]').value,
-                            email: document.querySelector('input[name="email"]').value,
-                            phone: document.querySelector('input[name="phone"]').value,
-                            address: document.querySelector('input[name="address"]').value,
-                            city: document.querySelector('input[name="city"]').value,
-                            postal_code: document.querySelector('input[name="postal_code"]').value,
-                            country: document.querySelector('select[name="country"]').value
-                        },
-                        billing_address: {
-                            full_name: document.querySelector('input[name="full_name"]').value,
-                            email: document.querySelector('input[name="email"]').value,
-                            phone: document.querySelector('input[name="phone"]').value,
-                            address: document.querySelector('input[name="address"]').value,
-                            city: document.querySelector('input[name="city"]').value,
-                            postal_code: document.querySelector('input[name="postal_code"]').value,
-                            country: document.querySelector('select[name="country"]').value
-                        }, // Copy shipping address if billing is same
-                        payment_details: {
-                            transaction_id: details.id,
-                            status: details.status,
-                            amount: details.purchase_units[0].amount.value
-                        }
-                    };
-
-                    const response = await fetch('/checkout/process', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify(formData)
-                    });
-
-                    const result = await response.json();
-
-                    if (result.success) {
-                        window.location.href = '/checkout/success?order=' + result.order_id;
-                    } else {
-                        throw new Error(result.message);
-                    }
-                } catch (error) {
-                    alert('Payment failed: ' + error.message);
-                } finally {
-                    document.body.classList.remove('cursor-wait');
-                }
-            },
-
-            onError: function(err) {
-                document.body.classList.remove('cursor-wait');
-                console.error('PayPal Error:', err);
-                alert('Payment failed. Please try again or contact support.');
-            }
-        }).render('#paypal-button-container');
-    });
+    }).render('#paypal-button-container');
 </script>
 
 
