@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div class="w-full mx-auto py-12">
     <h1
         class="text-xl lg:text-4xl text-primary font-montserrat font-bold text-center mb-3 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
@@ -2298,54 +2299,6 @@
                 </div>
             </form>
         </div>
-        <style>
-            .range_container {
-                display: flex;
-                flex-direction: column;
-                width: 80%;
-                margin: 5% auto;
-            }
-
-            .sliders_control {
-                position: relative;
-                min-height: 35px;
-                display: flex;
-                align-items: center;
-            }
-
-            .form_control {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-            }
-
-            input[type="range"]::-webkit-slider-thumb {
-                width: 16px;
-                height: 16px;
-                background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="number"] {
-                width: 100%;
-                font-size: 13px;
-                border: 1px solid #c6c6c6;
-                border-radius: 4px;
-                padding: 4px;
-            }
-
-            input[type="range"] {
-                height: 4px;
-                width: 100%;
-                position: absolute;
-                background-color: #c6c6c6;
-                border-radius: 8px;
-            }
-        </style>
         <script>
             const fromSlider = document.querySelector("#fromSlider");
             const toSlider = document.querySelector("#toSlider");
@@ -2426,109 +2379,6 @@
                 </div>
             </div>
         </div>
-        <style>
-            .range_carat_container {
-                display: flex;
-                flex-direction: column;
-                width: 80%;
-                margin: 5% auto;
-            }
-
-            .sliders_carat_control {
-                position: relative;
-                min-height: 35px;
-                display: flex;
-                align-items: center;
-            }
-
-            .form_carat_control {
-                display: flex;
-                justify-content: space-between;
-                font-size: 24px;
-                color: #635a5a;
-            }
-
-            input[type="range"]#fromCaratSlider::-webkit-slider-thumb,
-            input[type="range"]#toCaratSlider::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 16px;
-                height: 16px;
-                background-color: #fff;
-                border-radius: 100%;
-                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="range"]#fromCaratSlider::-moz-range-thumb,
-            input[type="range"]#toCaratSlider::-moz-range-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 24px;
-                height: 24px;
-                background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="range"]#fromCaratSlider::-webkit-slider-thumb:hover,
-            input[type="range"]#toCaratSlider::-webkit-slider-thumb:hover {
-                background: #f7f7f7;
-            }
-
-            input[type="range"]#fromCaratSlider::-webkit-slider-thumb:active,
-            input[type="range"]#toCaratSlider::-webkit-slider-thumb:active {
-                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-            }
-
-            input[type="number"]#rangeInput,
-            input[type="number"]#rangeInput {
-                color: #8a8383;
-                width: 100%;
-                /* height: 30px; */
-                font-size: 13px;
-                border: 1px solid #c6c6c6;
-                border-radius: 4px;
-                padding: 4px;
-            }
-
-            input[type="number"]#fromCaratInput::-webkit-inner-spin-button,
-            input[type="number"]#fromCaratInput::-webkit-outer-spin-button {
-                opacity: 1;
-            }
-
-            input[type="number"]#toCaratInput::-webkit-inner-spin-button,
-            input[type="number"]#toCaratInput::-webkit-outer-spin-button {
-                opacity: 1;
-            }
-
-            input[type="range"]#fromCaratSlider,
-            input[type="range"]#toCaratSlider {
-                -webkit-appearance: none;
-                appearance: none;
-                height: 4px;
-                width: 100%;
-                position: absolute;
-                background-color: #c6c6c6;
-                pointer-events: all;
-                border-radius: 8px;
-            }
-
-            /* #fromCaratSlider {
-                                    height: 0;
-                                    z-index: 3;
-                                } */
-            #toCaratSlider {
-                height: 0;
-                z-index: 4;
-            }
-        </style>
         <script>
             // Controls the slider using from Input
             function controlFromInput(fromCaratSlider, fromCaratInput, toCaratInput, controlSlider) {
@@ -2667,56 +2517,6 @@
                 </div>
             </div>
         </div>
-        <style>
-            .range_cut_container {
-                display: flex;
-                flex-direction: column;
-                width: 80%;
-                margin: 5% auto;
-            }
-
-            .sliders_cut_control {
-                position: relative;
-                min-height: 35px;
-                display: flex;
-                align-items: center;
-            }
-
-            .form_cut_control {
-                display: flex;
-                justify-content: space-between;
-                font-size: 24px;
-                color: #635a5a;
-            }
-
-            input[type="range"]#fromCutSlider::-webkit-slider-thumb,
-            input[type="range"]#toCutSlider::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 16px;
-                height: 16px;
-                background-color: #fff;
-                border-radius: 100%;
-                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="range"]#fromCutSlider::-moz-range-thumb,
-            input[type="range"]#toCutSlider::-moz-range-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 24px;
-                height: 24px;
-                background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-        </style>
         <script>
             const fromCutSlider = document.querySelector("#fromCutSlider");
             const toCutSlider = document.querySelector("#toCutSlider");
@@ -2762,56 +2562,6 @@
                 </div>
             </div>
         </div>
-        <style>
-            .range_color_container {
-                display: flex;
-                flex-direction: column;
-                width: 80%;
-                margin: 5% auto;
-            }
-
-            .sliders_color_control {
-                position: relative;
-                min-height: 35px;
-                display: flex;
-                align-items: center;
-            }
-
-            .form_color_control {
-                display: flex;
-                justify-content: space-between;
-                font-size: 24px;
-                color: #635a5a;
-            }
-
-            input[type="range"]#fromColorSliderM::-webkit-slider-thumb,
-            input[type="range"]#toColorSliderM::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 16px;
-                height: 16px;
-                background-color: #fff;
-                border-radius: 100%;
-                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="range"]#fromColorSliderM::-moz-range-thumb,
-            input[type="range"]#toColorSliderM::-moz-range-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 24px;
-                height: 24px;
-                background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-        </style>
         <script>
             const fromColorSliderM = document.querySelector("#fromColorSliderM");
             const toColorSliderM = document.querySelector("#toColorSliderM");
@@ -3124,109 +2874,6 @@
                                 </div>
                             </div>
                         </div>
-                        <style>
-                            .range_table_container {
-                                display: flex;
-                                flex-direction: column;
-                                width: 80%;
-                                margin: 5% auto;
-                            }
-
-                            .sliders_table_control {
-                                position: relative;
-                                min-height: 35px;
-                                display: flex;
-                                align-items: center;
-                            }
-
-                            .form_table_control {
-                                display: flex;
-                                justify-content: space-between;
-                                font-size: 24px;
-                                color: #635a5a;
-                            }
-
-                            input[type="range"]#fromTableSlider::-webkit-slider-thumb,
-                            input[type="range"]#toTableSlider::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 16px;
-                                height: 16px;
-                                background-color: #fff;
-                                border-radius: 100%;
-                                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-
-                            input[type="range"]#fromTableSlider::-moz-range-thumb,
-                            input[type="range"]#toTableSlider::-moz-range-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 24px;
-                                height: 24px;
-                                background-color: #fff;
-                                border-radius: 50%;
-                                box-shadow: 0 0 0 1px #c6c6c6;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-
-                            input[type="range"]#fromTableSlider::-webkit-slider-thumb:hover,
-                            input[type="range"]#toTableSlider::-webkit-slider-thumb:hover {
-                                background: #f7f7f7;
-                            }
-
-                            input[type="range"]#fromTableSlider::-webkit-slider-thumb:active,
-                            input[type="range"]#toTableSlider::-webkit-slider-thumb:active {
-                                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                            }
-
-                            input[type="number"]#rangeInput,
-                            input[type="number"]#rangeInput {
-                                color: #8a8383;
-                                width: 100%;
-                                /* height: 30px; */
-                                font-size: 13px;
-                                border: 1px solid #c6c6c6;
-                                border-radius: 4px;
-                                padding: 4px;
-                            }
-
-                            input[type="number"]#fromTableInput::-webkit-inner-spin-button,
-                            input[type="number"]#fromTableInput::-webkit-outer-spin-button {
-                                opacity: 1;
-                            }
-
-                            input[type="number"]#toTableInput::-webkit-inner-spin-button,
-                            input[type="number"]#toTableInput::-webkit-outer-spin-button {
-                                opacity: 1;
-                            }
-
-                            input[type="range"]#fromTableSlider,
-                            input[type="range"]#toTableSlider {
-                                -webkit-appearance: none;
-                                appearance: none;
-                                height: 4px;
-                                width: 100%;
-                                position: absolute;
-                                background-color: #c6c6c6;
-                                pointer-events: all;
-                                border-radius: 8px;
-                            }
-
-                            /* #fromCaratSlider {
-                                            height: 0;
-                                            z-index: 3;
-                                        } */
-                            #toTableSlider {
-                                height: 0;
-                                z-index: 4;
-                            }
-                        </style>
                         <script>
                             // Controls the slider using from Input....
                             function controlFromInput(fromTableSlider, fromTableInput, toTableInput, controlSlider) {
@@ -3300,8 +2947,7 @@
                                     fromPosition = toPosition;
                                     toPosition = spare;
                                 }
-                                controlSlider.style.background = `linear-gradient(
-                      to right,
+                                controlSlider.style.background = `linear-gradient(to right,
                       ${sliderColor} 0%,
                       ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
                       ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
@@ -3409,105 +3055,6 @@
                                 </div>
                             </div>
                         </div>
-                        <style>
-                            .range_depth_container {
-                                display: flex;
-                                flex-direction: column;
-                                width: 80%;
-                                margin: 5% auto;
-                            }
-
-                            .sliders_depth_control {
-                                position: relative;
-                                min-height: 35px;
-                                display: flex;
-                                align-items: center;
-                            }
-
-                            .form_depth_control {
-                                display: flex;
-                                justify-content: space-between;
-                                font-size: 24px;
-                                color: #635a5a;
-                            }
-
-                            input[type="range"]#fromDepthSlider::-webkit-slider-thumb,
-                            input[type="range"]#toDepthSlider::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 16px;
-                                height: 16px;
-                                background-color: #fff;
-                                border-radius: 100%;
-                                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-
-                            input[type="range"]#fromDepthSlider::-moz-range-thumb,
-                            input[type="range"]#toDepthSlider::-moz-range-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 24px;
-                                height: 24px;
-                                background-color: #fff;
-                                border-radius: 50%;
-                                box-shadow: 0 0 0 1px #c6c6c6;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-
-                            input[type="range"]#fromDepthSlider::-webkit-slider-thumb:hover,
-                            input[type="range"]#toDepthSlider::-webkit-slider-thumb:hover {
-                                background: #f7f7f7;
-                            }
-
-                            input[type="range"]#fromDepthSlider::-webkit-slider-thumb:active,
-                            input[type="range"]#toDepthSlider::-webkit-slider-thumb:active {
-                                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                            }
-
-                            input[type="number"]#rangeInput,
-                            input[type="number"]#rangeInput {
-                                color: #8a8383;
-                                width: 100%;
-                                /* height: 30px; */
-                                font-size: 13px;
-                                border: 1px solid #c6c6c6;
-                                border-radius: 4px;
-                                padding: 4px;
-                            }
-
-                            input[type="number"]#fromDepthInput::-webkit-inner-spin-button,
-                            input[type="number"]#fromDepthInput::-webkit-outer-spin-button {
-                                opacity: 1;
-                            }
-
-                            input[type="number"]#toDepthInput::-webkit-inner-spin-button,
-                            input[type="number"]#toDepthInput::-webkit-outer-spin-button {
-                                opacity: 1;
-                            }
-
-                            input[type="range"]#fromDepthSlider,
-                            input[type="range"]#toDepthSlider {
-                                -webkit-appearance: none;
-                                appearance: none;
-                                height: 4px;
-                                width: 100%;
-                                position: absolute;
-                                background-color: #c6c6c6;
-                                pointer-events: all;
-                                border-radius: 8px;
-                            }
-
-                            #toDepthSlider {
-                                height: 0;
-                                z-index: 4;
-                            }
-                        </style>
                         <script>
                             // Controls the slider using from Input....
                             function controlFromInput(fromDepthSlider, fromDepthInput, toDepthInput, controlSlider) {
@@ -3690,105 +3237,6 @@
                                 </div>
                             </div>
                         </div>
-                        <style>
-                            .range_lw_container {
-                                display: flex;
-                                flex-direction: column;
-                                width: 80%;
-                                margin: 5% auto;
-                            }
-
-                            .sliders_lw_control {
-                                position: relative;
-                                min-height: 35px;
-                                display: flex;
-                                align-items: center;
-                            }
-
-                            .form_lw_control {
-                                display: flex;
-                                justify-content: space-between;
-                                font-size: 24px;
-                                color: #635a5a;
-                            }
-
-                            input[type="range"]#fromLwSlider::-webkit-slider-thumb,
-                            input[type="range"]#toLwSlider::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 16px;
-                                height: 16px;
-                                background-color: #fff;
-                                border-radius: 100%;
-                                box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-
-                            input[type="range"]#fromLwSlider::-moz-range-thumb,
-                            input[type="range"]#toLwSlider::-moz-range-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 24px;
-                                height: 24px;
-                                background-color: #fff;
-                                border-radius: 50%;
-                                box-shadow: 0 0 0 1px #c6c6c6;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-
-                            input[type="range"]#fromLwSlider::-webkit-slider-thumb:hover,
-                            input[type="range"]#toLwSlider::-webkit-slider-thumb:hover {
-                                background: #f7f7f7;
-                            }
-
-                            input[type="range"]#fromLwSlider::-webkit-slider-thumb:active,
-                            input[type="range"]#toLwSlider::-webkit-slider-thumb:active {
-                                box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                            }
-
-                            input[type="number"]#rangeInput,
-                            input[type="number"]#rangeInput {
-                                color: #8a8383;
-                                width: 100%;
-                                /* height: 30px; */
-                                font-size: 13px;
-                                border: 1px solid #c6c6c6;
-                                border-radius: 4px;
-                                padding: 4px;
-                            }
-
-                            input[type="number"]#fromLwInput::-webkit-inner-spin-button,
-                            input[type="number"]#fromLwInput::-webkit-outer-spin-button {
-                                opacity: 1;
-                            }
-
-                            input[type="number"]#toLwInput::-webkit-inner-spin-button,
-                            input[type="number"]#toLwInput::-webkit-outer-spin-button {
-                                opacity: 1;
-                            }
-
-                            input[type="range"]#fromLwSlider,
-                            input[type="range"]#toLwSlider {
-                                -webkit-appearance: none;
-                                appearance: none;
-                                height: 4px;
-                                width: 100%;
-                                position: absolute;
-                                background-color: #c6c6c6;
-                                pointer-events: all;
-                                border-radius: 8px;
-                            }
-
-                            #toLwSlider {
-                                height: 0;
-                                z-index: 4;
-                            }
-                        </style>
                         <script>
                             // Controls the slider using from Input....
                             function controlFromInput(fromLwSlider, fromLwInput, toLwInput, controlSlider) {
@@ -3862,15 +3310,15 @@
                                     fromPosition = toPosition;
                                     toPosition = spare;
                                 }
-                                controlSlider.style.background = `linear-gradient(
-                      to right,
-                      ${sliderColor} 0%,
-                      ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                      ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                      ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                      ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                      ${sliderColor} 100%)`;
-                            }
+                                        controlSlider.style.background = `linear-gradient(
+                            to right,
+                            ${sliderColor} 0%,
+                            ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+                            ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+                            ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+                            ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+                            ${sliderColor} 100%)`;
+                                    }
 
                             // Making sure the toggle which we are using is accessible to change the range
                             function setToggleAccessible(currentTarget) {
@@ -4336,17 +3784,14 @@
 
         // Function to initialize event listeners for new content
         function initializeEventListeners() {
-            // Add any necessary event listeners for the newly added content
-            // For example, reinitialize the toggleDetails functionality
+
             document.querySelectorAll('.content').forEach(content => {
                 if (!content.hasAttribute('data-initialized')) {
                     content.setAttribute('data-initialized', 'true');
-                    // Add your event listeners here
                 }
             });
         }
     </script>
-
     <!-- End Load More Script -->
 
     <script>
@@ -4845,29 +4290,4 @@
     });
 </script>
 <!-- End Advanced Options Dropdown Script -->
-
-<!-- Load More Button Script -->
-<script>
-    document.getElementById('load-more').addEventListener('click', function() {
-        let button = this;
-        let page = parseInt(button.getAttribute('data-page')) + 1;
-
-        fetch(`/diamonds?page=${page}`)
-            .then(response => response.json())
-            .then(data => {
-                let container = document.getElementById('diamond-container');
-                data.forEach(diamond => {
-                    let div = document.createElement('div');
-                    div.innerHTML = `<p>${diamond.name}</p>`;
-                    container.appendChild(div);
-                });
-                button.setAttribute('data-page', page);
-            })
-            .catch(error => console.error('Error:', error));
-    });
-</script>
-
-
-
-
 @endsection
