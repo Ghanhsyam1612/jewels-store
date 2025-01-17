@@ -91,7 +91,7 @@
 
     {{-- Start Intensity Color --}}
     <div class="flex items-center px-10 xl:px-4">
-        <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
+        <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Intensity</h5>
         <div class="flex flex-col">
             <div class="grid grid-cols-2 lg:grid-cols-6 mb-1 gap-5">
                 <!-- Fancy Light (0.20) -->
@@ -2292,7 +2292,7 @@
             <div class="flex flex-row items-center gap-3">
                 <p class="font-montserrat font-semibold text-sm">Type</p>
                 <a href="/inventory" class="text-xs text-white bg-primary border border-gray-300 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">WHITE DIAMONDS</a>
-                <a href="#" class="text-xs text-primary hover:text-white border border-gray-500 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">FANCY COLOR DIAMONDS</a>
+                <a href="/fancy-color-diamonds" class="text-xs text-primary hover:text-white border border-gray-500 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">FANCY COLOR DIAMONDS</a>
             </div>
             <!-- End Type Dropdown -->
         </div>
@@ -2312,8 +2312,6 @@
                 </button>
             </div>
         </div>
-
-        
 
         <!-- Right side clear filter button -->
         <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-primary">

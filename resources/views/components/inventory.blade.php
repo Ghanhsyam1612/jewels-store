@@ -2898,7 +2898,7 @@
                 <a href="/inventory"
                     class="text-xs text-gold bg-primary border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">WHITE
                     DIAMONDS</a>
-                <a href="#"
+                <a href="/fancy-color-diamonds"
                     class="text-xs text-primary hover:text-gold border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">FANCY
                     COLOR DIAMONDS</a>
             </div>
