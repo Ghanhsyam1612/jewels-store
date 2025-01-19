@@ -58,9 +58,9 @@ Route::get('/hoops-and-drops', function () {
     return view('components.fine-jewellery.earrings.hoops-and-drops');
 });
 
-Route::get('/halo', function () {
+Route::get('/halo-earrings', function () {
     return view('components.fine-jewellery.earrings.halo');
-});
+})->name('halo-earrings');
 
 Route::get('/cluster', function () {
     return view('components.fine-jewellery.earrings.cluster');

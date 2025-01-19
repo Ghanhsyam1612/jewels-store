@@ -17,7 +17,7 @@
         </a>
 
         <!-- Navigation for desktop -->
-        <nav class="hidden lg:flex space-x-6 z-[9999]">
+        <nav class="hidden lg:flex space-x-6 z-50">
             {{-- Diamonds --}}
             <div class="relative group">
                 <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">DIAMONDS
@@ -222,11 +222,11 @@
                                     <img src="{{ asset('Svg/Hoops and Drops Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Hoops and Drops Earrings</span>
                                 </a>
-                                <a href="halo" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('halo-earrings') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Halo Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Halo Earrings</span>
                                 </a>
-                                <a href="cluster" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="/cluster" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Cluster Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Cluster Earrings</span>
                                 </a>

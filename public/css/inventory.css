@@ -1,7 +1,7 @@
 /* Desktop Sliders---------------------------------- */
 
 /* Price Range Slider */
-.range_container {
+/* .range_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -46,10 +46,10 @@ input[type="range"] {
     position: absolute;
     background-color: #c6c6c6;
     border-radius: 8px;
-}
+} */
 
 /* Carat Slider */
-.range_carat_container {
+/* .range_carat_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -113,7 +113,6 @@ input[type="number"]#rangeInput,
 input[type="number"]#rangeInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -145,10 +144,10 @@ input[type="range"]#toCaratSlider {
 #toCaratSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* Cut Slider */    
-.range_cut_container {
+/* .range_cut_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -195,10 +194,10 @@ input[type="range"]#toCutSlider::-moz-range-thumb {
     cursor: pointer;
     position: relative;
     z-index: 5;
-}
+} */
 
 /* Color Slider */
-.range_color_container {
+/* .range_color_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -245,10 +244,10 @@ input[type="range"]#toColorSliderM::-moz-range-thumb {
     cursor: pointer;
     position: relative;
     z-index: 5;
-}
+} */
     
 /* Table Dropdown */
-.range_table_container {
+/* .range_table_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -312,7 +311,6 @@ input[type="number"]#rangeInput,
 input[type="number"]#rangeInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -341,18 +339,14 @@ input[type="range"]#toTableSlider {
     border-radius: 8px;
 }
 
-/* #fromCaratSlider {
-                height: 0;
-                z-index: 3;
-            } */
 #toTableSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* Depth Dropdown */
 
-.range_depth_container {
+/* .range_depth_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -416,7 +410,6 @@ input[type="number"]#rangeInput,
 input[type="number"]#rangeInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -448,10 +441,10 @@ input[type="range"]#toDepthSlider {
 #toDepthSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* L/W Ratio Dropdown */    
-.range_lw_container {
+/* .range_lw_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -515,7 +508,6 @@ input[type="number"]#rangeInput,
 input[type="number"]#rangeInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -547,7 +539,7 @@ input[type="range"]#toLwSlider {
 #toLwSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* Loader */
 .loader {
@@ -626,7 +618,7 @@ input[type="range"]#toLwSlider {
 /* Mobile Sliders---------------------------------- */
 
 /* Mobile Price Slider */
-.mobile_range_price_container {
+/* .mobile_range_price_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -690,7 +682,6 @@ input[type="number"]#mobile_fromPriceInput,
 input[type="number"]#mobile_toPriceInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -722,10 +713,10 @@ input[type="range"]#mobile_toPriceSlider {
 #mobile_toPriceSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* Mobile Carat Slider */
-.mobile_range_carat_container {
+/* .mobile_range_carat_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -789,7 +780,6 @@ input[type="number"]#mobile_fromCaratInput,
 input[type="number"]#mobile_toCaratInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -821,10 +811,10 @@ input[type="range"]#mobile_toCaratSlider {
 #mobile_toCaratSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* Mobile Cut Slider */
-.mobile_range_cut_container {
+/* .mobile_range_cut_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -871,10 +861,10 @@ input[type="range"]#mobile_toCutSlider::-moz-range-thumb {
     cursor: pointer;
     position: relative;
     z-index: 5;
-}
+} */
 
 /* Mobile Color Slider */
-.mobile_range_color_container {
+/* .mobile_range_color_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -921,10 +911,10 @@ input[type="range"]#mobile_toColorSlider::-moz-range-thumb {
     cursor: pointer;
     position: relative;
     z-index: 5;
-}
+} */
 
 /* Mobile Clarity Slider */
-.mobile_range_carat_container,
+/* .mobile_range_carat_container,
 .mobile_range_clarity_container {
     display: flex;
     flex-direction: column;
@@ -972,10 +962,10 @@ input[type="range"]#mobile_toClaritySlider::-moz-range-thumb {
     cursor: pointer;
     position: relative;
     z-index: 5;
-}
+} */
 
 /* Mobile Depth Slider */
-.range_depth_container {
+/* .range_depth_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -1039,7 +1029,6 @@ input[type="number"]#rangeInput,
 input[type="number"]#rangeInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -1071,10 +1060,10 @@ input[type="range"]#toDepthSlider {
 #toDepthSlider {
     height: 0;
     z-index: 4;
-}
+} */
 
 /* Mobile L/W Ratio Slider */
-.range_lw_container {
+/* .range_lw_container {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -1138,7 +1127,6 @@ input[type="number"]#rangeInput,
 input[type="number"]#rangeInput {
     color: #8a8383;
     width: 100%;
-    /* height: 30px; */
     font-size: 13px;
     border: 1px solid #c6c6c6;
     border-radius: 4px;
@@ -1170,4 +1158,4 @@ input[type="range"]#toLwSlider {
 #toLwSlider {
     height: 0;
     z-index: 4;
-}
+} */
