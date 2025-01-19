@@ -160,6 +160,8 @@ Route::get('/account', function () {
 
 
 
+
+
 // Footer Categories
 Route::get('/categories/custom-shape-diamonds', function () {
     return view('categories.custom-shape-diamonds');
