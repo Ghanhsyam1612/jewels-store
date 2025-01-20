@@ -87,7 +87,9 @@
                     <div class="flex justify-between text-sm font-montserrat">
                         <span class="font-semibold font-montserrat">Shipping</span>
                         <span class="font-semibold font-montserrat" id="shipping">
-                            @if($shipping == 0)
+                            @if($subtotal == 0)
+                            $0.00
+                            @elseif($shipping == 0)
                             Free
                             @else
                             ${{ number_format($shipping, 2) }}
@@ -97,16 +99,24 @@
                     <div class="border-t pt-3">
                         <div class="flex justify-between font-semibold">
                             <span class="font-bold font-montserrat">Total</span>
-                            <span class="font-bold font-montserrat" id="total">${{ number_format($total, 2) }}</span>
+                            <span class="font-bold font-montserrat" id="total">
+                                @if($subtotal == 0)
+                                $0.00
+                                @else
+                                ${{ number_format($total, 2) }}
+                                @endif
+                            </span>
                         </div>
                     </div>
                 </div>
 
+                @if($subtotal > 0)
                 <a href="{{ route('checkout') }}">
                     <button class="w-full bg-gray-900 text-white py-3 rounded-md hover:bg-gray-800 transition font-montserrat">
                         Proceed to Checkout
                     </button>
                 </a>
+                @endif
                 <p class="text-sm font-montserrat text-gray-400">*Shipping is free for orders above <span class="font-bold text-gray-700">$500</span></p>
             </div>
         </div>
