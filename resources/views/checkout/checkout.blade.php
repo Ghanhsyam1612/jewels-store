@@ -136,218 +136,192 @@
             <div class="bg-white rounded-lg p-6 space-y-6">
                 <h2 class="text-xl font-semibold font-montserrat">Payment Method</h2>
                 <div class="space-y-4">
-                    <!-- Direct Bank Transfer -->
-                    <!-- <div class="border rounded-lg p-4">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fas fa-university text-2xl"></i>
-                                <span class="font-medium font-montserrat text-primary">Direct Bank Transfer</span>
-                            </div>
-                            <input type="radio" name="payment" class="h-4 w-4 text-custom" value="bank" id="bankTransferRadio" />
-                        </div>
-                        <div class="mt-3 payment-form bank-form hidden p-4">
-                            <div class="space-y-3">
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">Bank Name</label>
-                                    <input type="text" class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4" />
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">Account Number</label>
-                                    <input type="text" class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4" />
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">Swift Code</label>
-                                    <input type="text" class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4" />
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Credit/Debit Card -->
-                    <!-- <div class="border rounded-lg p-4">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fas fa-credit-card text-2xl"></i>
-                                <span class="font-medium font-montserrat text-primary">Credit/Debit Card</span>
-                            </div>
-                            <input type="radio" name="payment" class="h-4 w-4 text-custom" value="card" id="cardRadio" />
-                        </div>
-                        <div class="mt-3 payment-form card-form hidden p-4">
-                            <div class="space-y-3">
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">Card Number</label>
-                                    <div class="relative">
-                                        <input id="cardNumber" type="text"
-                                            class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4"
-                                            maxlength="19"
-                                            placeholder="1234 5678 9012 3456" />
-                                        <img id="cardTypeIcon" src="" alt="Card Type"
-                                            class="absolute right-3 top-2/4 transform -translate-y-2/4 h-6 hidden" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">Card Expiry Date</label>
-                                    <input type="text"
-                                        class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4"
-                                        placeholder="MM/YY" />
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">CVV</label>
-                                    <input type="text"
-                                        class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4"
-                                        maxlength="3"
-                                        placeholder="123" />
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- PayPal -->
-                    <!-- <div class="border rounded-lg p-4">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg"
-                                    alt="PayPal"
-                                    class="h-6">
-                                <span class="ml-3 font-medium font-montserrat">Pay with PayPal</span>
-                            </div>
-                            <input type="radio" name="payment" class="h-4 w-4 text-custom" value="paypal" id="paypalRadio" />
-                        </div>
-                        <div class="mt-3 payment-form paypal-form hidden p-4">
-                            <div class="space-y-3">
-                                <div>
-                                    <label class="block text-sm font-medium text-primary mb-1 font-montserrat">PayPal Email</label>
-                                    <input type="email"
-                                        class="w-full text-primary font-montserrat border border-gray-300 rounded-md shadow-sm outline-none py-2 px-4"
-                                        placeholder="Enter your PayPal email"
-                                        id="paypalEmail" />
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- PayPal Security Notice -->
-                    <p class="text-sm text-gray-600 font-montserrat">
-                        <i class="fas fa-shield-alt text-green-500 mr-2"></i>
-                        Your payment is secured by PayPal's world-class security
-                    </p>
-
-                    <div class="flex items-start">
-                        <input type="checkbox" class="mt-1 h-4 w-4 text-custom" required>
-                        <span class="ml-3 text-sm text-gray-600 font-montserrat">
-                            I agree to the <a href="#" class="text-custom">Terms and Conditions</a> and
-                            <a href="#" class="text-custom">Privacy Policy</a>
-                        </span>
+                    <!-- Payment Methods Tabs -->
+                    <div class="flex space-x-4 mb-6">
+                        <button id="visa-tab" class="payment-tab active">
+                            <i class="fab fa-cc-visa"></i> Visa
+                        </button>
+                        <button id="apple-tab" class="payment-tab">
+                            <i class="fab fa-apple-pay"></i> Apple Pay
+                        </button>
+                        <button id="google-tab" class="payment-tab">
+                            <i class="fab fa-google-pay"></i> Google Pay
+                        </button>
                     </div>
 
-                    <div id="paypal-button-container"></div>
-                    <!-- <button id="paypal-button-container" class="w-full bg-primary text-white py-3 rounded-md !rounded-button font-medium flex items-center justify-center gap-2 font-montserrat">
-                        <i class="fab fa-paypal"></i>
-                        Pay
-                    </button> -->
+                    <!-- Visa Card Payment Form -->
+                    <div id="visa-payment" class="payment-section">
+                        <div id="card-element" class="mb-4"></div>
+                    </div>
+
+                    <!-- Apple Pay Button -->
+                    <div id="apple-pay-button" class="payment-section hidden"></div>
+
+                    <!-- Google Pay Button -->
+                    <div id="google-pay-button" class="payment-section hidden"></div>
+
+                    <!-- Payment Button -->
+                    <button id="payment-button" class="w-full bg-primary text-white py-3 rounded-md font-medium flex items-center justify-center gap-2 font-montserrat">
+                        Pay ${{ number_format($total, 2) }}
+                    </button>
+
+                    <div id="payment-message" class="hidden"></div>
                 </div>
+
+                <p class="text-sm text-gray-600 font-montserrat">
+                    <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                    Your payment is secured with industry-standard encryption
+                </p>
+
             </div>
         </div>
         <!-- End of Right Side Payment Method -->
     </div>
 </main>
 
-<!-- PayPal Button Integration -->
-<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=USD"></script>
+<!-- Add Stripe Elements and payment handling scripts -->
+<script src="https://js.stripe.com/v3/"></script>
 <script>
-    paypal.Buttons({
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: "{{ number_format($total, 2, '.', '') }}"
-                    }
-                }]
-            });
+    const stripe = Stripe('{{ config("app.stripe.key") }}');
+    const elements = stripe.elements();
+
+    // Create card element for Visa
+    const cardElement = elements.create('card', {
+        style: {
+            base: {
+                fontFamily: '"Montserrat", sans-serif',
+                fontSize: '16px',
+                color: '#32325d',
+            }
         },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                console.log(details);
-                window.location.href = '/checkout/complete?token=' + data.orderID;
-            });
-        },
-        onCancel: function() {
-            window.location.href = '/checkout/cancel';
-        },
-        onError: function(err) {
-            alert('An error occurred during the payment process. Please try again.');
-        }
-    }).render('#paypal-button-container');
-</script>
+        networks: ['visa'], // Only allow Visa cards
+    });
+    cardElement.mount('#card-element');
 
+    // Setup Apple Pay
+    if (window.ApplePaySession && ApplePaySession.canMakePayments()) {
+        const applePayRequest = stripe.paymentRequest({
+            country: 'US',
+            currency: 'usd',
+            total: {
+                label: 'Order Total',
+                amount: {{ $total * 100 }}
+            },
+            requestPayerName: true,
+            requestPayerEmail: true,
+        });
 
-<script>
-    // Get all the radio buttons
-    const radioButtons = document.querySelectorAll('input[name="payment"]');
-
-    // Get all the forms associated with each payment method
-    const bankForm = document.querySelector('.bank-form');
-    const cardForm = document.querySelector('.card-form');
-    const paypalForm = document.querySelector('.paypal-form');
-
-    // Function to hide all payment forms
-    function hideAllForms() {
-        bankForm.classList.add('hidden');
-        cardForm.classList.add('hidden');
-        paypalForm.classList.add('hidden');
-    }
-
-    // Event listener to toggle forms visibility based on selected radio button
-    radioButtons.forEach(button => {
-        button.addEventListener('change', function() {
-            hideAllForms(); // Hide all forms initially
-
-            if (this.value === 'bank') {
-                bankForm.classList.remove('hidden'); // Show bank form
-            } else if (this.value === 'card') {
-                cardForm.classList.remove('hidden'); // Show card form
-            } else if (this.value === 'paypal') {
-                paypalForm.classList.remove('hidden'); // Show PayPal form with email input
+        const applePayElements = elements.create('paymentRequestButton', {
+            paymentRequest: applePayRequest,
+            style: {
+                paymentRequestButton: {
+                    type: 'buy',
+                    theme: 'dark'
+                }
             }
         });
-    });
 
-    // Card Number Input and Card Type Icon
-    const cardNumberInput = document.getElementById('cardNumber');
-    const cardTypeIcon = document.getElementById('cardTypeIcon');
-    // Card Type Detection Logic
-    function getCardType(number) {
-        const patterns = {
-            visa: /^4/,
-            mastercard: /^5[1-5]/,
-            amex: /^3[47]/,
-            discover: /^6(?:011|5)/,
-            // diners: /^3(?:0[0-5]|[68])/,
-            jcb: /^(?:2131|1800|35)/
-        };
-
-        if (patterns.visa.test(number)) return 'visa';
-        if (patterns.mastercard.test(number)) return 'mastercard';
-        if (patterns.amex.test(number)) return 'amex';
-        if (patterns.discover.test(number)) return 'discover';
-        if (patterns.diners.test(number)) return 'diners';
-        if (patterns.jcb.test(number)) return 'jcb';
-        return 'unknown';
+        applePayRequest.canMakePayment().then(result => {
+            if (result) {
+                applePayElements.mount('#apple-pay-button');
+            }
+        });
     }
 
-    // Dynamically Update Card Type Icon
-    cardNumberInput.addEventListener('input', function() {
-        const cardNumber = this.value.replace(/\s+/g, ''); // Remove spaces
-        const cardType = getCardType(cardNumber);
+    // Setup Google Pay
+    const googlePayRequest = stripe.paymentRequest({
+        country: 'US',
+        currency: 'usd',
+        total: {
+            label: 'Order Total',
+            amount: {{ $total * 100 }}
+        },
+        requestPayerName: true,
+        requestPayerEmail: true,
+    });
 
-        if (cardType === 'unknown' || cardNumber.length === 0) {
-            cardTypeIcon.classList.add('hidden');
-            return;
+    const googlePayElements = elements.create('paymentRequestButton', {
+        paymentRequest: googlePayRequest,
+        style: {
+            paymentRequestButton: {
+                type: 'pay',
+                theme: 'dark'
+            }
         }
+    });
 
-        // Set Card Type Image
-        cardTypeIcon.src = `{{asset('Card/${cardType}.png')}}`; // Add card images in /public/images/cards
-        cardTypeIcon.classList.remove('hidden');
+    googlePayRequest.canMakePayment().then(result => {
+        if (result && result.googlePay) {
+            googlePayElements.mount('#google-pay-button');
+        }
+    });
+
+    // Handle payment submission
+    const paymentButton = document.getElementById('payment-button');
+    paymentButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+        paymentButton.disabled = true;
+
+        const {
+            paymentIntent,
+            error
+        } = await stripe.confirmPayment({
+            elements,
+            confirmParams: {
+                return_url: '{{ route("checkout.complete") }}',
+                payment_method_data: {
+                    billing_details: {
+                        name: document.querySelector('[name="full_name"]').value,
+                        email: document.querySelector('[name="email"]').value,
+                    }
+                }
+            }
+        });
+
+        if (error) {
+            const messageDiv = document.getElementById('payment-message');
+            messageDiv.textContent = error.message;
+            messageDiv.classList.remove('hidden');
+            paymentButton.disabled = false;
+        }
+    });
+
+    // Payment method tabs handling
+    const tabs = document.querySelectorAll('.payment-tab');
+    const sections = document.querySelectorAll('.payment-section');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            sections.forEach(s => s.classList.add('hidden'));
+
+            tab.classList.add('active');
+            const targetId = tab.id.replace('-tab', '-payment');
+            document.getElementById(targetId).classList.remove('hidden');
+        });
     });
 </script>
+
+<style>
+    .payment-tab {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: 1px solid #e5e7eb;
+    }
+
+    .payment-tab.active {
+        background-color: #4f46e5;
+        color: white;
+        border-color: #4f46e5;
+    }
+
+    #card-element {
+        padding: 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+    }
+</style>
+
 @endsection

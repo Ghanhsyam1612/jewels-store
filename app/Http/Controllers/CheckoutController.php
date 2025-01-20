@@ -9,27 +9,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CheckoutCreateRequest;
-use App\Services\PayPalService;
+use App\Services\StripeService;
 
 class CheckoutController extends Controller
 {
-    protected $paypalService;
+    protected $stripeService;
 
-    public function __construct(PayPalService $paypalService)
+    public function __construct(StripeService $stripeService)
     {
-        $this->paypalService = $paypalService;
+        $this->stripeService = $stripeService;
     }
 
     public function index()
     {
-
         $cart = session()->get('cart', []);
         return view('checkout.checkout', compact('cart'));
     }
 
     public function checkoutProcess(CheckoutCreateRequest $request)
     {
-
         DB::beginTransaction();
 
         try {
@@ -73,24 +71,9 @@ class CheckoutController extends Controller
                     'subtotal' => $item['original_price'] * $item['quantity'],
                 ]);
             }
-            // // Create Payment Record (Check if payment method is provided)
-            // if ($request->has('payment_method')) {
-            //     $approvalLink = $this->paypalService->createPayment($order, $total);
-            //     return redirect($approvalLink);
-            // }
-
-            // Payment::create([
-            //     'order_id' => $order->id,
-            //     'payment_method' => $validatedData['payment_method'],
-            //     'payment_status' => 'pending',
-            //     'transaction_id' => 'TRX-' . rand(100000, 999999),
-            //     'payment_amount' => $total,
-            //     'currency' => 'USD',
-            //     'payment_details' => json_encode($validatedData),
-            // ]);
 
             // PayPal Payment Creation
-            $approvalLink = $this->paypalService->createPayment($order, $total);
+            $approvalLink = $this->stripeService->createPaymentIntent($order, $total);
 
             // Send Order Confirmation Email
             // Mail::to($validatedData['shipping_address']['email'])->send(new OrderConfirmationEmail($order));
@@ -99,14 +82,58 @@ class CheckoutController extends Controller
             session()->forget('cart');
             return redirect($approvalLink);
 
-
             DB::commit();
-            
-            return view('checkout.checkout', compact('total'));
 
+            return view('checkout.checkout', compact('total'));
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Failed to create order: ' . $e->getMessage());
+        }
+    }
+
+    public function complete(Request $request)
+    {
+        try {
+            $paymentIntent = $request->payment_intent;
+
+            // Verify the payment intent with Stripe
+            $stripe = new \Stripe\StripeClient(config('app.stripe.secret'));
+            $intent = $stripe->paymentIntents->retrieve($paymentIntent);
+
+            if ($intent->status !== 'succeeded') {
+                throw new \Exception('Payment was not successful.');
+            }
+
+            // Update order status
+            $order = Order::where('payment_intent_id', $paymentIntent)->first();
+            if (!$order) {
+                throw new \Exception('Order not found.');
+            }
+
+            DB::transaction(function () use ($order, $intent) {
+                $order->update([
+                    'payment_status' => Order::$PAYMENT_STATUS_COMPLETED,
+                    'status' => 'processing'
+                ]);
+
+                // Create payment record
+                Payment::create([
+                    'order_id' => $order->id,
+                    'payment_method' => $intent->payment_method_types[0],
+                    'payment_status' => Payment::$PAYMENT_STATUS_COMPLETED,
+                    'transaction_id' => $intent->id,
+                    'payment_amount' => $order->total_amount,
+                    'currency' => 'USD',
+                    'payment_details' => json_encode($intent),
+                ]);
+            });
+
+            // Clear the cart
+            session()->forget('cart');
+
+            return redirect()->route('checkout.success')->with('success', 'Payment completed successfully!');
+        } catch (\Exception $e) {
+            return redirect()->route('checkout.cancel')->with('error', $e->getMessage());
         }
     }
 
@@ -118,28 +145,5 @@ class CheckoutController extends Controller
     public function cancel()
     {
         return view('checkout.cancel', ['message' => 'You cancelled the payment.']);
-    }
-
-    public function complete(Request $request)
-    {
-        // Capture PayPal payment logic can be added here if required
-
-        $order = Order::where('order_number', $request->token)->first();
-        if ($order) {
-            $order->update(['payment_status' => Order::$PAYMENT_STATUS_COMPLETED ]);
-        }
-
-        Payment::create([
-            'order_id' => $order->id,
-            'payment_method' => 'paypal',
-            'payment_status' => Order::$PAYMENT_STATUS_COMPLETED,
-            'transaction_id' => $request->token,
-            'payment_amount' => $request->amount,
-            'currency' => 'USD',
-            'payment_details' => json_encode($request->all()),
-        ]);
-
-        
-        return redirect()->route('checkout.success');
     }
 }
