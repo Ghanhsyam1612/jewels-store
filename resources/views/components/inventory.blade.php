@@ -315,7 +315,7 @@
                             const mobilePriceToInput = document.querySelector("#mobilePriceToInput");
                             const mobilePriceFilterForm = document.querySelector("#mobilePriceFilterForm");
             
-                            function updateMobileSliderColors() {
+                            function updateMobilePriceSliderColors() {
                                 const min = parseInt(mobilePriceFromSlider.min);
                                 const max = parseInt(mobilePriceToSlider.max);
                                 const from = parseInt(mobilePriceFromInput.value);
@@ -336,41 +336,41 @@
                                 mobilePriceToSlider.style.background = gradient;
                             }
             
-                            function syncMobileFromInput() {
+                            function syncMobilePriceFromInput() {
                                 let value = Math.min(parseInt(mobilePriceFromInput.value), parseInt(mobilePriceToInput.value));
                                 mobilePriceFromInput.value = value;
                                 mobilePriceFromSlider.value = value;
-                                updateMobileSliderColors();
+                                updateMobilePriceSliderColors();
                                 mobilePriceFilterForm.submit();
                             }
             
-                            function syncMobileToInput() {
+                            function syncMobilePriceToInput() {
                                 let value = Math.max(parseInt(mobilePriceToInput.value), parseInt(mobilePriceFromInput.value));
                                 mobilePriceToInput.value = value;
                                 mobilePriceToSlider.value = value;
-                                updateMobileSliderColors();
+                                updateMobilePriceSliderColors();
                                 mobilePriceFilterForm.submit();
                             }
             
-                            function syncMobileFromSlider() {
+                            function syncMobilePriceFromSlider() {
                                 mobilePriceFromInput.value = mobilePriceFromSlider.value;
-                                updateMobileSliderColors();
+                                updateMobilePriceSliderColors();
                                 mobilePriceFilterForm.submit();
                             }
             
-                            function syncMobileToSlider() {
+                            function syncMobilePriceToSlider() {
                                 mobilePriceToInput.value = mobilePriceToSlider.value;
-                                updateMobileSliderColors();
+                                updateMobilePriceSliderColors();
                                 mobilePriceFilterForm.submit();
                             }
             
-                            mobilePriceFromInput.addEventListener("input", syncMobileFromInput);
-                            mobilePriceToInput.addEventListener("input", syncMobileToInput);
-                            mobilePriceFromSlider.addEventListener("input", syncMobileFromSlider);
-                            mobilePriceToSlider.addEventListener("input", syncMobileToSlider);
+                            mobilePriceFromInput.addEventListener("input", syncMobilePriceFromInput);
+                            mobilePriceToInput.addEventListener("input", syncMobilePriceToInput);
+                            mobilePriceFromSlider.addEventListener("input", syncMobilePriceFromSlider);
+                            mobilePriceToSlider.addEventListener("input", syncMobilePriceToSlider);
             
                             // Initialize slider colors
-                            updateMobileSliderColors();
+                            updateMobilePriceSliderColors();
                         </script>
                     </div>
                 </div>
@@ -1027,13 +1027,12 @@
                     </div>
                     <div id="advancedOptionsDropdown" class="hidden mt-4">
                         <div class="flex flex-col items-center gap-4 mx-auto py-4">
-                            <!-- Certificate Dropdown -->
-                            {{-- <div id="styleDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 w-64 cursor-pointer">
-                                <label
-                                    class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
+                            <!-- Start Mobile Certificate Dropdown -->
+                            <div id="styleMobileDropdownIcon" 
+                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
                                 <!-- Down Arrow -->
-                                <svg id="downArrow" fill="#000000" height="8" width="8" version="1.1"
+                                <svg id="mobileDownArrow" fill="#000000" height="8" width="8" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1044,34 +1043,29 @@
                                         </path>
                                     </g>
                                 </svg>
-                                <!-- Up Arrow -->
-                                <svg id="upArrow" class="hidden" height="8" width="8" version="1.1"
-                                    id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                                    fill="#000000">
+                                <svg id="mobileUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path style="fill:#000000;"
-                                            d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                        <path id="XMLID_23_"
+                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                         </path>
                                     </g>
                                 </svg>
 
-                                <div id="styleDropdown"
+                                <div id="styleMobileDropdown"
                                     class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
                                     <div class="flex justify-between">
                                         <p class="text-sm font-montserrat font-semibold px-4 py-2">Certificate</p>
 
                                         <button class="p-2 rounded-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-black">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
                                             </svg>
                                         </button>
                                     </div>
@@ -1094,16 +1088,46 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div> --}}
-                            <!-- End Certificate Dropdown -->
+                            </div>
+                            <!-- End Mobile Certificate Dropdown -->
+                            <!-- Start  Certificate Dropdown Script -->
+                            <script>
+                                const styleMobileIcon = document.getElementById('styleMobileDropdownIcon');
+                                const styleMobileDropdown = document.getElementById('styleMobileDropdown');
+                                const mobileDownArrow = document.getElementById('mobileDownArrow');
+                                const mobileUpArrow = document.getElementById('mobileUpArrow');
 
-                            <!-- Method Dropdown -->
-                            {{-- <div id="methodDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 w-64 cursor-pointer">
-                                <label
-                                    class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
+                                styleMobileIcon.addEventListener('click', () => {
+                                    styleMobileDropdown.classList.toggle('hidden');
+                                    mobileDownArrow.classList.toggle('hidden');
+                                    mobileUpArrow.classList.toggle('hidden');
+                                });
+
+                                // Close dropdown when clicking outside
+                                document.addEventListener('click', (e) => {
+                                    if (!styleMobileIcon.contains(e.target) && !styleMobileDropdown.contains(e.target)) {
+                                        styleMobileDropdown.classList.add('hidden');
+                                        mobileDownArrow.classList.remove('hidden');
+                                        mobileUpArrow.classList.add('hidden');
+                                    }
+                                });
+
+                                // Prevent dropdown from closing when clicking checkboxes
+                                const mobileCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+                                mobileCheckboxes.forEach(mobileCheckbox => {
+                                    mobileCheckbox.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    });
+                                });
+                            </script>
+                            <!-- End Mobile Certificate Dropdown Script -->
+
+                            <!-- Start Mobile Method Dropdown -->
+                            <div id="methodMobileDropdownIcon"
+                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
                                 <!-- Down Arrow -->
-                                <svg id="methodDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                                <svg id="mobileMethodDownArrow" fill="#000000" height="8" width="8" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1115,33 +1139,29 @@
                                     </g>
                                 </svg>
                                 <!-- Up Arrow -->
-                                <svg id="methodUpArrow" class="hidden" height="8" width="8" version="1.1"
-                                    id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                                    fill="#000000">
+                                <svg id="mobileMethodUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path style="fill:#000000;"
-                                            d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                        <path id="XMLID_23_"
+                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                         </path>
                                     </g>
                                 </svg>
 
-                                <div id="methodDropdown"
+                                <div id="methodMobileDropdown"
                                     class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
                                     <div class="flex justify-between">
                                         <p class="text-sm font-montserrat font-semibold px-4 py-2">Method</p>
 
                                         <button class="p-2 rounded-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
                                             </svg>
                                         </button>
                                     </div>
@@ -1156,16 +1176,46 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div> --}}
-                            <!-- End Method Dropdown -->
+                            </div>
+                            <!-- End Mobile Method Dropdown -->
+                            <!-- Start Mobile Method Dropdown Script -->
+                            <script>
+                                const methodMobileIcon = document.getElementById('methodMobileDropdownIcon');
+                                const methodMobileDropdown = document.getElementById('methodMobileDropdown');
+                                const methodMobileDownArrow = document.getElementById('methodMobileDownArrow');
+                                const methodMobileUpArrow = document.getElementById('methodMobileUpArrow');
 
-                            <!-- Table Dropdown -->
-                            {{-- <div id="tableDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 w-64 cursor-pointer">
-                                <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Table
-                                    (%)</label>
+                                methodMobileIcon.addEventListener('click', () => {
+                                    methodMobileDropdown.classList.toggle('hidden');
+                                    methodMobileDownArrow.classList.toggle('hidden');
+                                    methodMobileUpArrow.classList.toggle('hidden');
+                                });
+
+                                // Close dropdown when clicking outside
+                                document.addEventListener('click', (e) => {
+                                    if (!methodMobileIcon.contains(e.target) && !methodMobileDropdown.contains(e.target)) {
+                                        methodMobileDropdown.classList.add('hidden');
+                                        methodMobileDownArrow.classList.remove('hidden');
+                                        methodMobileUpArrow.classList.add('hidden');
+                                    }
+                                });
+
+                                // Prevent dropdown from closing when clicking checkboxes
+                                const methodMobileCheckboxes = methodMobileDropdown.querySelectorAll('input[type="checkbox"]');
+                                methodMobileCheckboxes.forEach(methodMobileCheckbox => {
+                                    methodMobileCheckbox.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    });
+                                });
+                            </script>
+                            <!-- End Mobile Method Dropdown Script -->
+
+                            <!-- Start Mobile Table Dropdown -->
+                            <div id="mobileTableDropdownIcon"
+                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Table (%)</label>
                                 <!-- Down Arrow -->
-                                <svg id="tableDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                                <svg id="mobileTableDownArrow" fill="#000000" height="8" width="8" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1177,142 +1227,66 @@
                                     </g>
                                 </svg>
                                 <!-- Up Arrow -->
-                                <svg id="tableUpArrow" class="hidden" height="8" width="8" version="1.1"
-                                    id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                                    fill="#000000">
+                                <svg id="mobileTableUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path style="fill:#000000;"
-                                            d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                        <path id="XMLID_23_"
+                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                         </path>
                                     </g>
                                 </svg>
 
-                                <div id="tableDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
+                                <div id="mobileTableDropdown"
+                                    class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
                                     <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Table</p>
-
+                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Table (%)</p>
                                         <button class="p-2 rounded-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
                                             </svg>
                                         </button>
                                     </div>
-                                    <div class="flex items-center">
-                                        <div class="range_table_container">
-                                            <div class="form_table_control">
-                                                <div class="form_table_control_container">
-                                                    <input class="form_table_control_container__table__input"
-                                                        type="number" id="fromTableInput" value="50" min="50"
-                                                        max="80" onclick="event.stopPropagation();" />
+                                    <div class="flex items-center p-4">
+                                        <div class="w-full">
+                                            <div class="flex justify-between">
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                        id="fromMobileTableInput" value="50.00" min="50.00" max="80.00" step="0.01" />
                                                 </div>
-                                                <div class="form_table_control_container">
-                                                    <input class="form_table_control_container__table__input"
-                                                        type="number" id="toTableInput" value="80" min="50"
-                                                        max="80" onclick="event.stopPropagation();" />
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toMobileTableInput"
+                                                        value="80.00" min="50.00" max="80.00" step="0.01" />
                                                 </div>
                                             </div>
-                                            <div class="sliders_table_control">
-                                                <input id="fromTableSlider" type="range" value="50" min="50"
-                                                    max="80" onclick="event.stopPropagation();" />
-                                                <input id="toTableSlider" type="range" value="80" min="50"
-                                                    max="80" onclick="event.stopPropagation();" />
+                                            <div class="relative min-h-7 flex items-center">
+                                                <input id="fromMobileTableSlider" type="range" value="50" min="50" max="80" step="0.01" />
+                                                <input id="toMobileTableSlider" type="range" value="80" min="50" max="80" step="0.01" />
                                             </div>
                                         </div>
                                     </div>
                                     <style>
-                                        .range_table_container {
-                                            display: flex;
-                                            flex-direction: column;
-                                            width: 80%;
-                                            margin: 5% auto;
-                                        }
-
-                                        .sliders_table_control {
-                                            position: relative;
-                                            min-height: 35px;
-                                            display: flex;
-                                            align-items: center;
-                                        }
-
-                                        .form_table_control {
-                                            display: flex;
-                                            justify-content: space-between;
-                                            font-size: 24px;
-                                            color: #635a5a;
-                                        }
-
-                                        input[type="range"]#fromTableSlider::-webkit-slider-thumb,
-                                        input[type="range"]#toTableSlider::-webkit-slider-thumb {
+                                        input[type="range"]#fromMobileTableSlider::-webkit-slider-thumb,
+                                        input[type="range"]#toMobileTableSlider::-webkit-slider-thumb {
                                             -webkit-appearance: none;
                                             pointer-events: all;
                                             width: 16px;
                                             height: 16px;
                                             background-color: #fff;
                                             border-radius: 100%;
-                                            box-shadow: 0 3px 6px rgb(0 0 0 / 32%);
+                                            border: 2px solid #733D80;
                                             cursor: pointer;
                                             position: relative;
                                             z-index: 5;
                                         }
-
-                                        input[type="range"]#fromTableSlider::-moz-range-thumb,
-                                        input[type="range"]#toTableSlider::-moz-range-thumb {
-                                            -webkit-appearance: none;
-                                            pointer-events: all;
-                                            width: 24px;
-                                            height: 24px;
-                                            background-color: #fff;
-                                            border-radius: 50%;
-                                            box-shadow: 0 0 0 1px #c6c6c6;
-                                            cursor: pointer;
-                                            position: relative;
-                                            z-index: 5;
-                                        }
-
-                                        input[type="range"]#fromTableSlider::-webkit-slider-thumb:hover,
-                                        input[type="range"]#toTableSlider::-webkit-slider-thumb:hover {
-                                            background: #f7f7f7;
-                                        }
-
-                                        input[type="range"]#fromTableSlider::-webkit-slider-thumb:active,
-                                        input[type="range"]#toTableSlider::-webkit-slider-thumb:active {
-                                            box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                            -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-                                        }
-
-                                        input[type="number"]#rangeInput,
-                                        input[type="number"]#rangeInput {
-                                            color: #8a8383;
-                                            width: 100%;
-                                            /* height: 30px; */
-                                            font-size: 13px;
-                                            border: 1px solid #c6c6c6;
-                                            border-radius: 4px;
-                                            padding: 4px;
-                                        }
-
-                                        input[type="number"]#fromTableInput::-webkit-inner-spin-button,
-                                        input[type="number"]#fromTableInput::-webkit-outer-spin-button {
-                                            opacity: 1;
-                                        }
-
-                                        input[type="number"]#toTableInput::-webkit-inner-spin-button,
-                                        input[type="number"]#toTableInput::-webkit-outer-spin-button {
-                                            opacity: 1;
-                                        }
-
-                                        input[type="range"]#fromTableSlider,
-                                        input[type="range"]#toTableSlider {
+                        
+                                        input[type="range"]#fromMobileTableSlider,
+                                        input[type="range"]#toMobileTableSlider {
                                             -webkit-appearance: none;
                                             appearance: none;
                                             height: 4px;
@@ -1322,136 +1296,111 @@
                                             pointer-events: all;
                                             border-radius: 8px;
                                         }
-
-                                        /* #fromCaratSlider {
-                                                        height: 0;
-                                                        z-index: 3;
-                                                    } */
-                                        #toTableSlider {
+                        
+                                        #toMobileTableSlider {
                                             height: 0;
                                             z-index: 4;
                                         }
                                     </style>
                                     <script>
-                                        // Controls the slider using from Input....
-                                        function controlFromInput(fromTableSlider, fromTableInput, toTableInput, controlSlider) {
-                                            const [from, to] = getParsed(fromTableInput, toTableInput);
-                                            fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", controlSlider);
-                                            fromTableSlider.value = from;
-
-                                            if (from > to) {
-                                                fromTableSlider.value = to;
-                                                fromTableInput.value = to;
-                                            } else {
-                                                fromTableSlider.value = from;
-                                            }
+                                        function updateMobileTableSliderColors() {
+                                            const fromValue = parseFloat(fromMobileTableSlider.value);
+                                            const toValue = parseFloat(toMobileTableSlider.value);
+                                            const range = toMobileTableSlider.max - toMobileTableSlider.min;
+                                            
+                                            const percentFrom = ((fromValue - toMobileTableSlider.min) / range) * 100;
+                                            const percentTo = ((toValue - toMobileTableSlider.min) / range) * 100;
+                        
+                                            const gradient = `linear-gradient(to right,
+                                                #C6C6C6 0%,
+                                                #C6C6C6 ${percentFrom}%, 
+                                                #733D80 ${percentFrom}%, 
+                                                #733D80 ${percentTo}%, 
+                                                #C6C6C6 ${percentTo}%, 
+                                                #C6C6C6 100%)`;
+                        
+                                            fromMobileTableSlider.style.background = gradient;
+                                            toMobileTableSlider.style.background = gradient;
                                         }
-
-                                        // Controls the slider using to Input....
-                                        function controlToInput(toTableSlider, fromTableInput, toTableInput, controlSlider) {
-                                            const [from, to] = getParsed(fromTableInput, toTableInput);
-                                            fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", controlSlider);
-                                            setToggleAccessible(toTableInput);
-                                            toTableSlider.value = to;
-                                            toTableInput.value = to;
-
-                                            if (from <= to) {
-                                                toTableSlider.value = to;
-                                                toTableInput.value = to;
-                                            } else {
-                                                toTableInput.value = from;
-                                            }
+                        
+                                        function syncMobileTableFromInput() {
+                                            let value = Math.min(parseFloat(fromMobileTableInput.value), parseFloat(toMobileTableInput.value));
+                                            fromMobileTableInput.value = value.toFixed(2);
+                                            fromMobileTableSlider.value = value;
+                                            updateMobileTableSliderColors();
                                         }
-
-                                        // Sliding event of the From slider
-                                        function controlFromSlider(fromTableSlider, toTableSlider, fromTableInput) {
-                                            const [from, to] = getParsed(fromTableSlider, toTableSlider);
-                                            console.log([from, to]);
-                                            fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", toTableSlider);
-                                            fromTableInput.value = from;
-                                            if (from > to) {
-                                                fromTableInput.value = to;
-                                                toTableInput.value = from;
-                                            }
+                        
+                                        function syncMobileTableToInput() {
+                                            let value = Math.max(parseFloat(toMobileTableInput.value), parseFloat(fromMobileTableInput.value));
+                                            toMobileTableInput.value = value.toFixed(2);
+                                            toMobileTableSlider.value = value;
+                                            updateMobileTableSliderColors();
                                         }
-
-                                        // Sliding event of the To slider
-                                        function controlToSlider(fromTableSlider, toTableSlider, toTableInput) {
-                                            const [from, to] = getParsed(fromTableSlider, toTableSlider);
-                                            fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", toTableSlider);
-                                            setToggleAccessible(toTableInput);
-                                            toTableSlider.value = to;
-                                            toTableInput.value = to;
-                                            if (from > to) {
-                                                fromTableInput.value = to;
-                                                toTableInput.value = from;
-                                            }
+                        
+                                        function syncMobileTableFromSlider() {
+                                            fromMobileTableInput.value = parseFloat(fromMobileTableSlider.value).toFixed(2);
+                                            updateMobileTableSliderColors();
                                         }
-
-                                        // Parsign values of the Inputs
-                                        function getParsed(currentFrom, currentTo) {
-                                            const from = parseInt(currentFrom.value, 10);
-                                            const to = parseInt(currentTo.value, 10);
-                                            return [from, to];
+                        
+                                        function syncMobileTableToSlider() {
+                                            toMobileTableInput.value = parseFloat(toMobileTableSlider.value).toFixed(2);
+                                            updateMobileTableSliderColors();
                                         }
-
-                                        // Changing and Filling the color in the selected part...
-                                        function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-                                            let rangeDistance = to.max - to.min;
-                                            let fromPosition = from.value - to.min;
-                                            let toPosition = to.value - to.min;
-                                            if (fromPosition > toPosition) {
-                                                let spare = fromPosition;
-                                                fromPosition = toPosition;
-                                                toPosition = spare;
-                                            }
-                                            controlSlider.style.background = `linear-gradient(
-                                to right,
-                                ${sliderColor} 0%,
-                                ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                                ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                                ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                                ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                                ${sliderColor} 100%)`;
-                                        }
-
-                                        // Making sure the toggle which we are using is accesible to change the range
-                                        function setToggleAccessible(currentTarget) {
-                                            const toTableSlider = document.querySelector("#toTableSlider");
-                                            if (Number(currentTarget.value) <= 0) {
-                                                toTableSlider.style.zIndex = 4;
-                                            } else {
-                                                toTableSlider.style.zIndex = 4;
-                                            }
-                                        }
-
-                                        const fromTableSlider = document.querySelector("#fromTableSlider");
-                                        const toTableSlider = document.querySelector("#toTableSlider");
-                                        const fromTableInput = document.querySelector("#fromTableInput");
-                                        const toTableInput = document.querySelector("#toTableInput");
-
-                                        // Initially filling the slider using default values...
-                                        fillSlider(fromTableSlider, toTableSlider, "#C6C6C6", "#733D80", toTableSlider);
-                                        setToggleAccessible(toTableSlider);
-
-                                        // Assigning listner methonds to respective events.
-                                        fromTableSlider.oninput = () => controlFromSlider(fromTableSlider, toTableSlider, fromTableInput);
-                                        toTableSlider.oninput = () => controlToSlider(fromTableSlider, toTableSlider, toTableInput);
-                                        fromTableInput.oninput = () =>
-                                            controlFromInput(fromTableSlider, fromTableInput, toTableInput, toTableSlider);
-                                        toTableInput.oninput = () => controlToInput(toTableSlider, fromTableInput, toTableInput, toTableSlider);
+                        
+                                        const fromMobileTableSlider = document.querySelector("#fromMobileTableSlider");
+                                        const toMobileTableSlider = document.querySelector("#toMobileTableSlider");
+                                        const fromMobileTableInput = document.querySelector("#fromMobileTableInput");
+                                        const toMobileTableInput = document.querySelector("#toMobileTableInput");
+                        
+                                        fromMobileTableInput.addEventListener("input", syncMobileTableFromInput);
+                                        toMobileTableInput.addEventListener("input", syncMobileTableToInput);
+                                        fromMobileTableSlider.addEventListener("input", syncMobileTableFromSlider);
+                                        toMobileTableSlider.addEventListener("input", syncMobileTableToSlider);
+                        
+                                        // Initialize slider colors
+                                        updateMobileTableSliderColors();
                                     </script>
                                 </div>
-                            </div> --}}
-                            <!-- End Table Dropdown -->
+                            </div>
+                            <!-- End Mobile Table Dropdown -->
+                            <!-- Start Mobile Table Dropdown Script -->
+                            <script>
+                                const mobileTableIcon = document.getElementById('mobileTableDropdownIcon');
+                                const mobileTableDropdown = document.getElementById('mobileTableDropdown');
+                                const mobileTableDownArrow = document.getElementById('mobileTableDownArrow');
+                                const mobileTableUpArrow = document.getElementById('mobileTableUpArrow');
 
-                            <!-- Depth Dropdown -->
-                            {{-- <div id="depthDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 w-64 cursor-pointer">
-                                <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">Depth
-                                    (%)</label>
+                                mobileTableIcon.addEventListener('click', () => {
+                                    mobileTableDropdown.classList.toggle('hidden');
+                                    mobileTableDownArrow.classList.toggle('hidden');
+                                    mobileTableUpArrow.classList.toggle('hidden');
+                                });
+
+                                // Close dropdown when clicking outside
+                                document.addEventListener('click', (e) => {
+                                    if (!mobileTableIcon.contains(e.target) && !mobileTableDropdown.contains(e.target) && !fromMobileTableSlider.contains(e.target) && !toMobileTableSlider.contains(e.target) && !fromMobileTableInput.contains(e.target) && !toMobileTableInput.contains(e.target)) {
+                                        mobileTableDropdown.classList.add('hidden');
+                                        mobileTableDownArrow.classList.remove('hidden');
+                                        mobileTableUpArrow.classList.add('hidden');
+                                    }
+                                });
+
+                                // Prevent dropdown from closing when clicking checkboxes
+                                const mobileTableCheckboxes = mobileTableDropdown.querySelectorAll('input[type="checkbox"]');
+                                mobileTableCheckboxes.forEach(mobileTableCheckbox => {
+                                    mobileTableCheckbox.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    });
+                                });
+                            </script>
+                            <!-- End Mobile Table Dropdown Script -->
+
+                            <!-- Start Mobile Depth Dropdown -->
+                            <div id="mobileDepthDropdownIcon"
+                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Depth (%)</label>
                                 <!-- Down Arrow -->
-                                <svg id="depthDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                                <svg id="mobileDepthDownArrow" fill="#000000" height="8" width="8" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1463,29 +1412,27 @@
                                     </g>
                                 </svg>
                                 <!-- Up Arrow -->
-                                <svg id="depthUpArrow" class="hidden" height="8" width="8" version="1.1"
-                                    id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                                    fill="#000000">
+                                <svg id="mobileDepthUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path style="fill:#000000;"
-                                            d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                        <path id="XMLID_23_"
+                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                         </path>
                                     </g>
                                 </svg>
 
-                                <div id="depthDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
+                                <div id="mobileDepthDropdown"
+                                    class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
                                     <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Depth</p>
+                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Depth (%)</p>
 
                                         <button class="p-2 rounded-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" class="text-primary">
                                                 <line x1="18" y1="6" x2="6" y2="18">
                                                 </line>
                                                 <line x1="6" y1="6" x2="18" y2="18">
@@ -1494,148 +1441,155 @@
                                         </button>
                                     </div>
 
-                                    <div class="flex items-center">
-                                        <div class="range_depth_container">
-                                            <div class="form_depth_control">
-                                                <div class="form_depth_control_container">
-                                                    <input class="form_depth_control_container__depth__input"
-                                                        type="number" id="fromDepthInput" value="46" min="46"
-                                                        max="78" onclick="event.stopPropagation();" />
+                                    <div class="flex items-center p-4">
+                                        <div class="w-full">
+                                            <div class="flex justify-between">
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                        id="fromMobileDepthInput" value="46.00" min="46.00" max="78.00" step="0.01" />
                                                 </div>
-                                                <div class="form_depth_control_container">
-                                                    <input class="form_depth_control_container__depth__input"
-                                                        type="number" id="toDepthInput" value="78" min="46"
-                                                        max="78" onclick="event.stopPropagation();" />
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toMobileDepthInput"
+                                                        value="78.00" min="46.00" max="78.00" step="0.01" />
                                                 </div>
                                             </div>
-                                            <div class="sliders_depth_control">
-                                                <input id="fromDepthSlider" type="range" value="46" min="46"
-                                                    max="78" onclick="event.stopPropagation();" />
-                                                <input id="toDepthSlider" type="range" value="78" min="46"
-                                                    max="78" onclick="event.stopPropagation();" />
+                                            <div class="relative min-h-7 flex items-center">
+                                                <input id="fromMobileDepthSlider" type="range" value="46" min="46" max="78" step="0.01" />
+                                                <input id="toMobileDepthSlider" type="range" value="78" min="46" max="78" step="0.01" />
                                             </div>
                                         </div>
                                     </div>
+                                    <style>
+                                        input[type="range"]#fromMobileDepthSlider::-webkit-slider-thumb,
+                                        input[type="range"]#toMobileDepthSlider::-webkit-slider-thumb {
+                                            -webkit-appearance: none;
+                                            pointer-events: all;
+                                            width: 16px;
+                                            height: 16px;
+                                            background-color: #fff;
+                                            border-radius: 100%;
+                                            border: 2px solid #733D80;
+                                            cursor: pointer;
+                                            position: relative;
+                                            z-index: 5;
+                                        }
+                        
+                                        input[type="range"]#fromMobileDepthSlider,
+                                        input[type="range"]#toMobileDepthSlider {
+                                            -webkit-appearance: none;
+                                            appearance: none;
+                                            height: 4px;
+                                            width: 100%;
+                                            position: absolute;
+                                            background-color: #c6c6c6;
+                                            pointer-events: all;
+                                            border-radius: 8px;
+                                        }
+                        
+                                        #toMobileDepthSlider {
+                                            height: 0;
+                                            z-index: 4;
+                                        }
+                                    </style>
                                     <script>
-                                        // Controls the slider using from Input....
-                                        function controlFromInput(fromDepthSlider, fromDepthInput, toDepthInput, controlSlider) {
-                                            const [from, to] = getParsed(fromDepthInput, toDepthInput);
-                                            fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", controlSlider);
-                                            fromDepthSlider.value = from;
-
-                                            if (from > to) {
-                                                fromDepthSlider.value = to;
-                                                fromDepthInput.value = to;
-                                            } else {
-                                                fromDepthSlider.value = from;
-                                            }
+                                        function updateMobileDepthSliderColors() {
+                                            const fromValue = parseFloat(fromMobileDepthSlider.value);
+                                            const toValue = parseFloat(toMobileDepthSlider.value);
+                                            const range = toMobileDepthSlider.max - toMobileDepthSlider.min;
+                                            
+                                            const percentFrom = ((fromValue - toMobileDepthSlider.min) / range) * 100;
+                                            const percentTo = ((toValue - toMobileDepthSlider.min) / range) * 100;
+                        
+                                            const gradient = `linear-gradient(to right,
+                                                #C6C6C6 0%,
+                                                #C6C6C6 ${percentFrom}%, 
+                                                #733D80 ${percentFrom}%, 
+                                                #733D80 ${percentTo}%, 
+                                                #C6C6C6 ${percentTo}%, 
+                                                #C6C6C6 100%)`;
+                        
+                                            fromMobileDepthSlider.style.background = gradient;
+                                            toMobileDepthSlider.style.background = gradient;
                                         }
-
-                                        // Controls the slider using to Input....
-                                        function controlToInput(toDepthSlider, fromDepthInput, toDepthInput, controlSlider) {
-                                            const [from, to] = getParsed(fromDepthInput, toDepthInput);
-                                            fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", controlSlider);
-                                            setToggleAccessible(toDepthInput);
-                                            toDepthSlider.value = to;
-                                            toDepthInput.value = to;
-
-                                            if (from <= to) {
-                                                toDepthSlider.value = to;
-                                                toDepthInput.value = to;
-                                            } else {
-                                                toDepthInput.value = from;
-                                            }
+                        
+                                        function syncMobileDepthFromInput() {
+                                            let value = Math.min(parseFloat(fromMobileDepthInput.value), parseFloat(toMobileDepthInput.value));
+                                            fromMobileDepthInput.value = value.toFixed(2);
+                                            fromMobileDepthSlider.value = value;
+                                            updateMobileDepthSliderColors();
                                         }
-
-                                        // Sliding event of the From slider
-                                        function controlFromSlider(fromDepthSlider, toDepthSlider, fromDepthInput) {
-                                            const [from, to] = getParsed(fromDepthSlider, toDepthSlider);
-                                            console.log([from, to]);
-                                            fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", toDepthSlider);
-                                            fromDepthInput.value = from;
-                                            if (from > to) {
-                                                fromDepthInput.value = to;
-                                                toDepthInput.value = from;
-                                            }
+                        
+                                        function syncMobileDepthToInput() {
+                                            let value = Math.max(parseFloat(toMobileDepthInput.value), parseFloat(fromMobileDepthInput.value));
+                                            toMobileDepthInput.value = value.toFixed(2);
+                                            toMobileDepthSlider.value = value;
+                                            updateMobileDepthSliderColors();
                                         }
-
-                                        // Sliding event of the To slider
-                                        function controlToSlider(fromDepthSlider, toDepthSlider, toDepthInput) {
-                                            const [from, to] = getParsed(fromDepthSlider, toDepthSlider);
-                                            fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", toDepthSlider);
-                                            setToggleAccessible(toDepthInput);
-                                            toDepthSlider.value = to;
-                                            toDepthInput.value = to;
-                                            if (from > to) {
-                                                fromDepthInput.value = to;
-                                                toDepthInput.value = from;
-                                            }
+                        
+                                        function syncMobileDepthFromSlider() {
+                                            fromMobileDepthInput.value = parseFloat(fromMobileDepthSlider.value).toFixed(2);
+                                            updateMobileDepthSliderColors();
                                         }
-
-                                        // Parsign values of the Inputs
-                                        function getParsed(currentFrom, currentTo) {
-                                            const from = parseInt(currentFrom.value, 10);
-                                            const to = parseInt(currentTo.value, 10);
-                                            return [from, to];
+                        
+                                        function syncMobileDepthToSlider() {
+                                            toMobileDepthInput.value = parseFloat(toMobileDepthSlider.value).toFixed(2);
+                                            updateMobileDepthSliderColors();
                                         }
-
-                                        // Changing and Filling the color in the selected part...
-                                        function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-                                            let rangeDistance = to.max - to.min;
-                                            let fromPosition = from.value - to.min;
-                                            let toPosition = to.value - to.min;
-                                            if (fromPosition > toPosition) {
-                                                let spare = fromPosition;
-                                                fromPosition = toPosition;
-                                                toPosition = spare;
-                                            }
-                                            controlSlider.style.background = `linear-gradient(
-                                to right,
-                                ${sliderColor} 0%,
-                                ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                                ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                                ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                                ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                                ${sliderColor} 100%)`;
-                                        }
-
-                                        // Making sure the toggle which we are using is accesible to change the range
-                                        function setToggleAccessible(currentTarget) {
-                                            const toDepthSlider = document.querySelector("#toDepthSlider");
-                                            if (Number(currentTarget.value) <= 0) {
-                                                toDepthSlider.style.zIndex = 4;
-                                            } else {
-                                                toDepthSlider.style.zIndex = 4;
-                                            }
-                                        }
-
-                                        const fromDepthSlider = document.querySelector("#fromDepthSlider");
-                                        const toDepthSlider = document.querySelector("#toDepthSlider");
-                                        const fromDepthInput = document.querySelector("#fromDepthInput");
-                                        const toDepthInput = document.querySelector("#toDepthInput");
-
-                                        // Initially filling the slider using default values...
-                                        fillSlider(fromDepthSlider, toDepthSlider, "#C6C6C6", "#733D80", toDepthSlider);
-                                        setToggleAccessible(toDepthSlider);
-
-                                        // Assigning listner methonds to respective events.
-                                        fromDepthSlider.oninput = () => controlFromSlider(fromDepthSlider, toDepthSlider, fromDepthInput);
-                                        toDepthSlider.oninput = () => controlToSlider(fromDepthSlider, toDepthSlider, toDepthInput);
-                                        fromDepthInput.oninput = () =>
-                                            controlFromInput(fromDepthSlider, fromDepthInput, toDepthInput, toDepthSlider);
-                                        toDepthInput.oninput = () => controlToInput(toDepthSlider, fromDepthInput, toDepthInput, toDepthSlider);
+                        
+                                        const fromMobileDepthSlider = document.querySelector("#fromMobileDepthSlider");
+                                        const toMobileDepthSlider = document.querySelector("#toMobileDepthSlider");
+                                        const fromMobileDepthInput = document.querySelector("#fromMobileDepthInput");
+                                        const toMobileDepthInput = document.querySelector("#toMobileDepthInput");
+                        
+                                        fromMobileDepthInput.addEventListener("input", syncMobileDepthFromInput);
+                                        toMobileDepthInput.addEventListener("input", syncMobileDepthToInput);
+                                        fromMobileDepthSlider.addEventListener("input", syncMobileDepthFromSlider);
+                                        toMobileDepthSlider.addEventListener("input", syncMobileDepthToSlider);
+                        
+                                        // Initialize slider colors
+                                        updateMobileDepthSliderColors();
                                     </script>
                                 </div>
-                            </div> --}}
-                            <!-- End Depth Dropdown -->
+                            </div>
+                            <!-- End Mobile Depth Dropdown -->
+                            <!-- Start Mobile Depth Dropdown Script -->
+                            <script>
+                                const mobileDepthIcon = document.getElementById('mobileDepthDropdownIcon');
+                                const mobileDepthDropdown = document.getElementById('mobileDepthDropdown');
+                                const mobileDepthDownArrow = document.getElementById('mobileDepthDownArrow');
+                                const mobileDepthUpArrow = document.getElementById('mobileDepthUpArrow');
 
-                            <!-- L/W Ratio Dropdown -->
-                            {{-- <div id="lwDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 w-64 cursor-pointer">
-                                <label class="block text-sm text-gray-500 font-montserrat mr-3 cursor-pointer">L/W
-                                    Ratio</label>
+                                mobileDepthIcon.addEventListener('click', () => {
+                                    mobileDepthDropdown.classList.toggle('hidden');
+                                    mobileDepthDownArrow.classList.toggle('hidden');
+                                    mobileDepthUpArrow.classList.toggle('hidden');
+                                });
+
+                                // Close dropdown when clicking outside
+                                document.addEventListener('click', (e) => {
+                                    if (!mobileDepthIcon.contains(e.target) && !mobileDepthDropdown.contains(e.target)) {
+                                        mobileDepthDropdown.classList.add('hidden');
+                                        mobileDepthDownArrow.classList.remove('hidden');
+                                        mobileDepthUpArrow.classList.add('hidden');
+                                    }
+                                });
+
+                                // Prevent dropdown from closing when clicking checkboxes
+                                const mobileDepthCheckboxes = mobileDepthDropdown.querySelectorAll('input[type="checkbox"]');
+                                mobileDepthCheckboxes.forEach(mobileDepthCheckbox => {
+                                    mobileDepthCheckbox.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    });
+                                });
+                            </script>
+                            <!-- End Mobile Depth Dropdown Script -->
+
+                            <!-- Start Mobile L/W Ratio Dropdown -->
+                            <div id="mobileLwDropdownIcon"
+                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
+                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">L/W Ratio</label>
                                 <!-- Down Arrow -->
-                                <svg id="lwDownArrow" fill="#000000" height="8" width="8" version="1.1"
+                                <svg id="mobileLwDownArrow" fill="#000000" height="8" width="8" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1647,177 +1601,171 @@
                                     </g>
                                 </svg>
                                 <!-- Up Arrow -->
-                                <svg id="lwUpArrow" class="hidden" height="8" width="8" version="1.1"
-                                    id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                                    fill="#000000">
+                                <svg id="mobileLwUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path style="fill:#000000;"
-                                            d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                                        <path id="XMLID_23_"
+                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                         </path>
                                     </g>
                                 </svg>
 
-                                <div id="lwDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
+                                <div id="mobileLwDropdown"
+                                    class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
                                     <div class="flex justify-between">
                                         <p class="text-sm font-montserrat font-semibold px-4 py-2">L/W Ratio</p>
 
                                         <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                             </svg>
                                         </button>
                                     </div>
-
-                                    <div class="flex items-center">
-                                        <div class="range_lw_container">
-                                            <div class="form_lw_control">
-                                                <div class="form_lw_control_container">
-                                                    <input class="form_lw_control_container__lw__input" type="number"
-                                                        id="fromLwInput" value="1.00" min="1.00" max="3.00"
-                                                        onclick="event.stopPropagation();" />
+                                    <div class="flex items-center p-4">
+                                        <div class="w-full">
+                                            <div class="flex justify-between">
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                        id="mobileFromLWInput" value="1.00" min="1.00" max="2.75" step="0.01" />
                                                 </div>
-                                                <div class="form_lw_control_container">
-                                                    <input class="form_lw_control_container__lw__input" type="number"
-                                                        id="toLwInput" value="3.00" min="1.00" max="3.00"
-                                                        onclick="event.stopPropagation();" />
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="mobileToLWInput"
+                                                        value="2.75" min="1.00" max="2.75" step="0.01" />
                                                 </div>
                                             </div>
-                                            <div class="sliders_lw_control">
-                                                <input id="fromLwSlider" type="range" value="1.00" min="1.00"
-                                                    max="3.00" onclick="event.stopPropagation();" />
-                                                <input id="toLwSlider" type="range" value="3.00" min="1.00"
-                                                    max="3.00" onclick="event.stopPropagation();" />
+                                            <div class="relative min-h-7 flex items-center">
+                                                <input id="mobileFromLWSlider" type="range" value="1" min="1" max="2.75" step="0.01" />
+                                                <input id="mobileToLWSlider" type="range" value="2.75" min="1" max="2.75" step="0.01" />
                                             </div>
                                         </div>
                                     </div>
+                                    <style>
+                                        input[type="range"]#mobileFromLWSlider::-webkit-slider-thumb,
+                                        input[type="range"]#mobileToLWSlider::-webkit-slider-thumb {
+                                            -webkit-appearance: none;
+                                            pointer-events: all;
+                                            width: 16px;
+                                            height: 16px;
+                                            background-color: #fff;
+                                            border-radius: 100%;
+                                            border: 2px solid #733D80;
+                                            cursor: pointer;
+                                            position: relative;
+                                            z-index: 5;
+                                        }
+                        
+                                        input[type="range"]#mobileFromLWSlider,
+                                        input[type="range"]#mobileToLWSlider {
+                                            -webkit-appearance: none;
+                                            appearance: none;
+                                            height: 4px;
+                                            width: 100%;
+                                            position: absolute;
+                                            background-color: #c6c6c6;
+                                            pointer-events: all;
+                                            border-radius: 8px;
+                                        }
+                        
+                                        #mobileToLWSlider {
+                                            height: 0;
+                                            z-index: 4;
+                                        }
+                                    </style>
                                     <script>
-                                        // Controls the slider using from Input....
-                                        function controlFromInput(fromLwSlider, fromLwInput, toLwInput, controlSlider) {
-                                            const [from, to] = getParsed(fromLwInput, toLwInput);
-                                            fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", controlSlider);
-                                            fromLwSlider.value = from;
-
-                                            if (from > to) {
-                                                fromLwSlider.value = to;
-                                                fromLwInput.value = to;
-                                            } else {
-                                                fromLwSlider.value = from;
-                                            }
+                                        function updateMobileLWSliderColors() {
+                                            const fromValue = parseFloat(mobileFromLWSlider.value);
+                                            const toValue = parseFloat(mobileToLWSlider.value);
+                                            const range = mobileToLWSlider.max - mobileToLWSlider.min;
+                                            
+                                            const percentFrom = ((fromValue - mobileToLWSlider.min) / range) * 100;
+                                            const percentTo = ((toValue - mobileToLWSlider.min) / range) * 100;
+                        
+                                            const gradient = `linear-gradient(to right,
+                                                #C6C6C6 0%,
+                                                #C6C6C6 ${percentFrom}%, 
+                                                #733D80 ${percentFrom}%, 
+                                                #733D80 ${percentTo}%, 
+                                                #C6C6C6 ${percentTo}%, 
+                                                #C6C6C6 100%)`;
+                        
+                                            mobileFromLWSlider.style.background = gradient;
+                                            mobileToLWSlider.style.background = gradient;
                                         }
-
-                                        // Controls the slider using to Input....
-                                        function controlToInput(toLwSlider, fromLwInput, toLwInput, controlSlider) {
-                                            const [from, to] = getParsed(fromLwInput, toLwInput);
-                                            fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", controlSlider);
-                                            setToggleAccessible(toLwInput);
-                                            toLwSlider.value = to;
-                                            toLwInput.value = to;
-
-                                            if (from <= to) {
-                                                toLwSlider.value = to;
-                                                toLwInput.value = to;
-                                            } else {
-                                                toLwInput.value = from;
-                                            }
+                        
+                                        function syncMobileLWFromInput() {
+                                            let value = Math.min(parseFloat(mobileFromLWInput.value), parseFloat(mobileToLWInput.value));
+                                            mobileFromLWInput.value = value.toFixed(2);
+                                            mobileFromLWSlider.value = value;
+                                            updateMobileLWSliderColors();
                                         }
-
-                                        // Sliding event of the From slider
-                                        function controlFromSlider(fromLwSlider, toLwSlider, fromLwInput) {
-                                            const [from, to] = getParsed(fromLwSlider, toLwSlider);
-                                            console.log([from, to]);
-                                            fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", toLwSlider);
-                                            fromLwInput.value = from;
-                                            if (from > to) {
-                                                fromLwInput.value = to;
-                                                toLwInput.value = from;
-                                            }
+                        
+                                        function syncMobileLWToInput() {
+                                            let value = Math.max(parseFloat(mobileToLWInput.value), parseFloat(mobileFromLWInput.value));
+                                            mobileToLWInput.value = value.toFixed(2);
+                                            mobileToLWSlider.value = value;
+                                            updateMobileLWSliderColors();
                                         }
-
-                                        // Sliding event of the To slider
-                                        function controlToSlider(fromLwSlider, toLwSlider, toLwInput) {
-                                            const [from, to] = getParsed(fromLwSlider, toLwSlider);
-                                            fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", toLwSlider);
-                                            setToggleAccessible(toLwInput);
-                                            toLwSlider.value = to;
-                                            toLwInput.value = to;
-                                            if (from > to) {
-                                                fromLwInput.value = to;
-                                                toLwInput.value = from;
-                                            }
+                        
+                                        function syncMobileLWFromSlider() {
+                                            mobileFromLWInput.value = parseFloat(mobileFromLWSlider.value).toFixed(2);
+                                            updateMobileLWSliderColors();
                                         }
-
-                                        // Parsing values of the Inputs with 2 decimal places
-                                        function getParsed(currentFrom, currentTo) {
-                                            const from = parseFloat(currentFrom.value).toFixed(2);
-                                            const to = parseFloat(currentTo.value).toFixed(2);
-                                            return [parseFloat(from), parseFloat(to)];
+                        
+                                        function syncMobileLWToSlider() {
+                                            mobileToLWInput.value = parseFloat(mobileToLWSlider.value).toFixed(2);
+                                            updateMobileLWSliderColors();
                                         }
-
-                                        // Changing and Filling the color in the selected part...
-                                        function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-                                            let rangeDistance = to.max - to.min;
-                                            let fromPosition = from.value - to.min;
-                                            let toPosition = to.value - to.min;
-                                            if (fromPosition > toPosition) {
-                                                let spare = fromPosition;
-                                                fromPosition = toPosition;
-                                                toPosition = spare;
-                                            }
-                                            controlSlider.style.background = `linear-gradient(
-                                to right,
-                                ${sliderColor} 0%,
-                                ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-                                ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-                                ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-                                ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-                                ${sliderColor} 100%)`;
-                                        }
-
-                                        // Making sure the toggle which we are using is accessible to change the range
-                                        function setToggleAccessible(currentTarget) {
-                                            const toLwSlider = document.querySelector("#toLwSlider");
-                                            if (Number(currentTarget.value) <= 0) {
-                                                toLwSlider.style.zIndex = 4;
-                                            } else {
-                                                toLwSlider.style.zIndex = 4;
-                                            }
-                                        }
-
-                                        const fromLwSlider = document.querySelector("#fromLwSlider");
-                                        const toLwSlider = document.querySelector("#toLwSlider");
-                                        const fromLwInput = document.querySelector("#fromLwInput");
-                                        const toLwInput = document.querySelector("#toLwInput");
-
-                                        // Set step to 0.01 for finer control
-                                        fromLwSlider.step = "0.01";
-                                        toLwSlider.step = "0.01";
-                                        fromLwInput.step = "0.01";
-                                        toLwInput.step = "0.01";
-
-                                        // Initially filling the slider using default values...
-                                        fillSlider(fromLwSlider, toLwSlider, "#C6C6C6", "#733D80", toLwSlider);
-                                        setToggleAccessible(toLwSlider);
-
-                                        // Assigning listener methods to respective events.
-                                        fromLwSlider.oninput = () => controlFromSlider(fromLwSlider, toLwSlider, fromLwInput);
-                                        toLwSlider.oninput = () => controlToSlider(fromLwSlider, toLwSlider, toLwInput);
-                                        fromLwInput.oninput = () =>
-                                            controlFromInput(fromLwSlider, fromLwInput, toLwInput, toLwSlider);
-                                        toLwInput.oninput = () => controlToInput(toLwSlider, fromLwInput, toLwInput, toLwSlider);
+                        
+                                        const mobileFromLWSlider = document.querySelector("#mobileFromLWSlider");
+                                        const mobileToLWSlider = document.querySelector("#mobileToLWSlider");
+                                        const mobileFromLWInput = document.querySelector("#mobileFromLWInput");
+                                        const mobileToLWInput = document.querySelector("#mobileToLWInput");
+                        
+                                        mobileFromLWInput.addEventListener("input", syncMobileLWFromInput);
+                                        mobileToLWInput.addEventListener("input", syncMobileLWToInput);
+                                        mobileFromLWSlider.addEventListener("input", syncMobileLWFromSlider);
+                                        mobileToLWSlider.addEventListener("input", syncMobileLWToSlider);
+                        
+                                        // Initialize slider colors
+                                        updateMobileLWSliderColors();
                                     </script>
                                 </div>
-                            </div> --}}
+                            </div>
                             <!-- End L/W Ratio Dropdown -->
+                            <!-- Start L/W Ratio Dropdown Script -->
+                            <script>
+                                const mobileLwIcon = document.getElementById('mobileLwDropdownIcon');
+                                const mobileLwDropdown = document.getElementById('mobileLwDropdown');
+                                const mobileLwDownArrow = document.getElementById('mobileLwDownArrow');
+                                const mobileLwUpArrow = document.getElementById('mobileLwUpArrow');
+
+                                mobileLwIcon.addEventListener('click', () => {
+                                    mobileLwDropdown.classList.toggle('hidden');
+                                    mobileLwDownArrow.classList.toggle('hidden');
+                                    mobileLwUpArrow.classList.toggle('hidden');
+                                });
+
+                                // Close dropdown when clicking outside
+                                document.addEventListener('click', (e) => {
+                                    if (!mobileLwIcon.contains(e.target) && !mobileLwDropdown.contains(e.target)) {
+                                        mobileLwDropdown.classList.add('hidden');
+                                        mobileLwDownArrow.classList.remove('hidden');
+                                        mobileLwUpArrow.classList.add('hidden');
+                                    }
+                                });
+
+                                // Prevent dropdown from closing when clicking checkboxes
+                                const mobileLwCheckboxes = mobileLwDropdown.querySelectorAll('input[type="checkbox"]');
+                                mobileLwCheckboxes.forEach(mobileLwCheckbox => {
+                                    mobileLwCheckbox.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    });
+                                });
+                            </script>
+                            <!-- End L/W Ratio Dropdown Script -->
                         </div>
                     </div>
                 </div>
@@ -1854,10 +1802,10 @@
                     <div id="typeFilterDropdown" class="hidden">
                         <div class="flex flex-col items-center gap-3 py-4">
                             <a href="/inventory"
-                                class="text-xs text-white w-64 bg-primary border border-gray-300 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">WHITE
+                                class="text-xs text-gold w-64 bg-primary border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center">WHITE
                                 DIAMONDS</a>
                             <a href="{{ route('fancy-color-diamonds') }}"
-                                class="text-xs text-primary w-64 hover:text-white border border-gray-500 hover:bg-primary p-2 rounded-md font-montserrat transition-all duration-300">FANCY
+                                class="text-xs text-primary w-64 hover:text-gold border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center">FANCY
                                 COLOR DIAMONDS</a>
                         </div>
                     </div>
@@ -2703,8 +2651,8 @@
             <h3 class="text-xs text-primary font-montserrat font-semibold">Advanced Options</h3>
             <div class="flex flex-col lg:flex-row lg:justify-between items-start w-full">
                 <!-- Start Certificate Dropdown , Method Dropdown , Table Dropdown -->
-                <d iv class="grid grid-cols-2 md:flex md:flex-row items-center gap-4">
-                    <!-- Certificate Dropdown -->
+                <div class="grid grid-cols-2 md:flex md:flex-row items-center gap-4">
+                    <!-- Start Certificate Dropdown -->
                     <div id="styleDropdownIcon" 
                         class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                         <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
@@ -2799,7 +2747,7 @@
                     </script>
                     <!-- End Certificate Dropdown Script -->
 
-                    <!-- Method Dropdown -->
+                    <!-- Start Method Dropdown -->
                     <div id="methodDropdownIcon"
                         class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                         <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
@@ -2887,7 +2835,7 @@
                     </script>
                     <!-- End Method Dropdown Script -->
 
-                    <!-- Table Dropdown -->
+                    <!-- Start Table Dropdown -->
                     <div id="tableDropdownIcon"
                         class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                         <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Table (%)</label>
@@ -2900,6 +2848,18 @@
                             <g id="SVGRepo_iconCarrier">
                                 <path id="XMLID_23_"
                                     d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        <!-- Up Arrow -->
+                        <svg id="tableUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                 </path>
                             </g>
                         </svg>
@@ -3033,14 +2993,7 @@
                         const tableIcon = document.getElementById('tableDropdownIcon');
                         const tableDropdown = document.getElementById('tableDropdown');
                         const tableDownArrow = document.getElementById('tableDownArrow');
-                        const tableUpArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                        tableUpArrow.setAttribute("fill", "#000000");
-                        tableUpArrow.setAttribute("height", "8");
-                        tableUpArrow.setAttribute("width", "8");
-                        tableUpArrow.setAttribute("viewBox", "0 0 330.002 330.002");
-                        tableUpArrow.setAttribute("class", "cursor-pointer hidden");
-                        tableUpArrow.innerHTML = '<g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="XMLID_23_" d="M0,100.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287L4.784,83.358C2.674,89.369,0.756,95.057,0,100.036z"></path></g>';
-                        tableDropdown.parentNode.insertBefore(tableUpArrow, tableDropdown.nextSibling);
+                        const tableUpArrow = document.getElementById('tableUpArrow');
 
                         tableIcon.addEventListener('click', () => {
                             tableDropdown.classList.toggle('hidden');
@@ -3067,7 +3020,7 @@
                     </script>
                     <!-- End Table Dropdown Script -->
 
-                    <!-- Depth Dropdown -->
+                    <!-- Start Depth Dropdown -->
                     <div id="depthDropdownIcon"
                         class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                         <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Depth (%)</label>
@@ -3080,6 +3033,18 @@
                             <g id="SVGRepo_iconCarrier">
                                 <path id="XMLID_23_"
                                     d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
+                                </path>
+                            </g>
+                        </svg>
+                        <!-- Up Arrow -->
+                        <svg id="depthUpArrow" fill="#000000" height="8" width="8" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_23_"
+                                    d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                 </path>
                             </g>
                         </svg>
@@ -3217,14 +3182,7 @@
                         const depthIcon = document.getElementById('depthDropdownIcon');
                         const depthDropdown = document.getElementById('depthDropdown');
                         const depthDownArrow = document.getElementById('depthDownArrow');
-                        const depthUpArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                        depthUpArrow.setAttribute("fill", "#000000");
-                        depthUpArrow.setAttribute("height", "8");
-                        depthUpArrow.setAttribute("width", "8");
-                        depthUpArrow.setAttribute("viewBox", "0 0 330.002 330.002");
-                        depthUpArrow.setAttribute("class", "cursor-pointer hidden");
-                        depthUpArrow.innerHTML = '<g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="XMLID_23_" d="M0,100.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287L4.784,83.358C2.674,89.369,0.756,95.057,0,100.036z"></path></g>';
-                        depthDropdown.parentNode.insertBefore(depthUpArrow, depthDropdown.nextSibling);
+                        const depthUpArrow = document.getElementById('depthUpArrow');
 
                         depthIcon.addEventListener('click', () => {
                             depthDropdown.classList.toggle('hidden');
@@ -3251,7 +3209,7 @@
                     </script>
                     <!-- End Depth Dropdown Script -->
 
-                    <!-- L/W Ratio Dropdown -->
+                    <!-- Start L/W Ratio Dropdown -->
                     <div id="lwDropdownIcon"
                         class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                         <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">L/W Ratio</label>
@@ -3275,7 +3233,7 @@
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
                                 <path id="XMLID_23_"
-                                    d="M0,100.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287L4.784,83.358C2.674,89.369,0.756,95.057,0,100.036z">
+                                    d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
                                 </path>
                             </g>
                         </svg>
@@ -3296,16 +3254,16 @@
                                     <div class="flex justify-between">
                                         <div>
                                             <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                                id="fromLWInput" value="46.00" min="46.00" max="78.00" step="0.01" />
+                                                id="fromLWInput" value="1.00" min="1.00" max="2.75" step="0.01" />
                                         </div>
                                         <div>
                                             <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toLWInput"
-                                                value="78.00" min="46.00" max="78.00" step="0.01" />
+                                                value="2.75" min="1.00" max="2.75" step="0.01" />
                                         </div>
                                     </div>
                                     <div class="relative min-h-7 flex items-center">
-                                        <input id="fromLWSlider" type="range" value="46" min="46" max="78" step="0.01" />
-                                        <input id="toLWSlider" type="range" value="78" min="46" max="78" step="0.01" />
+                                        <input id="fromLWSlider" type="range" value="1" min="1" max="2.75" step="0.01" />
+                                        <input id="toLWSlider" type="range" value="2.75" min="1" max="2.75" step="0.01" />
                                     </div>
                                 </div>
                             </div>
@@ -3469,13 +3427,13 @@
             </div>
             <a href="#" id="openDrawer" class="text-primary text-sm hover:underline">Learn why they are unmatched</a>
             <!-- Right side clear filter button -->
-            <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary hover:text-white">
+            {{-- <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary hover:text-white">
                 <span>Clear Filters</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-            </button>
+            </button> --}}
         </div>
         <!-- End Search Box And Clear Filters Button -->
 
@@ -3727,7 +3685,7 @@
                 </table>
             </div>
 
-            <div class="flex justify-center mt-4">
+            <div class="flex justify-center my-4">
                 @if($diamonds->hasMorePages())
                 <button id="load-more" data-page="1" class="px-6 py-2.5 text-sm border border-primary bg-primary text-gold rounded-sm hover:bg-white hover:border-primary hover:text-primary transition-colors flex items-center font-montserrat gap-2">
                     Load More
@@ -4096,17 +4054,7 @@
     </script>
     <!-- End Toggle Script -->
 
-   
-
-    
-
-    
-
-    
-
-    
-
-    <!-- Start Shape Dropdown Script -->
+    <!-- Start Mobile Shape Dropdown Script -->
     <script>
         const shapeDropdownIcon = document.getElementById('shapeDropdownIcon');
         const shapeDropdown = document.getElementById('shapeDropdown');
@@ -4135,9 +4083,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Shape Dropdown Script  -->
+    <!-- End Mobile Shape Dropdown Script  -->
 
-    <!-- Start Price Dropdown Script  -->
+    <!-- Start Mobile Price Dropdown Script  -->
     <script>
         const priceDropdownIcon = document.getElementById('priceDropdownIcon');
         const priceDropdown = document.getElementById('priceDropdown');
@@ -4166,9 +4114,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Price Dropdown Script -->
+    <!-- End Mobile Price Dropdown Script -->
 
-    <!-- Start Type Dropdown Script -->
+    <!-- Start Mobile Type Dropdown Script -->
     <script>
         const typeFilterDropdownIcon = document.getElementById('typeFilterDropdownIcon');
         const typeFilterDropdown = document.getElementById('typeFilterDropdown');
@@ -4197,9 +4145,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Type Dropdown Script -->
+    <!-- End Mobile Type Dropdown Script -->
 
-    <!-- Start Color Dropdown Script  -->
+    <!-- Start Mobile Color Dropdown Script  -->
     <script>
         const colorDropdownIcon = document.getElementById('colorDropdownIcon');
         const colorDropdown = document.getElementById('colorDropdown');
@@ -4228,9 +4176,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Color Dropdown Script -->
+    <!-- End Mobile Color Dropdown Script -->
 
-    <!-- Start Clarity Dropdown Script -->
+    <!-- Start Mobile Clarity Dropdown Script -->
     <script>
         const claritytyDropdownIcon = document.getElementById('claritytyDropdownIcon');
         const claritytyDropdown = document.getElementById('claritytyDropdown');
@@ -4259,9 +4207,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Clarity Dropdown Script -->
+    <!-- End Mobile Clarity Dropdown Script -->
 
-    <!-- Start Cut Dropdown Script -->
+    <!-- Start Mobile Cut Dropdown Script -->
     <script>
         const cutDropdownIcon = document.getElementById('cutDropdownIcon');
         const cutDropdown = document.getElementById('cutDropdown');
@@ -4290,9 +4238,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Cut Dropdown Script  -->
+    <!-- End Mobile Cut Dropdown Script  -->
 
-    <!-- Start Carat Dropdown Script -->
+    <!-- Start Mobile Carat Dropdown Script -->
     <script>
         const caratDropdownIcon = document.getElementById('caratDropdownIcon');
         const caratDropdown = document.getElementById('caratDropdown');
@@ -4321,9 +4269,9 @@
             e.stopPropagation();
         });
     </script>
-    <!-- End Carat Dropdown Script -->
+    <!-- End Mobile Carat Dropdown Script -->
 
-    <!-- Start Advanced Options Dropdown Script -->
+    <!-- Start Mobile Advanced Options Dropdown Script -->
     <script>
         const advancedOptionsDropdownIcon = document.getElementById('advancedOptionsDropdownIcon');
         const advancedOptionsDropdown = document.getElementById('advancedOptionsDropdown');
