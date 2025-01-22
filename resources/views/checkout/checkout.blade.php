@@ -138,13 +138,13 @@
                 <div class="space-y-4">
                     <!-- Payment Methods Tabs -->
                     <div class="flex space-x-4 mb-6">
-                        <button id="visa-tab" class="payment-tab active flex justify-center items-center border border-primary rounded-md w-24 p-1">
+                        <button id="visa-tab" class="payment-tab flex justify-center items-center border rounded-md w-24 p-1 border-primary hover:border-primary">
                             <img src="{{ asset('Shape/visa.svg') }}" alt="Visa" class="w-12 h-12">
                         </button>
-                        <button id="apple-tab" class="payment-tab flex justify-center items-center border border-gray-300 rounded-md w-24 p-1">
+                        <button id="apple-tab" class="payment-tab flex justify-center items-center border border-gray-300 rounded-md w-24 p-1 hover:border-primary">
                             <img src="{{ asset('Shape/apple_pay.svg') }}" alt="Apple Pay" class="w-12 h-12">
                         </button>
-                        <button id="google-tab" class="payment-tab flex justify-center items-center border border-gray-300 rounded-md w-24 p-1">
+                        <button id="google-tab" class="payment-tab flex justify-center items-center border border-gray-300 rounded-md w-24 p-1 hover:border-primary">
                             <img src="{{ asset('Shape/google_pay.svg') }}" alt="Google Pay" class="w-12 h-12">
                         </button>
                     </div>
@@ -152,7 +152,8 @@
 
                     <!-- Visa Card Payment Form -->
                     <div id="visa-payment" class="payment-section">
-                        <div id="card-element" class="mb-4"></div>
+                        {{-- Input Card Number --}}
+                        <input type="text" id="card-element" class="w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" placeholder="Card Number">
                     </div>
 
                     <!-- Apple Pay Button -->
@@ -293,25 +294,75 @@
     });
 
     // Payment method tabs handling
-    const tabs = document.querySelectorAll('.payment-tab');
-    const sections = document.querySelectorAll('.payment-section');
+    // const tabs = document.querySelectorAll('.payment-tab');
+    // const sections = document.querySelectorAll('.payment-section');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                t.classList.remove('border-primary'); // Remove border-primary from all tabs
+    // tabs.forEach(tab => {
+    //     tab.addEventListener('click', () => {
+    //         // Remove active class and border from all tabs
+    //         tabs.forEach(t => {
+    //             t.classList.remove('active');
+    //             t.classList.remove('border-primary');
+    //             t.classList.add('border-gray-300');
+    //         });
+            
+    //         // Hide all sections
+    //         sections.forEach(s => s.classList.add('hidden'));
+
+    //         // Add active class and border to clicked tab
+    //         tab.classList.add('active');
+    //         tab.classList.remove('border-gray-300');
+    //         tab.classList.add('border-primary');
+            
+    //         // Show corresponding section
+    //         const targetId = tab.id.replace('-tab', '-payment');
+    //         const targetSection = document.getElementById(targetId);
+    //         if (targetSection) {
+    //             targetSection.classList.remove('hidden');
+    //         }
+    //     });
+    // });
+</script>
+
+{{-- Payment method tabs handling --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll('.payment-tab');
+        const sections = document.querySelectorAll('.payment-section');
+
+        // Handle tab clicks
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active state from all tabs
+                tabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.remove('border-primary');
+                    t.classList.add('border-gray-300');
+                });
+
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                // Activate clicked tab
+                tab.classList.add('active');
+                tab.classList.remove('border-gray-300');
+                tab.classList.add('border-primary');
+
+                // Show corresponding content section
+                const sectionId = tab.id.replace('-tab', '-payment');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.classList.remove('hidden');
+                }
             });
-            sections.forEach(s => s.classList.add('hidden'));
-
-            tab.classList.add('active');
-            tab.classList.add('border-primary'); // Add border-primary to the active tab
-            const targetId = tab.id.replace('-tab', '-payment');
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) { // Check if the target section exists
-                targetSection.classList.remove('hidden');
-            }
         });
+
+        // Activate first tab by default
+        if (tabs.length > 0) {
+            tabs[0].click();
+        }
     });
 </script>
 
@@ -320,6 +371,10 @@
         padding: 1rem;
         border: 1px solid #e5e7eb;
         border-radius: 0.5rem;
+    }
+
+    .payment-tab.active {
+        border-color: #301914 !important; /* Use your primary color here */
     }
 </style>
 
