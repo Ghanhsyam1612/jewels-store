@@ -138,16 +138,17 @@
                 <div class="space-y-4">
                     <!-- Payment Methods Tabs -->
                     <div class="flex space-x-4 mb-6">
-                        <button id="visa-tab" class="payment-tab active">
-                            <i class="fab fa-cc-visa"></i> Visa
+                        <button id="visa-tab" class="payment-tab active flex justify-center items-center border border-primary rounded-md w-24 p-1">
+                            <img src="{{ asset('Shape/visa.svg') }}" alt="Visa" class="w-12 h-12">
                         </button>
-                        <button id="apple-tab" class="payment-tab">
-                            <i class="fab fa-apple-pay"></i> Apple Pay
+                        <button id="apple-tab" class="payment-tab flex justify-center items-center border border-gray-300 rounded-md w-24 p-1">
+                            <img src="{{ asset('Shape/apple_pay.svg') }}" alt="Apple Pay" class="w-12 h-12">
                         </button>
-                        <button id="google-tab" class="payment-tab">
-                            <i class="fab fa-google-pay"></i> Google Pay
+                        <button id="google-tab" class="payment-tab flex justify-center items-center border border-gray-300 rounded-md w-24 p-1">
+                            <img src="{{ asset('Shape/google_pay.svg') }}" alt="Google Pay" class="w-12 h-12">
                         </button>
                     </div>
+    
 
                     <!-- Visa Card Payment Form -->
                     <div id="visa-payment" class="payment-section">
@@ -182,7 +183,7 @@
 <!-- Add Stripe Elements and payment handling scripts -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe('{{ config("app.stripe.key") }}');
+    const stripe = Stripe('{{ config("services.stripe.stripe_secret_key") }}');
     const elements = stripe.elements();
 
     // Create card element for Visa
@@ -262,17 +263,19 @@
         e.preventDefault();
         paymentButton.disabled = true;
 
-        const {
-            paymentIntent,
-            error
-        } = await stripe.confirmPayment({
+        const { paymentIntent, error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: '{{ route("checkout.complete") }}',
+                return_url: '{{ route("checkout.complete") }}', // Redirect after payment
                 payment_method_data: {
                     billing_details: {
                         name: document.querySelector('[name="full_name"]').value,
                         email: document.querySelector('[name="email"]').value,
+                        phone: document.querySelector('[name="phone"]').value,
+                        address: document.querySelector('[name="address"]').value,
+                        city: document.querySelector('[name="city"]').value,
+                        postal_code: document.querySelector('[name="zip"]').value,
+                        country: document.querySelector('[name="country"]').value,
                     }
                 }
             }
@@ -283,6 +286,9 @@
             messageDiv.textContent = error.message;
             messageDiv.classList.remove('hidden');
             paymentButton.disabled = false;
+        } else {
+            // Payment was successful, redirect to success page
+            window.location.href = '{{ route("checkout.success") }}';
         }
     });
 
@@ -292,31 +298,24 @@
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.classList.remove('border-primary'); // Remove border-primary from all tabs
+            });
             sections.forEach(s => s.classList.add('hidden'));
 
             tab.classList.add('active');
+            tab.classList.add('border-primary'); // Add border-primary to the active tab
             const targetId = tab.id.replace('-tab', '-payment');
-            document.getElementById(targetId).classList.remove('hidden');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) { // Check if the target section exists
+                targetSection.classList.remove('hidden');
+            }
         });
     });
 </script>
 
 <style>
-    .payment-tab {
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: 500;
-        transition: all 0.3s;
-        border: 1px solid #e5e7eb;
-    }
-
-    .payment-tab.active {
-        background-color: #4f46e5;
-        color: white;
-        border-color: #4f46e5;
-    }
-
     #card-element {
         padding: 1rem;
         border: 1px solid #e5e7eb;
