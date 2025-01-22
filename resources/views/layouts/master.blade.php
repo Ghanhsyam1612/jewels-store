@@ -7,12 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/inventory.css') }}">
+    <link rel="stylesheet" href="https://js.stripe.com/v3/"></script>
     <!-- SweetAlert2 CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.css" rel="stylesheet"> -->
 
     <title>Roaya Diamond</title>
     <link rel="icon" href="{{ asset('favicon/favicon.ico') }}">
     @vite('resources/css/app.css')
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>

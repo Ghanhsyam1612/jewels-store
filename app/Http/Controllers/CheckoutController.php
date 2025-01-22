@@ -23,127 +23,108 @@ class CheckoutController extends Controller
     public function index()
     {
         $cart = session()->get('cart', []);
-        return view('checkout.checkout', compact('cart'));
+        $total = $this->calculateTotal($cart);
+        return view('checkout.checkout', compact('cart', 'total'));
     }
 
-    public function checkoutProcess(CheckoutCreateRequest $request)
+    public function process(Request $request)
     {
-        DB::beginTransaction();
-
         try {
-            $validatedData = $request->validated();
+            DB::beginTransaction();
 
+            // Validate the cart
             $cart = session()->get('cart', []);
             if (empty($cart)) {
-                return redirect()->back()->with('error', 'Your cart is empty.');
+                throw new \Exception('Cart is empty');
             }
 
-            $total = 0;
+            // Calculate totals
+            $total = $this->calculateTotal($cart);
 
-            foreach ($cart as $item) {
-                $total += $item['original_price'] * $item['quantity'];
-            }
+            // Create order
+            $order = $this->createOrder($request, $total);
 
-            $shipping = $total >= 500 ? 0 : 35;
-            $total = $total + $shipping;
+            // Create order items
+            $this->createOrderItems($order, $cart);
 
-            // Create Order
-            $order = Order::create([
-                'customer_id' => Auth::user()->id,
-                'order_number' => 'ORD-' . rand(100000, 999999),
-                'order_date' => now(),
-                'shipping_status' => Order::$SHIPPING_STATUS_PENDING,
-                'shipping_cost' => $shipping,
-                'tax_amount' => 0,
-                'total_amount' => $total,
-                'discount_amount' => 0,
-                'shipping_address' => $validatedData['shipping_address'],
-                'billing_address' => $validatedData['billing_address'],
+            // Create Stripe Payment Intent
+            $paymentIntent = $this->stripeService->createPaymentIntent($order);
+
+            // Confirm Payment Intent
+            $this->stripeService->confirmPaymentIntent($paymentIntent->id);
+
+            // Update order
+            $order->update([
+                'status' => 'processing',
+                'payment_status' => Order::$PAYMENT_STATUS_COMPLETED
             ]);
 
-            // Create Order Items
-            foreach ($cart as $item) {
-                OrderItem::create([
-                    'order_id' => $order->id,
-                    'diamond_id' => $item['id'],
-                    'quantity' => $item['quantity'],
-                    'price' => $item['original_price'],
-                    'subtotal' => $item['original_price'] * $item['quantity'],
-                ]);
-            }
-
-            // PayPal Payment Creation
-            $approvalLink = $this->stripeService->createPaymentIntent($order, $total);
-
-            // Send Order Confirmation Email
-            // Mail::to($validatedData['shipping_address']['email'])->send(new OrderConfirmationEmail($order));
-
-            // Clear the cart
-            session()->forget('cart');
-            return redirect($approvalLink);
+            // Create payment record
+            Payment::create([
+                'order_id' => $order->id,
+                'payment_method' => $paymentIntent->payment_method_types[0],
+                'transaction_id' => $paymentIntent->id,
+                'amount' => $order->total_amount,
+                'status' => 'completed',
+                'payment_details' => json_encode($paymentIntent->status)
+            ]);
 
             DB::commit();
-
-            return view('checkout.checkout', compact('total'));
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', 'Failed to create order: ' . $e->getMessage());
-        }
-    }
-
-    public function complete(Request $request)
-    {
-        try {
-            $paymentIntent = $request->payment_intent;
-
-            // Verify the payment intent with Stripe
-            $stripe = new \Stripe\StripeClient(config('app.stripe.secret'));
-            $intent = $stripe->paymentIntents->retrieve($paymentIntent);
-
-            if ($intent->status !== 'succeeded') {
-                throw new \Exception('Payment was not successful.');
-            }
-
-            // Update order status
-            $order = Order::where('payment_intent_id', $paymentIntent)->first();
-            if (!$order) {
-                throw new \Exception('Order not found.');
-            }
-
-            DB::transaction(function () use ($order, $intent) {
-                $order->update([
-                    'payment_status' => Order::$PAYMENT_STATUS_COMPLETED,
-                    'status' => 'processing'
-                ]);
-
-                // Create payment record
-                Payment::create([
-                    'order_id' => $order->id,
-                    'payment_method' => $intent->payment_method_types[0],
-                    'payment_status' => Payment::$PAYMENT_STATUS_COMPLETED,
-                    'transaction_id' => $intent->id,
-                    'payment_amount' => $order->total_amount,
-                    'currency' => 'USD',
-                    'payment_details' => json_encode($intent),
-                ]);
-            });
-
-            // Clear the cart
+            // Clear cart
             session()->forget('cart');
 
-            return redirect()->route('checkout.success')->with('success', 'Payment completed successfully!');
+            return redirect()->route('checkout.success')
+                ->with('success', 'Payment completed successfully!');
         } catch (\Exception $e) {
-            return redirect()->route('checkout.cancel')->with('error', $e->getMessage());
+            DB::rollBack();
+            return redirect()->route('checkout.cancel')
+                ->with('error', $e->getMessage());
         }
     }
 
-    public function success(Request $request)
+    public function success()
     {
-        return view('checkout.success', ['message' => 'Payment completed successfully.']);
+        return view('checkout.success');
     }
 
-    public function cancel()
+    // Calculate Total
+    private function calculateTotal($cart)
     {
-        return view('checkout.cancel', ['message' => 'You cancelled the payment.']);
+        $subtotal = collect($cart)->sum(function ($item) {
+            return $item['original_price'] * $item['quantity'];
+        });
+
+        $shipping = $subtotal >= 500 ? 0 : 35;
+        return $subtotal + $shipping;
+    }
+
+    // Create Order
+    private function createOrder($request, $total)
+    {
+        return Order::create([
+            'user_id' => Auth::id(),
+            'order_number' => 'ORD-' . uniqid(),
+            'status' => 'pending',
+            'payment_status' => Order::$PAYMENT_STATUS_PENDING,
+            'shipping_status' => Order::$SHIPPING_STATUS_PENDING,
+            'total_amount' => $total,
+            'shipping_cost' => $total >= 500 ? 0 : 35,
+            'shipping_address' => $request->shipping_address,
+            'billing_address' => $request->billing_address,
+        ]);
+    }
+
+    // Create Order Items
+    private function createOrderItems($order, $cart)
+    {
+        foreach ($cart as $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $item['id'],
+                'quantity' => $item['quantity'],
+                'price' => $item['original_price'],
+                'subtotal' => $item['original_price'] * $item['quantity']
+            ]);
+        }
     }
 }
