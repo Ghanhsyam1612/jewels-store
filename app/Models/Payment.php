@@ -19,7 +19,7 @@ class Payment extends Model
     ];
     // Payment Status
     static $PAYMENT_STATUS_PENDING = 'pending';
-    static $PAYMENT_STATUS_COMPLETED = 'completed';
+    static $PAYMENT_STATUS_PAID = 'paid';
     static $PAYMENT_STATUS_FAILED = 'failed';
 
     // Refund Status
