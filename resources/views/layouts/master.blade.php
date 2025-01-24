@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/inventory.css') }}">
 
   
-    <!-- SweetAlert2 CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.css" rel="stylesheet"> -->
+   
 
     <title>Roaya Diamond</title>
     <link rel="icon" href="{{ asset('favicon/favicon.ico') }}">
@@ -25,6 +24,8 @@
     <script src="https://pay.google.com/gp/p/js/pay.js"></script>
 
 
+
+
 </head>
 
 <body class="flex flex-col min-h-screen md:max-w-screen-3xl mx-auto bg-gray-50 font-montserrat">
@@ -35,8 +36,7 @@
 
     @include('components.footer')
 
-    <!-- SweetAlert2 JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.6/dist/sweetalert2.min.js"></script> -->
+    
 </body>
 
 </html>
