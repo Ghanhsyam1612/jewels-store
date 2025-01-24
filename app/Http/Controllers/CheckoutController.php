@@ -78,8 +78,7 @@ class CheckoutController extends Controller
             // Clear cart
             session()->forget('cart');
 
-            return redirect()->route('checkout.success')
-                ->with('success', 'Payment completed successfully!');
+            return redirect()->route('checkout.success')->with('success', 'Payment completed successfully!');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Checkout Error: ' . $e->getMessage());

@@ -184,7 +184,10 @@
         const paymentMethodInput = document.getElementById('payment-method');
         const paymentMethodIdInput = document.getElementById('payment-method-id');
         const cardElementContainer = document.getElementById('card-element');
+        const applePayButton = document.getElementById('apple-pay-button');
+        const googlePayButton = document.getElementById('google-pay-button');
 
+        // Payment method selection
         paymentMethodButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 // Reset previous selections
@@ -194,20 +197,71 @@
                 selectedPaymentMethod = this.dataset.method;
                 paymentMethodInput.value = selectedPaymentMethod;
 
-                // Hide card element by default
+                // Hide all payment elements
                 cardElementContainer.classList.add('hidden');
+                applePayButton.classList.add('hidden');
+                googlePayButton.classList.add('hidden');
 
-                // Show card input only for card payment
-                if (selectedPaymentMethod === 'card') {
-                    cardElementContainer.classList.remove('hidden');
-                    if (!cardElement) {
-                        cardElement = elements.create('card');
-                        cardElement.mount('#card-element');
-                    }
+                // Show appropriate payment element
+                switch (selectedPaymentMethod) {
+                    case 'card':
+                        cardElementContainer.classList.remove('hidden');
+                        if (!cardElement) {
+                            cardElement = elements.create('card');
+                            cardElement.mount('#card-element');
+                        }
+                        break;
+                    case 'apple_pay':
+                        if (stripe.isApplePaySupported()) {
+                            const applePayRequest = {
+                                country: 'US',
+                                currency: 'usd',
+                                total: {
+                                    label: 'Diamond Order',
+                                    amount: '{{ number_format($total, 2) }}'
+                                }
+                            };
+                            const applePaySession = Stripe.applePay.buildPaymentRequest(applePayRequest);
+                            applePaySession.begin();
+                            applePayButton.classList.remove('hidden');
+                        } else {
+                            alert('Apple Pay is not supported on this device');
+                        }
+                        break;
+                    case 'google_pay':
+                        const googlePayRequest = {
+                            apiVersion: 2,
+                            apiVersionMinor: 0,
+                            allowedPaymentMethods: [{
+                                type: 'CARD',
+                                parameters: {
+                                    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                                    allowedCardNetworks: ['MASTERCARD', 'VISA']
+                                }
+                            }],
+                            merchantInfo: {
+                                merchantName: '{{ config("app.name") }}'
+                            },
+                            transactionInfo: {
+                                totalPriceStatus: 'FINAL',
+                                totalPrice: '{{ number_format($total, 2) }}',
+                                currencyCode: 'USD'
+                            }
+                        };
+                        const googlePayClient = new google.payments.api.PaymentsClient({
+                            environment: 'TEST' // Change to 'PRODUCTION' in live environment
+                        });
+                        googlePayClient.createPaymentMethod(googlePayRequest)
+                            .then(function(paymentMethod) {
+                                paymentMethodIdInput.value = paymentMethod.paymentMethod.id;
+                            });
+                        googlePayButton.classList.remove('hidden');
+                        break;
                 }
             });
         });
 
+        // Payment Form Submission
         const paymentForm = document.getElementById('payment-form');
         const paymentButton = document.getElementById('payment-button');
         const paymentMessage = document.getElementById('payment-message');
@@ -225,31 +279,37 @@
             }
 
             try {
-                if (selectedPaymentMethod === 'card') {
-                    const {
-                        paymentMethod,
-                        error
-                    } = await stripe.createPaymentMethod({
-                        type: 'card',
-                        card: cardElement,
-                        billing_details: {
-                            name: document.querySelector('[name="full_name"]').value,
-                            email: document.querySelector('[name="email"]').value,
-                            phone: document.querySelector('[name="phone"]').value,
-                            address: {
-                                line1: document.querySelector('[name="address"]').value,
-                                city: document.querySelector('[name="city"]').value,
-                                postal_code: document.querySelector('[name="zip"]').value,
-                                country: document.querySelector('[name="country"]').value
+                switch (selectedPaymentMethod) {
+                    case 'card':
+                        const {
+                            paymentMethod, error
+                        } = await stripe.createPaymentMethod({
+                            type: 'card',
+                            card: cardElement,
+                            billing_details: {
+                                name: document.querySelector('[name="full_name"]').value,
+                                email: document.querySelector('[name="email"]').value,
+                                phone: document.querySelector('[name="phone"]').value,
+                                address: {
+                                    line1: document.querySelector('[name="address"]').value,
+                                    city: document.querySelector('[name="city"]').value,
+                                    postal_code: document.querySelector('[name="zip"]').value,
+                                    country: document.querySelector('[name="country"]').value
+                                }
                             }
+                        });
+
+                        if (error) {
+                            throw error;
                         }
-                    });
 
-                    if (error) {
-                        throw error;
-                    }
+                        paymentMethodIdInput.value = paymentMethod.id;
+                        break;
 
-                    paymentMethodIdInput.value = paymentMethod.id;
+                    case 'apple_pay':
+                    case 'google_pay':
+                        // Payment method ID should already be set by the respective payment method
+                        break;
                 }
 
                 paymentForm.submit();

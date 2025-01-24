@@ -21,6 +21,7 @@
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
 
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>
 
 
 </head>
