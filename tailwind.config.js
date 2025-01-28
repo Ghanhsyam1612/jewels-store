@@ -26,8 +26,9 @@ export default {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
         literata: ['Literata', 'serif'],
+        perfectlynineties: ['Perfectly Nineties', 'sans-serif'],
       },
-      colors: {
+        colors: {
         'primary': 'rgb(48,25,52)',
         'gold':'rgb(240,186,64)',
         'light-blue-1': 'rgb(239, 245, 250)',
@@ -41,6 +42,9 @@ export default {
         'light-pink': 'rgb(255, 247, 227)',
         'dark-purple': 'rgb(46, 2, 73)',
         'light-yellow': '#f3e9d6',
+        'sage': '#c4cfbe',
+        'coral': '#415b57',
+        'pitch': '#f2846b',
       },
       backgroundImage: {
         'certified-banner': "url('/images/Certified-bnr.png')",

@@ -59,7 +59,6 @@
                     <li><a href="{{ route('fancy-shapes-diamonds') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Fancy Shape Diamonds</a></li>
                     <li><a href="{{ route('custom-shape-diamonds') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Custom Shape Diamonds</a></li>
                     <li><a href="{{ route('bespoke-jewellery') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Lab Grown Diamond Engagement Rings</a></li>
-                    {{-- <li><a href="#" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Diamond Price Calculator</a></li> --}}
                 </ul>
             </div>
 
@@ -68,6 +67,7 @@
                 <h3 class="md:text-xs lg:text-lg text-gold font-montserrat font-semibold mb-4" style="color: rgb(240,186,64);">HELP</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="{{ route('about-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">About Us</a></li>
+                    <li><a href="{{ route('help.education') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Education</a></li>
                     <li><a href="{{ route('compare-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Compare Us</a></li>
                     <li><a href="{{ route('why-choose-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Why Choose Us</a></li>
                     {{-- <li><a href="/diamond-size-chart" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Diamond Size Chart</a></li> --}}
@@ -75,6 +75,7 @@
                     <li><a href="{{ route('faq') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">FAQ</a></li>
                     <li><a href="{{ route('contact-us') }}" class="hover:text-white font-montserrat md:text-xs lg:text-sm" style="color: rgb(240,186,64);">Contact Us</a></li>
                 </ul>
+                
             </div>
 
             <!-- Privacy -->

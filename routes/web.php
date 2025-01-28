@@ -135,6 +135,19 @@ Route::get('/ready-to-ship', function () {
     return view('components.ready-to-ship');
 });
 
+// Membership
+Route::get('/membership', function () {
+    return view('components.membership');
+});
+
+// Subscription Plan
+Route::get('/subscription-plan', function () {
+    return view('components.subscription-plan');
+});
+
+
+
+
 
 
 
@@ -194,6 +207,10 @@ Route::get('/faq', function () {
 Route::get('/contact-us', function () {
     return view('components.help.contact-us');
 })->name('contact-us');
+
+Route::get('/education', function () {
+    return view('components.help.education');
+})->name('help.education');
 
 // Footer Privacy
 Route::get('/shipping-policy', function () {

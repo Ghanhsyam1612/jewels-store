@@ -319,6 +319,12 @@
             {{-- Antique Cut Diamonds --}}
             <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a>
 
+            {{-- Precious Stones --}}
+            <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES</a>
+
+            {{-- Membership --}}
+            <a href="/membership" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">MEMBERSHIP</a>
+
             
             {{-- Precious Stones --}}
             <!--
@@ -408,6 +414,8 @@
                     </div>
                 </div>
             </div> -->
+
+            
         </nav>
 
         <!-- Mobile menu -->
