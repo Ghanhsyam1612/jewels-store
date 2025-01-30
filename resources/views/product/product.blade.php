@@ -18,24 +18,22 @@
 
         <div class="flex flex-col lg:flex-row md:gap-5 px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 xl:py-6 2xl:py-0">
             <!-- Left side - Photo -->
-            <div class="flex flex-col gap-8 mb-12 w-full lg:w-4/6">    
+            <div class="flex flex-col gap-8 mb-12 w-full lg:w-4/6">
                 <!-- Thumbnail images -->
                 <div class="grid grid-cols-2 gap-1">
-                    <img src="/images/1.jpg" alt="Diamond 1" class="w-full cursor-pointer hover:opacity-75"
-                        onclick="changeImage('/images/1.jpg')">
-                    <img src="/images/2.jpg" alt="Diamond 2" class="w-full cursor-pointer hover:opacity-75"
-                        onclick="changeImage('/images/2.jpg')">
-                    <img src="/images/3.jpg" alt="Diamond 3" class="w-full cursor-pointer hover:opacity-75"
-                        onclick="changeImage('/images/3.jpg')">
-                    <img src="/images/4.jpg" alt="Diamond 4" class="w-full cursor-pointer hover:opacity-75"
-                        onclick="changeImage('/images/4.jpg')">
-                    <div class="flex flex-col justify-center items-center">
+                    <img src="/images/1.jpg" alt="Diamond 1" class="w-full cursor-pointer hover:opacity-75" onclick="selectJewelry('/images/1.jpg')">
+                        <img src="/images/2.jpg" alt="Diamond 2" class="w-full cursor-pointer hover:opacity-75" onclick="selectJewelry('/images/2.jpg')">
+                        <img src="/images/3.jpg" alt="Diamond 3" class="w-full cursor-pointer hover:opacity-75" onclick="selectJewelry('/images/3.jpg')">
+                        <img src="/images/4.jpg" alt="Diamond 4" class="w-full cursor-pointer hover:opacity-75" onclick="selectJewelry('/images/4.jpg')">
+
+                    <div class="hidden lg:flex lg:flex-col lg:justify-center lg:items-center">
                         <div class="relative flex flex-col items-center">
                             <!-- Hand with diamond image container -->
                             <div class="relative w-full">
                                 <img src="/images/hand-transparent-shadow.webp" alt="Hand model" class="w-full h-auto">
                                 <!-- Diamond overlay with dynamic sizing -->
-                                <div id="diamond-overlay" class="absolute left-[30%] top-[65%] md:left-[25%] md:top-[60%] lg:left-[30%] lg:top-[65%]">
+                                <div id="diamond-overlay"
+                                    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <img src="/images/diamonds/round.png" alt="Diamond"
                                         class="w-8 transition-all duration-300">
                                 </div>
@@ -59,48 +57,139 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- JavaScript for diamond size control -->
-                        <script>
-                            const slider = document.getElementById('diamond-size-slider');
-                            const diamond = document.querySelector('#diamond-overlay img');
-                            const caratDisplay = document.getElementById('carat-display');
+                    <!-- JavaScript for diamond size control -->
+                    <script>
+                        const slider = document.getElementById('diamond-size-slider');
+                        const diamond = document.querySelector('#diamond-overlay img');
+                        const caratDisplay = document.getElementById('carat-display');
 
-                            slider.addEventListener('input', function() {
-                                const value = parseFloat(this.value);
+                        slider.addEventListener('input', function() {
+                            const value = parseFloat(this.value);
 
-                                // Update carat display
-                                caratDisplay.textContent = value.toFixed(1);
+                            // Update carat display
+                            caratDisplay.textContent = value.toFixed(1);
 
-                                // Calculate size (base size is 2 carats = 32px)
-                                const baseSize = 32; // 2 carats = 32px (w-8 in Tailwind)
-                                const newSize = (baseSize * Math.sqrt(value / 2)); // Scale size proportionally to carat weight
+                            // Base size (2 carats = 32px)
+                            const baseSize = 32;
+                            const newSize = (baseSize * Math.sqrt(value / 2));
 
-                                // Apply new size
-                                diamond.style.width = `${newSize}px`;
-                            });
-                        </script>
-                        <style>
-                            input[type="range"] {
-                                -webkit-appearance: none;
-                                height: 4px;
-                                background: #301914;
-                                border-radius: 5px;
-                                outline: none;
-                            }
+                            // Apply new size
+                            diamond.style.width = `${newSize}px`;
+                        });
+                    </script>
 
-                            input[type="range"]::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                width: 20px;
-                                height: 20px;
-                                background: #301914;
-                                border-radius: 50%;
-                                cursor: pointer;
-                            }
-                        </style>
+                    <style>
+                        input[type="range"] {
+                            -webkit-appearance: none;
+                            height: 3px;
+                            background: #301914;
+                            border-radius: 5px;
+                            outline: none;
+                        }
 
+                        input[type="range"]::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            width: 20px;
+                            height: 20px;
+                            background: #301914;
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+
+                        /* Ensuring the diamond image stays centered */
+                        #diamond-overlay {
+                            position: absolute;
+                            left: 33.5%;
+                            top: 66%;
+                            transform: translate(-50%, -50%);
+                        }
+                    </style>
+                </div>
+
+                <!-- Start Mobile View -->
+                <div class="flex flex-col justify-center items-center lg:hidden">
+                    <div class="relative flex flex-col items-center">
+                        <!-- Hand with diamond image container -->
+                        <div class="relative w-full">
+                            <img src="/images/hand-transparent-shadow.webp" alt="Hand model" class="w-full h-auto">
+                            <!-- Diamond overlay with dynamic sizing -->
+                            <div id="mobile-diamond-overlay"
+                                class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <img src="/images/diamonds/round.png" alt="Diamond"
+                                    class="w-8 transition-all duration-300">
+                            </div>
+                        </div>
+
+                        <!-- Carat size indicator -->
+                        <div class="mt-4 text-center">
+                            <span class="text-sm font-semibold">Diamond Size: </span>
+                            <span id="mobile-carat-display" class="text-sm font-bold text-primary">2.0</span>
+                            <span class="text-sm font-semibold"> carats</span>
+                        </div>
+
+                        <!-- Slider control -->
+                        <div class="w-full max-w-md px-4">
+                            <input type="range" min="0.5" max="8.0" step="0.1" value="2.0"
+                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                id="mobile-diamond-size-slider">
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>0.5ct</span>
+                                <span>8ct</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- JavaScript for diamond size control -->
+                <script>
+                    const mobileSlider = document.getElementById('mobile-diamond-size-slider');
+                    const mobileDiamond = document.querySelector('#mobile-diamond-overlay img');
+                    const mobileCaratDisplay = document.getElementById('mobile-carat-display');
+
+                    mobileSlider.addEventListener('input', function() {
+                        const value = parseFloat(this.value);
+
+                        // Update carat display
+                        mobileCaratDisplay.textContent = value.toFixed(1);
+
+                        // Base size (2 carats = 32px)
+                        const baseSize = 32;
+                        const newSize = (baseSize * Math.sqrt(value / 2));
+
+                        // Apply new size
+                        mobileDiamond.style.width = `${newSize}px`;
+                    });
+                </script>
+
+                <style>
+                    input[type="range"] {
+                        -webkit-appearance: none;
+                        height: 3px;
+                        background: #301914;
+                        border-radius: 5px;
+                        outline: none;
+                    }
+
+                    input[type="range"]#mobile-diamond-size-slider::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        width: 20px;
+                        height: 20px;
+                        background: #301914;
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+
+                    /* Ensuring the diamond image stays centered */
+                    #mobile-diamond-overlay {
+                        position: absolute;
+                        left: 33.5%;
+                        top: 66%;
+                        transform: translate(-50%, -50%);
+                    }
+                </style>
+                <!-- End Mobile View -->
 
                 <!-- Add Try On Button below the main image -->
                 <div class="mt-1 flex justify-center">
@@ -115,17 +204,76 @@
                         Virtual Try On
                     </p>
                 </div>
+                <!-- Try On Modal -->
+                <div id="tryOnModal"
+                    class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
+                    <div class="bg-white rounded-lg p-8 max-w-2xl w-full">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-semibold">Virtual Try On</h3>
+                            <button onclick="closeTryOn()" class="text-gray-500 hover:text-gray-700">&times;</button>
+                        </div>
+
+                        <!-- Try On Options -->
+                        <div id="tryOnOptions" class="flex gap-4 justify-center mb-6">
+                            <button onclick="showUploadOption()"
+                                class="bg-dark-blue text-white px-6 py-3 rounded-md hover:bg-opacity-90">
+                                Upload Image
+                            </button>
+                            <button onclick="showCameraOption()"
+                                class="bg-dark-blue text-white px-6 py-3 rounded-md hover:bg-opacity-90">
+                                Take Photo
+                            </button>
+                        </div>
+
+                        <!-- Upload Image Section -->
+                        <div id="uploadSection" class="hidden">
+                            <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)"
+                                class="mb-4">
+                            <div id="uploadPreview"
+                                class="relative w-full h-[400px] bg-gray-100 flex items-center justify-center">
+                                <img id="uploadedImage" class="max-h-full max-w-full" style="display: none;">
+                                <img id="jewelryOverlay" src="" class="absolute w-20 h-20 cursor-move"
+                                    style="display: none;">
+                            </div>
+                        </div>
+
+                        <!-- Camera Section -->
+                        <div id="cameraSection" class="hidden">
+                            <video id="camera" autoplay playsinline class="w-full h-[400px] bg-gray-100 mb-4"></video>
+                            <button onclick="capturePhoto()"
+                                class="bg-dark-blue text-white px-6 py-2 rounded-md hover:bg-opacity-90">
+                                Capture
+                            </button>
+                            <div id="capturePreview" class="relative w-full h-[400px] bg-gray-100 hidden">
+                                <img id="capturedImage" class="max-h-full max-w-full">
+                                <img id="jewelryOverlayCam" src="" class="absolute cursor-move"
+                                    style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div id="imageModal"
+                    class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
+                    <div class="relative">
+                        <img id="modalImage" src="" alt="Diamond Large View" class="max-h-[80vh] max-w-[90vw]">
+                        <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Right side - Details -->
             <div class="w-full lg:w-1/3 space-y-2">
                 <!-- Product Name -->
-                <h1 class="text-xl lg:text-2xl 3xl:text-3xl font-semibold text-primary">The Trellis Three Stone Emerald Engagement Ring</h1>
+                <h1 class="text-xl lg:text-2xl 3xl:text-3xl font-semibold text-primary">The Trellis Three Stone Emerald
+                    Engagement Ring</h1>
                 <!-- Product Price -->
                 <h3 class="text-base lg:text-lg 3xl:text-xl font-semibold text-primary">Starting at CA $10,000</h3>
                 <!-- Product Shape -->
                 <div class="flex flex-col gap-2 py-2">
-                    <p class="text-sm 3xl:text-base font-semibold text-primary">Shape : <span class="font-normal">Round</span></p>
+                    <p class="text-sm 3xl:text-base font-semibold text-primary">Shape : <span
+                            class="font-normal">Round</span></p>
                     <div class="grid grid-cols-10 gap-2">
                         <img src="{{ asset('Shape/round.svg') }}" alt="Round" class="w-7 h-7">
                         <img src="{{ asset('Shape/oval.svg') }}" alt="Round" class="w-7 h-7">
@@ -141,15 +289,14 @@
                 </div>
                 <!-- Product Color -->
                 <div class="flex flex-col gap-2 py-2">
-                    <p class="text-sm 3xl:text-base font-semibold text-primary">Metal : <span class="font-normal">Platinum</span></p>
+                    <p class="text-sm 3xl:text-base font-semibold text-primary">Metal : <span
+                            class="font-normal">Platinum</span></p>
                     <div class="flex flex-row gap-2">
-                        <img src="{{ asset('Shape/platinum.svg') }}" alt="Platinum" class="w-9 h-9"
-                            style="fill: #E5E4E2;">
-                        <img src="{{ asset('Shape/gold.svg') }}" alt="Gold" class="w-9 h-9" style="fill: #FFD700;">
-                        <img src="{{ asset('Shape/silver.svg') }}" alt="Silver" class="w-9 h-9"
-                            style="fill: #C0C0C0;">
-                        <img src="{{ asset('Shape/rose-gold.svg') }}" alt="Rose Gold" class="w-9 h-9"
-                            style="fill: #B76E79;">
+                        <img src="{{ asset('images/color/silver.png') }}" alt="Silver" class="w-9 h-9 rounded-full">
+                        <img src="{{ asset('images/color/gold.png') }}" alt="Gold" class="w-9 h-9 rounded-full">
+                        <img src="{{ asset('images/color/platinum.png') }}" alt="Platinum" class="w-9 h-9 rounded-full">
+                        <img src="{{ asset('images/color/rose-gold.png') }}" alt="Rose Gold"
+                            class="w-9 h-9 rounded-full">
                     </div>
                 </div>
                 <!-- Select Your Diamond Button -->
@@ -187,7 +334,8 @@
                     </div>
                     <div class="flex flex-row items-center gap-2">
                         <img src="{{ asset('Shape/truck.svg') }}" alt="Diamond" class="w-5 h-5">
-                        <a href="/shipping-policy" class="text-sm 3xl:text-base text-primary underline">Shipping Policy</a>
+                        <a href="/shipping-policy" class="text-sm 3xl:text-base text-primary underline">Shipping
+                            Policy</a>
                     </div>
                     <div class="flex flex-row items-center gap-2">
                         <img src="{{ asset('Shape/return.svg') }}" alt="Diamond" class="w-5 h-5">
@@ -208,14 +356,16 @@
                             class="w-4 h-4 px-4 py-2 border border-gray-300 accent-primary">
                         <p class="text-base 3xl:text-lg text-gray-500">
                             Accept
-                            <a href="/privacy-policy" class="text-base 3xl:text-lg text-primary underline">Privacy Policy</a>
+                            <a href="/privacy-policy" class="text-base 3xl:text-lg text-primary underline">Privacy
+                                Policy</a>
                         </p>
                     </div>
                 </div>
                 <!-- Product Description -->
                 <div class="flex flex-col gap-2 py-3">
                     <p class="text-lg 3xl:text-xl text-primary font-semibold">The Trellis Three Stone Details</p>
-                    <p class="text-base 3xl:text-lg text-primary font-semibold">The Trellis Three Stone three-stone ring in platinum
+                    <p class="text-base 3xl:text-lg text-primary font-semibold">The Trellis Three Stone three-stone ring in
+                        platinum
                         with a emerald diamond</p>
                     <p class="text-sm 3xl:text-base text-primary leading-6">
                         A contemporary take on our beloved Three Stone setting, the Trellis Three Stone engagement ring
@@ -224,16 +374,21 @@
                         Trellis setting beautifully and securely connects this dazzling diamond trio. Choose between a plain
                         or pave band for a sophisticated and symbolic design that truly shines.
                     </p>
-                    <p class="text-sm 3xl:text-base text-primary font-medium">Band width : <span class="font-normal">2.2mm</span></p>
-                    <p class="text-sm 3xl:text-base text-primary font-medium">Band depth : <span class="font-normal">1.6mm</span></p>
-                    <p class="text-sm 3xl:text-base text-primary font-medium">Setting height : <span class="font-normal">6.5mm</span>
+                    <p class="text-sm 3xl:text-base text-primary font-medium">Band width : <span
+                            class="font-normal">2.2mm</span></p>
+                    <p class="text-sm 3xl:text-base text-primary font-medium">Band depth : <span
+                            class="font-normal">1.6mm</span></p>
+                    <p class="text-sm 3xl:text-base text-primary font-medium">Setting height : <span
+                            class="font-normal">6.5mm</span>
                     </p>
                     <p class="text-sm 3xl:text-base text-primary font-medium">Gold/Platinum metal weight : <span
                             class="font-normal">6.17g (size 6)</span></p>
                     <p class="text-sm 3xl:text-base text-primary font-medium">Pavé carat weight : <span
                             class="font-normal">0.17ctw</span></p>
-                    <p class="text-sm 3xl:text-base text-primary font-medium">Shown with : <span class="font-normal">1.5ct</span></p>
-                    <a href="#" class="text-sm 3xl:text-base text-primary underline">For precise weight please see tolerance
+                    <p class="text-sm 3xl:text-base text-primary font-medium">Shown with : <span
+                            class="font-normal">1.5ct</span></p>
+                    <a href="#" class="text-sm 3xl:text-base text-primary underline">For precise weight please see
+                        tolerance
                         specs.</a>
                 </div>
             </div>
@@ -283,8 +438,10 @@
 
         <div class="flex flex-col gap-2 py-12 px-4 md:px-8 lg:px-12 2xl:px-24">
             {{-- Desktop Custom Engagement Rings --}}
-            <img src="{{ asset('images/custom-jewellery.png') }}" alt="Diamond" class="hidden lg:flex relative w-full h-full mb-2">
-            <div class="lg:flex hidden flex-col items-start gap-2 lg:py-36 lg:right-48 lg:w-[30rem] xl:py-24 xl:right-44 xl:w-[27rem] 2xl:py-36 2xl:right-48 2xl:w-[30rem] 3xl:py-40 absolute 3xl:right-44 3xl:w-[35rem] space-y-3">
+            <img src="{{ asset('images/custom-jewellery.png') }}" alt="Diamond"
+                class="hidden lg:flex relative w-full h-full mb-2">
+            <div
+                class="lg:flex hidden flex-col items-start gap-2 lg:py-36 lg:right-48 lg:w-[30rem] xl:py-24 xl:right-44 xl:w-[27rem] 2xl:py-36 2xl:right-48 2xl:w-[30rem] 3xl:py-40 absolute 3xl:right-44 3xl:w-[35rem] space-y-3">
                 <h1 class="text-3xl 3xl:text-4xl text-white text-left font-semibold">Custom Engagement Rings</h1>
                 <p class="text-base 3xl:text-lg text-white text-left">
                     If you’re not seeing exactly what you have in mind, our Diamond Experts will help you design a
@@ -296,7 +453,8 @@
             </div>
 
             {{-- Mobile Custom Engagement Rings --}}
-            <img src="{{ asset('images/custom-jewellery-mobile.png') }}" alt="Diamond" class="flex lg:hidden relative w-full h-full mb-2">
+            <img src="{{ asset('images/custom-jewellery-mobile.png') }}" alt="Diamond"
+                class="flex lg:hidden relative w-full h-full mb-2">
             <div class="flex lg:hidden flex-col items-start gap-2 px-4 space-y-3">
                 <h1 class="text-xl text-primary text-left font-semibold">Custom Engagement Rings</h1>
                 <p class="text-sm text-primary text-left">
@@ -309,4 +467,348 @@
             </div>
         </div>
     </div>
+
+    <!-- Start Try On Script -->
+    <script>
+        // Keep all existing scripts
+
+        // Add new try-on functionality
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        function openTryOn() {
+            document.getElementById('tryOnModal').classList.remove('hidden');
+        }
+
+        function showUploadOption() {
+            document.getElementById('uploadSection').classList.remove('hidden');
+            document.getElementById('cameraSection').classList.add('hidden');
+            document.getElementById('tryOnOptions').classList.add('hidden');
+        }
+
+        function showCameraOption() {
+            document.getElementById('cameraSection').classList.remove('hidden');
+            document.getElementById('uploadSection').classList.add('hidden');
+            document.getElementById('tryOnOptions').classList.add('hidden');
+
+            navigator.mediaDevices.getUserMedia({
+                    video: true
+                })
+                .then(stream => {
+                    document.getElementById('camera').srcObject = stream;
+                })
+                .catch(err => {
+                    console.error('Error accessing camera:', err);
+                    alert('Unable to access camera. Please ensure you have granted camera permissions.');
+                });
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const uploadedImage = document.getElementById('uploadedImage');
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block';
+
+                    const jewelryOverlay = document.getElementById('jewelryOverlay');
+                    jewelryOverlay.src = document.getElementById('mainImage').src;
+                    jewelryOverlay.style.display = 'block';
+
+                    // Reset position
+                    xOffset = 0;
+                    yOffset = 0;
+                    setTranslate(0, 0, jewelryOverlay);
+
+                    // Add drag events
+                    jewelryOverlay.addEventListener('mousedown', dragStart);
+                    jewelryOverlay.addEventListener('touchstart', dragStart);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function capturePhoto() {
+            const video = document.getElementById('camera');
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+
+            document.getElementById('capturedImage').src = canvas.toDataURL('image/png');
+            document.getElementById('capturePreview').classList.remove('hidden');
+            document.getElementById('camera').style.display = 'none';
+
+            const jewelryOverlay = document.getElementById('jewelryOverlayCam');
+            jewelryOverlay.src = document.getElementById('mainImage').src;
+            jewelryOverlay.style.display = 'block';
+
+            // Reset position
+            xOffset = 0;
+            yOffset = 0;
+            setTranslate(0, 0, jewelryOverlay);
+
+            // Add drag events
+            jewelryOverlay.addEventListener('mousedown', dragStart);
+            jewelryOverlay.addEventListener('touchstart', dragStart);
+        }
+
+        function dragStart(e) {
+            if (e.type === "touchstart") {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === document.getElementById('jewelryOverlay') ||
+                e.target === document.getElementById('jewelryOverlayCam')) {
+                isDragging = true;
+            }
+
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('touchmove', drag);
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('touchend', dragEnd);
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+
+                if (e.type === "touchmove") {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                setTranslate(currentX, currentY, document.getElementById('jewelryOverlay'));
+                setTranslate(currentX, currentY, document.getElementById('jewelryOverlayCam'));
+            }
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            if (el && el.style) {
+                el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+            }
+        }
+
+        function dragEnd() {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('touchmove', drag);
+            document.removeEventListener('mouseup', dragEnd);
+            document.removeEventListener('touchend', dragEnd);
+        }
+
+        function closeTryOn() {
+            document.getElementById('tryOnModal').classList.add('hidden');
+            document.getElementById('uploadSection').classList.add('hidden');
+            document.getElementById('cameraSection').classList.add('hidden');
+            document.getElementById('tryOnOptions').classList.remove('hidden');
+
+            // Reset camera if active
+            const camera = document.getElementById('camera');
+            if (camera.srcObject) {
+                camera.srcObject.getTracks().forEach(track => track.stop());
+            }
+
+            // Reset preview sections
+            document.getElementById('uploadedImage').style.display = 'none';
+            document.getElementById('jewelryOverlay').style.display = 'none';
+            document.getElementById('capturePreview').classList.add('hidden');
+            document.getElementById('camera').style.display = 'block';
+            document.getElementById('jewelryOverlayCam').style.display = 'none';
+        }
+    </script>
+    <!-- End Try On Script -->
+
+    <!-- Start Background Remove Script -->
+    <script>
+        let selectedJewelry = '';
+    
+        function selectJewelry(imageSrc) {
+            selectedJewelry = imageSrc;
+            console.log('Selected Jewelry:', selectedJewelry); // Debugging line
+        }
+    
+        async function removeBackground(imageSrc) {
+            const modelUrl = 'https://raw.githubusercontent.com/NathanUA/U-2-Net/master/saved_models/u2net/u2net.onnx';
+            
+            const image = new Image();
+            image.crossOrigin = 'anonymous';
+            image.src = imageSrc;
+            
+            return new Promise((resolve) => {
+                image.onload = async () => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+    
+                    const session = await ort.InferenceSession.create(modelUrl);
+                    const inputTensor = preprocessImage(image, canvas);
+                    
+                    const feeds = { 'input': inputTensor };
+                    const results = await session.run(feeds);
+                    const mask = postprocessMask(results['output'].data, image.width, image.height);
+                    
+                    const finalCanvas = applyMask(image, mask);
+                    resolve(finalCanvas.toDataURL());
+                };
+            });
+        }
+    
+        function preprocessImage(image, canvas) {
+            const ctx = canvas.getContext('2d');
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = new Float32Array(imageData.data.length / 4 * 3);
+            
+            for (let i = 0, j = 0; i < imageData.data.length; i += 4, j += 3) {
+                data[j] = imageData.data[i] / 255.0;
+                data[j + 1] = imageData.data[i + 1] / 255.0;
+                data[j + 2] = imageData.data[i + 2] / 255.0;
+            }
+            return new ort.Tensor('float32', data, [1, 3, canvas.height, canvas.width]);
+        }
+    
+        function postprocessMask(maskData, width, height) {
+            const mask = new Uint8ClampedArray(width * height * 4);
+            for (let i = 0; i < width * height; i++) {
+                const value = maskData[i] > 0.5 ? 255 : 0;
+                mask[i * 4] = 255;
+                mask[i * 4 + 1] = 255;
+                mask[i * 4 + 2] = 255;
+                mask[i * 4 + 3] = value;
+            }
+            return new ImageData(mask, width, height);
+        }
+    
+        function applyMask(image, mask) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = image.width;
+            canvas.height = image.height;
+            ctx.putImageData(mask, 0, 0);
+            return canvas;
+        }
+    
+        async function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file && selectedJewelry) {
+                const reader = new FileReader();
+                reader.onload = async function(e) {
+                    const uploadedImage = document.getElementById('uploadedImage');
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block';
+    
+                    try {
+                        const processedImageSrc = await removeBackground(selectedJewelry);
+                        const jewelryOverlay = document.getElementById('jewelryOverlay');
+                        jewelryOverlay.src = processedImageSrc;
+                        jewelryOverlay.style.display = 'block';
+                    } catch (error) {
+                        console.error('Error processing image:', error);
+                        alert('Error processing image. Please try again.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select a jewelry image first.');
+            }
+        }
+    
+        function openTryOn() {
+            if (!selectedJewelry) {
+                alert('Please select a jewelry image first.');
+                return;
+            }
+            document.getElementById('tryOnModal').classList.remove('hidden');
+        }
+    
+        function showUploadOption() {
+            document.getElementById('uploadSection').classList.remove('hidden');
+            document.getElementById('cameraSection').classList.add('hidden');
+            document.getElementById('tryOnOptions').classList.add('hidden');
+        }
+    
+        function showCameraOption() {
+            document.getElementById('cameraSection').classList.remove('hidden');
+            document.getElementById('uploadSection').classList.add('hidden');
+            document.getElementById('tryOnOptions').classList.add('hidden');
+    
+            navigator.mediaDevices.getUserMedia({
+                    video: true
+                })
+                .then(stream => {
+                    document.getElementById('camera').srcObject = stream;
+                })
+                .catch(err => {
+                    console.error('Error accessing camera:', err);
+                    alert('Unable to access camera. Please ensure you have granted camera permissions.');
+                });
+        }
+    
+        function capturePhoto() {
+            const video = document.getElementById('camera');
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+    
+            document.getElementById('capturedImage').src = canvas.toDataURL('image/png');
+            document.getElementById('capturePreview').classList.remove('hidden');
+            document.getElementById('camera').style.display = 'none';
+    
+            const jewelryOverlay = document.getElementById('jewelryOverlayCam');
+            jewelryOverlay.src = selectedJewelry;
+            jewelryOverlay.style.display = 'block';
+    
+            // Reset position
+            xOffset = 0;
+            yOffset = 0;
+            setTranslate(0, 0, jewelryOverlay);
+    
+            // Add drag events
+            jewelryOverlay.addEventListener('mousedown', dragStart);
+            jewelryOverlay.addEventListener('touchstart', dragStart);
+        }
+    
+        function closeTryOn() {
+            document.getElementById('tryOnModal').classList.add('hidden');
+            document.getElementById('uploadSection').classList.add('hidden');   
+            document.getElementById('cameraSection').classList.add('hidden');
+            document.getElementById('tryOnOptions').classList.remove('hidden');
+    
+            // Reset camera if active
+            const camera = document.getElementById('camera');
+            if (camera.srcObject) {
+                camera.srcObject.getTracks().forEach(track => track.stop());
+            }
+    
+            // Reset preview sections
+            document.getElementById('uploadedImage').style.display = 'none';
+            document.getElementById('jewelryOverlay').style.display = 'none';
+            document.getElementById('capturePreview').classList.add('hidden');
+            document.getElementById('camera').style.display = 'block';
+            document.getElementById('jewelryOverlayCam').style.display = 'none';
+        }
+    </script>
+    <!-- End Background Remove Script -->
 @endsection

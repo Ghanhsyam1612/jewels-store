@@ -24,35 +24,93 @@
     </div>
 
     {{-- Filter Section --}}
-    <div class="mb-8 flex flex-row">
-        <div class="flex flex-col items-start gap-6 mb-6">
+    <div class="flex flex-row gap-10">
+        <div class="flex flex-col gap-2">
             <span class="font-medium" id="diamondShape">Shape : Round</span>
-            <div class="grid grid-cols-10 gap-4">
-                <img src="{{ asset('Shape/round.svg') }}" alt="Shape" class="w-full cursor-pointer border-2 border-primary" onmouseover="updateDiamondShape('Round')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/oval.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Oval')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/cushion.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Cushion')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/pear.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Pear')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/princess.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Princess')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/emerald.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Emerald')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/heart.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Heart')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/radiant.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Radiant')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/triangular.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Triangular')" onmouseout="resetDiamondShape()">
-                <img src="{{ asset('Shape/asscher.svg') }}" alt="Shape" class="w-full cursor-pointer" onmouseover="updateDiamondShape('Asscher')" onmouseout="resetDiamondShape()">
+            <div class="grid grid-cols-10 gap-2">
+                @foreach(['round', 'oval', 'cushion', 'pear', 'princess', 'emerald', 'heart', 'radiant', 'triangular', 'asscher'] as $shape)
+                    <img 
+                        src="{{ asset('Shape/' . $shape . '.svg') }}" 
+                        alt="{{ ucfirst($shape) }}" 
+                        class="w-7 cursor-pointer diamond-shape {{ $shape === 'round'}}"
+                        data-shape="{{ ucfirst($shape) }}"
+                        onclick="selectDiamondShape('{{ ucfirst($shape) }}', this)"
+                    >
+                @endforeach
             </div>
         </div>
 
         <script>
+            function selectDiamondShape(shape, element) {
+                // Update shape text
+                document.getElementById('diamondShape').innerText = 'Shape : ' + shape;
+                
+                // Remove active border from all shapes
+                document.querySelectorAll('.diamond-shape').forEach(img => {
+                    img.classList.remove('border-2', 'border-primary');
+                });
+                
+                // Add active border to selected shape
+                element.classList.add('border-2', 'border-primary');
+                
+                // Filter table rows
+                const rows = document.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const shapeCell = row.querySelector('td:first-child');
+                    if (shapeCell.textContent.trim() === shape) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            // Remove the previous hover functions since we're using click instead
             function updateDiamondShape(shape) {
                 document.getElementById('diamondShape').innerText = 'Shape: ' + shape;
             }
 
             function resetDiamondShape() {
-                document.getElementById('diamondShape').innerText = 'Shape : Round';
+                // This function is no longer needed but kept for compatibility
             }
         </script>
 
-        <div class="grid grid-cols-6 gap-4">
-            
+        <div class="w-1/3 grid grid-cols-6 gap-4 mb-4">
+            <div class="flex flex-col gap-3">
+                <label for="carat" class="text-base text-gray-500">Carat</label>
+                <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('carat')">
+                    <label for="carat" class="text-base font-medium">All</label>
+                    <img src="{{ asset('Shape/down-arrow.svg') }}" alt="carat" class="w-5 h-5">
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="price" class="text-base text-gray-500">Price</label>
+                <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('price')">
+                    <label for="price" class="text-base font-medium">All</label>
+                    <img src="{{ asset('Shape/down-arrow.svg') }}" alt="price" class="w-5 h-5">
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="cut" class="text-base text-gray-500">Cut</label>
+                <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('cut')">
+                    <label for="cut" class="text-base font-medium">All</label>
+                    <img src="{{ asset('Shape/down-arrow.svg') }}" alt="cut" class="w-5 h-5">
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="clarity" class="text-base text-gray-500">Clarity</label>
+                <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('clarity')">
+                    <label for="clarity" class="text-base font-medium">All</label>
+                    <img src="{{ asset('Shape/down-arrow.svg') }}" alt="clarity" class="w-5 h-5">
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="color" class="text-base text-gray-500">Color</label>
+                <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('color')">
+                    <label for="color" class="text-base font-medium">All</label>
+                    <img src="{{ asset('Shape/down-arrow.svg') }}" alt="color" class="w-5 h-5">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -71,20 +129,20 @@
             </thead>
             <tbody>
                 @foreach([
-                    ['2.04', 'VVS2', 'CA$5,936'],
-                    ['1.85', 'VS1', 'CA$4,707'],
-                    ['1.05', 'VVS2', 'CA$2,343'],
-                    ['0.74', 'VVS2', 'CA$1,619'],
-                    ['3.29', 'VS2', 'CA$10,047'],
-                    ['4.33', 'VS1', 'CA$15,478']
-                ] as [$carat, $clarity, $price])
-                    <tr class="border-b hover:bg-gray-50">
+                    ['Oval', '2.04', 'VVS2', 'CA$5,936'],
+                    ['Round', '1.85', 'VS1', 'CA$4,707'],
+                    ['Cushion', '1.05', 'VVS2', 'CA$2,343'],
+                    ['Pear', '0.74', 'VVS2', 'CA$1,619'],
+                    ['Princess', '3.29', 'VS2', 'CA$10,047'],
+                    ['Emerald', '4.33', 'VS1', 'CA$15,478']
+                ] as [$shape, $carat, $clarity, $price])
+                    <tr class="border-b hover:bg-gray-50" data-shape="{{ $shape }}">
                         <td class="py-4 px-4">
                             <div class="flex items-center gap-2">
                                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2L2 12l10 10 10-10L12 2z"/>
                                 </svg>
-                                Oval
+                                {{ $shape }}
                             </div>
                         </td>
                         <td class="py-4 px-4">{{ $carat }}</td>
@@ -99,7 +157,7 @@
     </div>
 </div>
 
-<!-- Start Drawer -->
+<!-- Start Learn Drawer -->
 <div id="drawer" class="fixed top-0 right-0 h-screen w-full md:w-3/5 lg:w-1/2 xl:w-2/5  bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
     <div class="flex flex-col p-4">
         <div class="flex justify-between bg-white">
@@ -306,5 +364,102 @@
     overlay.classList.add("hidden");
     });
 </script>
-<!-- End Drawer -->
+<!-- End Learn Drawer -->
+
+<!-- Start Filter Drawer -->
+<div id="filterDrawer" class="fixed top-0 right-0 h-screen w-full md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex flex-col p-6">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl font-medium">FILTER</h2>
+            <button id="closeFilterDrawer" class="text-gray-500 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- What's most important section -->
+        <div class="mb-8">
+            <h3 class="text-lg mb-4">What's most important to you?</h3>
+            <div class="flex gap-3">
+                <button class="px-4 py-2 border-2 border-gray-300 rounded hover:border-primary">Most brilliant</button>
+                <button class="px-4 py-2 border-2 border-gray-300 rounded hover:border-primary">Best color</button>
+                <button class="px-4 py-2 border-2 border-gray-300 rounded hover:border-primary">Best balance</button>
+            </div>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="flex flex-col divide-y">
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Shape</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-500">Round Brilliant</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Carat</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-500">1.3 - 5.0</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Add other filter options similarly -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Price</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+
+            <!-- Repeat for Cut, Clarity, Color, Ratio, Table, Depth, Fancy colors -->
+            
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Sorting By</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-500">Featured</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Buttons -->
+        <div class="mt-auto flex gap-4 pt-6">
+            <button class="flex-1 py-3 border-2 border-gray-300 rounded hover:border-primary">Clear filters</button>
+            <button class="flex-1 py-3 bg-primary text-white rounded hover:bg-primary-dark">Apply filters</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openFilterDrawer(filterType) {
+        const drawer = document.getElementById('filterDrawer');
+        const overlay = document.getElementById('overlay');
+        
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    document.getElementById('closeFilterDrawer').addEventListener('click', () => {
+        const drawer = document.getElementById('filterDrawer');
+        const overlay = document.getElementById('overlay');
+        
+        drawer.classList.remove('translate-x-0');
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+</script>
+<!-- End Filter Drawer -->
 @endsection
