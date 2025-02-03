@@ -87,7 +87,7 @@ class OrderResource extends Resource
                             Forms\Components\TextInput::make('shipping_cost')
                                 ->required()
                                 ->numeric(),
-                            Forms\Components\TextInput::make('total')
+                            Forms\Components\TextInput::make('total_amount')
                                 ->required()
                                 ->numeric(),
                             Forms\Components\TextInput::make('payment_status')

@@ -40,7 +40,7 @@ class OrderStats extends BaseWidget
                         ->toArray()
                 ),
             Stat::make('Open orders', Order::whereIn('status', ['processing'])->count()),
-            Stat::make('Average price', number_format(Order::avg('total'), 2)),
+            Stat::make('Average price', number_format(Order::avg('total_amount'), 2)),
 
 
             // Stat::make('Orders', 1500)

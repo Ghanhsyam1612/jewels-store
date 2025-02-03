@@ -39,10 +39,10 @@ class LatestOrders extends BaseWidget
                     ->getStateUsing(fn ($record): ?string => $record->currency)
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('total_price')
+                Tables\Columns\TextColumn::make('total_amount')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('shipping_price')
+                Tables\Columns\TextColumn::make('shipping_cost')
                     ->label('Shipping cost')
                     ->searchable()
                     ->sortable(),

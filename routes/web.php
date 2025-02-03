@@ -52,11 +52,11 @@ Route::get('/earrings', function () {
 
 Route::get('/stud-earrings', function () {
     return view('components.fine-jewellery.earrings.stud');
-});
+})->name('stud-earrings');
 
 Route::get('/hoops-and-drops', function () {
     return view('components.fine-jewellery.earrings.hoops-and-drops');
-});
+})->name('hoops-and-drops');
 
 Route::get('/halo-earrings', function () {
     return view('components.fine-jewellery.earrings.halo');
@@ -64,71 +64,76 @@ Route::get('/halo-earrings', function () {
 
 Route::get('/cluster', function () {
     return view('components.fine-jewellery.earrings.cluster');
-});
+})->name('cluster');
 
 Route::get('/wedding-rings', function () {
     return view('components.fine-jewellery.wedding-rings.wedding-rings');
 });
-
+// Wedding Rings
 Route::get('/diamond', function () {
     return view('components.fine-jewellery.wedding-rings.diamond');
-});
+})->name('diamond');
 
 Route::get('/anniversary', function () {
     return view('components.fine-jewellery.wedding-rings.anniversary');
-});
+})->name('anniversary');
 
 Route::get('/eternity', function () {
     return view('components.fine-jewellery.wedding-rings.eternity');
-});
+})->name('eternity');
+
 
 Route::get('/stackable', function () {
     return view('components.fine-jewellery.wedding-rings.stackable');
-});
+})->name('stackable');
 
 Route::get('/pendants', function () {
     return view('components.fine-jewellery.pendants.pendants');
 });
 
-Route::get('/solitaire', function () {
+Route::get('/solitaire-pendants', function () {
     return view('components.fine-jewellery.pendants.solitaire');
-});
+})->name('solitaire-pendants');
 
-Route::get('/halo', function () {
+Route::get('/halo-pendants', function () {
     return view('components.fine-jewellery.pendants.halo');
-});
+})->name('halo-pendants');
 
 Route::get('/diamond-pendants', function () {
     return view('components.fine-jewellery.pendants.diamond-pendants');
-});
+})->name('diamond-pendants');
 
 Route::get('/chains', function () {
     return view('components.fine-jewellery.pendants.chains');
-});
+})->name('chains');
 
 Route::get('/bracelets', function () {
     return view('components.fine-jewellery.bracelets.bracelets');
 });
 
+// Tennis Bracelets
 Route::get('/tennis-bracelets', function () {
     return view('components.fine-jewellery.bracelets.tennis-bracelets');
-});
+})->name('tennis-bracelets');
 
-Route::get('/solitaire', function () {
+// Solitaire Bracelets
+Route::get('/solitaire-bracelets', function () {
     return view('components.fine-jewellery.bracelets.solitaire-bracelets');
-});
+})->name('solitaire-bracelets');
 
 Route::get('/all-diamond-necklaces', function () {
     return view('components.fine-jewellery.necklaces.all-diamond-necklaces');
 });
 
+// Diamond Necklaces
 Route::get('/diamond-necklaces', function () {
     return view('components.fine-jewellery.necklaces.diamond-necklaces');
-});
+})->name('diamond-necklaces');
 
+// Tennis Necklaces
 Route::get('/tennis-necklaces', function () {
     return view('components.fine-jewellery.necklaces.tennis-necklaces');
-});
+})->name('tennis-necklaces');
 
 // Ready To Ship
 Route::get('/ready-to-ship', function () {
@@ -250,7 +255,9 @@ Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('ca
 // ---------------------------------- End Cart Routes -------------------------------------------------
 
 // ---------------------------------- Checkout Routes -------------------------------------------------
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/checkout/shipping', [CheckoutController::class, 'shipping'])->name('checkout.shipping');
+Route::post('/checkout/shipping', [CheckoutController::class, 'storeShipping'])->name('checkout.shipping.store');
+Route::get('/checkout/payment', [CheckoutController::class, 'payment'])->name('checkout.payment');
 Route::post('/checkout/process', [CheckoutController::class, 'checkoutProcess'])->name('checkout.process');
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
 Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');

@@ -31,7 +31,7 @@ class StatsOverview extends BaseWidget
                 ->chart([7, 2, 10, 3, 15, 4, 17])
                 ->color('danger'),
             // Total Revenue
-            Stat::make('Total Revenue', '$' . number_format(Order::sum('total'), 2, '.', ','))
+            Stat::make('Total Revenue', '$' . number_format(Order::sum('total_amount'), 2, '.', ','))
                 ->description('Increase in revenue')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17])

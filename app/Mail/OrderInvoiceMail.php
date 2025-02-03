@@ -8,19 +8,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-
-class WelcomeEmail extends Mailable
+use App\Models\Order;
+use Illuminate\Mail\Mailables\Attachment;
+class OrderInvoiceMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $customer;
+    public $order;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($customer)
+    public function __construct(Order $order)
     {
-        $this->customer = $customer;
+        $this->order = $order;
     }
 
     /**
@@ -29,7 +30,7 @@ class WelcomeEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome to the Diamond World with Roaya Diamonds',
+            subject: 'Your Order Invoice - Order #' . $this->order->id,
         );
     }
 
@@ -39,9 +40,9 @@ class WelcomeEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome',
+            view: 'emails.order_invoice',
             with: [
-                'customer' => $this->customer,
+                'order' => $this->order,
             ],
         );
     }
@@ -53,6 +54,10 @@ class WelcomeEmail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+            // Attachment::fromPath(storage_path('app/invoices/' . $this->order->order_invoice_url))
+            //     ->as('invoice_' . $this->order->id . '.pdf')
+            //     ->withMime('application/pdf')
+        ];
     }
 }

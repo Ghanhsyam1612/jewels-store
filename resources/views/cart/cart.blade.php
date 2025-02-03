@@ -111,7 +111,7 @@
                 </div>
 
                 @if($subtotal > 0)
-                <a href="{{ route('checkout') }}">
+                <a href="{{ route('checkout.shipping') }}">
                     <button class="w-full bg-gray-900 text-white py-3 rounded-md hover:bg-gray-800 transition font-montserrat">
                         Proceed to Checkout
                     </button>
