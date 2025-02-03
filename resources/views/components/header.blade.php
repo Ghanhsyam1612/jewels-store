@@ -9,7 +9,7 @@
                 </path>
             </svg>
         </button>
-
+       
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <!-- <img src="/path-to-your-diamond-logo.svg" alt="Diamond Logo" class="h-8"> -->
@@ -34,11 +34,11 @@
                     <div class="py-2">
                         <!-- Natural Diamond -->
                         <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Natural Diamond</a>
-
+                        
                         <!-- Lab Diamond with submenu -->
                         <div class="group/lab relative">
                             <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Lab Diamond</a>
-
+                            
                             <!-- Lab Diamond submenu -->
                             <div class="absolute left-full top-0 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover/lab:opacity-100 group-hover/lab:visible transition-all duration-300">
                                 <div class="py-2">
@@ -56,7 +56,7 @@
 
             {{-- Inventory --}}
             <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">INVENTORY</a>
-
+            
             {{-- Engagement Rings --}}
             <div class="relative group">
                 <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ENGAGEMENT RINGS
@@ -214,11 +214,11 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Earrings</h3>
                             <div class="space-y-2">
-                                <a href="/stud-earrings" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('stud-earrings') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Stud Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Stud Earrings</span>
                                 </a>
-                                <a href="/hoops-and-drops" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('hoops-and-drops') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Hoops and Drops Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Hoops and Drops Earrings</span>
                                 </a>
@@ -236,19 +236,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Wedding Rings</h3>
                             <div class="space-y-2">
-                                <a href="/diamond" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('diamond') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Diamond Rings.svg') }}" alt="Diamond Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Diamond Rings</span>
                                 </a>
-                                <a href="/anniversary" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('anniversary') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Anniversary Rings.svg') }}" alt="Anniversary Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Anniversary Rings</span>
                                 </a>
-                                <a href="/eternity" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('eternity') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Eternity Rings.svg') }}" alt="Eternity Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Eternity Rings</span>
                                 </a>
-                                <a href="/stackable" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('stackable') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Stackable Rings.svg') }}" alt="Stackable Rings" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Stackable Rings</span>
                                 </a>
@@ -258,19 +258,19 @@
                         <div class="border-r border-gray-200">
                             <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Pendants</h3>
                             <div class="space-y-2">
-                                <a href="/solitaire" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('solitaire-pendants') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Solitaire Pendants.svg') }}" alt="Solitaire Pendants" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Solitaire Pendants</span>
                                 </a>
-                                <a href="/halo" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('halo-pendants') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Halo Pendants.svg') }}" alt="Halo Pendants" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Halo Pendants</span>
                                 </a>
-                                <a href="/diamond-pendants" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                <a href="{{ route('diamond-pendants') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Diamond Pendant.svg') }}" alt="Diamond Pendants" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Diamond Pendants</span>
                                 </a>
-                                <a href="/chains" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-semibold transition-all duration-200 pl-3">
+                                <a href="{{ route('chains') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-semibold transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Chains" class="w-8 text-gray-500">
                                     <span class="text-primary text-xs">Chains</span>
                                 </a>
@@ -283,11 +283,11 @@
                                 <div>
                                     <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Bracelets</h4>
                                     <div class="space-y-2">
-                                        <a href="/tennis-bracelets" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                        <a href="{{ route('tennis-bracelets') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/Tennis Bracelets.svg') }}" alt="Tennis Bracelets" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Tennis Bracelets</span>
                                         </a>
-                                        <a href="/solitaire-bracelets" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                        <a href="{{ route('solitaire-bracelets') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/Solitaire Braclates.svg') }}" alt="Solitaire Bracelets" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Solitaire Bracelets</span>
                                         </a>
@@ -297,11 +297,11 @@
                                 <div>
                                     <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Necklace</h4>
                                     <div class="space-y-2">
-                                        <a href="/diamond-necklaces" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                        <a href="{{ route('diamond-necklaces') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Diamond Necklaces" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Diamond Necklaces</span>
                                         </a>
-                                        <a href="/tennis-necklaces" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
+                                        <a href="{{ route('tennis-necklaces') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Tennis Necklaces" class="w-8 text-gray-500">
                                             <span class="text-primary text-xs">Tennis Necklaces</span>
                                         </a>
@@ -313,23 +313,23 @@
                 </div>
             </div>
 
+            {{-- Ready To Ship --}}
+            <a href="/ready-to-ship" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">READY TO SHIP</a>
+            
             {{-- Antique Cut Diamonds --}}
-            <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a>
+            <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a>
 
             {{-- Precious Stones --}}
             <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES</a>
 
-            {{-- Ready To Ship --}}
-            <a href="/ready-to-ship" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">READY TO SHIP</a>
-
             {{-- Membership --}}
             <a href="/membership" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">MEMBERSHIP</a>
 
-
+            
             {{-- Precious Stones --}}
             <!--
             <div class="relative group">
-                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES
+                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES    
                     <span class="ml-1">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -415,7 +415,7 @@
                 </div>
             </div> -->
 
-
+            
         </nav>
 
         <!-- Mobile menu -->
@@ -454,32 +454,22 @@
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <span class="mr-2">ANTIQUE CUT DIAMONDS</span>
-                    {{-- Right Arrow --}}
-                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
-                </a>
-                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
                     <span class="mr-2">READY TO SHIP</span>
                     {{-- Right Arrow --}}
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
                 </a>
-                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                <button class="menu-item flex justify-between items-center w-full text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="precious-stones-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2">PRECIOUS STONES</span>
                     {{-- Right Arrow --}}
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
-                </a>
-                <a href="/membership" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <span class="mr-2">MEMBERSHIP</span>
-                    {{-- Right Arrow --}}
-                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
-                </a>
+                </button>
             </nav>
 
             {{-- Start Lab Diamonds Submenu --}}
             <!-- LAB DIAMONDS Submenu -->
             <nav id="lab-diamonds-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <button class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="lab-diamonds-options-menu" style="color: rgb(240,186,64);">
@@ -497,7 +487,7 @@
             <!-- LAB DIAMONDS Options Submenu -->
             <nav id="lab-diamonds-options-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="{{ route('inventory') }}" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -515,7 +505,7 @@
                     {{-- Right Arrow --}}
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
                 </a>
-                <a href="{{ route('fancy-color-diamonds') }}" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                <a href="/fancy-color-diamonds" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
                     <span class="mr-2">Fancy Color Diamonds</span>
                     {{-- Right Arrow --}}
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
@@ -532,7 +522,7 @@
             <!-- ENGAGEMENT RINGS Submenu -->
             <nav id="engagement-rings-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <button class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="create-diamond-ring-menu" style="color: rgb(240,186,64);">
@@ -555,7 +545,7 @@
             <!-- Create Your Diamond Ring Submenu -->
             <nav id="create-diamond-ring-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="{{ route('build-a-ring') }}" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -577,7 +567,7 @@
             <!-- Shop by Shape Submenu -->
             <nav id="shop-by-shape-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -635,7 +625,7 @@
             <!-- Shop by Style Submenu -->
             <nav id="shop-by-style-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -695,7 +685,7 @@
             <!-- FINE JEWELRY Submenu -->
             <nav id="fine-jewelry-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <button class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="earrings-menu" style="color: rgb(240,186,64);">
@@ -733,14 +723,14 @@
             <!-- Earrings Submenu -->
             <nav id="earrings-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
                     <span class="mr-2">Stud Earrings</span>
                     {{-- Right Arrow --}}
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
-                </a>
+                </a> 
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
                     <span class="mr-2">Hoops and Drops Earrings</span>
                     {{-- Right Arrow --}}
@@ -761,7 +751,7 @@
             <!-- Wedding Rings Submenu -->
             <nav id="wedding-rings-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -789,7 +779,7 @@
             <!-- Pendants Submenu -->
             <nav id="pendants-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -812,7 +802,7 @@
             <!-- Bracelets Submenu -->
             <nav id="bracelets-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -830,7 +820,7 @@
             <!-- Necklaces Submenu -->
             <nav id="necklaces-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
-                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg>
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
                     <span class="ml-2">Back</span>
                 </button>
                 <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
@@ -846,7 +836,104 @@
             </nav>
             {{-- End Fine Jewellery --}}
 
+            {{-- Start Precious Stones --}}
+            <!-- PRECIOUS STONES Submenu -->
+            <nav id="precious-stones-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
+                <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
+                    <span class="ml-2">Back</span>
+                </button>
+                <button class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="diamond-4cs-menu" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Diamond 4C's</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </button>
+                <button class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="diamond-guide-menu" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Diamond Guide</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </button>
+                <button class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" data-target="helpful-guides-menu" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Helpful Guides</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </button>
+            </nav>
 
+            <!-- Diamond 4C's Submenu -->
+            <nav id="diamond-4cs-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
+                <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
+                    <span class="ml-2">Back</span>
+                </button>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Cut</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Clarity</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Color</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Carat</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+            </nav>
+
+            <!-- Diamond Guide Submenu -->
+            <nav id="diamond-guide-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
+                <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
+                    <span class="ml-2">Back</span>
+                </button>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Diamond Certification</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                <span class="mr-2">Diamond Clarity</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Diamond Size Chart</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+            </nav>
+
+            <!-- Helpful Guides Submenu -->
+            <nav id="helpful-guides-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
+                <button class="back-button flex flex-row items-center gap-2 text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <svg class="text-gold w-3 h-3" style="color: rgb(240,186,64);" fill="currentColor" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 492" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12 C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084 c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864 l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"></path> </g> </g> </g></svg> 
+                    <span class="ml-2">Back</span>
+                </button>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Tips For Cleaning Lab Grown Diamonds</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Facts & Misconceptions</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+                <a href="#" class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide" style="color: rgb(240,186,64);">
+                    <span class="mr-2">Blood Free Diamonds</span>
+                    {{-- Right Arrow --}}
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path> </g> </g> </g></svg></a>
+                </a>
+            </nav>
+            {{-- End Precious Stones --}}
         </div>
 
         {{-- Start Search, Account, and Cart --}}
@@ -873,7 +960,7 @@
                         d="M5.5 19.5C7 17 9.5 15.5 12 15.5s5 1.5 6.5 4" />
                 </svg>
             </a>
-
+            
             {{-- Cart --}}
             <a href="/cart" class="text-gold hover:text-white relative"  style="color: rgb(240,186,64);">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -887,7 +974,7 @@
             </a>
         </div>
         {{-- End Search, Account, and Cart --}}
-
+        
     </div>
 </header>
 
@@ -937,7 +1024,7 @@
     });
 </script>
 
-{{-- Mobile Menu --}}
+{{-- MObile Menu --}}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const menuItems = document.querySelectorAll(".menu-item");
@@ -1050,7 +1137,7 @@
                     document.getElementById("precious-stones-menu").classList.remove("hidden");
                 } else if(currentMenu.id === "helpful-guides-menu") {
                     document.getElementById("precious-stones-menu").classList.remove("hidden");
-                }
+                } 
             });
         });
 
