@@ -205,7 +205,7 @@
                     </p>
                 </div>
                 <!-- Try On Modal -->
-                <div id="tryOnModal"
+                {{-- <div id="tryOnModal"
                     class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
                     <div class="bg-white rounded-lg p-8 max-w-2xl w-full">
                         <div class="flex justify-between items-center mb-6">
@@ -251,16 +251,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Modal -->
-                <div id="imageModal"
+                {{-- <div id="imageModal"
                     class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
                     <div class="relative">
                         <img id="modalImage" src="" alt="Diamond Large View" class="max-h-[80vh] max-w-[90vw]">
                         <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Right side - Details -->
@@ -639,176 +639,104 @@
     <!-- End Try On Script -->
 
     <!-- Start Background Remove Script -->
-    <script>
-        let selectedJewelry = '';
-    
-        function selectJewelry(imageSrc) {
-            selectedJewelry = imageSrc;
-            console.log('Selected Jewelry:', selectedJewelry); // Debugging line
+
+<!-- JavaScript -->
+{{-- <script>
+    let selectedJewelry = '';
+
+    function selectJewelry(imageSrc) {
+        selectedJewelry = imageSrc;
+        console.log('Selected Jewelry:', selectedJewelry); // Debugging line
+    }
+
+    function handleImageUpload(event) {
+        const file = event.target.files[0];
+        if (file && selectedJewelry) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Display the uploaded hand image
+                const uploadedImage = document.getElementById('uploadedImage');
+                uploadedImage.src = e.target.result;
+                uploadedImage.style.display = 'block';
+
+                // Display the selected jewelry image as an overlay
+                const jewelryOverlay = document.getElementById('jewelryOverlay');
+                jewelryOverlay.src = selectedJewelry; // Use the selected jewelry image
+                jewelryOverlay.style.display = 'block';
+
+                // Reset position of the overlay
+                xOffset = 0;
+                yOffset = 0;
+                setTranslate(0, 0, jewelryOverlay);
+
+                // Add drag events to the overlay
+                jewelryOverlay.addEventListener('mousedown', dragStart);
+                jewelryOverlay.addEventListener('touchstart', dragStart);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('Please select a jewelry image first.');
         }
-    
-        async function removeBackground(imageSrc) {
-            const modelUrl = 'https://raw.githubusercontent.com/NathanUA/U-2-Net/master/saved_models/u2net/u2net.onnx';
-            
-            const image = new Image();
-            image.crossOrigin = 'anonymous';
-            image.src = imageSrc;
-            
-            return new Promise((resolve) => {
-                image.onload = async () => {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    ctx.drawImage(image, 0, 0);
-    
-                    const session = await ort.InferenceSession.create(modelUrl);
-                    const inputTensor = preprocessImage(image, canvas);
-                    
-                    const feeds = { 'input': inputTensor };
-                    const results = await session.run(feeds);
-                    const mask = postprocessMask(results['output'].data, image.width, image.height);
-                    
-                    const finalCanvas = applyMask(image, mask);
-                    resolve(finalCanvas.toDataURL());
-                };
-            });
+    }
+
+    // Drag functionality
+    let isDragging = false;
+    let currentX, currentY, initialX, initialY, xOffset = 0, yOffset = 0;
+
+    function dragStart(e) {
+        if (e.type === "touchstart") {
+            initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset;
+        } else {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
         }
-    
-        function preprocessImage(image, canvas) {
-            const ctx = canvas.getContext('2d');
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = new Float32Array(imageData.data.length / 4 * 3);
-            
-            for (let i = 0, j = 0; i < imageData.data.length; i += 4, j += 3) {
-                data[j] = imageData.data[i] / 255.0;
-                data[j + 1] = imageData.data[i + 1] / 255.0;
-                data[j + 2] = imageData.data[i + 2] / 255.0;
-            }
-            return new ort.Tensor('float32', data, [1, 3, canvas.height, canvas.width]);
+
+        if (e.target === document.getElementById('jewelryOverlay')) {
+            isDragging = true;
         }
-    
-        function postprocessMask(maskData, width, height) {
-            const mask = new Uint8ClampedArray(width * height * 4);
-            for (let i = 0; i < width * height; i++) {
-                const value = maskData[i] > 0.5 ? 255 : 0;
-                mask[i * 4] = 255;
-                mask[i * 4 + 1] = 255;
-                mask[i * 4 + 2] = 255;
-                mask[i * 4 + 3] = value;
-            }
-            return new ImageData(mask, width, height);
-        }
-    
-        function applyMask(image, mask) {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = image.width;
-            canvas.height = image.height;
-            ctx.putImageData(mask, 0, 0);
-            return canvas;
-        }
-    
-        async function handleImageUpload(event) {
-            const file = event.target.files[0];
-            if (file && selectedJewelry) {
-                const reader = new FileReader();
-                reader.onload = async function(e) {
-                    const uploadedImage = document.getElementById('uploadedImage');
-                    uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = 'block';
-    
-                    try {
-                        const processedImageSrc = await removeBackground(selectedJewelry);
-                        const jewelryOverlay = document.getElementById('jewelryOverlay');
-                        jewelryOverlay.src = processedImageSrc;
-                        jewelryOverlay.style.display = 'block';
-                    } catch (error) {
-                        console.error('Error processing image:', error);
-                        alert('Error processing image. Please try again.');
-                    }
-                };
-                reader.readAsDataURL(file);
+
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+
+            if (e.type === "touchmove") {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
             } else {
-                alert('Please select a jewelry image first.');
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
             }
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            setTranslate(currentX, currentY, document.getElementById('jewelryOverlay'));
         }
-    
-        function openTryOn() {
-            if (!selectedJewelry) {
-                alert('Please select a jewelry image first.');
-                return;
-            }
-            document.getElementById('tryOnModal').classList.remove('hidden');
+    }
+
+    function setTranslate(xPos, yPos, el) {
+        if (el && el.style) {
+            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
         }
-    
-        function showUploadOption() {
-            document.getElementById('uploadSection').classList.remove('hidden');
-            document.getElementById('cameraSection').classList.add('hidden');
-            document.getElementById('tryOnOptions').classList.add('hidden');
-        }
-    
-        function showCameraOption() {
-            document.getElementById('cameraSection').classList.remove('hidden');
-            document.getElementById('uploadSection').classList.add('hidden');
-            document.getElementById('tryOnOptions').classList.add('hidden');
-    
-            navigator.mediaDevices.getUserMedia({
-                    video: true
-                })
-                .then(stream => {
-                    document.getElementById('camera').srcObject = stream;
-                })
-                .catch(err => {
-                    console.error('Error accessing camera:', err);
-                    alert('Unable to access camera. Please ensure you have granted camera permissions.');
-                });
-        }
-    
-        function capturePhoto() {
-            const video = document.getElementById('camera');
-            const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            canvas.getContext('2d').drawImage(video, 0, 0);
-    
-            document.getElementById('capturedImage').src = canvas.toDataURL('image/png');
-            document.getElementById('capturePreview').classList.remove('hidden');
-            document.getElementById('camera').style.display = 'none';
-    
-            const jewelryOverlay = document.getElementById('jewelryOverlayCam');
-            jewelryOverlay.src = selectedJewelry;
-            jewelryOverlay.style.display = 'block';
-    
-            // Reset position
-            xOffset = 0;
-            yOffset = 0;
-            setTranslate(0, 0, jewelryOverlay);
-    
-            // Add drag events
-            jewelryOverlay.addEventListener('mousedown', dragStart);
-            jewelryOverlay.addEventListener('touchstart', dragStart);
-        }
-    
-        function closeTryOn() {
-            document.getElementById('tryOnModal').classList.add('hidden');
-            document.getElementById('uploadSection').classList.add('hidden');   
-            document.getElementById('cameraSection').classList.add('hidden');
-            document.getElementById('tryOnOptions').classList.remove('hidden');
-    
-            // Reset camera if active
-            const camera = document.getElementById('camera');
-            if (camera.srcObject) {
-                camera.srcObject.getTracks().forEach(track => track.stop());
-            }
-    
-            // Reset preview sections
-            document.getElementById('uploadedImage').style.display = 'none';
-            document.getElementById('jewelryOverlay').style.display = 'none';
-            document.getElementById('capturePreview').classList.add('hidden');
-            document.getElementById('camera').style.display = 'block';
-            document.getElementById('jewelryOverlayCam').style.display = 'none';
-        }
-    </script>
+    }
+
+    function dragEnd() {
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('touchmove', drag);
+        document.removeEventListener('mouseup', dragEnd);
+        document.removeEventListener('touchend', dragEnd);
+    }
+</script> --}}
     <!-- End Background Remove Script -->
 @endsection

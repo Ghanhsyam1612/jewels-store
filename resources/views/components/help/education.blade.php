@@ -5,7 +5,7 @@
 <div class="container mx-auto px-4 py-8">
     {{-- Header Section --}}
     <h1 class="text-4xl text-center font-literata text-primary font-semibold mb-8">ROAYA CREATED DIAMONDS</h1>
-    
+
     {{-- Features Section --}}
     <div class="flex justify-center items-center gap-8 mb-12">
         <div class="flex items-center gap-2 font-medium text-primary">
@@ -29,9 +29,9 @@
             <span class="font-medium" id="diamondShape">Shape : Round</span>
             <div class="grid grid-cols-10 gap-2">
                 @foreach(['round', 'oval', 'cushion', 'pear', 'princess', 'emerald', 'heart', 'radiant', 'triangular', 'asscher'] as $shape)
-                    <img 
-                        src="{{ asset('Shape/' . $shape . '.svg') }}" 
-                        alt="{{ ucfirst($shape) }}" 
+                    <img
+                        src="{{ asset('Shape/' . $shape . '.svg') }}"
+                        alt="{{ ucfirst($shape) }}"
                         class="w-7 cursor-pointer diamond-shape {{ $shape === 'round'}}"
                         data-shape="{{ ucfirst($shape) }}"
                         onclick="selectDiamondShape('{{ ucfirst($shape) }}', this)"
@@ -44,15 +44,15 @@
             function selectDiamondShape(shape, element) {
                 // Update shape text
                 document.getElementById('diamondShape').innerText = 'Shape : ' + shape;
-                
+
                 // Remove active border from all shapes
                 document.querySelectorAll('.diamond-shape').forEach(img => {
                     img.classList.remove('border-2', 'border-primary');
                 });
-                
+
                 // Add active border to selected shape
                 element.classList.add('border-2', 'border-primary');
-                
+
                 // Filter table rows
                 const rows = document.querySelectorAll('tbody tr');
                 rows.forEach(row => {
@@ -157,7 +157,7 @@
     </div>
 </div>
 
-<!-- Start Learn Drawer -->
+Start Learn Drawer
 <div id="drawer" class="fixed top-0 right-0 h-screen w-full md:w-3/5 lg:w-1/2 xl:w-2/5  bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
     <div class="flex flex-col p-4">
         <div class="flex justify-between bg-white">
@@ -170,7 +170,7 @@
             <p class="text-primary text-xs lg:text-sm font-montserrat">Each Roaya created diamond is unique — its provenance and craftsmanship signify a choice that is true to the future.</p>
         </div>
     </div>
-    
+
     <div class="px-4">
         <div class="tab flex justify-between text-primary border-b border-primary py-2">
             <button class="tab-button active font-semibold text-sm lg:text-base" onclick="showTab('tab1')">Impeccable Origin</button>
@@ -355,7 +355,7 @@
     e.preventDefault();
     drawer.classList.remove("translate-x-0");
     drawer.classList.add("translate-x-full");
-    overlay.classList.add("hidden");    
+    overlay.classList.add("hidden");
     });
 
     overlay.addEventListener("click", () => {
@@ -367,7 +367,7 @@
 <!-- End Learn Drawer -->
 
 <!-- Start Filter Drawer -->
-<div id="filterDrawer" class="fixed top-0 right-0 h-screen w-full md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+<div id="filterDrawer" class="overflow-y-auto fixed top-0 right-0 h-screen w-full md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
     <div class="flex flex-col p-6">
         <!-- Header -->
         <div class="flex justify-between items-center mb-8">
@@ -391,45 +391,521 @@
 
         <!-- Filter Options -->
         <div class="flex flex-col divide-y">
+            <!-- Start Shape Filter -->
             <div class="py-4 flex justify-between items-center cursor-pointer">
                 <span>Shape</span>
                 <div class="flex items-center gap-2">
                     <span class="text-gray-500">Round Brilliant</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
                     </svg>
                 </div>
             </div>
-            
+            <div class="hidden py-2 text-gray-600 transition-all duration-300 ease-in-out">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/round.png')}}" class="w-16 h-16" alt="Round">
+                        </div>
+                        <span>Round</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/oval.png')}}" class="w-16 h-16" alt="Oval">
+                        </div>
+                        <span>Oval</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/cushion.png')}}" class="w-16 h-16" alt="Cushion">
+                        </div>
+                        <span>Cushion</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/pear.png')}}" class="w-16 h-16" alt="Pear">
+                        </div>
+                        <span>Pear</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/princess.png')}}" class="w-16 h-16" alt="Princess">
+                        </div>
+                        <span>Princess</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/emerald.png')}}" class="w-16 h-16" alt="Emerald">
+                        </div>
+                        <span>Emerald</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/heart.png')}}" class="w-16 h-16" alt="Heart">
+                        </div>
+                        <span>Heart</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/radiant.png')}}" class="w-16 h-16" alt="Radiant">
+                        </div>
+                        <span>Radiant</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/triangular.png')}}" class="w-16 h-16" alt="Triangular">
+                        </div>
+                        <span>Triangular</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="bg-light-grey-1 px-6 py-8">
+                            <img src="{{ asset('images/diamonds/asscher.png')}}" class="w-16 h-16" alt="Asscher">
+                        </div>
+                        <span>Asscher</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Shape Filter -->
+
+            <!-- Start Carat Filter -->
             <div class="py-4 flex justify-between items-center cursor-pointer">
                 <span>Carat</span>
                 <div class="flex items-center gap-2">
                     <span class="text-gray-500">1.3 - 5.0</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
                     </svg>
                 </div>
             </div>
+            <div class="hidden py-2 text-gray-600 transition-all duration-300">
+                <span class="text-sm">Carat refers to a diamond’s weight. One carat equals 0.2 grams.</span>
+                <div class="flex flex-col items-center">
+                    <div class="w-full">
+                        <div class="flex justify-between">
+                            <div class="form_carat_control_container">
+                                <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                    id="fromCaratInput" value="0.00" min="0.00" max="60.00" step="0.01" />
+                            </div>
+                            <div class="form_carat_control_container">
+                                <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toCaratInput"
+                                    value="60.00" min="0.00" max="60.00" step="0.01" />
+                            </div>
+                        </div>
+                        <div class="relative min-h-7 flex items-center">
+                            <input id="fromCaratSlider" type="range" value="0" min="0" max="60" step="0.01" />
+                            <input id="toCaratSlider" type="range" value="60" min="0" max="60" step="0.01" />
+                        </div>
+                        <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
+                            <span>0ct</span>
+                            <span>60ct</span>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    input[type="range"]#fromCaratSlider::-webkit-slider-thumb,
+                    input[type="range"]#toCaratSlider::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        pointer-events: all;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #fff;
+                        border-radius: 100%;
+                        border: 2px solid #733D80;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 5;
+                    }
 
-            <!-- Add other filter options similarly -->
+                    input[type="range"]#fromCaratSlider,
+                    input[type="range"]#toCaratSlider {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        height: 4px;
+                        width: 100%;
+                        position: absolute;
+                        background-color: #c6c6c6;
+                        pointer-events: all;
+                        border-radius: 8px;
+                    }
+
+                    #toCaratSlider {
+                        height: 0;
+                        z-index: 4;
+                    }
+                </style>
+                <script>
+                    function updateSliderColors() {
+                        const fromValue = parseFloat(fromCaratSlider.value);
+                        const toValue = parseFloat(toCaratSlider.value);
+                        const range = toCaratSlider.max - toCaratSlider.min;
+
+                        const percentFrom = ((fromValue - toCaratSlider.min) / range) * 100;
+                        const percentTo = ((toValue - toCaratSlider.min) / range) * 100;
+
+                        const gradient = `linear-gradient(to right,
+                            #C6C6C6 0%,
+                            #C6C6C6 ${percentFrom}%,
+                            #733D80 ${percentFrom}%,
+                            #733D80 ${percentTo}%,
+                            #C6C6C6 ${percentTo}%,
+                            #C6C6C6 100%)`;
+
+                        fromCaratSlider.style.background = gradient;
+                        toCaratSlider.style.background = gradient;
+                    }
+
+                    function syncFromInput() {
+                        let value = Math.min(parseFloat(fromCaratInput.value), parseFloat(toCaratInput.value));
+                        fromCaratInput.value = value.toFixed(2);
+                        fromCaratSlider.value = value;
+                        updateSliderColors();
+                        caratFilterForm.submit();
+                    }
+
+                    function syncToInput() {
+                        let value = Math.max(parseFloat(toCaratInput.value), parseFloat(fromCaratInput.value));
+                        toCaratInput.value = value.toFixed(2);
+                        toCaratSlider.value = value;
+                        updateSliderColors();
+                        caratFilterForm.submit();
+                    }
+
+                    function syncFromSlider() {
+                        fromCaratInput.value = parseFloat(fromCaratSlider.value).toFixed(2);
+                        updateSliderColors();
+                        caratFilterForm.submit();
+                    }
+
+                    function syncToSlider() {
+                        toCaratInput.value = parseFloat(toCaratSlider.value).toFixed(2);
+                        updateSliderColors();
+                        caratFilterForm.submit();
+                    }
+
+                    const fromCaratSlider = document.querySelector("#fromCaratSlider");
+                    const toCaratSlider = document.querySelector("#toCaratSlider");
+                    const fromCaratInput = document.querySelector("#fromCaratInput");
+                    const toCaratInput = document.querySelector("#toCaratInput");
+
+                    fromCaratInput.addEventListener("input", syncFromInput);
+                    toCaratInput.addEventListener("input", syncToInput);
+                    fromCaratSlider.addEventListener("input", syncFromSlider);
+                    toCaratSlider.addEventListener("input", syncToSlider);
+
+                    // Initialize slider colors
+                    updateSliderColors();
+                </script>
+            </div>
+            <!-- End Carat Filter -->
+
+            <!-- Start Price Filter -->
             <div class="py-4 flex justify-between items-center cursor-pointer">
                 <span>Price</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
                 </svg>
             </div>
+            <div class="hidden py-2 text-gray-600 transition-all duration-300">
+                <div class="flex items-center">
+                    <div class="w-full">
+                        <form id="priceFilterForm" action="{{ route('inventory') }}" method="GET" class="w-full">
+                            <div class="mb-3">
+                                <div class="flex justify-between">
+                                    <div class="pr-2">
+                                        <input
+                                            type="number"
+                                            id="fromPriceInput"
+                                            name="minPrice"
+                                            value="{{ request('minPrice', 100) }}"
+                                            min="100"
+                                            max="100000"
+                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        />
+                                    </div>
+                                    <div class="pl-2">
+                                        <input
+                                            type="number"
+                                            id="toPriceInput"
+                                            name="maxPrice"
+                                            value="{{ request('maxPrice', 100000) }}"
+                                            min="100"
+                                            max="100000"
+                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
 
-            <!-- Repeat for Cut, Clarity, Color, Ratio, Table, Depth, Fancy colors -->
-            
+                            <div class="relative mb-7">
+                                <input
+                                    id="fromPriceSlider"
+                                    type="range"
+                                    value="{{ request('minPrice', 100) }}"
+                                    min="100"
+                                    max="100000"
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                />
+                                <input
+                                    id="toPriceSlider"
+                                    type="range"
+                                    value="{{ request('maxPrice', 100000) }}"
+                                    min="100"
+                                    max="100000"
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                />
+                            </div>
+
+                            <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
+                                <span>$100</span>
+                                <span>$100,000</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <style>
+                    input[type="range"]#fromPriceSlider::-webkit-slider-thumb,
+                    input[type="range"]#toPriceSlider::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        pointer-events: all;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #fff;
+                        border-radius: 100%;
+                        border: 2px solid #733D80;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 5;
+                    }
+
+                    input[type="range"]#fromPriceSlider::-moz-range-thumb,
+                    input[type="range"]#toPriceSlider::-moz-range-thumb {
+                        -webkit-appearance: none;
+                        pointer-events: all;
+                        width: 24px;
+                        height: 24px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        box-shadow: 0 0 0 1px #c6c6c6;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 5;
+                    }
+
+                    input[type="range"]#fromPriceSlider::-webkit-slider-thumb:hover,
+                    input[type="range"]#toPriceSlider::-webkit-slider-thumb:hover {
+                        background: #f7f7f7;
+                    }
+
+                    input[type="number"]#fromPriceInput::-webkit-inner-spin-button,
+                    input[type="number"]#fromPriceInput::-webkit-outer-spin-button {
+                        opacity: 1;
+                    }
+
+                    input[type="number"]#toPriceInput::-webkit-inner-spin-button,
+                    input[type="number"]#toPriceInput::-webkit-outer-spin-button {
+                        opacity: 1;
+                    }
+
+                    input[type="range"]#fromPriceSlider,
+                    input[type="range"]#toPriceSlider {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        height: 4px;
+                        width: 100%;
+                        position: absolute;
+                        background-color: #c6c6c6;
+                        pointer-events: all;
+                        border-radius: 8px;
+                    }
+
+                    #toPriceSlider {
+                        height: 0;
+                        z-index: 4;
+                    }
+                </style>
+                <script>
+                    const fromPriceSlider = document.querySelector("#fromPriceSlider");
+                    const toPriceSlider = document.querySelector("#toPriceSlider");
+                    const fromPriceInput = document.querySelector("#fromPriceInput");
+                    const toPriceInput = document.querySelector("#toPriceInput");
+                    const priceFilterForm = document.querySelector("#priceFilterForm");
+
+                    let updatePending = false;
+
+                    function updateSliderColors() {
+                        if (updatePending) return;
+
+                        updatePending = true;
+                        requestAnimationFrame(() => {
+                            const min = parseInt(fromPriceSlider.min);
+                            const max = parseInt(toPriceSlider.max);
+                            const from = parseInt(fromPriceInput.value);
+                            const to = parseInt(toPriceInput.value);
+
+                            const percentFrom = ((from - min) / (max - min)) * 100;
+                            const percentTo = ((to - min) / (max - min)) * 100;
+
+                            const gradient = `linear-gradient(to right,
+                                #C6C6C6 0%,
+                                #C6C6C6 ${percentFrom}%,
+                                #733D80 ${percentFrom}%,
+                                #733D80 ${percentTo}%,
+                                #C6C6C6 ${percentTo}%,
+                                #C6C6C6 100%)`;
+
+                            fromPriceSlider.style.background = gradient;
+                            toPriceSlider.style.background = gradient;
+                            updatePending = false;
+                        });
+                    }
+
+                    function syncFromInput() {
+                        let value = Math.min(parseInt(fromPriceInput.value), parseInt(toPriceInput.value));
+                        fromPriceInput.value = value;
+                        fromPriceSlider.value = value;
+                        updateSliderColors();
+                        priceFilterForm.submit();
+                    }
+
+                    function syncToInput() {
+                        let value = Math.max(parseInt(toPriceInput.value), parseInt(fromPriceInput.value));
+                        toPriceInput.value = value;
+                        toPriceSlider.value = value;
+                        updateSliderColors();
+                        priceFilterForm.submit();
+                    }
+
+                    function syncFromSlider() {
+                        fromPriceInput.value = fromPriceSlider.value;
+                        updateSliderColors();
+                    }
+
+                    function syncToSlider() {
+                        toPriceInput.value = toPriceSlider.value;
+                        updateSliderColors();
+                    }
+
+                    function handleSliderChange() {
+                        priceFilterForm.submit();
+                    }
+
+                    // Use passive event listeners for better performance
+                    fromPriceInput.addEventListener("input", syncFromInput, { passive: true });
+                    toPriceInput.addEventListener("input", syncToInput, { passive: true });
+
+                    // Update color while dragging
+                    fromPriceSlider.addEventListener("input", syncFromSlider, { passive: true });
+                    toPriceSlider.addEventListener("input", syncToSlider, { passive: true });
+
+                    // Submit form when slider is released
+                    fromPriceSlider.addEventListener("change", handleSliderChange);
+                    toPriceSlider.addEventListener("change", handleSliderChange);
+
+                    // Initialize slider colors
+                    updateSliderColors();
+                </script>
+            </div>
+            <!-- End Price Filter -->
+
+            <!-- Start Cut Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Cut</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">
+                <span>Cut refers to how well a diamond’s facets are cut to reflect light. We always cut for maximum brilliance.</span>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
+                        <img src="{{ asset('images/style-shape/cut-diamond-shape.png')}}" class="w-32" alt="Round">
+                        <span>Round</span>
+                    </div>
+                    <div class="bg-light-grey-1 flex flex-col justify-between items-center px-4 py-5 gap-9">
+                        <img src="{{ asset('images/style-shape/cut-diamond-shape.png')}}" class="w-32" alt="Oval">
+                        <span>Oval</span>
+                    </div>
+                    <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
+                        <img src="{{ asset('images/style-shape/cut-diamond-shape.png')}}" class="w-32" alt="Cushion">
+                        <span>Cushion</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Cut Filter -->
+
+            <!-- Start Clarity Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Clarity</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Clarity filter options...</div>
+            <!-- End Clarity Filter -->
+
+            <!-- Start Color Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Color</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Color filter options...</div>
+            <!-- End Color Filter -->
+
+            <!-- Start Ratio Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Ratio</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Ratio filter options...</div>
+            <!-- End Ratio Filter -->
+
+            <!-- Start Table Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Table</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Table filter options...</div>
+            <!-- End Table Filter -->
+
+            <!-- Start Depth Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Depth</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Depth filter options...</div>
+            <!-- End Depth Filter -->
+
+            <!-- Start Fancy colors Filter -->
+            <div class="py-4 flex justify-between items-center cursor-pointer">
+                <span>Fancy colors</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
+                </svg>
+            </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Fancy colors filter options...</div>
+            <!-- End Fancy colors Filter -->
+
+
+            <!-- Start Sorting By Filter -->
             <div class="py-4 flex justify-between items-center cursor-pointer">
                 <span>Sorting By</span>
                 <div class="flex items-center gap-2">
                     <span class="text-gray-500">Featured</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>
                     </svg>
                 </div>
             </div>
+            <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Sorting By filter options...</div>
+            <!-- End Sorting By Filter -->
         </div>
 
         <!-- Bottom Buttons -->
@@ -439,12 +915,14 @@
         </div>
     </div>
 </div>
+<!-- End Filter Drawer -->
 
+<!-- Start Open Drawer Script -->
 <script>
     function openFilterDrawer(filterType) {
         const drawer = document.getElementById('filterDrawer');
         const overlay = document.getElementById('overlay');
-        
+
         drawer.classList.remove('translate-x-full');
         drawer.classList.add('translate-x-0');
         overlay.classList.remove('hidden');
@@ -454,12 +932,42 @@
     document.getElementById('closeFilterDrawer').addEventListener('click', () => {
         const drawer = document.getElementById('filterDrawer');
         const overlay = document.getElementById('overlay');
-        
+
         drawer.classList.remove('translate-x-0');
         drawer.classList.add('translate-x-full');
         overlay.classList.add('hidden');
         document.body.style.overflow = '';
     });
 </script>
-<!-- End Filter Drawer -->
+<!-- End Open Drawer Script -->
+
+<!-- Start toggle For Filter Drawer Options Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filterItems = document.querySelectorAll(".cursor-pointer");
+
+        filterItems.forEach(item => {
+            const icon = item.querySelector("svg");
+            const content = item.nextElementSibling;
+            let isOpen = false;
+
+            item.addEventListener("click", function () {
+                isOpen = !isOpen;
+
+                if (isOpen) {
+                    content.classList.remove("hidden");
+                    content.classList.add("block");
+                    content.style.opacity = '1';
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>';
+                } else {
+                    content.classList.remove("block");
+                    content.classList.add("hidden");
+                    content.style.opacity = '0';
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14"></path>';
+                }
+            });
+        });
+    });
+</script>
+<!-- End toggle For Filter Drawer Options Script -->
 @endsection
