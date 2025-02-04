@@ -11,11 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Header Menu  
-// Route::get('/inventory', function () {
-//     return view('components.inventory');
-// })->name('inventory');
 
+// -------------------------------- Diamond Lab Routes --------------------------------------------------
 Route::get('/calibrated', function () {
     return view('lab-diamonds.calibrated');
 })->name('calibrated');
@@ -31,8 +28,10 @@ Route::get('/fancy-color-diamonds', function () {
 Route::get('/color-melee-diamonds', function () {
     return view('lab-diamonds.color-melee-diamonds');
 })->name('color-melee-diamonds');
+// -------------------------------- End Diamond Lab Routes ----------------------------------------------
 
-// Engagement Rings
+// -------------------------------- Engagement Rings Routes --------------------------------------------
+// Create Your Diamond Ring
 Route::get('/build-a-ring', function () {
     return view('engagement-rings.build-a-ring');
 })->name('build-a-ring');
@@ -44,8 +43,12 @@ Route::get('/bespoke-jewellery', function () {
 Route::get('/custom-engagement-rings', function () {
     return view('engagement-rings.custom-engagement-rings');
 })->name('custom-engagement-rings');
+// End Create Your Diamond Ring
+// -------------------------------- End Engagement Rings Routes ------------------------------------------
 
-// Fine Jewellery
+// -------------------------------- Fine Jewellery Routes ------------------------------------------------
+
+// Earrings
 Route::get('/earrings', function () {
     return view('components.fine-jewellery.earrings.earrings');
 });
