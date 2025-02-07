@@ -51,7 +51,7 @@ Route::get('/custom-engagement-rings', function () {
 // Earrings
 Route::get('/earrings', function () {
     return view('components.fine-jewellery.earrings.earrings');
-});
+})->name('earrings');
 
 Route::get('/stud-earrings', function () {
     return view('components.fine-jewellery.earrings.stud');
@@ -71,7 +71,7 @@ Route::get('/cluster', function () {
 
 Route::get('/wedding-rings', function () {
     return view('components.fine-jewellery.wedding-rings.wedding-rings');
-});
+})->name('wedding-rings');
 // Wedding Rings
 Route::get('/diamond', function () {
     return view('components.fine-jewellery.wedding-rings.diamond');
@@ -92,7 +92,7 @@ Route::get('/stackable', function () {
 
 Route::get('/pendants', function () {
     return view('components.fine-jewellery.pendants.pendants');
-});
+})->name('pendants');
 
 Route::get('/solitaire-pendants', function () {
     return view('components.fine-jewellery.pendants.solitaire');
@@ -112,7 +112,7 @@ Route::get('/chains', function () {
 
 Route::get('/bracelets', function () {
     return view('components.fine-jewellery.bracelets.bracelets');
-});
+})->name('bracelets');
 
 // Tennis Bracelets
 Route::get('/tennis-bracelets', function () {

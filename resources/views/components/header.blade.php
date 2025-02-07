@@ -212,7 +212,7 @@
                     <div class="grid grid-cols-4 py-6">
                         <!-- Column 1 -->
                         <div class="border-r border-gray-200">
-                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Earrings</h3>
+                            <a href="{{ route('earrings')}}" class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Earrings</a>
                             <div class="space-y-2">
                                 <a href="{{ route('stud-earrings') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Stud Earrings.svg') }}" alt="Stud Earrings" class="w-8 text-gray-500">
@@ -234,7 +234,7 @@
                         </div>
                         <!-- Column 2 -->
                         <div class="border-r border-gray-200">
-                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Wedding Rings</h3>
+                            <a href="{{ route('wedding-rings')}}" class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Wedding Rings</a>
                             <div class="space-y-2">
                                 <a href="{{ route('diamond') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Diamond Rings.svg') }}" alt="Diamond Rings" class="w-8 text-gray-500">
@@ -256,7 +256,7 @@
                         </div>
                         <!-- Column 3 -->
                         <div class="border-r border-gray-200">
-                            <h3 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Pendants</h3>
+                            <a href="{{ route('pendants')}}" class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Pendants</a>
                             <div class="space-y-2">
                                 <a href="{{ route('solitaire-pendants') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                     <img src="{{ asset('Svg/Solitaire Pendants.svg') }}" alt="Solitaire Pendants" class="w-8 text-gray-500">
@@ -281,7 +281,7 @@
                             <div class="space-y-4">
                                 <!-- First Row -->
                                 <div>
-                                    <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Bracelets</h4>
+                                    <a href="{{ route('bracelets')}}" class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Bracelets</a>
                                     <div class="space-y-2">
                                         <a href="{{ route('tennis-bracelets') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/Tennis Bracelets.svg') }}" alt="Tennis Bracelets" class="w-8 text-gray-500">
@@ -295,7 +295,7 @@
                                 </div>
                                 <!-- Second Row -->
                                 <div>
-                                    <h4 class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Necklace</h4>
+                                    <a href="{{ route('diamond-necklaces')}}" class="font-semibold text-primary text-12px leading-[19px] mb-2 pl-3">Necklace</a>
                                     <div class="space-y-2">
                                         <a href="{{ route('diamond-necklaces') }}" class="flex flex-row gap-1 items-center text-12px leading-[19px] text-primary hover:font-semibold font-medium transition-all duration-200 pl-3">
                                             <img src="{{ asset('Svg/NecklaceIcon.svg') }}" alt="Diamond Necklaces" class="w-8 text-gray-500">
