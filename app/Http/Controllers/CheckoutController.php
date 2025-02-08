@@ -103,6 +103,7 @@
                     'billing_address' => $this->formatAddress($shippingInfo), // Using same address for billing
                     // Add any additional fields you need
                 ]);
+                
 
                 // Create order items
                 foreach ($cart as $item) {
@@ -120,7 +121,6 @@
 
                 // Update order status
                 $order->update([
-                    'shipping_status' => Order::$SHIPPING_STATUS_PROCESSING,
                     'payment_status' => Order::$PAYMENT_STATUS_COMPLETED
                 ]);
 

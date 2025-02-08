@@ -31,10 +31,20 @@ class StripeService
 
             // Add digital wallet support
             if ($paymentMethod === 'apple_pay') {
-                $params['payment_method_types'][] = 'apple_pay';
+                $params['payment_method_types'] = ['card', 'apple_pay'];
+                $params['payment_method_options'] = [
+                    'apple_pay' => [
+                        'setup_future_usage' => 'off_session',
+                    ]
+                ];
             }
             if ($paymentMethod === 'google_pay') {
-                $params['payment_method_types'][] = 'google_pay';
+                $params['payment_method_types'] = ['card', 'google_pay'];
+                $params['payment_method_options'] = [
+                    'google_pay' => [
+                        'setup_future_usage' => 'off_session',
+                    ]
+                ];
             }
 
             return $this->stripe->paymentIntents->create($params);
@@ -50,6 +60,9 @@ class StripeService
                 ? ['payment_method' => $paymentMethodId]
                 : [];
 
+            // Add return URL for 3D Secure authentication
+            $confirmParams['return_url'] = route('checkout.success');
+
             return $this->stripe->paymentIntents->confirm($paymentIntentId, $confirmParams);
         } catch (CardException $e) {
             throw new \Exception('Payment confirmation failed: ' . $e->getMessage());
@@ -58,9 +71,26 @@ class StripeService
 
     public function recordPayment(Order $order, $paymentIntent)
     {
+        // Get payment method details
+        $paymentMethod = $paymentIntent->payment_method_types[0];
+        $paymentDetails = [];
+
+        if (isset($paymentIntent->charges->data[0]->payment_method_details)) {
+            $details = $paymentIntent->charges->data[0]->payment_method_details;
+
+            if (isset($details->card)) {
+                $paymentDetails = [
+                    'payment_method' => $paymentIntent->payment_method,
+                    'last4' => $details->card->last4,
+                    'brand' => $details->card->brand,
+                    'wallet' => $details->card->wallet->type ?? null
+                ];
+            }
+        }
+
         return Payment::create([
             'order_id' => $order->id,
-            'payment_method' => $paymentIntent->payment_method_types[0],
+            'payment_method' => $paymentMethod,
             'payment_status' => $paymentIntent->status == 'succeeded' ? Payment::$PAYMENT_STATUS_PAID : Payment::$PAYMENT_STATUS_FAILED,
             'transaction_id' => $paymentIntent->id,
             'payment_date' => now(),
@@ -71,11 +101,7 @@ class StripeService
             'refund_amount' => $order->total_amount,
             'refund_date' => now(),
             'refund_reason' => $paymentIntent->status,
-            'payment_details' => json_encode([
-                'payment_method' => $paymentIntent->payment_method,
-                'last4' => $paymentIntent->charges->data[0]->payment_method_details->card->last4 ?? null,
-                'brand' => $paymentIntent->charges->data[0]->payment_method_details->card->brand ?? null,
-            ])
+            'payment_details' => json_encode($paymentDetails)
         ]);
     }
 }

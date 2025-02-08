@@ -13,7 +13,7 @@ enum OrderStatus : string implements  HasColor, HasIcon, HasLabel
     case PROCESSING = 'processing';
     case SHIPPED = 'shipped';
     case COMPLETED = 'completed';
-    // case CANCELLED = 'cancelled';
+    case CANCELLED = 'cancelled';
    
     public function getLabel(): string
     {
@@ -23,7 +23,7 @@ enum OrderStatus : string implements  HasColor, HasIcon, HasLabel
             self::PROCESSING => 'Processing',
             self::SHIPPED => 'Shipped',
             self::COMPLETED => 'Completed',
-            // self::CANCELLED => 'Cancelled',
+            self::CANCELLED => 'Cancelled',
         };
     }
     

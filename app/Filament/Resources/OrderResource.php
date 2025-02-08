@@ -75,15 +75,13 @@ class OrderResource extends Resource
 
                                     Forms\Components\ToggleButtons::make('shipping_status')
                                         ->inline()
-                                        ->options(OrderStatus::class)
-
+                                        ->options(Order::all()->pluck('shipping_status', 'shipping_status'))
                                         ->required(),
+
                                 ])->columns(2),
 
                             // Order Summary
-                            Forms\Components\TextInput::make('subtotal')
-                                ->required()
-                                ->numeric(),
+
                             Forms\Components\TextInput::make('shipping_cost')
                                 ->required()
                                 ->numeric(),
@@ -92,11 +90,14 @@ class OrderResource extends Resource
                                 ->numeric(),
                             Forms\Components\TextInput::make('payment_status')
                                 ->required()
+                                ->disabled()
                                 ->maxLength(255),
-                            Forms\Components\TextInput::make('payment_method')
-                                ->required()
-                                ->maxLength(255),
-                            Forms\Components\TextInput::make('full_name')
+                            Forms\Components\Select::make('payment_method')
+                                ->relationship('payments', 'payment_method')
+                                ->disabled()
+                                ->required(),
+                            Forms\Components\TextInput::make('customer.first_name')
+                                ->label('Customer Name')
                                 ->required()
                                 ->maxLength(255),
                             Forms\Components\TextInput::make('email')
@@ -160,11 +161,18 @@ class OrderResource extends Resource
                     ->searchable()
                     ->icon('heroicon-o-user'),
                 Tables\Columns\TextColumn::make('shipping_status')
-                    ->badge(),
-                Tables\Columns\TextColumn::make('total')
+                    ->badge()
+                    ->color(fn(Order $record) => match ($record->shipping_status) {
+                        'pending' => 'warning',
+                        'processing' => 'info',
+                        'completed' => 'success',
+                        'cancelled' => 'danger',
+                    }),
+                Tables\Columns\TextColumn::make('total_amount')
                     ->numeric()
                     ->sortable()
                     ->prefix('$')
+
                     ->summarize(Tables\Columns\Summarizers\Sum::make()
                         ->money(),),
                 Tables\Columns\TextColumn::make('shipping_cost')
@@ -177,7 +185,8 @@ class OrderResource extends Resource
 
                 Tables\Columns\TextColumn::make('payment_status')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('payment_method')
+                Tables\Columns\TextColumn::make('payments.payment_method')
+                    ->label('Payment Method')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Order Date')
@@ -232,20 +241,23 @@ class OrderResource extends Resource
                             ->title('Order accepted successfully.')
                             ->success()
                             ->send();
-                    }),
+                    })->hidden(fn(Order $record) => $record->shipping_status === 'processing'),
 
                 Tables\Actions\Action::make('cancel')
                     ->label('Cancel Order')
                     ->color('danger')
                     ->action(function (Order $record) {
-                        $record->update(['shipping_status' => 'completed']);
+                        $record->update(['shipping_status' => 'cancelled']);
                         Notification::make()
                             ->title('Order canceled successfully.')
                             ->success()
                             ->send();
-                    }),
+                    })
+                    ->hidden(fn(Order $record) => in_array($record->shipping_status, ['cancelled', 'processing', 'completed', 'shipped'])),
                 Tables\Actions\EditAction::make(),
             ])
+
+
             ->groupedBulkActions([
                 Tables\Actions\DeleteBulkAction::make()
                     ->action(function () {

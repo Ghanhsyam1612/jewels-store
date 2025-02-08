@@ -8,8 +8,17 @@
             <!-- Order Summary Section -->
             <div class="bg-white rounded-lg p-6 space-y-6">
                 <h2 class="text-xl font-semibold font-montserrat">Order Summary</h2>
-                <!-- Order summary content (unchanged) -->
+                <!-- Order summary content -->
+                <div class="space-y-2">
+                    @foreach(session('cart') as $item)
+                        <p class="font-montserrat">Diamond: {{ $item['name'] }}</p>
+                        <p class="font-montserrat">Price: {{ $item['original_price'] }}</p>
+                        <p class="font-montserrat">Quantity: {{ $item['quantity'] }}</p>
+                    @endforeach
+                    <!-- <p class="font-montserrat">Total: {{ session('total') }}</p> -->
+                </div>
             </div>
+
 
             <!-- Shipping Information Summary -->
             <div class="bg-white rounded-lg p-6 space-y-4">
