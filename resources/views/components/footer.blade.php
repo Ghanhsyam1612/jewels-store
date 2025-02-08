@@ -37,9 +37,6 @@
                     </a>
                 </div>
                 <div class="bg-white w-4/6 p-2 rounded mb-4">
-                    <img src="{{ asset('Shape/trustpilot-review.svg') }}" alt="Trustpilot" class="w-full h-auto">
-                </div>
-                <div class="bg-white w-4/6 p-2 rounded mb-4">
                     <img src="{{ asset('Shape/gr1.svg') }}" alt="Google Rating" class="w-full h-auto">
                 </div>
                 <p class="md:text-xs lg:text-sm font-montserrat" style="color: rgb(240,186,64);">+1 646-288-0810</p>

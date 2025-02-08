@@ -517,15 +517,15 @@
                     <div class="flex flex-col items-center">
                         <div class="w-full">
                             <div class="flex justify-between">
-                                <div class="form_carat_control_container">
+                                <div>
                                     <input
-                                        class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
                                         type="number" id="fromCaratInput" value="0.00" min="0.00" max="60.00"
                                         step="0.01" />
                                 </div>
-                                <div class="form_carat_control_container">
+                                <div>
                                     <input
-                                        class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
                                         type="number" id="toCaratInput" value="60.00" min="0.00" max="60.00"
                                         step="0.01" />
                                 </div>
@@ -575,7 +575,7 @@
                         }
                     </style>
                     <script>
-                        function updateSliderColors() {
+                        function updateCaratSliderColors() {
                             const fromValue = parseFloat(fromCaratSlider.value);
                             const toValue = parseFloat(toCaratSlider.value);
                             const range = toCaratSlider.max - toCaratSlider.min;
@@ -595,32 +595,28 @@
                             toCaratSlider.style.background = gradient;
                         }
 
-                        function syncFromInput() {
+                        function syncCaratFromInput() {
                             let value = Math.min(parseFloat(fromCaratInput.value), parseFloat(toCaratInput.value));
                             fromCaratInput.value = value.toFixed(2);
                             fromCaratSlider.value = value;
-                            updateSliderColors();
-                            caratFilterForm.submit();
+                            updateCaratSliderColors();
                         }
 
-                        function syncToInput() {
+                        function syncCaratToInput() {
                             let value = Math.max(parseFloat(toCaratInput.value), parseFloat(fromCaratInput.value));
                             toCaratInput.value = value.toFixed(2);
                             toCaratSlider.value = value;
-                            updateSliderColors();
-                            caratFilterForm.submit();
+                            updateCaratSliderColors();
                         }
 
-                        function syncFromSlider() {
+                        function syncCaratFromSlider() {
                             fromCaratInput.value = parseFloat(fromCaratSlider.value).toFixed(2);
-                            updateSliderColors();
-                            caratFilterForm.submit();
+                            updateCaratSliderColors();
                         }
 
-                        function syncToSlider() {
+                        function syncCaratToSlider() {
                             toCaratInput.value = parseFloat(toCaratSlider.value).toFixed(2);
-                            updateSliderColors();
-                            caratFilterForm.submit();
+                            updateCaratSliderColors();
                         }
 
                         const fromCaratSlider = document.querySelector("#fromCaratSlider");
@@ -628,13 +624,13 @@
                         const fromCaratInput = document.querySelector("#fromCaratInput");
                         const toCaratInput = document.querySelector("#toCaratInput");
 
-                        fromCaratInput.addEventListener("input", syncFromInput);
-                        toCaratInput.addEventListener("input", syncToInput);
-                        fromCaratSlider.addEventListener("input", syncFromSlider);
-                        toCaratSlider.addEventListener("input", syncToSlider);
+                        fromCaratInput.addEventListener("input", syncCaratFromInput);
+                        toCaratInput.addEventListener("input", syncCaratToInput);
+                        fromCaratSlider.addEventListener("input", syncCaratFromSlider);
+                        toCaratSlider.addEventListener("input", syncCaratToSlider);
 
                         // Initialize slider colors
-                        updateSliderColors();
+                        updateCaratSliderColors();
                     </script>
                 </div>
                 <!-- End Carat Filter -->
@@ -650,27 +646,27 @@
                 <div class="hidden py-2 text-gray-600 transition-all duration-300">
                     <div class="flex items-center">
                         <div class="w-full">
-                            <form id="priceFilterForm" action="{{ route('inventory') }}" method="GET" class="w-full">
+                            <div class="w-full">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
                                         <div class="pr-2">
                                             <input type="number" id="fromPriceInput" name="minPrice"
-                                                value="{{ request('minPrice', 100) }}" min="100" max="100000"
+                                                value="100" min="100" max="100000"
                                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                         </div>
                                         <div class="pl-2">
                                             <input type="number" id="toPriceInput" name="maxPrice"
-                                                value="{{ request('maxPrice', 100000) }}" min="100" max="100000"
+                                                value="100000" min="100" max="100000"
                                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="relative mb-7">
-                                    <input id="fromPriceSlider" type="range" value="{{ request('minPrice', 100) }}"
+                                    <input id="fromPriceSlider" type="range" value="100"
                                         min="100" max="100000"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                                    <input id="toPriceSlider" type="range" value="{{ request('maxPrice', 100000) }}"
+                                    <input id="toPriceSlider" type="range" value="100000"
                                         min="100" max="100000"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                                 </div>
@@ -679,7 +675,7 @@
                                     <span>$100</span>
                                     <span>$100,000</span>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <style>
@@ -748,7 +744,6 @@
                         const toPriceSlider = document.querySelector("#toPriceSlider");
                         const fromPriceInput = document.querySelector("#fromPriceInput");
                         const toPriceInput = document.querySelector("#toPriceInput");
-                        const priceFilterForm = document.querySelector("#priceFilterForm");
 
                         let updatePending = false;
 
@@ -784,7 +779,6 @@
                             fromPriceInput.value = value;
                             fromPriceSlider.value = value;
                             updateSliderColors();
-                            priceFilterForm.submit();
                         }
 
                         function syncToInput() {
@@ -792,7 +786,6 @@
                             toPriceInput.value = value;
                             toPriceSlider.value = value;
                             updateSliderColors();
-                            priceFilterForm.submit();
                         }
 
                         function syncFromSlider() {
@@ -990,25 +983,25 @@
                                 <div class="">
                                     <input
                                         class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                        type="number" id="fromRatioInput" value="0.00" min="0.00" max="60.00"
+                                        type="number" id="fromRatioInput" value="0.5" min="0.5" max="2.2"
                                         step="0.01" />
                                 </div>
                                 <div class="form_carat_control_container">
                                     <input
                                         class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                        type="number" id="toRatioInput" value="60.00" min="0.00" max="60.00"
+                                        type="number" id="toRatioInput" value="2.2" min="0.5" max="2.2"
                                         step="0.01" />
                                 </div>
                             </div>
                             <div class="relative min-h-7 flex items-center">
-                                <input id="fromRatioSlider" type="range" value="0" min="0" max="60"
+                                <input id="fromRatioSlider" type="range" value="0.5" min="0.5" max="2.2"
                                     step="0.01" />
-                                <input id="toRatioSlider" type="range" value="60" min="0" max="60"
+                                <input id="toRatioSlider" type="range" value="2.2" min="0.5" max="2.2"
                                     step="0.01" />
                             </div>
                             <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
-                                <span>0ct</span>
-                                <span>60ct</span>
+                                <span>0.5</span>
+                                <span>2.2</span>
                             </div>
                         </div>
                     </div>
@@ -1070,7 +1063,7 @@
                             fromRatioInput.value = value.toFixed(2);
                             fromRatioSlider.value = value;
                             updateRatioSliderColors();
-                            RatioFilterForm.submit();
+                            
                         }
 
                         function syncRatioToInput() {
@@ -1078,19 +1071,18 @@
                             toRatioInput.value = value.toFixed(2);
                             toRatioSlider.value = value;
                             updateRatioSliderColors();
-                            RatioFilterForm.submit();
+                            
                         }
 
                         function syncRatioFromSlider() {
                             fromRatioInput.value = parseFloat(fromRatioSlider.value).toFixed(2);
                             updateRatioSliderColors();
-                            RatioFilterForm.submit();
+                            
                         }
 
                         function syncRatioToSlider() {
                             toRatioInput.value = parseFloat(toRatioSlider.value).toFixed(2);
                             updateRatioSliderColors();
-                            RatioFilterForm.submit();
                         }
 
                         const fromRatioSlider = document.querySelector("#fromRatioSlider");
@@ -1117,7 +1109,130 @@
                         </path>
                     </svg>
                 </div>
-                <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Table filter options...</div>
+                <div class="hidden py-2 text-gray-600 transition-all duration-300">
+                    <span class="text-sm">The table describes the top, flat surface of the diamond. Table % is calculated as the table width divided by the girdle diameter.</span>
+                    <div class="flex flex-col items-center">
+                        <div class="w-full">
+                            <div class="flex justify-between">
+                                <div class="">
+                                    <input
+                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        type="number" id="fromTableInput" value="3" min="3" max="88"
+                                        step="0.01" />
+                                </div>
+                                <div class="form_carat_control_container">
+                                    <input
+                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        type="number" id="toTableInput" value="88" min="3" max="88"
+                                        step="0.01" />
+                                </div>
+                            </div>
+                            <div class="relative min-h-7 flex items-center">
+                                <input id="fromTableSlider" type="range" value="3" min="3" max="88"
+                                    step="0.01" />
+                                <input id="toTableSlider" type="range" value="88" min="3" max="88"
+                                    step="0.01" />
+                            </div>
+                            <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
+                                <span>3%</span>
+                                <span>88%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        input[type="range"]#fromTableSlider::-webkit-slider-thumb,
+                        input[type="range"]#toTableSlider::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            pointer-events: all;
+                            width: 16px;
+                            height: 16px;
+                            background-color: #fff;
+                            border-radius: 100%;
+                            border: 2px solid #733D80;
+                            cursor: pointer;
+                            position: relative;
+                            z-index: 5;
+                        }
+
+                        input[type="range"]#fromTableSlider,
+                        input[type="range"]#toTableSlider {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            height: 4px;
+                            width: 100%;
+                            position: absolute;
+                            background-color: #c6c6c6;
+                            pointer-events: all;
+                            border-radius: 8px;
+                        }
+
+                        #toTableSlider {
+                            height: 0;
+                            z-index: 4;
+                        }
+                    </style>
+                    <script>
+                        function updateTableSliderColors() {
+                            const fromValue = parseFloat(fromTableSlider.value);
+                            const toValue = parseFloat(toTableSlider.value);
+                            const range = toTableSlider.max - toTableSlider.min;
+
+                            const percentFrom = ((fromValue - toTableSlider.min) / range) * 100;
+                            const percentTo = ((toValue - toTableSlider.min) / range) * 100;
+
+                            const gradient = `linear-gradient(to right,
+                            #C6C6C6 0%,
+                            #C6C6C6 ${percentFrom}%,
+                            #733D80 ${percentFrom}%,
+                            #733D80 ${percentTo}%,
+                            #C6C6C6 ${percentTo}%,
+                            #C6C6C6 100%)`;
+
+                            fromTableSlider.style.background = gradient;
+                            toTableSlider.style.background = gradient;
+                        }
+
+                        function syncTableFromInput() {
+                            let value = Math.min(parseFloat(fromTableInput.value), parseFloat(toTableInput.value));
+                            fromTableInput.value = value.toFixed(2);
+                            fromTableSlider.value = value;
+                            updateTableSliderColors();
+                            
+                        }
+
+                        function syncTableToInput() {
+                            let value = Math.max(parseFloat(toTableInput.value), parseFloat(fromTableInput.value));
+                            toTableInput.value = value.toFixed(2);
+                            toTableSlider.value = value;
+                            updateTableSliderColors();
+                            
+                        }
+
+                        function syncTableFromSlider() {
+                            fromTableInput.value = parseFloat(fromTableSlider.value).toFixed(2);
+                            updateTableSliderColors();
+                            
+                        }
+
+                        function syncTableToSlider() {
+                            toTableInput.value = parseFloat(toTableSlider.value).toFixed(2);
+                            updateTableSliderColors();
+                        }
+
+                        const fromTableSlider = document.querySelector("#fromTableSlider");
+                        const toTableSlider = document.querySelector("#toTableSlider");
+                        const fromTableInput = document.querySelector("#fromTableInput");
+                        const toTableInput = document.querySelector("#toTableInput");
+
+                        fromTableInput.addEventListener("input", syncTableFromInput);
+                        toTableInput.addEventListener("input", syncTableToInput);
+                        fromTableSlider.addEventListener("input", syncTableFromSlider);
+                        toTableSlider.addEventListener("input", syncTableToSlider);
+
+                        // Initialize slider colors
+                        updateTableSliderColors();
+                    </script>
+                </div>
                 <!-- End Table Filter -->
 
                 <!-- Start Depth Filter -->
@@ -1128,7 +1243,127 @@
                         </path>
                     </svg>
                 </div>
-                <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Depth filter options...</div>
+                <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">
+                    <span class="text-sm">The overall height of the diamond. Depth % is calculated as the height of the diamond divided by the girdle diameter.</span>
+                    <div class="flex flex-col items-center">
+                        <div class="w-full">
+                            <div class="flex justify-between">
+                                <div>
+                                    <input
+                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        type="number" id="fromDepthInput" value="33" min="33" max="917"
+                                        step="0.01" />
+                                </div>
+                                <div>
+                                    <input
+                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
+                                        type="number" id="toDepthInput" value="917" min="33" max="917"
+                                        step="0.01" />
+                                </div>
+                            </div>
+                            <div class="relative min-h-7 flex items-center">
+                                <input id="fromDepthSlider" type="range" value="33" min="33" max="917"
+                                    step="0.01" />
+                                <input id="toDepthSlider" type="range" value="917" min="33" max="917"
+                                    step="0.01" />
+                            </div>
+                            <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
+                                <span>33%</span>
+                                <span>917%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        input[type="range"]#fromDepthSlider::-webkit-slider-thumb,
+                        input[type="range"]#toDepthSlider::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            pointer-events: all;
+                            width: 16px;
+                            height: 16px;
+                            background-color: #fff;
+                            border-radius: 100%;
+                            border: 2px solid #733D80;
+                            cursor: pointer;
+                            position: relative;
+                            z-index: 5;
+                        }
+
+                        input[type="range"]#fromDepthSlider,
+                        input[type="range"]#toDepthSlider {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            height: 4px;
+                            width: 100%;
+                            position: absolute;
+                            background-color: #c6c6c6;
+                            pointer-events: all;
+                            border-radius: 8px;
+                        }
+
+                        #toDepthSlider {
+                            height: 0;
+                            z-index: 4;
+                        }
+                    </style>
+                    <script>
+                        function updateDepthSliderColors() {
+                            const fromValue = parseFloat(fromDepthSlider.value);
+                            const toValue = parseFloat(toDepthSlider.value);
+                            const range = toDepthSlider.max - toDepthSlider.min;
+
+                            const percentFrom = ((fromValue - toDepthSlider.min) / range) * 100;
+                            const percentTo = ((toValue - toDepthSlider.min) / range) * 100;
+
+                            const gradient = `linear-gradient(to right,
+                            #C6C6C6 0%,
+                            #C6C6C6 ${percentFrom}%,
+                            #733D80 ${percentFrom}%,
+                            #733D80 ${percentTo}%,
+                            #C6C6C6 ${percentTo}%,
+                            #C6C6C6 100%)`;
+
+                            fromDepthSlider.style.background = gradient;
+                            toDepthSlider.style.background = gradient;
+                        }
+
+                        function syncDepthFromInput() {
+                            let value = Math.min(parseFloat(fromDepthInput.value), parseFloat(toDepthInput.value));
+                            fromDepthInput.value = value.toFixed(2);
+                            fromDepthSlider.value = value;
+                            updateDepthSliderColors();
+                        }
+
+                        function syncDepthToInput() {
+                            let value = Math.max(parseFloat(toDepthInput.value), parseFloat(fromDepthInput.value));
+                            toDepthInput.value = value.toFixed(2);
+                            toDepthSlider.value = value;
+                            updateDepthSliderColors();
+                        }
+
+                        function syncDepthFromSlider() {
+                            fromDepthInput.value = parseFloat(fromDepthSlider.value).toFixed(2);
+                            updateDepthSliderColors();
+                        }
+
+                        function syncDepthToSlider() {
+                            toDepthInput.value = parseFloat(toDepthSlider.value).toFixed(2);
+                            updateDepthSliderColors();
+                        }
+
+                        const fromDepthSlider = document.querySelector("#fromDepthSlider");
+                        const toDepthSlider = document.querySelector("#toDepthSlider");
+                        const fromDepthInput = document.querySelector("#fromDepthInput");
+                        const toDepthInput = document.querySelector("#toDepthInput");
+
+                        fromDepthInput.addEventListener("input", syncDepthFromInput);
+                        toDepthInput.addEventListener("input", syncDepthToInput);
+                        fromDepthSlider.addEventListener("input", syncDepthFromSlider);
+                        toDepthSlider.addEventListener("input", syncDepthToSlider);
+
+                        // Initialize slider colors
+                        updateDepthSliderColors();
+                    </script>
+                </div>
                 <!-- End Depth Filter -->
 
                 <!-- Start Fancy colors Filter -->
@@ -1139,7 +1374,29 @@
                         </path>
                     </svg>
                 </div>
-                <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Fancy colors filter options...
+                <div class="hidden py-2 text-gray-600 transition-all duration-300">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
+                            <img src="{{ asset('images/diamonds/blue.png') }}" class="w-32"
+                                alt="Blue">
+                            <span>Blue</span>
+                        </div>
+                        <div class="bg-light-grey-1 flex flex-col justify-between items-center px-4 py-5 gap-9">
+                            <img src="{{ asset('images/diamonds/pink.png') }}" class="w-32"
+                                alt="Pink">
+                            <span>Pink</span>
+                        </div>
+                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
+                            <img src="{{ asset('images/diamonds/green.png') }}" class="w-32"
+                                alt="Green">
+                            <span>Green</span>
+                        </div>
+                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
+                            <img src="{{ asset('images/diamonds/orange.png') }}" class="w-32"
+                                alt="Orange">
+                            <span>Orange</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- End Fancy colors Filter -->
 
