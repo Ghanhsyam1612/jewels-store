@@ -1,42 +1,42 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-6 py-10">
         {{-- Header Section --}}
-        <h1 class="text-4xl text-center font-literata text-primary font-semibold mb-8">ROAYA CREATED DIAMONDS</h1>
+        <h1 class="text-3xl text-center font-montserrat text-primary font-semibold mb-8">ROAYA CREATED DIAMONDS</h1>
 
         {{-- Features Section --}}
         <div class="flex justify-center items-center gap-8 mb-12">
-            <div class="flex items-center gap-2 font-medium text-primary">
+            <div class="flex items-center gap-2 font-medium text-sm text-primary">
                 <img src="{{ asset('images/Impeccable origin.png') }}" alt="Impeccable Origin" class="w-6 h-6">
                 <span>Impeccable origin</span>
             </div>
-            <div class="flex items-center gap-2 font-medium text-primary">
+            <div class="flex items-center gap-2 font-medium text-sm text-primary">
                 <img src="{{ asset('images/Master Cutter.png') }}" alt="Master cutters" class="w-6 h-6">
                 <span>Master cutters</span>
             </div>
-            <div class="flex items-center gap-2 font-medium text-primary">
+            <div class="flex items-center gap-2 font-medium text-sm text-primary">
                 <img src="{{ asset('images/Value Guarantee.png') }}" alt="100% value guarantee" class="w-6 h-6">
                 <span>100% value guarantee</span>
             </div>
             <a href="#" id="openDrawer"
-                class="text-primary font-medium underline-offset-4 underline decoration-2 decoration-primary">Learn why they
+                class="text-primary text-sm font-medium underline-offset-4 underline decoration-2 decoration-primary">Learn why they
                 are unmatched</a>
         </div>
 
         {{-- Filter Section --}}
         <div class="flex flex-row gap-10">
+            {{-- Shape --}}
             <div class="flex flex-col gap-2">
-                <span class="font-medium" id="diamondShape">Shape : Round</span>
+                <span class="font-medium text-sm" id="diamondShape">Shape : Round</span>
                 <div class="grid grid-cols-10 gap-2">
                     @foreach (['round', 'oval', 'cushion', 'pear', 'princess', 'emerald', 'heart', 'radiant', 'triangular', 'asscher'] as $shape)
                         <img src="{{ asset('Shape/' . $shape . '.svg') }}" alt="{{ ucfirst($shape) }}"
-                            class="w-7 cursor-pointer diamond-shape {{ $shape === 'round' }}"
+                            class="w-6 cursor-pointer diamond-shape {{ $shape === 'round' }}"
                             data-shape="{{ ucfirst($shape) }}" onclick="selectDiamondShape('{{ ucfirst($shape) }}', this)">
                     @endforeach
                 </div>
             </div>
-
             <script>
                 function selectDiamondShape(shape, element) {
                     // Update shape text
@@ -72,40 +72,41 @@
                 }
             </script>
 
+            {{-- Carat --}}
             <div class="w-1/3 grid grid-cols-6 gap-4 mb-4">
                 <div class="flex flex-col gap-3">
-                    <label for="carat" class="text-base text-gray-500">Carat</label>
+                    <label for="carat" class="text-sm text-gray-500">Carat</label>
                     <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('carat')">
-                        <label for="carat" class="text-base font-medium">All</label>
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="carat" class="w-5 h-5">
+                        <label for="carat" class="text-sm font-medium">All</label>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="carat" class="w-4 h-4">
                     </div>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <label for="price" class="text-base text-gray-500">Price</label>
+                    <label for="price" class="text-sm text-gray-500">Price</label>
                     <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('price')">
-                        <label for="price" class="text-base font-medium">All</label>
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="price" class="w-5 h-5">
+                        <label for="price" class="text-sm font-medium">All</label>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="price" class="w-4 h-4">
                     </div>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <label for="cut" class="text-base text-gray-500">Cut</label>
+                    <label for="cut" class="text-sm text-gray-500">Cut</label>
                     <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('cut')">
-                        <label for="cut" class="text-base font-medium">All</label>
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="cut" class="w-5 h-5">
+                        <label for="cut" class="text-sm font-medium">All</label>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="cut" class="w-4 h-4">
                     </div>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <label for="clarity" class="text-base text-gray-500">Clarity</label>
+                    <label for="clarity" class="text-sm text-gray-500">Clarity</label>
                     <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('clarity')">
-                        <label for="clarity" class="text-base font-medium">All</label>
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="clarity" class="w-5 h-5">
+                        <label for="clarity" class="text-sm font-medium">All</label>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="clarity" class="w-4 h-4">
                     </div>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <label for="color" class="text-base text-gray-500">Color</label>
+                    <label for="color" class="text-sm text-gray-500">Color</label>
                     <div class="flex flex-row gap-3 cursor-pointer" onclick="openFilterDrawer('color')">
-                        <label for="color" class="text-base font-medium">All</label>
-                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="color" class="w-5 h-5">
+                        <label for="color" class="text-sm font-medium">All</label>
+                        <img src="{{ asset('Shape/down-arrow.svg') }}" alt="color" class="w-4 h-4">
                     </div>
                 </div>
             </div>
@@ -115,13 +116,13 @@
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead>
-                    <tr class="border-b">
-                        <th class="text-left py-4 px-4">SHAPE</th>
-                        <th class="text-left py-4 px-4">CARAT</th>
-                        <th class="text-left py-4 px-4">COLOR</th>
-                        <th class="text-left py-4 px-4">CUT</th>
-                        <th class="text-left py-4 px-4">CLARITY</th>
-                        <th class="text-right py-4 px-4">PRICE</th>
+                    <tr class="bg-primary text-gold">
+                        <th class="text-left text-sm py-3 px-4">SHAPE</th>
+                        <th class="text-left text-sm py-3 px-4">CARAT</th>
+                        <th class="text-left text-sm py-3 px-4">COLOR</th>
+                        <th class="text-left text-sm py-3 px-4">CUT</th>
+                        <th class="text-left text-sm py-3 px-4">CLARITY</th>
+                        <th class="text-right text-sm py-3 px-4">PRICE</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1412,7 +1413,44 @@
                         </svg>
                     </div>
                 </div>
-                <div class="hidden px-4 py-2 text-gray-600 transition-all duration-300">Sorting By filter options...</div>
+                <div class="hidden flex flex-col gap-3 py-2 text-gray-600 transition-all duration-300">
+                    <button class="px-4 py-2 w-36 border-2 border-gray-300 rounded hover:border-primary transition-all">Featured</button>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium uppercase">Price</span>
+                        <div class="flex flex-row gap-1">
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Price hight to low</button>
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Price low to high</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium uppercase">Carat</span>
+                        <div class="flex flex-row gap-1">
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Carat hight to low</button>
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Carat low to high</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium uppercase">Color</span>
+                        <div class="flex flex-row gap-1">
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Color hight to low</button>
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Color low to high</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium uppercase">Cut</span>
+                        <div class="flex flex-row gap-1">
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Cut hight to low</button>
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Cut low to high</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium uppercase">Clarity</span>
+                        <div class="flex flex-row gap-1">
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Clarity hight to low</button>
+                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Clarity low to high</button>
+                        </div>
+                    </div>
+                </div>
                 <!-- End Sorting By Filter -->
             </div>
 
