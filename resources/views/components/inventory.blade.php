@@ -76,7 +76,7 @@
                     </a>
 
                     <!-- Asscher -->
-                    <a href="route('inventory', ['shape' => 'asscher'])"
+                    <a href="{{ route('inventory', ['shape' => 'asscher']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25" alt="Asscher Shape">
                     </a>
@@ -88,13 +88,13 @@
                     </a>
 
                     <!-- Oval -->
-                    <a href="route('inventory', ['shape' => 'oval'])"
+                    <a href="{{ route('inventory', ['shape' => 'oval']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                     </a>
 
                     <!-- Emerald -->
-                    <a href="route('inventory', ['shape' => 'emerald'])"
+                    <a href="{{ route('inventory', ['shape' => 'emerald']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25" alt="Emerald Shape">
                     </a>
@@ -106,82 +106,82 @@
                     </a>
 
                     <!-- Marquise -->
-                    <a href="route('inventory', ['shape' => 'marquise'])"
+                    <a href="{{ route('inventory', ['shape' => 'marquise']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25"
                             alt="Marquise Shape">
                     </a>
 
                     <!-- Heart -->
-                    <a href="route('inventory', ['shape' => 'heart'])"
+                    <a href="{{ route('inventory', ['shape' => 'heart']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                     </a>
 
                     <!-- Rose Cut -->
-                    <a href="route('inventory', ['shape' => 'rose-cut'])"
+                    <a href="{{ route('inventory', ['shape' => 'rose-cut']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25"
                             alt="Rose Cut Shape">
                     </a>
 
                     <!-- Old European -->
-                    <a href="route('inventory', ['shape' => 'old-european'])"
+                    <a href="{{ route('inventory', ['shape' => 'old-european']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25"
                             alt="Old European Shape">
                     </a>
 
                     <!-- Half Moon -->
-                    <a href="route('inventory', ['shape' => 'half-moon'])"
+                    <a href="{{ route('inventory', ['shape' => 'half-moon']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25"
                             alt="Half Moon Shape">
                     </a>
 
                     <!-- Baguette Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'baguette-trapezoid'])"
+                    <a href="{{ route('inventory', ['shape' => 'baguette-trapezoid']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
                         <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25"
                             alt="Baguette Trapezoid Shape">
                     </a>
 
                     <!-- Baguette -->
-                    <a href="route('inventory', ['shape' => 'baguette'])"
+                    <a href="{{ route('inventory', ['shape' => 'baguette']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25"
                             alt="Baguette Shape">
                     </a>
 
                     <!-- Hexagon -->
-                    <a href="route('inventory', ['shape' => 'hexagon'])"
+                    <a href="{{ route('inventory', ['shape' => 'hexagon']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25"
                             alt="Hexagon Shape">
                     </a>
 
                     <!-- Kite -->
-                    <a href="route('inventory', ['shape' => 'kite'])"
+                    <a href="{{ route('inventory', ['shape' => 'kite']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
                     </a>
 
                     <!-- Old Mine -->
-                    <a href="route('inventory', ['shape' => 'old-mine'])"
+                    <a href="{{ route('inventory', ['shape' => 'old-mine']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25"
                             alt="Old Mine Shape">
                     </a>
 
                     <!-- Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'trapezoid'])"
+                    <a href="{{ route('inventory', ['shape' => 'trapezoid']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25"
                             alt="Trapezoid Shape">
                     </a>
 
                     <!-- Triangular -->
-                    <a href="route('inventory', ['shape' => ''])"
+                    <a href="{{ route('inventory', ['shape' => 'triangular']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
                             alt="Triangular Shape">
@@ -189,6 +189,7 @@
                     <!-- End Shape Svg -->
                 </div>
             </div>
+            <!-- End Shape Filter -->
 
             <!-- Price Filter -->
             <div class="border-t py-4" id="priceDropdownIcon">
@@ -550,6 +551,8 @@
                     </script>
                 </div>
             </div>
+            <!-- End Carat Filter -->
+
 
             <!-- Cut Filter -->
             <div class="border-t py-4" id="cutDropdownIcon">
@@ -1841,7 +1844,7 @@
                     </a>
 
                     <!-- Asscher -->
-                    <a href="route('inventory', ['shape' => 'asscher'])"
+                    <a href="{{ route('inventory', ['shape' => 'asscher']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25"
                             alt="Asscher Shape">
@@ -1855,13 +1858,13 @@
                     </a>
 
                     <!-- Oval -->
-                    <a href="route('inventory', ['shape' => 'oval'])"
+                    <a href="{{ route('inventory', ['shape' => 'oval']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                     </a>
 
                     <!-- Emerald -->
-                    <a href="route('inventory', ['shape' => 'emerald'])"
+                    <a href="{{ route('inventory', ['shape' => 'emerald']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25"
                             alt="Emerald Shape">
@@ -1874,83 +1877,83 @@
                     </a>
 
                     <!-- Marquise -->
-                    <a href="route('inventory', ['shape' => 'marquise'])"
+                    <a href="{{ route('inventory', ['shape' => 'marquise']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25"
                             alt="Marquise Shape">
                     </a>
 
                     <!-- Heart -->
-                    <a href="route('inventory', ['shape' => 'heart'])"
+                    <a href="{{ route('inventory', ['shape' => 'heart']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                     </a>
                 </div>
                 <div class="flex">
                     <!-- Rose Cut -->
-                    <a href="route('inventory', ['shape' => 'rose-cut'])"
+                    <a href="{{ route('inventory', ['shape' => 'rose-cut']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25"
                             alt="Rose Cut Shape">
                     </a>
 
                     <!-- Old European -->
-                    <a href="route('inventory', ['shape' => 'old-european'])"
+                    <a href="{{ route('inventory', ['shape' => 'old-european']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25"
                             alt="Old European Shape">
                     </a>
 
                     <!-- Half Moon -->
-                    <a href="route('inventory', ['shape' => 'half-moon'])"
+                    <a href="{{ route('inventory', ['shape' => 'half-moon']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25"
                             alt="Half Moon Shape">
                     </a>
 
                     <!-- Baguette Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'baguette-trapezoid'])"
+                    <a href="{{ route('inventory', ['shape' => 'baguette-trapezoid']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
                         <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25"
                             alt="Baguette Trapezoid Shape">
                     </a>
 
                     <!-- Baguette -->
-                    <a href="route('inventory', ['shape' => 'baguette'])"
+                    <a href="{{ route('inventory', ['shape' => 'baguette']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25"
                             alt="Baguette Shape">
                     </a>
 
                     <!-- Hexagon -->
-                    <a href="route('inventory', ['shape' => 'hexagon'])"
+                    <a href="{{ route('inventory', ['shape' => 'hexagon']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25"
                             alt="Hexagon Shape">
                     </a>
 
                     <!-- Kite -->
-                    <a href="route('inventory', ['shape' => 'kite'])"
+                    <a href="{{ route('inventory', ['shape' => 'kite']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
                     </a>
 
                     <!-- Old Mine -->
-                    <a href="route('inventory', ['shape' => 'old-mine'])"
+                    <a href="{{ route('inventory', ['shape' => 'old-mine']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25"
                             alt="Old Mine Shape">
                     </a>
 
                     <!-- Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'trapezoid'])"
+                    <a href="{{ route('inventory', ['shape' => 'trapezoid']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25"
                             alt="Trapezoid Shape">
                     </a>
 
                     <!-- Triangular -->
-                    <a href="route('inventory', ['shape' => ''])"
+                    <a href="{{ route('inventory', ['shape' => 'triangular']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
                             alt="Triangular Shape">
@@ -2288,24 +2291,28 @@
         <div class="flex items-center justify-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Cut</h5>
             <div class="w-full max-w-md">
-                <div class="relative mb-3 flex items-center mt-3">
-                    <input
-                        id="fromCutSlider"
-                        type="range"
-                        value="0"
-                        min="0"
-                        max="4"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                    <input
-                        id="toCutSlider"
-                        type="range"
-                        value="4"
-                        min="0"
-                        max="4"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                </div>
+                <form id="cutFilterForm" action="{{ route('inventory') }}" method="GET">
+                    <div class="relative mb-3 flex items-center mt-3">
+                        <input
+                            id="fromCutSlider"
+                            name="fromCutSlider"
+                            type="range"
+                            value="{{ request('fromCutSlider', 0) }}"
+                            min="0"
+                            max="4"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                        <input
+                            id="toCutSlider"
+                            name="toCutSlider"
+                            type="range"
+                            value="{{ request('toCutSlider', 4) }}"
+                            min="0"
+                            max="4"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                    </div>
+                </form>
 
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                     <span>Fair</span>
@@ -2335,24 +2342,20 @@
             input[type="range"]#toCutSlider::-moz-range-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
-                width: 24px;
-                height: 24px;
+                width: 16px;
+                height: 16px;
                 background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
+                border-radius: 100%;
+                border: 2px solid #733D80;
                 cursor: pointer;
                 position: relative;
                 z-index: 5;
-            }
-
-            input[type="range"]#toCutSlider {
-                height: 0;
-                z-index: 4;
             }
         </style>
         <script>
             const fromCutSlider = document.querySelector("#fromCutSlider");
             const toCutSlider = document.querySelector("#toCutSlider");
+            const cutFilterForm = document.querySelector("#cutFilterForm");
 
             function updateCutSliderColors() {
                 const min = parseInt(fromCutSlider.min);
@@ -2379,12 +2382,14 @@
                 let value = Math.min(parseInt(fromCutSlider.value), parseInt(toCutSlider.value));
                 fromCutSlider.value = value;
                 updateCutSliderColors();
+                cutFilterForm.submit();
             }
 
             function syncCutToSlider() {
                 let value = Math.max(parseInt(toCutSlider.value), parseInt(fromCutSlider.value));
                 toCutSlider.value = value;
                 updateCutSliderColors();
+                cutFilterForm.submit();
             }
 
             fromCutSlider.addEventListener("input", syncCutFromSlider);
@@ -2399,24 +2404,28 @@
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Color</h5>
             <div class="w-full max-w-md mt-3">
-                <div class="relative mb-3 flex items-center">
-                    <input
-                        id="fromColorSlider"
-                        type="range"
-                        value="0"
-                        min="0"
-                        max="9"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                    <input
-                        id="toColorSlider"
-                        type="range"
-                        value="9"
-                        min="0"
-                        max="9"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                </div>
+                <form id="colorFilterForm" action="{{ route('inventory') }}" method="GET">
+                    <div class="relative mb-3 flex items-center">
+                        <input
+                            id="fromColorSlider"
+                            name="fromColorSlider"
+                            type="range"
+                            value="{{ request('fromColorSlider', 0) }}"
+                            min="0"
+                            max="9"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                        <input
+                            id="toColorSlider"
+                            name="toColorSlider"
+                            type="range"
+                            value="{{ request('toColorSlider', 9) }}"
+                            min="0"
+                            max="9"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                    </div>
+                </form>
 
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                     <span>M</span>
@@ -2451,24 +2460,20 @@
             input[type="range"]#toColorSlider::-moz-range-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
-                width: 24px;
-                height: 24px;
+                width: 16px;
+                height: 16px;
                 background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
+                border-radius: 100%;
+                border: 2px solid #733D80;
                 cursor: pointer;
                 position: relative;
                 z-index: 5;
-            }
-
-            input[type="range"]#toColorSlider {
-                height: 0;
-                z-index: 4;
             }
         </style>
         <script>
             const fromColorSlider = document.querySelector("#fromColorSlider");
             const toColorSlider = document.querySelector("#toColorSlider");
+            const colorFilterForm = document.querySelector("#colorFilterForm");
 
             function updateColorSliderColors() {
                 const min = parseInt(fromColorSlider.min);
@@ -2495,12 +2500,14 @@
                 let value = Math.min(parseInt(fromColorSlider.value), parseInt(toColorSlider.value));
                 fromColorSlider.value = value;
                 updateColorSliderColors();
+                colorFilterForm.submit();
             }
 
             function syncColorToSlider() {
                 let value = Math.max(parseInt(toColorSlider.value), parseInt(fromColorSlider.value));
                 toColorSlider.value = value;
                 updateColorSliderColors();
+                colorFilterForm.submit();
             }
 
             fromColorSlider.addEventListener("input", syncColorFromSlider);
@@ -2515,24 +2522,28 @@
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Clarity</h5>
             <div class="w-full max-w-md mt-3">
-                <div class="relative mb-3 flex items-center">
-                    <input
-                        id="fromClaritySlider"
-                        type="range"
-                        value="0"
-                        min="0"
-                        max="11"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                    <input
-                        id="toClaritySlider"
-                        type="range"
-                        value="11"
-                        min="0"
-                        max="11"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                </div>
+                <form id="clarityFilterForm" action="{{ route('inventory') }}" method="GET">
+                    <div class="relative mb-3 flex items-center">
+                        <input
+                            id="fromClaritySlider"
+                            name="fromClaritySlider"
+                            type="range"
+                            value="{{ request('fromClaritySlider', 0) }}"
+                            min="0"
+                            max="11"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                        <input
+                            id="toClaritySlider"
+                            name="toClaritySlider"
+                            type="range"
+                            value="{{ request('toClaritySlider', 11) }}"
+                            min="0"
+                            max="11"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                    </div>
+                </form>
 
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                     <span>I2</span>
@@ -2568,24 +2579,20 @@
             input[type="range"]#toClaritySlider::-moz-range-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
-                width: 24px;
-                height: 24px;
+                width: 16px;
+                height: 16px;
                 background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
+                border-radius: 100%;
+                border: 2px solid #733D80;
                 cursor: pointer;
                 position: relative;
                 z-index: 5;
-            }
-
-            input[type="range"]#toClaritySlider {
-                height: 0;
-                z-index: 4;
             }
         </style>
         <script>
             const fromClaritySlider = document.querySelector("#fromClaritySlider");
             const toClaritySlider = document.querySelector("#toClaritySlider");
+            const clarityFilterForm = document.querySelector("#clarityFilterForm");
 
             function updateClaritySliderColors() {
                 const min = parseInt(fromClaritySlider.min);
@@ -2612,12 +2619,14 @@
                 let value = Math.min(parseInt(fromClaritySlider.value), parseInt(toClaritySlider.value));
                 fromClaritySlider.value = value;
                 updateClaritySliderColors();
+                clarityFilterForm.submit();
             }
 
             function syncClarityToSlider() {
                 let value = Math.max(parseInt(toClaritySlider.value), parseInt(fromClaritySlider.value));
                 toClaritySlider.value = value;
                 updateClaritySliderColors();
+                clarityFilterForm.submit();
             }
 
             fromClaritySlider.addEventListener("input", syncClarityFromSlider);
@@ -2637,6 +2646,9 @@
             <!-- Start Certificate Dropdown , Method Dropdown , Table Dropdown -->
             <div class="grid grid-cols-2 md:flex md:flex-row items-center gap-4">
                 <!-- Start Certificate Dropdown -->
+                @php
+                $selectedLab = request()->has('lab') ? explode(',', request()->lab) : [];
+                @endphp
                 <div id="styleDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
@@ -2680,25 +2692,18 @@
                         </div>
                         <div class="py-2">
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">IGI</span>
-                            </label>
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
+                                <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="GIA" {{ in_array('GIA', $selectedLab) ? 'checked' : '' }}>
                                 <span class="text-sm font-montserrat">GIA</span>
                             </label>
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">GCAL</span>
-                            </label>
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">NON CERTIFIED</span>
+                                <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="ROAYA" {{ in_array('ROAYA', $selectedLab) ? 'checked' : '' }}>
+                                <span class="text-sm font-montserrat"> ROAYA CERTIFIED</span>
                             </label>
                         </div>
                     </div>
                 </div>
                 <!-- End Certificate Dropdown -->
+
                 <!-- Start Certificate Dropdown Script -->
                 <script>
                     const styleIcon = document.getElementById('styleDropdownIcon');
@@ -2722,16 +2727,34 @@
                     });
 
                     // Prevent dropdown from closing when clicking checkboxes
-                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                    checkboxes.forEach(checkbox => {
+                    const labCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+                    labCheckboxes.forEach(checkbox => {
                         checkbox.addEventListener('click', (e) => {
                             e.stopPropagation();
+                        });
+                    });
+                    // Handle checkbox selection and filter results
+                    labCheckboxes.forEach(checkbox => {
+                        checkbox.addEventListener('change', () => {
+                            let selectedLabs = Array.from(document.querySelectorAll('input[name="lab[]"]:checked'))
+                                .map(cb => cb.value).join(',');
+
+                            let url = new URL(window.location.href);
+                            if (selectedLabs.length > 0) {
+                                url.searchParams.set("lab", selectedLabs);
+                            } else {
+                                url.searchParams.delete("lab");
+                            }
+                            window.location.href = url.toString();  
                         });
                     });
                 </script>
                 <!-- End Certificate Dropdown Script -->
 
                 <!-- Start Method Dropdown -->
+                @php
+                $selectedMethods = request()->has('growth_type') ? explode(',', request()->growth_type) : [];
+                @endphp
                 <div id="methodDropdownIcon"
                     class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                     <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
@@ -2776,47 +2799,69 @@
                         </div>
                         <div class="py-2">
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
+                                <input type="checkbox" class="mr-2 accent-black" name="growth_type[]" value="HPHT" {{ in_array('HPHT', $selectedMethods) ? 'checked' : '' }}>
                                 <span class="text-sm font-montserrat">HPHT</span>
                             </label>
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
+                                <input type="checkbox" class="mr-2 accent-black" name="growth_type[]" value="CVD" {{ in_array('CVD', $selectedMethods) ? 'checked' : '' }}>
                                 <span class="text-sm font-montserrat">CVD</span>
                             </label>
                         </div>
                     </div>
                 </div>
                 <!-- End Method Dropdown -->
+
                 <!-- Start Method Dropdown Script -->
                 <script>
-                    const methodIcon = document.getElementById('methodDropdownIcon');
-                    const methodDropdown = document.getElementById('methodDropdown');
-                    const methodDownArrow = document.getElementById('methodDownArrow');
-                    const methodUpArrow = document.getElementById('methodUpArrow');
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const methodIcon = document.getElementById("methodDropdownIcon");
+                        const methodDropdown = document.getElementById("methodDropdown");
+                        const methodDownArrow = document.getElementById("methodDownArrow");
+                        const methodUpArrow = document.getElementById("methodUpArrow");
 
-                    methodIcon.addEventListener('click', () => {
-                        methodDropdown.classList.toggle('hidden');
-                        methodDownArrow.classList.toggle('hidden');
-                        methodUpArrow.classList.toggle('hidden');
-                    });
+                        // Toggle dropdown on icon click
+                        methodIcon.addEventListener("click", (event) => {
+                            event.stopPropagation(); // Prevent triggering document click event
+                            methodDropdown.classList.toggle("hidden");
+                            methodDownArrow.classList.toggle("hidden");
+                            methodUpArrow.classList.toggle("hidden");
+                        });
 
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!methodIcon.contains(e.target) && !methodDropdown.contains(e.target)) {
-                            methodDropdown.classList.add('hidden');
-                            methodDownArrow.classList.remove('hidden');
-                            methodUpArrow.classList.add('hidden');
-                        }
-                    });
+                        // Close dropdown when clicking outside
+                        document.addEventListener("click", (e) => {
+                            if (!methodIcon.contains(e.target) && !methodDropdown.contains(e.target)) {
+                                methodDropdown.classList.add("hidden");
+                                methodDownArrow.classList.remove("hidden");
+                                methodUpArrow.classList.add("hidden");
+                            }
+                        });
 
-                    // Prevent dropdown from closing when clicking checkboxes
-                    const methodCheckboxes = methodDropdown.querySelectorAll('input[type="checkbox"]');
-                    methodCheckboxes.forEach(checkbox => {
-                        checkbox.addEventListener('click', (e) => {
-                            e.stopPropagation();
+                        // Prevent dropdown from closing when clicking checkboxes
+                        const methodCheckboxes = methodDropdown.querySelectorAll('input[type="checkbox"]');
+                        methodCheckboxes.forEach(checkbox => {
+                            checkbox.addEventListener("click", (e) => {
+                                e.stopPropagation(); // Stop click event from reaching document
+                            });
+                        });
+
+                        // Handle checkbox selection and filter results
+                        methodCheckboxes.forEach(checkbox => {
+                            checkbox.addEventListener("change", () => {
+                                let selectedMethods = Array.from(document.querySelectorAll('input[name="growth_type[]"]:checked'))
+                                    .map(cb => cb.value).join(',');
+
+                                let url = new URL(window.location.href);
+                                if (selectedMethods.length > 0) {
+                                    url.searchParams.set("growth_type", selectedMethods);
+                                } else {
+                                    url.searchParams.delete("growth_type");
+                                }
+                                window.location.href = url.toString();
+                            });
                         });
                     });
                 </script>
+
                 <!-- End Method Dropdown Script -->
 
                 <!-- Start Table Dropdown -->
@@ -2866,16 +2911,16 @@
                                 <div class="flex justify-between">
                                     <div>
                                         <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="fromTableInput" value="50.00" min="50.00" max="80.00" step="0.01" />
+                                            id="fromTableInput" name="table_min" value="{{ request('table_min', 50) }}" min="50.00" max="80.00" step="0.01" />
                                     </div>
                                     <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toTableInput"
-                                            value="80.00" min="50.00" max="80.00" step="0.01" />
+                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" 
+                                        id="toTableInput" name="table_max" value="{{ request('table_max', 80) }}" min="50.00" max="80.00" step="0.01" />
                                     </div>
                                 </div>
                                 <div class="relative min-h-7 flex items-center">
-                                    <input id="fromTableSlider" type="range" value="50" min="50" max="80" step="0.01" />
-                                    <input id="toTableSlider" type="range" value="80" min="50" max="80" step="0.01" />
+                                    <input id="fromTableSlider" type="range" name="table_min" value="{{ request('table_min', 50) }}" min="50" max="80" step="0.01" />
+                                    <input id="toTableSlider" type="range" name="table_max" value="{{ request('table_max', 80) }}" min="50" max="80" step="0.01" />
                                 </div>
                             </div>
                         </div>
@@ -2912,6 +2957,8 @@
                             }
                         </style>
                         <script>
+
+                            
                             function updateTableSliderColors() {
                                 const fromValue = parseFloat(fromTableSlider.value);
                                 const toValue = parseFloat(toTableSlider.value);
@@ -2937,6 +2984,7 @@
                                 fromTableInput.value = value.toFixed(2);
                                 fromTableSlider.value = value;
                                 updateTableSliderColors();
+                                
                             }
 
                             function syncTableToInput() {
@@ -2956,10 +3004,7 @@
                                 updateTableSliderColors();
                             }
 
-                            const fromTableSlider = document.querySelector("#fromTableSlider");
-                            const toTableSlider = document.querySelector("#toTableSlider");
-                            const fromTableInput = document.querySelector("#fromTableInput");
-                            const toTableInput = document.querySelector("#toTableInput");
+                           
 
                             fromTableInput.addEventListener("input", syncTableFromInput);
                             toTableInput.addEventListener("input", syncTableToInput);
@@ -3591,7 +3636,7 @@
                                         @endif
                                     </div>
 
-                                    <a href="#"
+                                    <a href="{{ asset($diamond->certificate_link) }}" target="_blank"
                                         class="text-primary underline-offset-2 underline hover:text-blue-800 text-center mt-1 text-xs font-montserrat font-bold">
                                         View Diamond Certificate
                                     </a>
@@ -3678,31 +3723,36 @@
 
     <!-- Start Load More Script -->
     <script>
-        document.getElementById('load-more').addEventListener('click', function() {
+        document.getElementById('load-more')?.addEventListener('click', function() {
             let button = this;
             let currentPage = parseInt(button.getAttribute('data-page'));
             let nextPage = currentPage + 1;
 
             // Show loading state
             button.innerHTML = `
-                        <div class="loader">
-                            <div class="dot dot-1"></div>
-                            <div class="dot dot-2"></div>
-                            <div class="dot dot-3"></div>
-                            <div class="dot dot-4"></div>
-                            <div class="dot dot-5"></div>
-                        </div>
-                        `;
+                <div class="loader">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-5"></div>
+                </div>
+            `;
             button.disabled = true;
 
-            fetch(`/inventory?page=${nextPage}`, {
+            // Get all current filter values
+            const params = new URLSearchParams(window.location.search);
+            params.set('page', nextPage);
+
+            // Make the AJAX request with filters
+            fetch(`/inventory?${params.toString()}`, {
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest'
                     }
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Insert new content before the last table row (load more button row)
+                    // Insert new content before the last table row
                     const tbody = document.querySelector('table tbody');
                     tbody.insertAdjacentHTML('beforeend', data.html);
 
@@ -3717,6 +3767,9 @@
                     if (!data.hasMorePages) {
                         button.style.display = 'none';
                     }
+
+                    // Initialize event listeners for new content
+                    initializeEventListeners();
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -3727,7 +3780,6 @@
 
         // Function to initialize event listeners for new content
         function initializeEventListeners() {
-
             document.querySelectorAll('.content').forEach(content => {
                 if (!content.hasAttribute('data-initialized')) {
                     content.setAttribute('data-initialized', 'true');

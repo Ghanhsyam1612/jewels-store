@@ -17,19 +17,51 @@ class DiamondController extends Controller
         }
 
         // Filter by price range
-        if ($request->has('minPrice') && $request->has('maxPrice')) {
+        if ($request->filled('minPrice') && $request->filled('maxPrice')) {
             $query->whereBetween('original_price', [(int)$request->minPrice, (int)$request->maxPrice]);
         }
 
         // Filter by Carat Range
-        if ($request->has('minCarat') && $request->has('maxCarat')) {
-            $query->whereBetween('carat', [$request->minCarat, $request->maxCarat]);
+        if ($request->filled('minCarat') && $request->filled('maxCarat')) {
+            $query->whereBetween('carat', [(float)$request->minCarat, (float)$request->maxCarat]);
         }
 
-        // Filter by cut range
-        if ($request->has('fromCutSlider') && $request->has('toCutSlider')) {
-            $query->whereBetween('cut', [$request->fromCutSlider, $request->toCutSlider]);
+        // Filter by Cut Range
+        if ($request->filled('fromCutSlider') && $request->filled('toCutSlider')) {
+            $query->whereBetween('cut', [(int)$request->fromCutSlider, (int)$request->toCutSlider]);
         }
+
+        // Filter by Color Range
+        if ($request->filled('fromColorSlider') && $request->filled('toColorSlider')) {
+            $query->whereBetween('color', [(int)$request->fromColorSlider, (int)$request->toColorSlider]);
+        }
+
+        // Filter by Clarity Range
+        if ($request->filled('fromClaritySlider') && $request->filled('toClaritySlider')) {
+            $query->whereBetween('clarity', [(int)$request->fromClaritySlider, (int)$request->toClaritySlider]);
+        }
+
+        // Filter by Certificate (IGI, GIA, HRD, etc. [Lab] )
+        if ($request->filled('lab') && !empty($request->lab)) {
+            $query->where('lab', $request->lab);
+        }
+
+        // Filter by Method (HPHT, CVD [growth_type])
+        if ($request->has('growth_type') && !empty($request->growth_type)) {
+            $methods = explode(',', $request->growth_type);
+            $query->whereIn('growth_type', $methods);
+        }
+
+        // Filter by Table
+        if ($request->filled('table_min') && $request->filled('table_max')) {
+            $query->whereBetween('table', [(int)$request->table_min, (int)$request->table_max]);
+        }
+
+        // Filter by Depth
+        if ($request->filled('depth_min') && $request->filled('depth_max')) {
+            $query->whereBetween('depth', [(int)$request->depth_min, (int)$request->depth_max]);
+        }
+        
 
         // Check if the request is for loading more diamonds
         if ($request->ajax()) {
