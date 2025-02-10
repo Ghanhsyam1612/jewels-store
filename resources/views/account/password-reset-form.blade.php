@@ -13,8 +13,8 @@
             </div>
             <form action="{{ route('password.update') }}" method="POST">
                 @csrf
-                {{-- <input type="hidden" name="token" value="{{ $token }}"> --}}
-                {{-- <input type="hidden" name="email" value="{{ $email }}"> --}}
+                <input type="hidden" name="token" value="{{ $token }}">
+                <input type="hidden" name="email" value="{{ $email }}">
                 <div class="space-y-4">
                     <!-- New Password Field -->
                     <div class="relative w-full">
@@ -32,7 +32,7 @@
                                 class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden" alt="Eye Open Icon">
                         </div>
                     </div>
-                
+
                     <!-- Confirm Password Field -->
                     <div class="relative w-full">
                         <label for="password_confirmation" class="block text-sm font-medium font-montserrat text-gray-700">
@@ -100,6 +100,25 @@
         confirmEyeOpenIcon.classList.add('hidden'); // Hide "eye-open" icon
         confirmEyeCloseIcon.classList.remove('hidden'); // Show "eye-close" icon
     });
+
+    // Submit Button
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.addEventListener('click', () => {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting...';
+    });
+
+    if (data.success) {
+        // Show success message
+        toastr.success('Password reset successfully');
+        
+        emailInput.value = '';
+        closeResetModal();
+        // Clear input field
+        emailInput.value = '';
+    } else {
+        toastr.error(data.message || 'Failed to update password.');
+    }
 </script>
 
 @endsection

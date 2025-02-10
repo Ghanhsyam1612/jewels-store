@@ -7,24 +7,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use App\Jobs\PasswordResetJob;
+use App\Jobs\PasswordResetSuccessfullyJob;
 
 use App\Jobs\WelcomeEmailJob;
 
 
 class CustomerController extends Controller
 {
-    // Store Customer
+    // Store New Customer
     public function register(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
-
             'full_name' => 'required|string|max:255',
             'phone' => 'required|string|unique:customers,phone',
             'email' => 'required|email|unique:customers,email',
@@ -32,8 +29,10 @@ class CustomerController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', $validator->errors()->first());
+            toastr()->error($validator->errors()->first());
+            return redirect()->back();
         }
+
         DB::beginTransaction();
 
         try {
@@ -52,10 +51,13 @@ class CustomerController extends Controller
             // Send the welcome email
             WelcomeEmailJob::dispatch($customer);
 
-            return redirect()->back()->with('success', 'Customer registered successfully');
+            toastr()->success('Customer registered successfully');
+
+            return redirect()->back();
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Something went wrong! Please try again.');
+            toastr()->error('Something went wrong! Please try again.');
+            return redirect()->back();
         }
     }
 
@@ -73,24 +75,27 @@ class CustomerController extends Controller
             'new_password' => 'nullable|min:6|confirmed',
         ]);
 
+
+
+
         // Update basic details
         $customer->first_name = $validatedData['first_name'];
         $customer->last_name = $validatedData['last_name'];
         $customer->email = $validatedData['email'];
 
-        // Password update logic
+        // Update Password
         if ($request->filled('new_password')) {
-            // Check current password
             if (!Hash::check($request->current_password, $customer->password)) {
-                return back()->withErrors(['current_password' => 'Current password is incorrect']);
+                toastr()->error('Current password is incorrect');
+                return back();
             }
-
             $customer->password = Hash::make($validatedData['new_password']);
         }
 
         $customer->update();
 
-        return back()->with('success', 'Account details updated successfully');
+        toastr()->success('Account details updated successfully');
+        return back();
     }
 
     // Login Index
@@ -110,10 +115,12 @@ class CustomerController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('customer')->attempt($credentials)) {
-            return redirect()->route('home')->with('success', 'Customer logged in successfully');
+            toastr()->success('Customer logged in successfully');
+            return redirect()->route('home');
         }
 
-        return redirect()->route('account')->with('error', 'Invalid Email or Password');
+        toastr()->error('Invalid Email or Password');
+        return redirect()->route('account');
     }
 
     // Password Reset 
@@ -125,7 +132,7 @@ class CustomerController extends Controller
 
         // Check if user exists
         $user = Customer::where('email', $request->email)->first();
-    
+
 
         if (!$user) {
             return back()->withErrors(['email' => 'Email not found in our records.']);
@@ -136,10 +143,11 @@ class CustomerController extends Controller
 
         PasswordResetJob::dispatch($request->email);
 
+
         return response()->json(['success' => 'Password reset link has been sent to your email']);
     }
 
-    // Show Reset Form
+    // Show Password Reset Form
     public function showResetForm($token)
     {
 
@@ -183,6 +191,10 @@ class CustomerController extends Controller
         // Delete Reset Token
         DB::table('password_reset_tokens')->where('email', $request->email)->delete();
 
-        return redirect()->route('account')->with('success', 'Password updated successfully');
+        // Send Password Reset Successfully Email
+        PasswordResetSuccessfullyJob::dispatch($request->email);
+
+        toastr()->success('Password updated successfully');
+        return redirect()->route('account');
     }
 }

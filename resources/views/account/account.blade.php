@@ -30,11 +30,11 @@
                                 class="appearance-none rounded-md block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-montserrat"
                                 placeholder="Password">
                             <!-- Eye Icons -->
-                            <img id="eye-close" src="{{ asset('Shape/eye-close.svg') }}" 
-                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer" 
+                            <img id="eye-close" src="{{ asset('Shape/eye-close.svg') }}"
+                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer"
                                 alt="Eye Close Icon">
-                            <img id="eye-open" src="{{ asset('Shape/eye-open.svg') }}" 
-                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden" 
+                            <img id="eye-open" src="{{ asset('Shape/eye-open.svg') }}"
+                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden"
                                 alt="Eye Open Icon">
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                                 placeholder="Phone Number">
                         </div>
                     </div>
-                    
+
                     <div>
                         <label for="register-email" class="block text-sm font-medium font-montserrat text-gray-700">Email address <span class="text-red-500">*</span></label>
                         <input id="register-email" name="email" type="email" autocomplete="email" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
@@ -125,6 +125,8 @@
     </div>
 </div>
 <!-- End Account Page -->
+
+{!! Toastr::message() !!}
 
 
 <!-- Password Reset Modal -->
@@ -193,32 +195,19 @@
                 .then(data => {
                     if (data.success) {
                         // Show success message
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Password reset link has been sent to your email',
-                            timer: 5000,
-                            showConfirmButton: false
-                        }).then(() => {
-                            // Close modal after showing success message
-                            closeResetModal();
-                        });
-
-                        // Clear input field
+                        toastr.success('Password reset link has been sent to your email');
                         emailInput.value = '';
+                        closeResetModal();
+
                     } else {
-                        throw new Error(data.message || 'Failed to send reset link.');
+                        toastr.error(data.message || 'Failed to send reset link.');
                     }
                 })
                 .catch(error => {
                     // Show error message
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: error.message || 'An error occurred. Please try again.',
-                        timer: 5000,
-                        showConfirmButton: false
-                    });
+                    toastr.error(error.message || 'An error occurred. Please try again.');
+                    emailInput.value = '';
+
                 })
                 .finally(() => {
                     // Reset button state
