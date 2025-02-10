@@ -107,11 +107,15 @@ class CustomerController extends Controller
     // Login Customer
     public function login(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
+        if ($validator->fails()) {
+            toastr()->error($validator->errors()->first());
+            return redirect()->back();
+        }
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('customer')->attempt($credentials)) {

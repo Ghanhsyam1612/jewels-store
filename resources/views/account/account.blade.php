@@ -19,14 +19,17 @@
                 <div class="space-y-4">
                     <div>
                         <label for="email-address" class="block text-sm font-medium font-montserrat text-gray-700">Email address <span class="text-red-500">*</span></label>
-                        <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
+                        <input id="email-address" name="email" type="email" autocomplete="email"  class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
+                        @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="relative w-full">
                         <label for="password" class="block text-sm font-medium font-montserrat text-gray-700">
                             Password <span class="text-red-500">*</span>
                         </label>
                         <div class="relative">
-                            <input id="password" name="password" type="password" autocomplete="current-password" required
+                            <input id="password" name="password" type="password" autocomplete="current-password" 
                                 class="appearance-none rounded-md block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-montserrat"
                                 placeholder="Password">
                             <!-- Eye Icons -->
@@ -37,6 +40,9 @@
                                 class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden"
                                 alt="Eye Open Icon">
                         </div>
+                        @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
@@ -80,6 +86,9 @@
                     <div>
                         <label for="full_name" class="block text-sm font-medium font-montserrat text-gray-700">Full Name <span class="text-red-500">*</span></label>
                         <input id="full_name" name="full_name" type="text" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Full Name">
+                        @error('first_name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
                     </div>
                     <div class="w-full">
                         <label for="phone" class="block text-sm font-medium font-montserrat text-gray-700">
@@ -91,11 +100,17 @@
                                 class="flex-1 px-3 py-3 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                                 placeholder="Phone Number">
                         </div>
+                        @error('phone')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
                         <label for="register-email" class="block text-sm font-medium font-montserrat text-gray-700">Email address <span class="text-red-500">*</span></label>
                         <input id="register-email" name="email" type="email" autocomplete="email" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
+                        @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="relative w-full">
                         <label for="register-password" class="block text-sm font-medium font-montserrat text-gray-700">
@@ -111,6 +126,9 @@
                             <img id="register-eye-open" src="{{ asset('Shape/eye-open.svg') }}"
                                 class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden" alt="Eye Open Icon">
                         </div>
+                        @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
