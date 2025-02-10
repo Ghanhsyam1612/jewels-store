@@ -21,9 +21,22 @@
                         <label for="email-address" class="block text-sm font-medium font-montserrat text-gray-700">Email address <span class="text-red-500">*</span></label>
                         <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
                     </div>
-                    <div>
-                        <label for="password" class="block text-sm font-medium font-montserrat text-gray-700">Password <span class="text-red-500">*</span></label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Password">
+                    <div class="relative w-full">
+                        <label for="password" class="block text-sm font-medium font-montserrat text-gray-700">
+                            Password <span class="text-red-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <input id="password" name="password" type="password" autocomplete="current-password" required
+                                class="appearance-none rounded-md block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-montserrat"
+                                placeholder="Password">
+                            <!-- Eye Icons -->
+                            <img id="eye-close" src="{{ asset('Shape/eye-close.svg') }}" 
+                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer" 
+                                alt="Eye Close Icon">
+                            <img id="eye-open" src="{{ asset('Shape/eye-open.svg') }}" 
+                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden" 
+                                alt="Eye Open Icon">
+                        </div>
                     </div>
                 </div>
 
@@ -68,17 +81,36 @@
                         <label for="full_name" class="block text-sm font-medium font-montserrat text-gray-700">Full Name <span class="text-red-500">*</span></label>
                         <input id="full_name" name="full_name" type="text" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Full Name">
                     </div>
-                    <div>
-                        <label for="phone" class="block text-sm font-medium font-montserrat text-gray-700">Phone Number <span class="text-red-500">*</span></label>
-                        <input id="phone" name="phone" type="tel" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Phone Number">
+                    <div class="w-full">
+                        <label for="phone" class="block text-sm font-medium font-montserrat text-gray-700">
+                            Phone Number <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex items-center rounded-md border border-gray-300">
+                            <!-- Phone Number Input -->
+                            <input id="phone" name="phone" type="tel"
+                                class="flex-1 px-3 py-3 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                placeholder="Phone Number">
+                        </div>
                     </div>
+                    
                     <div>
                         <label for="register-email" class="block text-sm font-medium font-montserrat text-gray-700">Email address <span class="text-red-500">*</span></label>
                         <input id="register-email" name="email" type="email" autocomplete="email" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
                     </div>
-                    <div>
-                        <label for="register-password" class="block text-sm font-medium font-montserrat text-gray-700">Password <span class="text-red-500">*</span></label>
-                        <input id="register-password" name="password" type="password" autocomplete="new-password" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Password">
+                    <div class="relative w-full">
+                        <label for="register-password" class="block text-sm font-medium font-montserrat text-gray-700">
+                            Password <span class="text-red-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <input id="register-password" name="password" type="password" autocomplete="new-password"
+                                class="appearance-none rounded-md block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-montserrat"
+                                placeholder="Password">
+                            <!-- Eye Icons -->
+                            <img id="register-eye-close" src="{{ asset('Shape/eye-close.svg') }}"
+                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer" alt="Eye Close Icon">
+                            <img id="register-eye-open" src="{{ asset('Shape/eye-open.svg') }}"
+                                class="absolute right-3 top-3 w-5 h-5 cursor-pointer hidden" alt="Eye Open Icon">
+                        </div>
                     </div>
                 </div>
 
@@ -215,6 +247,59 @@
         var number = iti.getNumber();
         var countryCode = iti.getSelectedCountryData().dialCode;
         console.log(number, countryCode);
+    });
+</script>
+
+{{-- Toggle Password --}}
+<script>
+    // Login Password
+    const passwordInput = document.getElementById('password');
+    const eyeCloseIcon = document.getElementById('eye-close');
+    const eyeOpenIcon = document.getElementById('eye-open');
+
+    // Toggle Password Visibility
+    eyeCloseIcon.addEventListener('click', () => {
+        passwordInput.type = 'text'; // Show password
+        eyeCloseIcon.classList.add('hidden'); // Hide "eye-close" icon
+        eyeOpenIcon.classList.remove('hidden'); // Show "eye-open" icon
+    });
+
+    eyeOpenIcon.addEventListener('click', () => {
+        passwordInput.type = 'password'; // Hide password
+        eyeOpenIcon.classList.add('hidden'); // Hide "eye-open" icon
+        eyeCloseIcon.classList.remove('hidden'); // Show "eye-close" icon
+    });
+
+    // Ensure icons remain visible when entering password
+    passwordInput.addEventListener('input', () => {
+        eyeCloseIcon.classList.remove('hidden'); // Keep "eye-close" visible
+        eyeOpenIcon.classList.add('hidden'); // Ensure "eye-open" is hidden unless toggled
+    });
+
+
+
+    // Register Password
+    const registerPasswordInput = document.getElementById('register-password');
+    const registerEyeCloseIcon = document.getElementById('register-eye-close');
+    const registerEyeOpenIcon = document.getElementById('register-eye-open');
+
+    // Toggle Password Visibility
+    registerEyeCloseIcon.addEventListener('click', () => {
+        registerPasswordInput.type = 'text'; // Show password
+        registerEyeCloseIcon.classList.add('hidden'); // Hide "eye-close" icon
+        registerEyeOpenIcon.classList.remove('hidden'); // Show "eye-open" icon
+    });
+
+    registerEyeOpenIcon.addEventListener('click', () => {
+        registerPasswordInput.type = 'password'; // Hide password
+        registerEyeOpenIcon.classList.add('hidden'); // Hide "eye-open" icon
+        registerEyeCloseIcon.classList.remove('hidden'); // Show "eye-close" icon
+    });
+
+    // Ensure icons remain visible when entering password
+    registerPasswordInput.addEventListener('input', () => {
+        registerEyeCloseIcon.classList.remove('hidden'); // Keep "eye-close" visible
+        registerEyeOpenIcon.classList.add('hidden'); // Ensure "eye-open" is hidden unless toggled
     });
 </script>
 @endsection
