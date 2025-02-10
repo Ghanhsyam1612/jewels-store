@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/inventory.css') }}">
 
-  
-   
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Roaya Diamond</title>
     <link rel="icon" href="{{ asset('favicon/favicon.ico') }}">
@@ -24,7 +24,8 @@
     <script src="https://pay.google.com/gp/p/js/pay.js"></script>
 
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 </head>
 
@@ -36,7 +37,7 @@
 
     @include('components.footer')
 
-    
+
 </body>
 
 </html>

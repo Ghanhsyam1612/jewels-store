@@ -10,7 +10,7 @@
         <!-- Header Section -->
         <tr>
             <td style="padding: 30px; text-align: center; background-color: #301419;">
-                <img src="{{ asset('images/roaya-logo.png') }}" alt="Roaya Diamond Logo" style="max-width: 150px; height: auto;">
+                <img src="{{ asset('storage/roaya-logo.png') }}" alt="Roaya Diamond Logo" style="max-width: 150px; height: auto;">
                 <h1 style="margin: 20px 0 0; font-size: 28px; color: #ffffff; font-weight: bold;">Welcome to Roaya Diamond</h1>
             </td>
         </tr>

@@ -285,6 +285,11 @@ Route::get('/register', [CustomerController::class, 'index'])->name('customer.in
 Route::post('/register', [CustomerController::class, 'register'])->name('customer.store');
 // -------------------------------- End Customer Registration -------------------------------------------
 
+// -------------------------------- Password Reset ------------------------------------------------------
+Route::post('/password-reset', [CustomerController::class, 'passwordReset'])->name('customer.password-reset');
+Route::get('/password-reset/{token}', [CustomerController::class, 'showResetForm'])->name('password.reset.form');
+Route::post('/password-reset/update', [CustomerController::class, 'updatePassword'])->name('password.update');
+// -------------------------------- End Password Reset --------------------------------------------------
 
 // -------------------------------- Customer Login ------------------------------------------------------
 Route::get('/login', [CustomerController::class, 'loginIndex'])->name('customer.login.index');

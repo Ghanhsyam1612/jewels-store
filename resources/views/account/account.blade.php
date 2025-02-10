@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<!-- Account Page -->
 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl flex justify-center gap-8 w-full">
         <!-- Login Form -->
@@ -13,18 +14,7 @@
                     Sign in to your account
                 </p>
             </div>
-            <!-- Display session messages -->
-            @if (session('success'))
-            <div class="mb-4 text-sm text-green-700 bg-green-100 p-3 rounded-md">
-                {{ session('success') }}
-            </div>
-            @endif
-            @if (session('error'))
-            <div class="mb-4 text-sm text-red-700 bg-red-100 p-3 rounded-md">
-                {{ session('error') }}
-            </div>
-            @endif
-            <form class="mt-8 space-y-6" action="{{ route('customer.login') }}" method="POST">
+            <form id="loginForm" class="mt-8 space-y-6" action="{{ route('customer.login') }}" method="POST">
                 @csrf
                 <div class="space-y-4">
                     <div>
@@ -46,9 +36,9 @@
                     </div>
 
                     <div class="text-sm">
-                        <a href="#" class="font-medium text-gray-600 hover:text-dark-blue font-montserrat">
+                        <button type="button" onclick="openResetModal()" class="font-medium text-gray-600 hover:text-dark-blue font-montserrat">
                             Forgot your password?
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -59,6 +49,7 @@
                 </div>
             </form>
         </div>
+        <!-- End Login Form -->
 
         <!-- Register Form -->
         <div class="w-full bg-white rounded-lg shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] p-8">
@@ -70,34 +61,24 @@
                     Join us to explore our exclusive collection
                 </p>
             </div>
-            <form class="mt-8 space-y-6" action="{{ route('customer.store') }}" method="POST">
+            <form id="registerForm" class="mt-8 space-y-6" action="{{ route('customer.store') }}" method="POST">
                 @csrf
                 <div class="space-y-4">
                     <div>
                         <label for="full_name" class="block text-sm font-medium font-montserrat text-gray-700">Full Name <span class="text-red-500">*</span></label>
-                        <input id="full_name" name="full_name" type="text" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Full Name">
+                        <input id="full_name" name="full_name" type="text" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Full Name">
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-medium font-montserrat text-gray-700">Phone Number <span class="text-red-500">*</span></label>
-                        <div class="flex">
-                            <select name="country_code" class="appearance-none rounded-l-md relative w-20 px-2 py-3 border border-r-0 border-gray-300 bg-gray-50 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat">
-                                <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
-                                <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
-                                <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
-                                <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
-                                <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
-                                <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
-                            </select>
-                            <input id="phone" name="phone" type="tel" required class="appearance-none rounded-r-md relative block w-full px-3 py-3 border border-l-0 border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Phone Number">
-                        </div>
+                        <input id="phone" name="phone" type="tel" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Phone Number">
                     </div>
                     <div>
                         <label for="register-email" class="block text-sm font-medium font-montserrat text-gray-700">Email address <span class="text-red-500">*</span></label>
-                        <input id="register-email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
+                        <input id="register-email" name="email" type="email" autocomplete="email" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Email address">
                     </div>
                     <div>
                         <label for="register-password" class="block text-sm font-medium font-montserrat text-gray-700">Password <span class="text-red-500">*</span></label>
-                        <input id="register-password" name="password" type="password" autocomplete="new-password" required class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Password">
+                        <input id="register-password" name="password" type="password" autocomplete="new-password" class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm font-montserrat" placeholder="Password">
                     </div>
                 </div>
 
@@ -108,6 +89,132 @@
                 </div>
             </form>
         </div>
+        <!-- End Register Form -->
     </div>
 </div>
+<!-- End Account Page -->
+
+
+<!-- Password Reset Modal -->
+<div id="resetModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4 relative">
+        <button onclick="closeResetModal()" class="absolute right-4 top-4 text-gray-400 hover:text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Reset Password</h2>
+
+        <form id="resetForm">
+            @csrf
+            <div class="mb-4">
+                <input id="reset-email" type="email" required
+                    class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    placeholder="Enter your email">
+            </div>
+
+            <button type="submit" id="resetSubmitBtn"
+                class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                Send Reset Link
+            </button>
+        </form>
+    </div>
+</div>
+<!-- End Password Reset Modal -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Define modal functions in global scope
+    function openResetModal() {
+        document.getElementById('resetModal').classList.remove('hidden');
+    }
+
+    function closeResetModal() {
+        document.getElementById('resetModal').classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle form submission
+        document.getElementById('resetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const emailInput = document.getElementById('reset-email');
+            const submitBtn = document.getElementById('resetSubmitBtn');
+            const email = emailInput.value;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            // Send request
+            fetch('{{ route("customer.password-reset") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({
+                        email: email
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success message
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Password reset link has been sent to your email',
+                            timer: 5000,
+                            showConfirmButton: false
+                        }).then(() => {
+                            // Close modal after showing success message
+                            closeResetModal();
+                        });
+
+                        // Clear input field
+                        emailInput.value = '';
+                    } else {
+                        throw new Error(data.message || 'Failed to send reset link.');
+                    }
+                })
+                .catch(error => {
+                    // Show error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: error.message || 'An error occurred. Please try again.',
+                        timer: 5000,
+                        showConfirmButton: false
+                    });
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Reset Link';
+                });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('resetModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeResetModal();
+            }
+        });
+
+        // Initialize phone input
+        var input = document.querySelector("#phone");
+        var iti = window.intlTelInput(input, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // Optional: to format the number
+            initialCountry: "us", // Default country
+            preferredCountries: ['us', 'gb', 'ca'], // Countries to show first
+            separateDialCode: true // Shows the dial code separately
+        });
+
+        // You can also get the country code and number like this:
+        var number = iti.getNumber();
+        var countryCode = iti.getSelectedCountryData().dialCode;
+        console.log(number, countryCode);
+    });
+</script>
 @endsection

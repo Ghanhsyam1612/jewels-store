@@ -23,9 +23,10 @@
                 <table cellpadding="0" cellspacing="0" style="margin: 30px auto;">
                     <tr>
                         <td style="background-color: #d4af37; padding: 12px 24px; border-radius: 4px; text-align: center;">
-                            <a href="[Reset Link]" style="font-size: 16px; color: #301419; text-decoration: none; font-weight: bold;">Reset Your Password</a>
+                            <a href="{{ url('/password-reset/' . $token) }}" style="font-size: 16px; color: #301419; text-decoration: none; font-weight: bold;">Reset Your Password</a>
                         </td>
                     </tr>
+                    <p style="font-size: 18px; color: #333333; line-height: 1.6;">This link will expire in 2 minutes.</p>
                 </table>
                 <p style="font-size: 18px; color: #333333; line-height: 1.6;">If you did not request a password reset, please ignore this email or contact us immediately at <a href="mailto:support@roayadiamond.com" style="color: #d4af37; text-decoration: none;">support@roayadiamond.com</a>.</p>
                 <p style="font-size: 18px; color: #333333; line-height: 1.6;">For security reasons, this link will expire in 24 hours.</p>

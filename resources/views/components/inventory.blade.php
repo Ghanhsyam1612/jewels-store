@@ -11,15 +11,15 @@
         class="text-primary/80 text-center font-montserrat text-sm mb-4 md:mb-8 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
         Select your perfect lab grown diamond from thousands of ethically sourced diamonds.
     </p>
-
-    <!-- Filter Button -->
+    <!-- Mobile Filter -->
+    <!-- Mobile Filter Button -->
     <div class="flex justify-center items-center lg:hidden px-4 md:px-8 lg:px-12 2xl:px-16 py-4">
         <button
             class="bg-white border border-primary font-montserrat text-primary hover:bg-primary hover:text-white w-full md:w-60 py-2"
             id="filterButton" onclick="showFilterDrawer()">Filter</button>
     </div>
 
-    <!-- Filter Drawer -->
+    <!-- Mobile Filter Drawer -->
     <div id="filterDrawer" class="fixed overflow-y-scroll top-0 right-0 h-full w-full bg-white shadow-lg z-50 hidden lg:hidden">
         <div class="flex justify-between items-center p-4 border-b">
             <h2 class="text-2xl font-bold text-primary font-montserrat">Filter</h2>
@@ -1815,7 +1815,9 @@
             document.getElementById('filterDrawer').classList.add('hidden');
         }
     </script>
+    <!-- End Mobile Filter -->
 
+    <!-- Desktop Filter -->
     <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
     <div class="hidden lg:grid lg:grid-cols-3 lg:gap-4 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40">
         <!-- Shape Svg -->
@@ -2638,6 +2640,7 @@
         <!-- End Clarity Slider -->
     </div>
     <!-- End Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
+    <!-- End Desktop Filter -->
 
     <!-- Start Advanced Options -->
     <div class="hidden lg:flex lg:felx-row items-center gap-3 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 py-5">
@@ -2745,7 +2748,7 @@
                             } else {
                                 url.searchParams.delete("lab");
                             }
-                            window.location.href = url.toString();  
+                            window.location.href = url.toString();
                         });
                     });
                 </script>
@@ -2914,8 +2917,8 @@
                                             id="fromTableInput" name="table_min" value="{{ request('table_min', 50) }}" min="50.00" max="80.00" step="0.01" />
                                     </div>
                                     <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" 
-                                        id="toTableInput" name="table_max" value="{{ request('table_max', 80) }}" min="50.00" max="80.00" step="0.01" />
+                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                            id="toTableInput" name="table_max" value="{{ request('table_max', 80) }}" min="50.00" max="80.00" step="0.01" />
                                     </div>
                                 </div>
                                 <div class="relative min-h-7 flex items-center">
@@ -2957,8 +2960,6 @@
                             }
                         </style>
                         <script>
-
-                            
                             function updateTableSliderColors() {
                                 const fromValue = parseFloat(fromTableSlider.value);
                                 const toValue = parseFloat(toTableSlider.value);
@@ -2984,7 +2985,7 @@
                                 fromTableInput.value = value.toFixed(2);
                                 fromTableSlider.value = value;
                                 updateTableSliderColors();
-                                
+
                             }
 
                             function syncTableToInput() {
@@ -3004,7 +3005,7 @@
                                 updateTableSliderColors();
                             }
 
-                           
+
 
                             fromTableInput.addEventListener("input", syncTableFromInput);
                             toTableInput.addEventListener("input", syncTableToInput);
