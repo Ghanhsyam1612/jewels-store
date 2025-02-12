@@ -3527,20 +3527,20 @@
     <div class="flex justify-between items-center md:px-10 py-5">
         <!-- Left side search box with icon -->
         <form action="{{ route('inventory') }}" method="GET">
-        <div class="relative flex items-center w-full md:w-96">
-            <input type="text" placeholder="Search"
-                class="w-full md:w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
-            <div class="absolute right-0 h-full flex items-center">
-                <button class="h-full px-4 bg-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button>
-            </div>
+    <div class="relative flex items-center w-full md:w-96">
+        <input type="text" placeholder="Search" name="search" value="{{ request('search') }}"
+            class="w-full md:w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
+        <div class="absolute right-0 h-full flex items-center">
+            <button type="submit" class="h-full px-4 bg-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
         </div>
-        </form>
+    </div>
+</form>
         <!-- Right side clear filter button -->
         <button onclick="clearFilters()" class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary">
             <span>Clear Filters</span>

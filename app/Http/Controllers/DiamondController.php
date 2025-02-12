@@ -63,15 +63,32 @@ class DiamondController extends Controller
         }
         
         // Filter by Search
-        if ($request->filled('search')) {
-            $query->where('sku', 'like', '%' . $request->search . '%')
-                ->orWhere('price', 'like', '%' . $request->search . '%')
-                ->orWhere('carat', 'like', '%' . $request->search . '%')
-                ->orWhere('cut', 'like', '%' . $request->search . '%')
-                ->orWhere('color', 'like', '%' . $request->search . '%')
-                ->orWhere('clarity', 'like', '%' . $request->search . '%')
-                ->orWhere('lab', 'like', '%' . $request->search . '%')
-                ->orWhere('growth_type', 'like', '%' . $request->search . '%');
+        if ($request->filled('search'))
+         {
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+                $q->where('sku', 'like', '%' . $search . '%')
+                  ->orWhere('original_price', 'like', '%' . $search . '%')
+                  ->orWhere('carat', 'like', '%' . $search . '%')
+                  ->orWhere('cut', 'like', '%' . $search . '%')
+                  ->orWhere('shape', 'like', '%' . $search . '%')
+                  ->orWhere('color', 'like', '%' . $search . '%')
+                  ->orWhere('clarity', 'like', '%' . $search . '%')
+                  ->orWhere('lab', 'like', '%' . $search . '%')
+                  ->orWhere('growth_type', 'like', '%' . $search . '%');
+        
+    
+                $q->orWhereRaw("soundex(sku) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(original_price) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(carat) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(cut) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(shape) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(color) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(clarity) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(lab) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(growth_type) = soundex(?)", [$search]);
+            });
         }
 
         
