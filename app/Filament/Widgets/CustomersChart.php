@@ -8,7 +8,13 @@ use Filament\Widgets\ChartWidget;
 class CustomersChart extends ChartWidget
 {
     protected static ?string $heading = 'Total Customers';
+
     protected static ?int $sort = 2;
+
+    protected function getType(): string
+    {
+        return 'line';
+    }
 
     protected function getData(): array
     {
@@ -31,8 +37,5 @@ class CustomersChart extends ChartWidget
         ];
     }
 
-    protected function getType(): string
-    {
-        return 'line';
-    }
+    
 }

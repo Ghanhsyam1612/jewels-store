@@ -7,35 +7,68 @@ use App\Models\Order;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
+
 class StatsOverview extends BaseWidget
 {
     protected function getStats(): array
     {
+        $totalCustomers = Customer::count();
+        $newOrders = Order::count();
+        $totalRevenue = Order::sum('total_amount');
+
         return [
             // Total Customers
-            Stat::make('Total Customers', Customer::count())
-                ->description('Increase in customers')
-                ->descriptionIcon('heroicon-m-arrow-trending-up')
-                ->chart([7, 2, 10, 3, 15, 4, 17])
-                ->color('success'),
+            Stat::make('Total Customers', $totalCustomers)
+                ->description('7 Days')
+                ->descriptionIcon(Customer::iconForCustomerCount($totalCustomers))
+                ->chart(
+                    Customer::selectRaw('COUNT(*) as count')
+                        ->whereDate('created_at', '>=', now()->subDays(7))
+                        ->groupBy('created_at')
+                        ->orderBy('created_at')
+                        ->pluck('count')
+                        ->toArray()
+                ),
+                
             // New Orders
-            Stat::make('New Orders', Order::where('created_at', '>=', now()->subDays(7))->count())
-                ->description('Increase in orders')
-                ->descriptionIcon('heroicon-m-arrow-trending-down')
-                ->chart([7, 2, 10, 3, 15, 4, 17])
-                ->color('danger'),
+            Stat::make('New Orders', $newOrders)
+                ->description('7 Days')
+                ->descriptionIcon(Order::iconForNewOrderCount($newOrders))
+                ->chart(
+                    Order::selectRaw('COUNT(*) as count')
+                        ->whereDate('created_at', '>=', now()->subDays(7))
+                        ->groupBy('created_at')
+                        ->orderBy('created_at')
+                        ->pluck('count')
+                        ->toArray()
+                ),
+
+               
             // Total Orders
             Stat::make('Total Orders', Order::count())
-                ->description('Increase in orders')
-                ->descriptionIcon('heroicon-m-arrow-trending-down')
-                ->chart([7, 2, 10, 3, 15, 4, 17])
-                ->color('danger'),
+                ->description('7 Days')
+                ->descriptionIcon(Order::iconForTotalOrderCount(Order::count()))
+                ->chart(
+                    Order::selectRaw('COUNT(*) as count')
+                        ->whereDate('created_at', '>=', now()->subDays(7))
+                        ->groupBy('created_at')
+                        ->orderBy('created_at')
+                        ->pluck('count')
+                        ->toArray()
+                ),
             // Total Revenue
-            Stat::make('Total Revenue', '$' . number_format(Order::sum('total_amount'), 2, '.', ','))
-                ->description('Increase in revenue')
-                ->descriptionIcon('heroicon-m-arrow-trending-up')
-                ->chart([7, 2, 10, 3, 15, 4, 17])
-                ->color('success'),
+            Stat::make('Total Revenue', '$' . number_format($totalRevenue, 2, '.', ','))
+                ->description('7 Days')
+                ->descriptionIcon(Order::iconForTotalRevenue($totalRevenue))
+                ->chart(
+                    Order::selectRaw('SUM(total_amount) as total_amount')
+                        ->whereDate('created_at', '>=', now()->subDays(7))
+                        ->groupBy('created_at')
+                        ->orderBy('created_at')
+                        ->pluck('total_amount')
+                        ->toArray()
+                ),
+                
         ];
     }
 }

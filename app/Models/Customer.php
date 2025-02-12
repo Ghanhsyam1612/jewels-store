@@ -83,4 +83,9 @@ class Customer extends Authenticatable
 
     //     return 'Address not available';
     // }
+
+    public static function iconForCustomerCount($count)
+    {
+        return $count > 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down';
+    }
 }

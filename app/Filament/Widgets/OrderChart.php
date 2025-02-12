@@ -11,6 +11,11 @@ class OrderChart extends ChartWidget
 
     protected static ?int $sort = 1;
 
+    protected function getType(): string
+    {
+        return 'bar';
+    }
+
 
     protected function getData(): array
     {
@@ -34,8 +39,5 @@ class OrderChart extends ChartWidget
         ];
     }
 
-    protected function getType(): string
-    {
-        return 'line';
-    }
+    
 }

@@ -46,4 +46,21 @@ class Order extends Model
     {
         return $this->hasOne(Payment::class);
     }
+
+    public static function iconForNewOrderCount($count)
+    {
+        return $count > 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down';
+    }
+
+    public static function iconForTotalOrderCount($count)
+    {
+        return $count > 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down';
+    }
+
+    public static function iconForTotalRevenue($count)
+    {
+        return $count > 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down';
+    }
+    
+
 }

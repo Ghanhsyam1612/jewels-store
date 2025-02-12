@@ -58,9 +58,22 @@ class DiamondController extends Controller
         }
 
         // Filter by Depth
-        if ($request->filled('depth_min') && $request->filled('depth_max')) {
-            $query->whereBetween('depth', [(int)$request->depth_min, (int)$request->depth_max]);
+        if ($request->filled('l_w_ratio_min') && $request->filled('l_w_ratio_max')) {
+            $query->whereBetween('l_w_ratio', [(int)$request->l_w_ratio_min, (int)$request->l_w_ratio_max]);
         }
+        
+        // Filter by Search
+        if ($request->filled('search')) {
+            $query->where('sku', 'like', '%' . $request->search . '%')
+                ->orWhere('price', 'like', '%' . $request->search . '%')
+                ->orWhere('carat', 'like', '%' . $request->search . '%')
+                ->orWhere('cut', 'like', '%' . $request->search . '%')
+                ->orWhere('color', 'like', '%' . $request->search . '%')
+                ->orWhere('clarity', 'like', '%' . $request->search . '%')
+                ->orWhere('lab', 'like', '%' . $request->search . '%')
+                ->orWhere('growth_type', 'like', '%' . $request->search . '%');
+        }
+
         
 
         // Check if the request is for loading more diamonds
