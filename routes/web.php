@@ -14,6 +14,34 @@ Route::get('/password-reset', function () {
     return view('account.password-reset-form');
 });
 
+// -------------------------------- Start Admin Routes --------------------------------
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
+Route::get('/admin/order', function () {
+    return view('admin.order');
+});
+Route::get('/admin/customers', function () {
+    return view('admin.customers');
+});
+Route::get('/admin/fancy-color-diamonds', function () {
+    return view('admin.fancy-color-diamonds');
+});
+Route::get('/admin/natural-diamonds', function () {
+    return view('admin.natural-diamonds');
+});
+Route::get('/admin/lab-grown-diamonds', function () {
+    return view('admin.lab-grown-diamonds');
+});
+Route::get('/admin/antique-cut-diamonds', function () {
+    return view('admin.antique-cut-diamonds');
+});
+Route::get('/admin/precious-stone-diamonds', function () {
+    return view('admin.precious-stone-diamonds');
+});
+// -------------------------------- End Admin Routes ----------------------------------
+
+
 // -------------------------------- Diamond Lab Routes --------------------------------------------------
 Route::get('/calibrated', function () {
     return view('lab-diamonds.calibrated');

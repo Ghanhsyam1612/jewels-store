@@ -1,31 +1,39 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mx-auto px-6 py-10">
+    <div class="container mx-auto px-2 lg:px-6 py-10">
         {{-- Header Section --}}
         <h1 class="text-3xl text-center font-montserrat text-primary font-semibold mb-8">ROAYA CREATED DIAMONDS</h1>
 
         {{-- Features Section --}}
-        <div class="flex justify-center items-center gap-8 mb-12">
-            <div class="flex items-center gap-2 font-medium text-sm text-primary">
-                <img src="{{ asset('images/Impeccable origin.png') }}" alt="Impeccable Origin" class="w-6 h-6">
-                <span>Impeccable origin</span>
-            </div>
-            <div class="flex items-center gap-2 font-medium text-sm text-primary">
-                <img src="{{ asset('images/Master Cutter.png') }}" alt="Master cutters" class="w-6 h-6">
-                <span>Master cutters</span>
-            </div>
-            <div class="flex items-center gap-2 font-medium text-sm text-primary">
-                <img src="{{ asset('images/Value Guarantee.png') }}" alt="100% value guarantee" class="w-6 h-6">
-                <span>100% value guarantee</span>
+        <div class="flex flex-col lg:flex-row justify-center items-center gap-8 mb-12">
+            <div class="flex justify-center items-center">
+                <div class="flex flex-col lg:flex-row justify-center items-center mr-2 text-center gap-1 font-medium text-sm text-primary">
+                    <img src="{{ asset('images/Impeccable origin.png') }}" alt="Impeccable Origin" class="w-6 h-6">
+                    <span>Impeccable origin</span>
+                </div>
+                <div class="flex flex-col lg:flex-row justify-center items-center mr-2 text-center gap-1 font-medium text-sm text-primary">
+                    <img src="{{ asset('images/Master Cutter.png') }}" alt="Master cutters" class="w-6 h-6">
+                    <span>Master cutters</span>
+                </div>
+                <div class="flex flex-col lg:flex-row justify-center items-center mr-2 text-center gap-1 font-medium text-sm text-primary">
+                    <img src="{{ asset('images/Value Guarantee.png') }}" alt="100% value guarantee" class="w-6 h-6">
+                    <span>100% value guarantee</span>
+                </div>
             </div>
             <a href="#" id="openDrawer"
-                class="text-primary text-sm font-medium underline-offset-4 underline decoration-2 decoration-primary">Learn why they
+                class="text-primary text-xs lg:text-sm font-medium underline-offset-4 underline decoration-2 decoration-primary">Learn why they
                 are unmatched</a>
         </div>
 
-        {{-- Filter Section --}}
-        <div class="flex flex-row gap-10">
+        {{-- Start Mobile Filter Button --}}
+        <div class="flex justify-center items-center lg:hidden px-4 md:px-8 lg:px-12 2xl:px-16 py-4">
+            <button class="bg-white border border-primary font-montserrat text-primary hover:bg-primary hover:text-white w-full md:w-60 py-2" id="filterButton" onclick="openFilterDrawer()">Filter</button>
+        </div>
+        {{-- End Mobile Filter Button --}}
+
+        {{-- Start Desktop Filter Section --}}
+        <div class="hidden lg:flex flex-row gap-10">
             {{-- Shape --}}
             <div class="flex flex-col gap-2">
                 <span class="font-medium text-sm" id="diamondShape">Shape : Round</span>
@@ -72,7 +80,7 @@
                 }
             </script>
 
-            {{-- Carat --}}
+            {{-- Filter --}}
             <div class="w-1/3 grid grid-cols-6 gap-4 mb-4">
                 <div class="flex flex-col gap-3">
                     <label for="carat" class="text-sm text-gray-500">Carat</label>
@@ -111,8 +119,9 @@
                 </div>
             </div>
         </div>
+        {{-- End Desktop Filter Section --}}
 
-        {{-- Diamond Listing Table --}}
+        {{-- Start Diamond Listing Table --}}
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead>
@@ -146,6 +155,7 @@
                 </tbody>
             </table>
         </div>
+        {{-- End Diamond Listing Table --}}
     </div>
 
     {{-- Start Learn Drawer --}}
@@ -397,15 +407,15 @@
     </script>
     {{-- End Learn Drawer --}}
 
-    {{-- Start Filter Drawer --}}
+    {{-- Start Diamond Filter Drawer --}}
     <div id="filterDrawer"
         class="overflow-y-auto fixed top-0 right-0 h-screen w-full md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
         <div class="flex flex-col p-6">
             {{-- Header --}}
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-medium">FILTER</h2>
+            <div class="flex justify-between items-center mb-5 lg:mb-8">
+                <h2 class="text-lg lg:text-2xl font-medium">Filter</h2>
                 <button id="closeFilterDrawer" class="text-gray-500 hover:text-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                         </path>
                     </svg>
@@ -414,11 +424,11 @@
 
             {{-- Whats most important section  --}}
             <div class="mb-8">
-                <h3 class="text-lg mb-4">Whats most important to you?</h3>
+                <h3 class="text-sm lg:text-lg mb-4">Whats most important to you?</h3>
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 border-2 border-gray-300 rounded hover:border-primary">Most brilliant</button>
-                    <button class="px-4 py-2 border-2 border-gray-300 rounded hover:border-primary">Best color</button>
-                    <button class="px-4 py-2 border-2 border-gray-300 rounded hover:border-primary">Best balance</button>
+                    <button class="px-4 py-2 text-xs lg:text-base border-2 border-gray-300 rounded hover:border-primary">Most brilliant</button>
+                    <button class="px-4 py-2 text-xs lg:text-base border-2 border-gray-300 rounded hover:border-primary">Best color</button>
+                    <button class="px-4 py-2 text-xs lg:text-base border-2 border-gray-300 rounded hover:border-primary">Best balance</button>
                 </div>
             </div>
 
@@ -436,65 +446,65 @@
                     </div>
                 </div>
                 <div class="hidden py-2 text-gray-600 transition-all duration-300 ease-in-out">
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid grid-cols-3 lg:grid-cols-4 gap-4 md:gap-1">
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/round.png') }}" class="w-16 h-16" alt="Round">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/round.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Round">
                             </div>
                             <span>Round</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/oval.png') }}" class="w-16 h-16" alt="Oval">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/oval.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Oval">
                             </div>
                             <span>Oval</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/cushion.png') }}" class="w-16 h-16" alt="Cushion">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/cushion.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Cushion">
                             </div>
                             <span>Cushion</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/pear.png') }}" class="w-16 h-16" alt="Pear">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/pear.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Pear">
                             </div>
                             <span>Pear</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/princess.png') }}" class="w-16 h-16" alt="Princess">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/princess.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Princess">
                             </div>
                             <span>Princess</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/emerald.png') }}" class="w-16 h-16" alt="Emerald">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/emerald.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Emerald">
                             </div>
                             <span>Emerald</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/heart.png') }}" class="w-16 h-16" alt="Heart">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/heart.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Heart">
                             </div>
                             <span>Heart</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/radiant.png') }}" class="w-16 h-16" alt="Radiant">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/radiant.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Radiant">
                             </div>
                             <span>Radiant</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/triangular.png') }}" class="w-16 h-16"
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/triangular.png') }}" class="w-12 h-12 lg:w-16 lg:h-16"
                                     alt="Triangular">
                             </div>
                             <span>Triangular</span>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="bg-light-grey-1 px-6 py-8">
-                                <img src="{{ asset('images/diamonds/asscher.png') }}" class="w-16 h-16" alt="Asscher">
+                            <div class="bg-light-grey-1 px-4 lg:px-6 py-8">
+                                <img src="{{ asset('images/diamonds/asscher.png') }}" class="w-12 h-12 lg:w-16 lg:h-16" alt="Asscher">
                             </div>
                             <span>Asscher</span>
                         </div>
@@ -840,19 +850,19 @@
                 <div class="hidden py-2 text-gray-600 transition-all duration-300">
                     <span class="text-sm">Cut refers to how well a diamond’s facets are cut to reflect light. We always cut for maximum
                         brilliance.</span>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
-                            <img src="{{ asset('images/style-shape/ideal-heart-diamond-shape.png') }}" class="w-32"
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-2 lg:px-4 py-5 gap-9">
+                            <img src="{{ asset('images/style-shape/ideal-heart-diamond-shape.png') }}" class="w-20 lg:w-32"
                                 alt="Round">
                             <span>Ideal + Heart</span>
                         </div>
-                        <div class="bg-light-grey-1 flex flex-col justify-between items-center px-4 py-5 gap-9">
-                            <img src="{{ asset('images/style-shape/ideal-diamond-shape.png') }}" class="w-32"
+                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-2 lg:px-4 py-5 gap-9">
+                            <img src="{{ asset('images/style-shape/ideal-diamond-shape.png') }}" class="w-20 lg:w-32"
                                 alt="Oval">
                             <span>Ideal</span>
                         </div>
-                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
-                            <img src="{{ asset('images/style-shape/excellent-diamond-shape.png') }}" class="w-32"
+                        <div class="bg-light-grey-1 flex flex-col justify-center items-center px-2 lg:px-4 py-5 gap-9">
+                            <img src="{{ asset('images/style-shape/excellent-diamond-shape.png') }}" class="w-20 lg:w-32"
                                 alt="Cushion">
                             <span>Excellent</span>
                         </div>
@@ -870,42 +880,42 @@
                 </div>
                 <div class="hidden py-2 text-gray-600 transition-all duration-300">
                     <span class="text-sm">Clarity grades the internal inclusions and surface blemishes on a diamond.</span>
-                    <div class="grid grid-cols-3 gap-4">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/clarity-diamond-shape.png') }}" class="w-32"
                                 alt="Round">
                             <span class="border-b border-gray-300 w-full pt-5 pb-2 text-black text-center">VVS1</span>
-                            <span class="uppercase text-sm text-center h-14">Very Very Slightly (Not Eye Visible)</span>
+                            <span class="uppercase text-xs lg:text-sm text-center h-14">Very Very Slightly (Not Eye Visible)</span>
                         </div>
                         <div class="bg-light-grey-1 flex flex-col justify-between items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/clarity-diamond-shape.png') }}" class="w-32"
                                 alt="Oval">
                             <span class="border-b border-gray-300 w-full pt-5 pb-2 text-black text-center">VVS2</span>
-                            <span class="uppercase text-sm text-center h-14">Very Very Slightly (Not Eye Visible)</span>
+                            <span class="uppercase text-xs lg:text-sm text-center h-14">Very Very Slightly (Not Eye Visible)</span>
                         </div>
                         <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/clarity-diamond-shape.png') }}" class="w-32"
                                 alt="Cushion">
                             <span class="border-b border-gray-300 w-full pt-5 pb-2 text-black text-center">VS1</span>
-                            <span class="uppercase text-sm text-center h-14">Very Slightly (Not Eye Visible)</span>
+                            <span class="uppercase text-xs lg:text-sm text-center h-14">Very Slightly (Not Eye Visible)</span>
                         </div>
                         <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/clarity-diamond-shape.png') }}" class="w-32"
                                 alt="Round">
                             <span class="border-b border-gray-300 w-full pt-5 pb-2 text-black text-center">VS2</span>
-                            <span class="uppercase text-sm text-center h-14">Very Slightly (Not Eye Visible)</span>
+                            <span class="uppercase text-xs lg:text-sm text-center h-14">Very Slightly (Not Eye Visible)</span>
                         </div>
                         <div class="bg-light-grey-1 flex flex-col justify-between items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/clarity-diamond-shape.png') }}" class="w-32"
                                 alt="Oval">
                             <span class="border-b border-gray-300 w-full pt-5 pb-2 text-black text-center">SI1</span>
-                            <span class="uppercase text-sm text-center h-14">Slightly Included (Not Eye Visible)</span>
+                            <span class="uppercase text-xs lg:text-sm text-center h-14">Slightly Included (Not Eye Visible)</span>
                         </div>
                         <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/clarity-diamond-shape.png') }}" class="w-32"
                                 alt="Cushion">
                             <span class="border-b border-gray-300 w-full pt-5 pb-2 text-black text-center">SI2</span>
-                            <span class="uppercase text-sm text-center h-14">Slightly Included (Not Eye Visible)</span>
+                            <span class="uppercase text-xs lg:text-sm text-center h-14">Slightly Included (Not Eye Visible)</span>
                         </div>
                     </div>
                 </div>
@@ -921,7 +931,7 @@
                 </div>
                 <div class="hidden py-2 text-gray-600 transition-all duration-300">
                     <span class="text-sm">Color grades slight variances in a diamond’s color saturation. Individual grades are hard to distinguish by the human eye.</span>
-                    <div class="grid grid-cols-3 gap-4">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5">
                             <img src="{{ asset('images/style-shape/color-diamond-shape.png') }}" class="w-32"
                                 alt="Round">
@@ -1237,7 +1247,7 @@
                 <!-- End Table Filter -->
 
                 <!-- Start Depth Filter -->
-                <div class="py-4 flex justify-between items-center cursor-pointer">
+                {{-- <div class="py-4 flex justify-between items-center cursor-pointer">
                     <span>Depth</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14">
@@ -1364,7 +1374,7 @@
                         // Initialize slider colors
                         updateDepthSliderColors();
                     </script>
-                </div>
+                </div> --}}
                 <!-- End Depth Filter -->
 
                 <!-- Start Fancy colors Filter -->
@@ -1376,7 +1386,7 @@
                     </svg>
                 </div>
                 <div class="hidden py-2 text-gray-600 transition-all duration-300">
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="bg-light-grey-1 flex flex-col justify-center items-center px-4 py-5 gap-9">
                             <img src="{{ asset('images/diamonds/blue.png') }}" class="w-32"
                                 alt="Blue">
@@ -1413,41 +1423,41 @@
                         </svg>
                     </div>
                 </div>
-                <div class="hidden flex flex-col gap-3 py-2 text-gray-600 transition-all duration-300">
-                    <button class="px-4 py-2 w-36 border-2 border-gray-300 rounded hover:border-primary transition-all">Featured</button>
+                <div class="hidden flex flex-col gap-3 py-2 text-gray-600 transition-all duration-300"> 
+                    <button class="px-4 py-2 w-28 lg:w-36 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Featured</button>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs font-medium uppercase">Price</span>
                         <div class="flex flex-row gap-1">
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Price hight to low</button>
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Price low to high</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Price hight to low</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Price low to high</button>
                         </div>
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs font-medium uppercase">Carat</span>
                         <div class="flex flex-row gap-1">
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Carat hight to low</button>
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Carat low to high</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Carat hight to low</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Carat low to high</button>
                         </div>
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs font-medium uppercase">Color</span>
                         <div class="flex flex-row gap-1">
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Color hight to low</button>
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Color low to high</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Color hight to low</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Color low to high</button>
                         </div>
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs font-medium uppercase">Cut</span>
                         <div class="flex flex-row gap-1">
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Cut hight to low</button>
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Cut low to high</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Cut hight to low</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Cut low to high</button>
                         </div>
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs font-medium uppercase">Clarity</span>
                         <div class="flex flex-row gap-1">
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Clarity hight to low</button>
-                            <button class="px-4 py-2 w-48 border-2 border-gray-300 rounded hover:border-primary transition-all">Clarity low to high</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Clarity hight to low</button>
+                            <button class="px-4 py-2 w-40 lg:w-48 text-sm lg:text-base border-2 border-gray-300 rounded hover:border-primary transition-all">Clarity low to high</button>
                         </div>
                     </div>
                 </div>
@@ -1461,7 +1471,7 @@
             </div>
         </div>
     </div>
-    <!-- End Filter Drawer -->
+    <!-- End Diamond Filter Drawer -->
 
     <!-- Start Open Drawer Script -->
     <script>
