@@ -13,8 +13,8 @@
                             Antique Cut Diamond Inventory
                         </h3>
                     </div>
-    
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+
+                    <div x-data="{ isModalOpen: false }" class="flex flex-col gap-2 sm:flex-row sm:items-center">
                         <label for="fileUpload" class="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
@@ -22,15 +22,245 @@
                             Upload Excel
                         </label>
                         <input type="file" id="fileUpload" class="hidden" accept=".xlsx, .xls">
-                        <button class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700">
+                        <button @click="isModalOpen = !isModalOpen" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                             </svg>
                             Add New Diamond
                         </button>
+                        {{-- Start Modal --}}
+                        <div x-show="isModalOpen"
+                                class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto modal z-99999">
+                                <div class="modal-close-btn fixed inset-0 h-full w-full bg-black/50 backdrop-blur-[25px]">
+                                </div>
+                                <div @click.outside="isModalOpen = false"
+                                    class="relative w-full max-w-[584px] rounded-3xl bg-white p-6 dark:bg-gray-900 lg:p-10">
+                                    <!-- close btn -->
+                                    <button @click="isModalOpen = false"
+                                        class="group absolute right-3 top-3 z-999 flex h-9.5 w-9.5 items-center justify-center rounded-full bg-gray-200 text-gray-500 transition-colors hover:bg-gray-300 hover:text-gray-500 dark:bg-gray-800 dark:hover:bg-gray-700 sm:right-6 sm:top-6 sm:h-11 sm:w-11">
+                                        <svg class="transition-colors fill-current group-hover:text-gray-600 dark:group-hover:text-gray-200"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M6.04289 16.5413C5.65237 16.9318 5.65237 17.565 6.04289 17.9555C6.43342 18.346 7.06658 18.346 7.45711 17.9555L11.9987 13.4139L16.5408 17.956C16.9313 18.3466 17.5645 18.3466 17.955 17.956C18.3455 17.5655 18.3455 16.9323 17.955 16.5418L13.4129 11.9997L17.955 7.4576C18.3455 7.06707 18.3455 6.43391 17.955 6.04338C17.5645 5.65286 16.9313 5.65286 16.5408 6.04338L11.9987 10.5855L7.45711 6.0439C7.06658 5.65338 6.43342 5.65338 6.04289 6.0439C5.65237 6.43442 5.65237 7.06759 6.04289 7.45811L10.5845 11.9997L6.04289 16.5413Z"
+                                                fill="" />
+                                        </svg>
+                                    </button>
+
+                                    <form class="">
+                                        <h4 class="mb-6 text-lg font-medium text-gray-800 dark:text-white/90">
+                                            Antique Cut Diamond Details
+                                        </h4>
+
+                                        <div class="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
+                                            {{-- Stock --}}
+                                            <div class="col-span-1">
+                                                <label
+                                                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Stock
+                                                </label>
+                                                <input type="text" placeholder="Enter stock"
+                                                    class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                            </div>
+
+                                            {{-- Shape --}}
+                                            <div class="relative col-span-1" x-data="{ open: false, selected: 'Select Shape' }">
+                                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Shape
+                                                </label>
+                                                <!-- Dropdown toggle styled like an input -->
+                                                <button @click="open = !open" type="button"
+                                                    class="w-full text-left dark:bg-dark-900 h-11 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                                                    <span x-text="selected"></span>
+                                                    <svg class="inline-block float-right stroke-current transition-transform" :class="open ? '-rotate-180' : 'rotate-180'" width="20"
+                                                        height="20" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M4.792 7.396L10 12.604l5.208-5.208" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Scrollable Dropdown Menu -->
+                                                <div x-show="open" @click.outside="open = false"
+                                                    class="absolute left-0 right-0 mt-2 z-40 rounded-lg border border-gray-300 bg-white shadow-theme-xs dark:border-gray-700 dark:bg-gray-900 max-h-[190px] overflow-y-auto">
+                                                    <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <template x-for="shape in ['Round', 'Princess', 'Radiant', 'Asscher', 'Cushion', 'Oval', 'Emerald', 'Pear', 'Marquise', 'Heart', 'Rose Cut', 'Old European', 'Half Moon', 'Baguette Trapezoid', 'Baguette', 'Hexagon', 'Kite', 'Old Mine', 'Trapezoid', 'Triangular']">
+                                                            <li>
+                                                                <a href="#" @click.prevent="selected = shape; open = false;"
+                                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                                                    <span x-text="shape"></span>
+                                                                </a>
+                                                            </li>
+                                                        </template>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            {{-- Carat --}}
+                                            <div class="col-span-1">
+                                                <label
+                                                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Carat
+                                                </label>
+                                                <input type="text" placeholder="Enter carat"
+                                                    class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                            </div>
+
+                                            {{-- Color --}}
+                                            <div class="relative col-span-1" x-data="{ open: false, selected: 'Select Color' }">
+                                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Color
+                                                </label>
+                                                <!-- Dropdown toggle styled like an input -->
+                                                <button @click="open = !open" type="button"
+                                                    class="w-full text-left dark:bg-dark-900 h-11 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                                                    <span x-text="selected"></span>
+                                                    <svg class="inline-block float-right stroke-current transition-transform" :class="open ? '-rotate-180' : 'rotate-180'" width="20"
+                                                        height="20" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M4.792 7.396L10 12.604l5.208-5.208" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Scrollable Dropdown Menu -->
+                                                <div x-show="open" @click.outside="open = false"
+                                                    class="absolute left-0 right-0 mt-2 z-40 rounded-lg border border-gray-300 bg-white shadow-theme-xs dark:border-gray-700 dark:bg-gray-900 max-h-[190px] overflow-y-auto">
+                                                    <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <template x-for="color in ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']">
+                                                            <li>
+                                                                <a href="#" @click.prevent="selected = color; open = false;"
+                                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                                                    <span x-text="color"></span>
+                                                                </a>
+                                                            </li>
+                                                        </template>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            {{-- Clarity --}}
+                                            <div class="relative col-span-1" x-data="{ open: false, selected: 'Select Clarity' }">
+                                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Clarity
+                                                </label>
+                                                <!-- Dropdown toggle styled like an input -->
+                                                <button @click="open = !open" type="button"
+                                                    class="w-full text-left dark:bg-dark-900 h-11 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                                                    <span x-text="selected"></span>
+                                                    <svg class="inline-block float-right stroke-current transition-transform" :class="open ? '-rotate-180' : 'rotate-180'" width="20"
+                                                        height="20" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M4.792 7.396L10 12.604l5.208-5.208" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Scrollable Dropdown Menu -->
+                                                <div x-show="open" @click.outside="open = false"
+                                                    class="absolute left-0 right-0 mt-2 z-40 rounded-lg border border-gray-300 bg-white shadow-theme-xs dark:border-gray-700 dark:bg-gray-900 max-h-[190px] overflow-y-auto">
+                                                    <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <template x-for="clarity in ['FL', 'IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2', 'SI3', 'I1', 'I2']">
+                                                            <li>
+                                                                <a href="#" @click.prevent="selected = clarity; open = false;"
+                                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                                                    <span x-text="clarity"></span>
+                                                                </a>
+                                                            </li>
+                                                        </template>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            {{-- Cut --}}
+                                            <div class="relative col-span-1" x-data="{ open: false, selected: 'Select Cut' }">
+                                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Cut
+                                                </label>
+                                                <!-- Dropdown toggle styled like an input -->
+                                                <button @click="open = !open" type="button"
+                                                    class="w-full text-left dark:bg-dark-900 h-11 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 flex justify-between items-center">
+                                                    <span x-text="selected"></span>
+                                                    <svg class="stroke-current transition-transform duration-200 ease-in-out"
+                                                        :class="open ? '-rotate-180' : 'rotate-180'"
+                                                        width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M4.792 7.396L10 12.604l5.208-5.208" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Scrollable Dropdown Menu -->
+                                                <div x-show="open" @click.outside="open = false"
+                                                    class="absolute left-0 right-0 mt-2 z-40 rounded-lg border border-gray-300 bg-white shadow-theme-xs dark:border-gray-700 dark:bg-gray-900 max-h-[190px] overflow-y-auto">
+                                                    <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <template x-for="cut in ['Ideal', 'Excellent', 'Very Good', 'Good', 'Fair', 'Poor']">
+                                                            <li>
+                                                                <a href="#" @click.prevent="selected = cut; open = false;"
+                                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                                                    <span x-text="cut"></span>
+                                                                </a>
+                                                            </li>
+                                                        </template>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            {{-- Price --}}
+                                            <div class="col-span-1">
+                                                <label
+                                                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Price
+                                                </label>
+                                                <input type="text" placeholder="Enter price"
+                                                    class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                            </div>
+
+                                            {{-- Status --}}
+                                            <div class="relative col-span-1" x-data="{ open: false, selected: 'Select Status' }">
+                                                <label
+                                                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                    Status
+                                                </label>
+                                                <!-- Dropdown toggle styled like an input -->
+                                                <button @click="open = !open" type="button"
+                                                  class="w-full text-left dark:bg-dark-900 h-11 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                                                  <span x-text="selected"></span>
+                                                  <svg class="inline-block float-right stroke-current transition-transform" :class="open ? '-rotate-180' :  'rotate-180'"
+                                                    width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                    <path d="M4.792 7.396L10 12.604l5.208-5.208" stroke-width="1.5" stroke-linecap="round"
+                                                      stroke-linejoin="round" />
+                                                  </svg>
+                                                </button>
+
+                                                <!-- Dropdown menu -->
+                                                <div x-show="open" @click.outside="open = false"
+                                                  class="absolute left-0 right-0 mt-2 z-40 rounded-lg border border-gray-300 bg-white shadow-theme-xs dark:border-gray-700 dark:bg-gray-900">
+                                                  <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                                                    <li>
+                                                      <a href="#" @click.prevent="selected = 'In Stock'; open = false;"
+                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                                        In Stock
+                                                      </a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="#" @click.prevent="selected = 'Out of Stock'; open = false;"
+                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                                        Out of Stock
+                                                      </a>
+                                                    </li>
+                                                  </ul>
+                                                </div>
+                                            </div>
+
+                                            {{-- Button --}}
+                                            <button class="col-span-2 inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700">
+                                                Add
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        {{-- End Modal --}}
                     </div>
                 </div>
-    
+
                 <!-- Search Bar -->
                 <div class="mb-4 px-4">
                     <div class="relative">
@@ -42,7 +272,7 @@
                         </span>
                     </div>
                 </div>
-    
+
                 <!-- Table -->
                 <div class="max-w-full overflow-x-auto">
                     <table class="w-full min-w-[1000px] border-collapse">
@@ -74,7 +304,7 @@
                                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-400" x-text="diamond.cut"></td>
                                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-400" x-text="diamond.price"></td>
                                     <td class="px-4 py-3">
-                                        <span 
+                                        <span
                                         :class="{
                                             'rounded-full px-3 py-1 text-xs font-medium': true,
                                             'bg-green-100 text-green-700 dark:bg-green-500/15 dark:text-green-500': diamond.status === 'In Stock',
@@ -101,7 +331,7 @@
                                                     />
                                                 </svg>
                                                 </button>
-    
+
                                                 <button
                                                 class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white/90"
                                                 >
@@ -128,7 +358,7 @@
                         </tbody>
                     </table>
                 </div>
-    
+
                 <!-- Pagination -->
                 <div class="border-t border-gray-200 px-4 py-4 dark:border-gray-800">
                     <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
@@ -147,7 +377,7 @@
                 </div>
             </div>
         </div>
-    
+
         <script>
             function diamondTable() {
                 return {
@@ -193,65 +423,65 @@
                     sortDirection: 'asc',
                     currentPage: 1,
                     perPage: 10,
-    
+
                     get filteredData() {
                         const searchLower = this.search.toLowerCase();
                         return this.data
-                            .filter(diamond => 
-                                Object.values(diamond).some(value => 
+                            .filter(diamond =>
+                                Object.values(diamond).some(value =>
                                     String(value).toLowerCase().includes(searchLower)
                                 )
                             )
                             .sort((a, b) => {
                                 const aVal = a[this.sortColumn];
                                 const bVal = b[this.sortColumn];
-                                
+
                                 if (this.sortColumn === 'price') {
                                     const aPrice = parseFloat(aVal.replace(/[$,]/g, ''));
                                     const bPrice = parseFloat(bVal.replace(/[$,]/g, ''));
                                     return this.sortDirection === 'asc' ? aPrice - bPrice : bPrice - aPrice;
                                 }
-                                
+
                                 if (this.sortColumn === 'date_added') {
-                                    return this.sortDirection === 'asc' 
+                                    return this.sortDirection === 'asc'
                                         ? new Date(aVal) - new Date(bVal)
                                         : new Date(bVal) - new Date(aVal);
                                 }
-                                
+
                                 return this.sortDirection === 'asc'
                                     ? String(aVal).localeCompare(String(bVal))
                                     : String(bVal).localeCompare(String(aVal));
                             });
                     },
-    
+
                     get paginatedData() {
                         return this.filteredData.slice(this.startIndex, this.endIndex);
                     },
-    
+
                     get startIndex() {
                         return (this.currentPage - 1) * this.perPage;
                     },
-    
+
                     get endIndex() {
                         return this.startIndex + this.perPage;
                     },
-    
+
                     get totalPages() {
                         return Math.ceil(this.filteredData.length / this.perPage);
                     },
-    
+
                     previousPage() {
                         if (this.currentPage > 1) {
                             this.currentPage--;
                         }
                     },
-    
+
                     nextPage() {
                         if (this.currentPage < this.totalPages) {
                             this.currentPage++;
                         }
                     },
-    
+
                     sortBy(column) {
                         if (this.sortColumn === column) {
                             this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
@@ -262,9 +492,8 @@
                     }
                 };
             }
-        </script>   
+        </script>
     </div>
 </div>
 
 @endsection
-           
