@@ -1826,7 +1826,7 @@
                         <a href="/inventory"
                             class="text-xs text-gold w-64 bg-primary border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center">WHITE
                             DIAMONDS</a>
-                        <a href="{{ route('fancy-color-diamonds') }}"
+                        <a href="{{ route('color.diamond') }}"
                             class="text-xs text-primary w-64 hover:text-gold border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center">FANCY
                             COLOR DIAMONDS</a>
                     </div>
@@ -3514,7 +3514,7 @@
                 <a href="/inventory"
                     class="text-xs w-36 text-center text-gold bg-primary border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">WHITE
                     DIAMONDS</a>
-                <a href="{{ route('fancy-color-diamonds') }}"
+                <a href="{{ route('color.diamond') }}"
                     class="text-xs w-48 text-center text-primary hover:text-gold border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">FANCY
                     COLOR DIAMONDS</a>
             </div>
@@ -3740,6 +3740,9 @@
                                             </button>
                                         </a>
                                         @endif
+                                        <button class="px-6 py-2.5 text-sm border border-primary text-primary  rounded-sm hover:bg-primary hover:text-white transition-colors flex items-center font-montserrat gap-2">
+                                            Add to Wishlist
+                                        </button>
                                     </div>
 
                                     <a href="{{ asset($diamond->certificate_link) }}" target="_blank"
