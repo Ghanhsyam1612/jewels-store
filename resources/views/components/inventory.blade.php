@@ -1079,6 +1079,11 @@
                                         <span class="text-sm font-montserrat">GIA</span>
                                     </label>
                                     <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                        <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="IGI" {{ in_array('IGI', $selectedLab) ? 'checked' : '' }}>
+                                        <span class="text-sm font-montserrat">IGI</span>
+                                    </label>
+
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-100">
                                         <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="ROAYA MOISSANITE" {{ in_array('ROAYA MOISSANITE', $selectedLab) ? 'checked' : '' }}>
                                         <span class="text-sm font-montserrat">ROAYA MOISSANITE</span>
                                     </label>
@@ -2762,6 +2767,10 @@
                                 <span class="text-sm font-montserrat">GIA</span>
                             </label>
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
+                                        <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="IGI" {{ in_array('IGI', $selectedLab) ? 'checked' : '' }}>
+                                        <span class="text-sm font-montserrat">IGI</span>
+                                    </label>
+                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
                                 <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="ROAYA" {{ in_array('ROAYA', $selectedLab) ? 'checked' : '' }}>
                                 <span class="text-sm font-montserrat"> ROAYA MOISSANITE</span>
                             </label>
@@ -3552,6 +3561,7 @@
         <script>
             function clearFilters() {
                 const url = new URL(window.location.href);
+                url.searchParams.delete('shape');
                 url.searchParams.delete('fromCutSlider');
                 url.searchParams.delete('toCutSlider');
                 url.searchParams.delete('fromColorSlider');

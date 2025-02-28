@@ -33,8 +33,14 @@
                 <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
                     <div class="py-2">
                         <!-- Natural Diamond -->
-                        <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Natural Diamond</a>
-                        
+                        <!-- <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Natural Diamond</a> -->
+                        <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/RD_WEB_21012025_135756.xlsx" 
+   class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200"
+   download>
+   Natural Diamond
+</a>
+
+
                         <!-- Lab Diamond with submenu -->
                         <div class="group/lab relative">
                             <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Lab Diamond</a>
@@ -55,7 +61,7 @@
             </div>
 
             {{-- Inventory --}}
-            <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">INVENTORY</a>
+            <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">SELECT YOUR DIAMOND</a>
             
             {{-- Engagement Rings --}}
             <div class="relative group">
@@ -317,7 +323,14 @@
             <a href="/ready-to-ship" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">READY TO SHIP</a>
             
             {{-- Antique Cut Diamonds --}}
-            <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a>
+            <!-- <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a> -->
+            <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/Antique+and+Exotic+cut+list(1).xlsx" 
+   class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" 
+   style="color: rgb(240,186,64);" 
+   download>
+   ANTIQUE CUT DIAMOND
+</a>
+
 
             {{-- Precious Stones --}}
             <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES</a>

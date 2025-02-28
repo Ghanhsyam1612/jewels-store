@@ -4,9 +4,11 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ColorDiamondController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\HomeController;
+use App\Models\ColorDiamond;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -51,9 +53,11 @@ Route::get('/fancy-shapes-diamonds', function () {
     return view('lab-diamonds.fancy-shapes-diamonds');
 })->name('fancy-shapes-diamonds');
 
-Route::get('/fancy-color-diamonds', function () {
-    return view('lab-diamonds.fancy-color-diamonds');
-})->name('fancy-color-diamonds');
+// Get Color Diamond
+Route::get('/fancy-color-diamonds', [ColorDiamondController::class , 'index'])->name('color.diamond');
+Route::get('/color/diamond/{colorDiamond}', [ColorDiamond::class, 'details'])->name('color.diamonds.details');
+
+
 
 Route::get('/color-melee-diamonds', function () {
     return view('lab-diamonds.color-melee-diamonds');

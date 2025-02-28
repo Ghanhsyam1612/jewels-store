@@ -14,7 +14,6 @@
                         <img src="{{ asset($item['images']) }}" alt="Diamond" class="w-20 h-20">
                         <p class="text-xs text-black font-montserrat mt-1">Sample Image <br> Only</p>
                     </div>
-
                     <!-- Product Details -->
                     <div class="w-2/6">
                         <div>
@@ -22,7 +21,15 @@
                             <p class="text-sm text-black font-montserrat mt-1"><span class="font-semibold">Shape:</span> {{ $item['shape'] }}</p>
                             <p class="text-sm text-black font-montserrat"><span class="font-semibold">Carat:</span> {{ $item['carat'] }}</p>
                             <p class="text-sm text-black font-montserrat"><span class="font-semibold">Cut:</span> {{ $item['cut'] }}</p>
-                            <p class="text-sm text-black font-montserrat"><span class="font-semibold">Color:</span> {{ $item['color'] }}</p>
+                            <p class="text-sm text-black font-montserrat">
+                            @if(isset($item['intensity']))
+        <span class="font-semibold">Intensity:</span> {{ $item['intensity'] }}
+    @elseif(isset($item['color']))
+        <span class="font-semibold">Color:</span> {{ $item['color'] }}
+    @else
+        <span class="font-semibold">Color:</span> Unknown
+    @endif
+                            </p>
                             <p class="text-sm text-black font-montserrat"><span class="font-semibold">Clarity:</span> {{ $item['clarity'] }}</p>
                         </div>
                     </div>

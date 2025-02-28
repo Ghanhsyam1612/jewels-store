@@ -12,11 +12,8 @@
             <div class="text-center mt-4 py-8 md:px-14">
                 <h1
                     class="font-literata text-3xl md:text-44px md:leading-[59px] lg:text-5xl tracking-wide font-medium text-primary mb-4">
-                    Beautiful, Certified Lab Grown Diamonds
+                    Beautiful, Certified Diamonds and Precious Stone
                 </h1>
-                <p class="font-montserrat text-lg md:text-xl text-primary max-w-3xl mx-auto">
-                    Mining free. Direct to you. No middlemen
-                </p>
             </div>
 
             <!-- Buttons Row -->
