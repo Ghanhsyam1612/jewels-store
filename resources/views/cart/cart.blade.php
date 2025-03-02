@@ -22,13 +22,11 @@
                             <p class="text-sm text-black font-montserrat"><span class="font-semibold">Carat:</span> {{ $item['carat'] }}</p>
                             <p class="text-sm text-black font-montserrat"><span class="font-semibold">Cut:</span> {{ $item['cut'] }}</p>
                             <p class="text-sm text-black font-montserrat">
-                            @if(isset($item['intensity']))
-        <span class="font-semibold">Intensity:</span> {{ $item['intensity'] }}
-    @elseif(isset($item['color']))
-        <span class="font-semibold">Color:</span> {{ $item['color'] }}
-    @else
-        <span class="font-semibold">Color:</span> Unknown
-    @endif
+                                @if(isset($item['intensity']))
+                                    <span class="font-semibold">Intensity:</span> {{ $item['intensity'] }}
+                                @else($item['color'])
+                                    <span class="font-semibold">Color:</span> {{ $item['color'] }}
+                                @endif
                             </p>
                             <p class="text-sm text-black font-montserrat"><span class="font-semibold">Clarity:</span> {{ $item['clarity'] }}</p>
                         </div>

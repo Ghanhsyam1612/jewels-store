@@ -46,8 +46,8 @@ class ColorDiamond extends Model
                 'ROSE' => 'Shape/rose-cut.svg',
                 'TRAPEZOID' => 'Shape/trapezoid.svg',
                 'TRIANGULAR' => 'Shape/triangular.svg',
-                //  'TRILLIANT' => 'Shape/trilliant.svg'
-                //  'FLOWER' => 'Shape/flower.svg'
+                 'TRILLIANT' => 'Shape/trilliant.svg',
+                 'FLOWER' => 'Shape/flower.svg'
                 //  'ASHOKA' => 'Shape/ashoka.svg'
 
 

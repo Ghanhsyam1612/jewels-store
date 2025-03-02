@@ -9,33 +9,40 @@ class ColorDiamondController extends Controller
 {
     public function index(Request $request)
     {
+
         $query = ColorDiamond::query();
+
+
+        // Filter by color if provided
+        if ($request->has('color') && $request->color) {
+            $query->where('color', $request->color);
+        }
 
         // Filter by shape if provided
         if ($request->has('shape') && $request->shape) {
             $query->where('shape', $request->shape);
         }
 
-        
         // Filter by price range
         if ($request->filled('minPrice') && $request->filled('maxPrice')) {
             $query->whereBetween('original_price', [(int)$request->minPrice, (int)$request->maxPrice]);
         }
 
-             // Filter by Carat Range
-             if ($request->filled('minCarat') && $request->filled('maxCarat')) {
-                $query->whereBetween('carat', [(float)$request->minCarat, (float)$request->maxCarat]);
-            }
-    // Filter by Cut Range
-    if ($request->filled('fromCutSlider') && $request->filled('toCutSlider')) {
-        $query->whereBetween('cut', [(int)$request->fromCutSlider, (int)$request->toCutSlider]);
-    }
-
-    
-        // Filter by Color Range
-        if ($request->filled('fromColorSlider') && $request->filled('toColorSlider')) {
-            $query->whereBetween('color', [(int)$request->fromColorSlider, (int)$request->toColorSlider]);
+        // Filter by Carat Range
+        if ($request->filled('minCarat') && $request->filled('maxCarat')) {
+            $query->whereBetween('carat', [(float)$request->minCarat, (float)$request->maxCarat]);
         }
+        // Filter by Cut Range
+         if ($request->filled('fromCutSlider') && $request->filled('toCutSlider')) {
+            $query->whereBetween('cut', [(int)$request->fromCutSlider, (int)$request->toCutSlider]);
+        }
+
+       // Filter by intensity if provided
+         if ($request->has('intensity') && $request->intensity) {
+            // Make sure we're comparing the exact string
+            $query->where('intensity', '=', $request->intensity);
+        }
+
 
         // Filter by Clarity Range
         if ($request->filled('fromClaritySlider') && $request->filled('toClaritySlider')) {

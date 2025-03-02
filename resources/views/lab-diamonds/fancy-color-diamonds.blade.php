@@ -9,76 +9,76 @@
         Select your perfect fancy color lab created diamond from thousands of ethically sourced diamonds.
     </p>
 
-    {{-- Start Color --}}
+    <!--  Start Color  -->
     <div class="flex items-center  px-4 md:px-8 lg:px-12 lg:py-4 3xl:px-40">
         <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Color</h5>
         <div class="flex flex-col">
             <div class="mb-1 grid grid-cols-2 lg:grid-cols-10 gap-5">
                 <!-- Color Options -->
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Yellow'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <img src="{{ asset('images/color/yellow.png') }}" class="w-11 h-11" alt="Yellow">
                     <span class="text-primary">Yellow</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Pink'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="pink">
                     <img src="{{ asset('images/color/pink.png') }}" class="w-11 h-11" alt="Pink">
                     <span class="text-primary">Pink</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Purple'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="purple">
                     <img src="{{ asset('images/color/purple.png') }}" class="w-11 h-11" alt="Purple">
                     <span class="text-primary">Purple</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Red'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="red">
                     <img src="{{ asset('images/color/red.png') }}" class="w-11 h-11" alt="Red">
                     <span class="text-primary">Red</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Blue'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="blue">
                     <img src="{{ asset('images/color/blue.png') }}" class="w-11 h-11" alt="Blue">
                     <span class="text-primary">Blue</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Green'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="green">
                     <img src="{{ asset('images/color/green.png') }}" class="w-11 h-11" alt="Green">
                     <span class="text-primary">Green</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Orange'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="orange">
                     <img src="{{ asset('images/color/orange.png') }}" class="w-11 h-11" alt="Orange">
                     <span class="text-primary">Orange</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Brown'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="brown">
                     <img src="{{ asset('images/color/brown.png') }}" class="w-11 h-11" alt="Brown">
                     <span class="text-primary">Brown</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Black'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="black">
                     <img src="{{ asset('images/color/black.png') }}" class="w-11 h-11" alt="Black">
                     <span class="text-primary">Black</span>
                 </a>
     
-                <a href="#"
+                <a href="{{ route('color.diamond' , ['color' => 'Gray'])  }}"  onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="gray">
                     <img src="{{ asset('images/color/gray.png') }}" class="w-11 h-11" alt="Gray">
@@ -87,15 +87,15 @@
             </div>
         </div>
     </div>
-    {{-- End Color --}}
+    <!-- End Color  -->
 
-    {{-- Start Intensity Color --}}
+    <!-- Start Intensity Color  -->
     <div class="flex items-center  px-4 md:px-8 lg:px-12 lg:py-4 3xl:px-40">
         <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Intensity</h5>
         <div class="flex flex-col">
             <div class="grid grid-cols-2 lg:grid-cols-6 mb-1 gap-5">
                 <!-- Fancy Light (0.20) -->
-                <a href="#"
+                <a href="{{ route('color.diamond', ['intensity' => 'FANCY LIGHT']) }}" onclick="window.location=this.href;"
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/20">
@@ -113,7 +113,7 @@
                 </a>
                 
                 <!-- Fancy (0.30) -->
-                <a href="#"
+                <a href="{{ route('color.diamond', ['intensity' => 'FANCY']) }}" onclick="window.location=this.href;""
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/30">
@@ -131,7 +131,7 @@
                 </a>
 
                 <!-- Fancy Intense (0.40) -->
-                <a href="#"
+                <a href="{{ route('color.diamond', ['intensity' => 'FANCY INTENSE']) }}" onclick="window.location=this.href;""
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/40">
@@ -149,7 +149,7 @@
                 </a>
 
                 <!-- Fancy Vivid (0.60) -->
-                <a href="#"
+                <a href="{{ route('color.diamond', ['intensity' => 'FANCY VIVID']) }}" onclick="window.location=this.href;""
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/60">
@@ -167,7 +167,7 @@
                 </a>
 
                 <!-- Fancy Deep (0.80) -->
-                <a href="#"
+                <a href="{{ route('color.diamond', ['intensity' => 'FANCY DEEP']) }}" onclick="window.location=this.href;""
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/80">
@@ -185,7 +185,7 @@
                 </a>
 
                 <!-- Fancy Dark (100) -->
-                <a href="#"
+                <a href="{{ route('color.diamond', ['intensity' => 'FANCY DARK']) }}" onclick="window.location=this.href;""
                     class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500">
@@ -205,7 +205,7 @@
             </div>
         </div>
     </div>
-    {{-- End Intensity Color --}}
+    <!-- End Intensity Color  -->
 
     <!-- Filter Button -->
     <div class="flex justify-center items-center lg:hidden px-4 md:px-8 lg:px-12 2xl:px-16 py-4">
@@ -214,7 +214,7 @@
             id="FC_filterButton" onclick="showFilterDrawer()">Filter</button>
     </div>
 
-    <!-- Filter Drawer -->
+    <!-- Mobile  Filter Drawer -->
     <div id="FC_filterDrawer" class="fixed overflow-y-scroll top-0 right-0 h-full w-full bg-white shadow-lg z-50 hidden lg:hidden">
         <div class="flex justify-between items-center p-4 border-b">
             <h2 class="text-2xl font-bold text-primary font-montserrat">Filter</h2>
@@ -253,134 +253,99 @@
                 </div>
                 <div id="FC_shapeDropdown" class="hidden mt-4 grid grid-cols-6 gap-3 px-4 transition-all duration-300">
                     <!-- Round -->
-                    <a href="{{ route('inventory', ['shape' => 'round']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'ROUND']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" alt="Round Shape">
                     </a>
 
                     <!-- Princess -->
-                    <a href="{{ route('inventory', ['shape' => 'princess']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'PRINCESS']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25" alt="Princess Shape">
                     </a>
 
                     <!-- Radiant -->
-                    <a href="{{ route('inventory', ['shape' => 'radiant']) }}"
+                    <a href="{ route('color.diamond', ['shape' => 'RADIANT']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25" alt="Radiant Shape">
                     </a>
 
                     <!-- Asscher -->
-                    <a href="route('inventory', ['shape' => 'asscher'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'ASSCHER']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25" alt="Asscher Shape">
                     </a>
 
                     <!-- Cushion -->
-                    <a href="{{ route('inventory', ['shape' => 'cushion']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'CUSHION']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/cushion.svg') }}" width="25" height="25" alt="Cushion Shape">
                     </a>
 
                     <!-- Oval -->
-                    <a href="route('inventory', ['shape' => 'oval'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'OVAL']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                     </a>
 
                     <!-- Emerald -->
-                    <a href="route('inventory', ['shape' => 'emerald'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'EMERALD']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25" alt="Emerald Shape">
                     </a>
 
                     <!-- Pear -->
-                    <a href="{{ route('inventory', ['shape' => 'pear']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'PEAR']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/pear.svg') }}" width="25" height="25" alt="Pear Shape">
                     </a>
 
                     <!-- Marquise -->
-                    <a href="route('inventory', ['shape' => 'marquise'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'MARQUISE']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25"
                             alt="Marquise Shape">
                     </a>
 
                     <!-- Heart -->
-                    <a href="route('inventory', ['shape' => 'heart'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'HEART']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                     </a>
 
                     <!-- Rose Cut -->
-                    <a href="route('inventory', ['shape' => 'rose-cut'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'ROSE']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25"
                             alt="Rose Cut Shape">
                     </a>
 
-                    <!-- Old European -->
-                    <a href="route('inventory', ['shape' => 'old-european'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25"
-                            alt="Old European Shape">
-                    </a>
-
-                    <!-- Half Moon -->
-                    <a href="route('inventory', ['shape' => 'half-moon'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25"
-                            alt="Half Moon Shape">
-                    </a>
-
-                    <!-- Baguette Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'baguette-trapezoid'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
-                        <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25"
-                            alt="Baguette Trapezoid Shape">
-                    </a>
-
-                    <!-- Baguette -->
-                    <a href="route('inventory', ['shape' => 'baguette'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25"
-                            alt="Baguette Shape">
-                    </a>
-
-                    <!-- Hexagon -->
-                    <a href="route('inventory', ['shape' => 'hexagon'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25"
-                            alt="Hexagon Shape">
-                    </a>
-
-                    <!-- Kite -->
-                    <a href="route('inventory', ['shape' => 'kite'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
-                    </a>
-
-                    <!-- Old Mine -->
-                    <a href="route('inventory', ['shape' => 'old-mine'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25"
-                            alt="Old Mine Shape">
-                    </a>
-
                     <!-- Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'trapezoid'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'TRAPEZOID']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25"
                             alt="Trapezoid Shape">
                     </a>
 
                     <!-- Triangular -->
-                    <a href="route('inventory', ['shape' => ''])"
+                    <a href="{{ route('color.diamond', ['shape' => 'TRIANGULAR']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
                             alt="Triangular Shape">
                     </a>
+                     <!-- Trilliant -->
+                     <a href="{{ route('color.diamond', ['shape' => 'TRILLIANT']) }} "
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/trilliant.svg') }}" width="25" height="25"
+                            alt="Trilliant Shape">
+                    </a>
+                    <!-- Flower -->
+                    <a href="{{ route('color.diamond', ['shape' => 'FLOWER']) }} "
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/flower.svg') }}" width="25" height="25"
+                            alt="Flower Shape">
+                    </a>
+
                     <!-- End Shape Svg -->
                 </div>
             </div>
@@ -2022,6 +1987,7 @@
             document.getElementById('FC_filterDrawer').classList.add('hidden');
         }
     </script>  
+    <!-- End Mobile Filter Drawer -->
 
     <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
     <div class="hidden lg:grid lg:grid-cols-3 lg:gap-4 px-4 md:px-8 lg:px-12 lg:py-4 3xl:px-40">
@@ -2031,140 +1997,105 @@
             <div class="flex flex-col">
                 <div class="flex mb-1">
                     <!-- Round -->
-                    <a href="{{ route('inventory', ['shape' => 'round']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'ROUND']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" alt="Round Shape">
                     </a>
 
                     <!-- Princess -->
-                    <a href="{{ route('inventory', ['shape' => 'princess']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'PRINCESS']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25"
                             alt="Princess Shape">
                     </a>
 
                     <!-- Radiant -->
-                    <a href="{{ route('inventory', ['shape' => 'radiant']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'RADIANT']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25"
                             alt="Radiant Shape">
                     </a>
 
                     <!-- Asscher -->
-                    <a href="route('inventory', ['shape' => 'asscher'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'ASSCHER']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25"
                             alt="Asscher Shape">
                     </a>
 
                     <!-- Cushion -->
-                    <a href="{{ route('inventory', ['shape' => 'cushion']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'CUSHION']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/cushion.svg') }}" width="25" height="25"
                             alt="Cushion Shape">
                     </a>
 
                     <!-- Oval -->
-                    <a href="route('inventory', ['shape' => 'oval'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'OVAL']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                     </a>
 
                     <!-- Emerald -->
-                    <a href="route('inventory', ['shape' => 'emerald'])"
+                    <a href=" {{ route('color.diamond', ['shape' => 'EMERALD']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25"
                             alt="Emerald Shape">
                     </a>
 
                     <!-- Pear -->
-                    <a href="{{ route('inventory', ['shape' => 'pear']) }}"
+                    <a href="{{ route('color.diamond', ['shape' => 'PEAR']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/pear.svg') }}" width="25" height="25" alt="Pear Shape">
                     </a>
 
                     <!-- Marquise -->
-                    <a href="route('inventory', ['shape' => 'marquise'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'MARQUISE']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25"
                             alt="Marquise Shape">
                     </a>
 
                     <!-- Heart -->
-                    <a href="route('inventory', ['shape' => 'heart'])"
+                    <a href=" {{ route('color.diamond', ['shape' => 'HEART']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                     </a>
                 </div>
                 <div class="flex">
                     <!-- Rose Cut -->
-                    <a href="route('inventory', ['shape' => 'rose-cut'])"
+                    <a href="{{ route('color.diamond', ['shape' => 'ROSE']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25"
                             alt="Rose Cut Shape">
                     </a>
 
-                    <!-- Old European -->
-                    <a href="route('inventory', ['shape' => 'old-european'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25"
-                            alt="Old European Shape">
-                    </a>
-
-                    <!-- Half Moon -->
-                    <a href="route('inventory', ['shape' => 'half-moon'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25"
-                            alt="Half Moon Shape">
-                    </a>
-
-                    <!-- Baguette Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'baguette-trapezoid'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
-                        <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25"
-                            alt="Baguette Trapezoid Shape">
-                    </a>
-
-                    <!-- Baguette -->
-                    <a href="route('inventory', ['shape' => 'baguette'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25"
-                            alt="Baguette Shape">
-                    </a>
-
-                    <!-- Hexagon -->
-                    <a href="route('inventory', ['shape' => 'hexagon'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25"
-                            alt="Hexagon Shape">
-                    </a>
-
-                    <!-- Kite -->
-                    <a href="route('inventory', ['shape' => 'kite'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
-                    </a>
-
-                    <!-- Old Mine -->
-                    <a href="route('inventory', ['shape' => 'old-mine'])"
-                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                        <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25"
-                            alt="Old Mine Shape">
-                    </a>
-
                     <!-- Trapezoid -->
-                    <a href="route('inventory', ['shape' => 'trapezoid'])"
+                    <a href=" {{ route('color.diamond', ['shape' => 'TRAPEZOID']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25"
                             alt="Trapezoid Shape">
                     </a>
 
                     <!-- Triangular -->
-                    <a href="route('inventory', ['shape' => ''])"
+                    <a href=" {{ route('color.diamond', ['shape' => 'TRIANGULAR']) }}"
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
                             alt="Triangular Shape">
                     </a>
+                    <!-- Trilliant -->
+                    <a href="{{ route('color.diamond', ['shape' => 'TRILLIANT']) }} "
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/trilliant.svg') }}" width="25" height="25"
+                            alt="Trilliant Shape">
+                    </a>
+                    <!-- Flower -->
+                    <a href="{{ route('color.diamond', ['shape' => 'FLOWER']) }} "
+                        class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
+                        <img src="{{ asset('Shape/flower.svg') }}" width="25" height="25"
+                            alt="Flower Shape">
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -2173,7 +2104,7 @@
         <!-- Price Range Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mt-2">Price</h5>
-            <div class="w-full max-w-md">
+            <form id="FC_PriceFilterForm" action="{{ route('color.diamond') }}" method="GET" class="w-full max-w-md">
                 <div class="mb-3">
                     <div class="flex justify-between">
                         <div class="pr-2">
@@ -2181,7 +2112,7 @@
                                 type="number"
                                 id="FC_fromPriceInput"
                                 name="minPrice"
-                                value="100"
+                                value="{{ request('minPrice' , 100) }}"
                                 min="100"
                                 max="100000"
                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
@@ -2192,7 +2123,7 @@
                                 type="number"
                                 id="FC_toPriceInput"
                                 name="maxPrice"
-                                value="100000"
+                                value="{{ request('maxPrice' , 100000) }}"
                                 min="100"
                                 max="100000"
                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
@@ -2205,7 +2136,7 @@
                     <input 
                         id="FC_fromPriceSlider"
                         type="range"
-                        value="100"
+                        value="{{ request('minPrice', 100) }}"
                         min="100"
                         max="100000"
                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
@@ -2213,7 +2144,7 @@
                     <input 
                         id="FC_toPriceSlider"
                         type="range"
-                        value="100000"
+                        value="{{ request('maxPrice', 100000) }}"
                         min="100"
                         max="100000"
                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
@@ -2224,7 +2155,7 @@
                     <span>$100</span>
                     <span>$100,000</span>
                 </div>
-            </div>
+            </form>
         </div>
         <style>
             input[type="range"]#FC_fromPriceSlider::-webkit-slider-thumb,
@@ -2239,6 +2170,34 @@
                 cursor: pointer;
                 position: relative;
                 z-index: 5;
+            }
+
+            input[type="range"]#FC_fromPriceSlider::-moz-range-thumb,
+            input[type="range"]#FC_toPriceSlider::-moz-range-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                height: 4px;
+                width: 100%;
+                position: absolute;
+                background-color: #c6c6c6;
+                pointer-events: all;
+                border-radius: 8px;
+            }
+
+            input[type="range"]#FC_fromPriceSlider::-webkit-slider-thumb:hover,
+            input[type="range"]#FC_fromPriceSlider::-webkit-slider-thumb:hover {
+                background: #f7f7f7;
+            }
+
+            input[type="number"]#FC_fromPriceInput::-webkit-inner-spin-button,
+            input[type="number"]#FC_fromPriceInput::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+
+            
+            input[type="number"]#FC_toPriceInput::-webkit-inner-spin-button,
+            input[type="number"]#FC_toPriceInput::-webkit-outer-spin-button {
+                opacity: 1;
             }
 
             input[type="range"]#FC_fromPriceSlider,
@@ -2259,13 +2218,20 @@
             }
         </style>
         <script>
+            const FC_fromPriceSlider = document.querySelector("#FC_fromPriceSlider");
+            const FC_toPriceSlider = document.querySelector("#FC_toPriceSlider");
+            const FC_fromPriceInput = document.querySelector("#FC_fromPriceInput");
+            const FC_toPriceInput = document.querySelector("#FC_toPriceInput");
+            const FC_PriceFilterForm = document.querySelector("#FC_PriceFilterForm"); // Correct reference
+
             function FC_updatePriceSliderColors() {
-                const fromValue = parseFloat(FC_fromPriceSlider.value);
-                const toValue = parseFloat(FC_toPriceSlider.value);
-                const range = FC_toPriceSlider.max - FC_toPriceSlider.min;
-                
-                const percentFrom = ((fromValue - FC_toPriceSlider.min) / range) * 100;
-                const percentTo = ((toValue - FC_toPriceSlider.min) / range) * 100;
+                const min = parseInt(FC_fromPriceSlider.min);
+                const max = parseInt(FC_toPriceSlider.max);
+                const from = parseInt(FC_fromPriceInput.value);
+                const to = parseInt(FC_toPriceInput.value);
+
+                const percentFrom = ((from - min) / (max - min)) * 100;
+                const percentTo = ((to - min) / (max - min)) * 100;
 
                 const gradient = `linear-gradient(to right,
                     #C6C6C6 0%,
@@ -2281,70 +2247,72 @@
 
             function FC_syncPriceFromInput() {
                 let value = Math.min(parseFloat(FC_fromPriceInput.value), parseFloat(FC_toPriceInput.value));
-                FC_fromPriceInput.value = value.toFixed(2);
+                FC_fromPriceInput.value = value;
                 FC_fromPriceSlider.value = value;
                 FC_updatePriceSliderColors();
-                FC_priceFilterForm.submit();
+                FC_PriceFilterForm.submit(); // Fixed form reference
             }
 
             function FC_syncPriceToInput() {
                 let value = Math.max(parseFloat(FC_toPriceInput.value), parseFloat(FC_fromPriceInput.value));
-                FC_toPriceInput.value = value.toFixed(2);
+                FC_toPriceInput.value = value;
                 FC_toPriceSlider.value = value;
                 FC_updatePriceSliderColors();
-                FC_priceFilterForm.submit();
+                FC_PriceFilterForm.submit(); // Fixed form reference
             }
 
             function FC_syncPriceFromSlider() {
-                FC_fromPriceInput.value = parseFloat(FC_fromPriceSlider.value).toFixed(2);
+                FC_fromPriceInput.value = FC_fromPriceSlider.value;
                 FC_updatePriceSliderColors();
-                FC_priceFilterForm.submit();
+                FC_PriceFilterForm.submit(); // Fixed form reference
             }
 
             function FC_syncPriceToSlider() {
-                FC_toPriceInput.value = parseFloat(FC_toPriceSlider.value).toFixed(2);
+                FC_toPriceInput.value = FC_toPriceSlider.value;
                 FC_updatePriceSliderColors();
-                FC_priceFilterForm.submit();
+                FC_PriceFilterForm.submit(); // Fixed form reference
             }
 
-            const FC_fromPriceSlider = document.querySelector("#FC_fromPriceSlider");
-            const FC_toPriceSlider = document.querySelector("#FC_toPriceSlider");
-            const FC_fromPriceInput = document.querySelector("#FC_fromPriceInput");
-            const FC_toPriceInput = document.querySelector("#FC_toPriceInput");
+            function handleSliderChange() {
+                FC_PriceFilterForm.submit(); // Fixed incorrect reference
+            }
 
-            FC_fromPriceInput.addEventListener("input", FC_syncPriceFromInput);
-            FC_toPriceInput.addEventListener("input", FC_syncPriceToInput);
-            FC_fromPriceSlider.addEventListener("input", FC_syncPriceFromSlider);
-            FC_toPriceSlider.addEventListener("input", FC_syncPriceToSlider);
+            FC_fromPriceInput.addEventListener("input", FC_syncPriceFromInput, { passive: true });
+            FC_toPriceInput.addEventListener("input", FC_syncPriceToInput, { passive: true });
+            FC_fromPriceSlider.addEventListener("input", FC_syncPriceFromSlider, { passive: true });
+            FC_toPriceSlider.addEventListener("input", FC_syncPriceToSlider, { passive: true });
 
-            // Initialize slider colors
-            FC_updatePriceSliderColors();
+            FC_fromPriceSlider.addEventListener("change", handleSliderChange);
+            FC_toPriceSlider.addEventListener("change", handleSliderChange);
+
+                // Initialize slider colors
+                FC_updatePriceSliderColors();
         </script>
         <!-- End Price Range Slider -->
         
         <!-- Carat Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mt-2">Carat</h5>
-            <div class="w-full">
+            <form id=FC_caratFilterForm action="{{ route('color.diamond') }}" method="GET" class="w-full">
                 <div class="flex justify-between">
                     <div>
-                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                            id="FC_fromCaratInput" value="0.00" min="0.00" max="60.00" step="0.01" />
+                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" name="minCarat"
+                            id="FC_fromCaratInput" value="{{ request('minCarat', 0.00) }}" min="0.00" max="60.00" step="0.01" />
                     </div>
                     <div>
-                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toCaratInput"
-                            value="60.00" min="0.00" max="60.00" step="0.01" />
+                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toCaratInput"  name="maxCarat"
+                            value="{{ request('maxCarat', 60.00) }}" min="0.00" max="60.00" step="0.01" />
                     </div>
                 </div>
                 <div class="relative min-h-7 flex items-center">
-                    <input id="FC_fromCaratSlider" type="range" value="0" min="0" max="60" step="0.01" />
-                    <input id="FC_toCaratSlider" type="range" value="60" min="0" max="60" step="0.01" />
+                    <input id="FC_fromCaratSlider" type="range" value="{{ request('minCarat', 0.00) }}" min="0" max="60" step="0.01" />
+                    <input id="FC_toCaratSlider" type="range" value="{{ request('maxCarat', 60.00) }}" min="0" max="60" step="0.01" />
                 </div>
                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>0ct</span>
                     <span>60ct</span>
                 </div>
-            </div>
+            </form>
         </div>
         <style>
             input[type="range"]#FC_fromCaratSlider::-webkit-slider-thumb,
@@ -2379,63 +2347,74 @@
             }
         </style>
         <script>
-            function FC_updateSliderColors() {
-                const fromValue = parseFloat(FC_fromCaratSlider.value);
-                const toValue = parseFloat(FC_toCaratSlider.value);
-                const range = FC_toCaratSlider.max - FC_toCaratSlider.min;
-                
-                const percentFrom = ((fromValue - FC_toCaratSlider.min) / range) * 100;
-                const percentTo = ((toValue - FC_toCaratSlider.min) / range) * 100;
+             const FC_fromCaratSlider = document.querySelector("#FC_fromCaratSlider");
+             const FC_toCaratSlider = document.querySelector("#FC_toCaratSlider");
+             const FC_fromCaratInput = document.querySelector("#FC_fromCaratInput");
+             const FC_toCaratInput = document.querySelector("#FC_toCaratInput");
+             const FC_caratFilterForm = document.querySelector("#FC_caratFilterForm");
 
-                const gradient = `linear-gradient(to right,
-                    #C6C6C6 0%,
-                    #C6C6C6 ${percentFrom}%, 
-                    #733D80 ${percentFrom}%, 
-                    #733D80 ${percentTo}%, 
-                    #C6C6C6 ${percentTo}%, 
-                    #C6C6C6 100%)`;
+                let updatePending = false;
+
+                function FC_updateSliderColors() {
+                    if (updatePending) return;
+                    updatePending = true;
+        
+                    requestAnimationFrame(() => {
+                    const min = parseFloat(FC_fromCaratSlider.min);
+                    const max = parseFloat(FC_toCaratSlider.max);
+                    const from = parseFloat(FC_fromCaratInput.value);
+                    const to = parseFloat(FC_toCaratInput.value);
+
+                    const percentFrom = ((from - min) / (max - min)) * 100;
+                    const percentTo = ((to - min) / (max - min)) * 100;
+
+                    const gradient = `linear-gradient(to right,
+                #C6C6C6 0%, #C6C6C6 ${percentFrom}%, 
+                #733D80 ${percentFrom}%, #733D80 ${percentTo}%, 
+                #C6C6C6 ${percentTo}%, #C6C6C6 100%)`;
 
                 FC_fromCaratSlider.style.background = gradient;
                 FC_toCaratSlider.style.background = gradient;
+
+                updatePending = false;
+            });
             }
 
-            function FC_syncFromInput() {
+             function FC_syncFromInput() {
                 let value = Math.min(parseFloat(FC_fromCaratInput.value), parseFloat(FC_toCaratInput.value));
-                FC_fromCaratInput.value = value.toFixed(2);
-                FC_fromCaratSlider.value = value;
-                FC_updateSliderColors();
-                FC_caratFilterForm.submit();
-            }
+                 FC_fromCaratInput.value = value;
+                 FC_fromCaratSlider.value = value;
+                 FC_updateSliderColors();
+             }
 
             function FC_syncToInput() {
-                let value = Math.max(parseFloat(FC_toCaratInput.value), parseFloat(FC_fromCaratInput.value));
-                FC_toCaratInput.value = value.toFixed(2);
-                FC_toCaratSlider.value = value;
+                 let value = Math.max(parseFloat(FC_toCaratInput.value), parseFloat(FC_fromCaratInput.value));
+                 FC_toCaratInput.value = value;
+                 FC_toCaratSlider.value = value;
                 FC_updateSliderColors();
-                FC_caratFilterForm.submit();
             }
 
             function FC_syncFromSlider() {
-                FC_fromCaratInput.value = parseFloat(FC_fromCaratSlider.value).toFixed(2);
-                FC_updateSliderColors();
-                FC_caratFilterForm.submit();
+            FC_fromCaratInput.value = parseFloat(FC_fromCaratSlider.value).toFixed(2);
+            FC_updateSliderColors();
             }
 
             function FC_syncToSlider() {
-                FC_toCaratInput.value = parseFloat(FC_toCaratSlider.value).toFixed(2);
-                FC_updateSliderColors();
-                FC_caratFilterForm.submit();
+            FC_toCaratInput.value = parseFloat(FC_toCaratSlider.value).toFixed(2);
+            FC_updateSliderColors();
             }
 
-            const FC_fromCaratSlider = document.querySelector("#FC_fromCaratSlider");
-            const FC_toCaratSlider = document.querySelector("#FC_toCaratSlider");
-            const FC_fromCaratInput = document.querySelector("#FC_fromCaratInput");
-            const FC_toCaratInput = document.querySelector("#FC_toCaratInput");
+            function handleCaratSliderChange() {
+            FC_caratFilterForm.submit();
+             }
 
             FC_fromCaratInput.addEventListener("input", FC_syncFromInput);
             FC_toCaratInput.addEventListener("input", FC_syncToInput);
             FC_fromCaratSlider.addEventListener("input", FC_syncFromSlider);
             FC_toCaratSlider.addEventListener("input", FC_syncToSlider);
+    
+            FC_fromCaratSlider.addEventListener("change", handleCaratSliderChange);
+            FC_toCaratSlider.addEventListener("change", handleCaratSliderChange);
 
             // Initialize slider colors
             FC_updateSliderColors();
@@ -2445,12 +2424,13 @@
         <!-- Cut Slider -->
         <div class="flex items-center justify-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Cut</h5>
-            <div class="w-full max-w-md">
+            <form id=FC_cutFilterForm action="{{ route('color.diamond') }}"  class="w-full max-w-md">
                 <div class="relative mb-3 flex items-center mt-3">
                     <input 
                         id="FC_fromCutSlider"
+                        name="fromCutSlider"
                         type="range"
-                        value="0"
+                        value="{{ request('fromCutSlider', 0) }}"
                         min="0"
                         max="4"
                         step="1"
@@ -2458,8 +2438,9 @@
                     />
                     <input 
                         id="FC_toCutSlider"
+                        name="toCutSlider"
                         type="range"
-                        value="4"
+                        value="{{ request('toCutSlider', 4) }}"
                         min="0"
                         max="4"
                         step="1"
@@ -2474,7 +2455,7 @@
                     <span>Excellent</span>
                     <span>Ideal</span>
                 </div>
-            </div>
+            </form>
         </div>
         <style>
             input[type="range"]#FC_fromCutSlider::-webkit-slider-thumb,
@@ -2513,6 +2494,7 @@
         <script>
             const FC_fromCutSlider = document.querySelector("#FC_fromCutSlider");
             const FC_toCutSlider = document.querySelector("#FC_toCutSlider");
+            const FC_cutFilterForm = document.querySelector("#FC_cutFilterForm");
 
             function FC_updateCutSliderColors() {
                 const min = parseInt(FC_fromCutSlider.min);
@@ -2539,12 +2521,14 @@
                 let value = Math.min(parseInt(FC_fromCutSlider.value), parseInt(FC_toCutSlider.value));
                 FC_fromCutSlider.value = value;
                 FC_updateCutSliderColors();
+                FC_cutFilterForm.submit();
             }
 
             function FC_syncCutToSlider() {
                 let value = Math.max(parseInt(FC_toCutSlider.value), parseInt(FC_fromCutSlider.value));
                 FC_toCutSlider.value = value;
                 FC_updateCutSliderColors();
+                FC_cutFilterForm.submit();
             }
 
             FC_fromCutSlider.addEventListener("input", FC_syncCutFromSlider);
@@ -2555,133 +2539,17 @@
         </script>
         <!-- End Cut Slider -->
 
-        <!-- Color Slider -->
-        <div class="flex items-center">
-            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Color</h5>
-            <div class="w-full max-w-md mt-3">
-                <div class="relative mb-3 flex items-center">
-                    <input 
-                        id="FC_fromColorSlider"
-                        type="range"
-                        value="0"
-                        min="0"
-                        max="9"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <input 
-                        id="FC_toColorSlider"
-                        type="range"
-                        value="9"
-                        min="0"
-                        max="9"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
-                </div>
-
-                <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
-                    <span>M</span>
-                    <span>L</span>
-                    <span>K</span>
-                    <span>J</span>
-                    <span>I</span>
-                    <span>H</span>
-                    <span>G</span>
-                    <span>F</span>
-                    <span>E</span>
-                    <span>D</span>
-                </div>
-            </div>
-        </div>
-        <style>
-            input[type="range"]#FC_fromColorSlider::-webkit-slider-thumb,
-            input[type="range"]#FC_toColorSlider::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 16px;    
-                height: 16px;
-                background-color: #fff;
-                border-radius: 100%;
-                border: 2px solid #733D80;
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="range"]#FC_fromColorSlider::-moz-range-thumb,
-            input[type="range"]#FC_toColorSlider::-moz-range-thumb {
-                -webkit-appearance: none;
-                pointer-events: all;
-                width: 24px;
-                height: 24px;
-                background-color: #fff;
-                border-radius: 50%;
-                box-shadow: 0 0 0 1px #c6c6c6;
-                cursor: pointer;
-                position: relative;
-                z-index: 5;
-            }
-
-            input[type="range"]#FC_toColorSlider {
-                height: 0;
-                z-index: 4;
-            }
-        </style>
-        <script>
-            const FC_fromColorSlider = document.querySelector("#FC_fromColorSlider");
-            const FC_toColorSlider = document.querySelector("#FC_toColorSlider");
-
-            function FC_updateColorSliderColors() {
-                const min = parseInt(FC_fromColorSlider.min);
-                const max = parseInt(FC_toColorSlider.max);
-                const from = parseInt(FC_fromColorSlider.value);
-                const to = parseInt(FC_toColorSlider.value);
-
-                const percentFrom = ((from - min) / (max - min)) * 100;
-                const percentTo = ((to - min) / (max - min)) * 100;
-
-                const gradient = `linear-gradient(to right, 
-                    #C6C6C6 0%, 
-                    #C6C6C6 ${percentFrom}%, 
-                    #733D80 ${percentFrom}%, 
-                    #733D80 ${percentTo}%, 
-                    #C6C6C6 ${percentTo}%, 
-                    #C6C6C6 100%)`;
-
-                FC_fromColorSlider.style.background = gradient;
-                FC_toColorSlider.style.background = gradient;
-            }
-
-            function FC_syncColorFromSlider() {
-                let value = Math.min(parseInt(FC_fromColorSlider.value), parseInt(FC_toColorSlider.value));
-                FC_fromColorSlider.value = value;
-                FC_updateColorSliderColors();
-            }
-
-            function FC_syncColorToSlider() {
-                let value = Math.max(parseInt(FC_toColorSlider.value), parseInt(FC_fromColorSlider.value));
-                FC_toColorSlider.value = value;
-                FC_updateColorSliderColors();
-            }
-
-            FC_fromColorSlider.addEventListener("input", FC_syncColorFromSlider);
-            FC_toColorSlider.addEventListener("input", FC_syncColorToSlider);
-
-            // Initialize slider colors
-            FC_updateColorSliderColors();
-        </script>
-        <!-- End Color Slider -->
-
         <!-- Clarity Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Clarity</h5>
-            <div class="w-full max-w-md mt-3">
+           <div class="w-full max-w-md mt-3">
+                <form id=FC_clarityFilterForm action="{{ route('color.diamond') }}"  method="GET">
                 <div class="relative mb-3 flex items-center">
                     <input 
                         id="FC_fromClaritySlider"
+                        name="fromClaritySlider"
                         type="range"
-                        value="0"
+                        value="{{ request('fromClaritySlider', 0) }}"
                         min="0"
                         max="11"
                         step="1"
@@ -2689,15 +2557,16 @@
                     />
                     <input 
                         id="FC_toClaritySlider"
+                        name="toClaritySlider"
                         type="range"
-                        value="11"
+                        value="{{ request('toClaritySlider', 11) }}"
                         min="0"
                         max="11"
                         step="1"
                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                     />
                 </div>
-
+                </form>
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                     <span>I2</span>
                     <span>I1</span>
@@ -2711,7 +2580,7 @@
                     <span>IF</span>
                     <span>FL</span>
                 </div>
-            </div>
+           </div> 
         </div>
         <style>
             input[type="range"]#FC_fromClaritySlider::-webkit-slider-thumb,
@@ -2750,6 +2619,7 @@
         <script>
             const FC_fromClaritySlider = document.querySelector("#FC_fromClaritySlider");
             const FC_toClaritySlider = document.querySelector("#FC_toClaritySlider");
+            const FC_clarityFilterForm = document.querySelector("#FC_clarityFilterForm");
 
             function FC_updateClaritySliderColors() {
                 const min = parseInt(FC_fromClaritySlider.min);
@@ -2776,12 +2646,14 @@
                 let value = Math.min(parseInt(FC_fromClaritySlider.value), parseInt(FC_toClaritySlider.value));
                 FC_fromClaritySlider.value = value;
                 FC_updateClaritySliderColors();
+                FC_clarityFilterForm.submit();
             }
 
             function FC_syncClarityToSlider() {
                 let value = Math.max(parseInt(FC_toClaritySlider.value), parseInt(FC_fromClaritySlider.value));
                 FC_toClaritySlider.value = value;
                 FC_updateClaritySliderColors();
+                FC_clarityFilterForm.submit();
             }
 
             FC_fromClaritySlider.addEventListener("input", FC_syncClarityFromSlider);
@@ -3573,12 +3445,36 @@
         </div>
 
         <!-- Right side clear filter button -->
-        <button class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-primary">
+        <button onclick="clearFilters()" class="hidden md:flex items-center gap-2 text-sm font-montserrat text-gray-600 hover:text-primary">
             <span>Clear Filters</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
+        <!-- Clear Filter Script -->
+        <script>
+            function clearFilters() {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('shape');
+                url.searchParams.delete('color');
+                url.searchParams.delete('intensity');                
+                url.searchParams.delete('minPrice');
+                url.searchParams.delete('maxPrice');
+                url.searchParams.delete('fromCutSlider');
+                url.searchParams.delete('toCutSlider');
+                url.searchParams.delete('fromClaritySlider');
+                url.searchParams.delete('toClaritySlider');
+                url.searchParams.delete('lab');
+                url.searchParams.delete('growth_type');
+                url.searchParams.delete('table_min');
+                url.searchParams.delete('table_max');
+                url.searchParams.delete('l_w_ratio_min');
+                url.searchParams.delete('l_w_ratio_max');
+                url.searchParams.delete('search');
+                window.location.href = url.toString();
+            }
+        </script>
+        <!-- End Clear Filter Script -->
     </div>
     <!-- End Search Box And Clear Filters Button -->
 
@@ -3811,8 +3707,8 @@
     </div>
     <!-- End Table -->
 
-       <!-- Start Load More Script -->
-       <script>
+    <!-- Start Load More Script -->
+    <script>
         document.getElementById('load-more')?.addEventListener('click', function() {
             let button = this;
             let currentPage = parseInt(button.getAttribute('data-page'));
@@ -3879,6 +3775,7 @@
     </script>
     <!-- End Load More Script -->
 
+    <!-- Table Script -->
     <script>
         let sortOrders = Array(7).fill('asc');
 
@@ -3933,6 +3830,7 @@
             detailsRow.classList.toggle('hidden');
         }
     </script>
+    <!-- End Table Script -->
 
 </div>
 
@@ -3969,7 +3867,7 @@
 </script>
 <!-- End Toggle Script -->
 
-{{-- Start Color Selection --}}
+<!-- Start Color Selection  -->
 <script>
     // Get all color items
     const colorItems = document.querySelectorAll('.color-item');
@@ -3989,9 +3887,9 @@
         });
     });
 </script>
-{{-- End Color Selection --}}
+<!-- End Color Selection  -->
 
-{{-- Start Color Selection --}}
+ <!-- Start Color Selection -->
 <script>
     // Get all color items
     const intensityColorItems = document.querySelectorAll('.intensity-color-item');
@@ -4011,7 +3909,7 @@
         });
     });
 </script>
-{{-- End Color Selection --}}
+<!-- End Color Selection -->
 
 <!-- Start Mobile Shape Dropdown Script -->
 <script>
@@ -4260,5 +4158,4 @@
     });
 </script>
 <!-- End Advanced Options Dropdown Script -->
-
 @endsection
