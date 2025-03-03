@@ -16,7 +16,8 @@
     <div class="flex justify-center items-center lg:hidden px-4 md:px-8 lg:px-12 2xl:px-16 py-4">
         <button
             class="bg-white border border-primary font-montserrat text-primary hover:bg-primary hover:text-white w-full md:w-60 py-2"
-            id="filterButton" onclick="showFilterDrawer()">Filter</button>
+            id="filterButton" onclick="showFilterDrawer()">Filter
+        </button>
     </div>
 
     <!-- Mobile Filter Drawer -->
@@ -453,61 +454,61 @@
                             <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                                 <span>0.1</span>
                                 <span>60.00</span>
-                                </div>
                             </div>
-                        </form>
                     </div>
-                    <style>
-                        input[type="range"]#mobileCaratFromSlider::-webkit-slider-thumb,
-                        input[type="range"]#mobileCaratToSlider::-webkit-slider-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #fff;
-                            border-radius: 100%;
-                            border: 2px solid #733D80;
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
+                    </form>
+                </div>
+                <style>
+                    input[type="range"]#mobileCaratFromSlider::-webkit-slider-thumb,
+                    input[type="range"]#mobileCaratToSlider::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        pointer-events: all;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #fff;
+                        border-radius: 100%;
+                        border: 2px solid #733D80;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 5;
+                    }
 
-                        input[type="range"]#mobileCaratFromSlider::-moz-range-thumb,
-                        input[type="range"]#mobileCaratToSlider::-moz-range-thumb {
-                            -webkit-appearance: none;
-                            pointer-events: all;
-                            width: 24px;
-                            height: 24px;
-                            background-color: #fff;
-                            border-radius: 50%;
-                            box-shadow: 0 0 0 1px #c6c6c6;
-                            cursor: pointer;
-                            position: relative;
-                            z-index: 5;
-                        }
+                    input[type="range"]#mobileCaratFromSlider::-moz-range-thumb,
+                    input[type="range"]#mobileCaratToSlider::-moz-range-thumb {
+                        -webkit-appearance: none;
+                        pointer-events: all;
+                        width: 24px;
+                        height: 24px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        box-shadow: 0 0 0 1px #c6c6c6;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 5;
+                    }
 
-                        input[type="range"]#mobileCaratToSlider {
-                            height: 0;
-                            z-index: 4;
-                        }
-                    </style>
-                    <script>
-                        const mobileCaratFromSlider = document.querySelector("#mobileCaratFromSlider");
-                        const mobileCaratToSlider = document.querySelector("#mobileCaratToSlider");
-                        const mobileCaratFromInput = document.querySelector("#mobileCaratFromInput");
-                        const mobileCaratToInput = document.querySelector("#mobileCaratToInput");
-                        const mobileCaratFilterForm = document.querySelector("#mobileCaratFilterForm");
+                    input[type="range"]#mobileCaratToSlider {
+                        height: 0;
+                        z-index: 4;
+                    }
+                </style>
+                <script>
+                    const mobileCaratFromSlider = document.querySelector("#mobileCaratFromSlider");
+                    const mobileCaratToSlider = document.querySelector("#mobileCaratToSlider");
+                    const mobileCaratFromInput = document.querySelector("#mobileCaratFromInput");
+                    const mobileCaratToInput = document.querySelector("#mobileCaratToInput");
+                    const mobileCaratFilterForm = document.querySelector("#mobileCaratFilterForm");
 
-                        function updateMobileSliderColors() {
-                            const min = parseFloat(mobileCaratFromSlider.min);
-                            const max = parseFloat(mobileCaratToSlider.max);
-                            const from = parseFloat(mobileCaratFromInput.value);
-                            const to = parseFloat(mobileCaratToInput.value);
+                    function updateMobileSliderColors() {
+                        const min = parseFloat(mobileCaratFromSlider.min);
+                        const max = parseFloat(mobileCaratToSlider.max);
+                        const from = parseFloat(mobileCaratFromInput.value);
+                        const to = parseFloat(mobileCaratToInput.value);
 
-                            const percentFrom = ((from - min) / (max - min)) * 100;
-                            const percentTo = ((to - min) / (max - min)) * 100;
+                        const percentFrom = ((from - min) / (max - min)) * 100;
+                        const percentTo = ((to - min) / (max - min)) * 100;
 
-                            const gradient = `linear-gradient(to right, 
+                        const gradient = `linear-gradient(to right, 
                                     #C6C6C6 0%, 
                                     #C6C6C6 ${percentFrom}%, 
                                     #733D80 ${percentFrom}%, 
@@ -515,47 +516,46 @@
                                     #C6C6C6 ${percentTo}%, 
                                     #C6C6C6 100%)`;
 
-                            mobileCaratFromSlider.style.background = gradient;
-                            mobileCaratToSlider.style.background = gradient;
-                        }
+                        mobileCaratFromSlider.style.background = gradient;
+                        mobileCaratToSlider.style.background = gradient;
+                    }
 
-                        function syncMobileFromInput() {
-                            let value = Math.min(parseFloat(mobileCaratFromInput.value), parseFloat(mobileCaratToInput.value));
-                            mobileCaratFromInput.value = value;
-                            mobileCaratFromSlider.value = value;
-                            updateMobileSliderColors();
-                            mobileCaratFilterForm.submit();
-                        }
-
-                        function syncMobileToInput() {
-                            let value = Math.max(parseFloat(mobileCaratToInput.value), parseFloat(mobileCaratFromInput.value));
-                            mobileCaratToInput.value = value.toFixed(1);
-                            mobileCaratToSlider.value = value;
-                            updateMobileSliderColors();
-                            mobileCaratFilterForm.submit();
-                        }
-
-                        function syncMobileFromSlider() {
-                            mobileCaratFromInput.value = mobileCaratFromSlider.value;
-                            updateMobileSliderColors();
-                            mobileCaratFilterForm.submit();
-                        }
-
-                        function syncMobileToSlider() {
-                            mobileCaratToInput.value = mobileCaratToSlider.value;
-                            updateMobileSliderColors();
-                            mobileCaratFilterForm.submit();
-                        }
-
-                        mobileCaratFromInput.addEventListener("input", syncMobileFromInput);
-                        mobileCaratToInput.addEventListener("input", syncMobileToInput);
-                        mobileCaratFromSlider.addEventListener("input", syncMobileFromSlider);
-                        mobileCaratToSlider.addEventListener("input", syncMobileToSlider);
-
-                        // Initialize slider colors
+                    function syncMobileFromInput() {
+                        let value = Math.min(parseFloat(mobileCaratFromInput.value), parseFloat(mobileCaratToInput.value));
+                        mobileCaratFromInput.value = value;
+                        mobileCaratFromSlider.value = value;
                         updateMobileSliderColors();
-                    </script>
-                </div>
+                        mobileCaratFilterForm.submit();
+                    }
+
+                    function syncMobileToInput() {
+                        let value = Math.max(parseFloat(mobileCaratToInput.value), parseFloat(mobileCaratFromInput.value));
+                        mobileCaratToInput.value = value.toFixed(1);
+                        mobileCaratToSlider.value = value;
+                        updateMobileSliderColors();
+                        mobileCaratFilterForm.submit();
+                    }
+
+                    function syncMobileFromSlider() {
+                        mobileCaratFromInput.value = mobileCaratFromSlider.value;
+                        updateMobileSliderColors();
+                        mobileCaratFilterForm.submit();
+                    }
+
+                    function syncMobileToSlider() {
+                        mobileCaratToInput.value = mobileCaratToSlider.value;
+                        updateMobileSliderColors();
+                        mobileCaratFilterForm.submit();
+                    }
+
+                    mobileCaratFromInput.addEventListener("input", syncMobileFromInput);
+                    mobileCaratToInput.addEventListener("input", syncMobileToInput);
+                    mobileCaratFromSlider.addEventListener("input", syncMobileFromSlider);
+                    mobileCaratToSlider.addEventListener("input", syncMobileToSlider);
+
+                    // Initialize slider colors
+                    updateMobileSliderColors();
+                </script>
             </div>
             <!-- End Carat Filter -->
 
@@ -658,6 +658,7 @@
                         const mobileCutFromSlider = document.querySelector("#mobileCutFromSlider");
                         const mobileCutToSlider = document.querySelector("#mobileCutToSlider");
                         const mobileCutFilterForm = document.querySelector("#mobileCutFilterForm");
+
                         function updateMobileCutSliderColors() {
                             const min = parseInt(mobileCutFromSlider.min);
                             const max = parseInt(mobileCutToSlider.max);
@@ -954,6 +955,7 @@
                         const mobileClarityFromSlider = document.querySelector("#mobileClarityFromSlider");
                         const mobileClarityToSlider = document.querySelector("#mobileClarityToSlider");
                         const mobileClarityFilterForm = document.querySelector("#mobileClarityFilterForm");
+
                         function updateMobileClaritySliderColors() {
                             const min = parseInt(mobileClarityFromSlider.min);
                             const max = parseInt(mobileClarityToSlider.max);
@@ -1032,7 +1034,7 @@
                         <!-- Start Mobile Certificate Dropdown -->
                         @php
                         $selectedLab = request()->has('lab') ? explode(',', request()->lab) : [];
-                        @endphp 
+                        @endphp
                         <div id="styleMobileDropdownIcon"
                             class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                             <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
@@ -1125,8 +1127,8 @@
 
                         <!-- Start Mobile Method Dropdown -->
                         @php
-                            $selectedMethods = request()->has('growth_type') ? explode(',', request()->growth_type) : [];
-                         @endphp
+                        $selectedMethods = request()->has('growth_type') ? explode(',', request()->growth_type) : [];
+                        @endphp
                         <div id="methodMobileDropdownIcon"
                             class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                             <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
@@ -1245,7 +1247,7 @@
 
                             <div id="mobileTableDropdown"
                                 class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                
+
                                 <div class="flex justify-between">
                                     <p class="text-sm font-montserrat font-semibold px-4 py-2">Table (%)</p>
                                     <button class="p-2 rounded-full">
@@ -1260,20 +1262,20 @@
                                 <div class="flex items-center p-4">
                                     <div class="w-full">
                                         <form id="mobileTableFilterForm" action="{{ route('inventory') }}" method="GET">
-                                        <div class="flex justify-between">
-                                            <div>
-                                                <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                                    id="fromMobileTableInput" value="{{ request('table_min', 50.00) }}" min="50.00" max="80.00" step="0.01" />
+                                            <div class="flex justify-between">
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                        id="fromMobileTableInput" value="{{ request('table_min', 50.00) }}" min="50.00" max="80.00" step="0.01" />
+                                                </div>
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toMobileTableInput"
+                                                        value="{{ request('table_max', 80.00) }}" min="50.00" max="80.00" step="0.01" />
+                                                </div>
                                             </div>
-                                            <div>
-                                                <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toMobileTableInput"
-                                                    value="{{ request('table_max', 80.00) }}" min="50.00" max="80.00" step="0.01" />
+                                            <div class="relative min-h-7 flex items-center">
+                                                <input id="fromMobileTableSlider" type="range" value="{{ request('table_min', 50) }}" min="50" max="80" step="0.01" />
+                                                <input id="toMobileTableSlider" type="range" value="{{ request('table_max', 80) }}" min="50" max="80" step="0.01" />
                                             </div>
-                                        </div>
-                                        <div class="relative min-h-7 flex items-center">
-                                            <input id="fromMobileTableSlider" type="range" value="{{ request('table_min', 50) }}" min="50" max="80" step="0.01" />
-                                            <input id="toMobileTableSlider" type="range" value="{{ request('table_max', 80) }}" min="50" max="80" step="0.01" />
-                                        </div>
                                         </form>
                                     </div>
                                 </div>
@@ -1365,7 +1367,7 @@
                                         mobileTableFilterForm.submit();
                                     }
 
-                                   
+
 
                                     fromMobileTableInput.addEventListener("input", syncMobileTableFromInput);
                                     toMobileTableInput.addEventListener("input", syncMobileTableToInput);
@@ -1642,20 +1644,20 @@
                                 <div class="flex items-center p-4">
                                     <div class="w-full">
                                         <form id="mobileLwRatioFilterForm" action="{{ route('inventory') }}" method="GET">
-                                        <div class="flex justify-between">
-                                            <div>
-                                                <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                                    id="mobileFromLWInput" value="1.00" min="1.00" max="2.75" step="0.01" />
+                                            <div class="flex justify-between">
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                        id="mobileFromLWInput" value="1.00" min="1.00" max="2.75" step="0.01" />
+                                                </div>
+                                                <div>
+                                                    <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="mobileToLWInput"
+                                                        value="2.75" min="1.00" max="2.75" step="0.01" />
+                                                </div>
                                             </div>
-                                            <div>
-                                                <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="mobileToLWInput"
-                                                    value="2.75" min="1.00" max="2.75" step="0.01" />
+                                            <div class="relative min-h-7 flex items-center">
+                                                <input id="mobileFromLWSlider" type="range" value="1" min="1" max="2.75" step="0.01" />
+                                                <input id="mobileToLWSlider" type="range" value="2.75" min="1" max="2.75" step="0.01" />
                                             </div>
-                                        </div>
-                                        <div class="relative min-h-7 flex items-center">
-                                            <input id="mobileFromLWSlider" type="range" value="1" min="1" max="2.75" step="0.01" />
-                                            <input id="mobileToLWSlider" type="range" value="2.75" min="1" max="2.75" step="0.01" />
-                                        </div>
                                         </form>
                                     </div>
                                 </div>
@@ -1749,7 +1751,7 @@
                                         mobileLwRatioFilterForm.submit();
                                     }
 
-                                 
+
 
                                     mobileFromLWInput.addEventListener("input", syncMobileLWFromInput);
                                     mobileToLWInput.addEventListener("input", syncMobileLWToInput);
@@ -2210,43 +2212,30 @@
         <!-- Carat Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mt-2">Carat</h5>
-            <form id="caratFilterForm" action="{{ route('inventory') }}" method="GET" class="w-full max-w-md">
+            <div class="w-full">
                 <div class="flex justify-between">
-                    <div class="form_carat_control_container">
-                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" 
-                        type="number"
-                        id="fromCaratInput" 
-                        name="minCarat"
-                        value="{{ request('minCarat', 0.00) }}"
-                        min="0.00"
-                        max="60.00" 
-                        step="0.01"
-                         />
+                    <div>
+                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                            id="IN_fromCaratInput" value="0.00" min="0.00" max="60.00" step="0.01" />
                     </div>
-                    <div class="form_carat_control_container">
-                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toCaratInput"
-                            name="maxCarat"
-                            value="{{ request('maxCarat', 60.00) }}"
-                            min="0.00"
-                            max="60.00"
-                            step="0.01" />
+                    <div>
+                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="IN_toCaratInput"
+                            value="60.00" min="0.00" max="60.00" step="0.01" />
                     </div>
                 </div>
-
                 <div class="relative min-h-7 flex items-center">
-                    <input id="fromCaratSlider" type="range" value="0" min="0" max="60" step="0.01" />
-                    <input id="toCaratSlider" type="range" value="60" min="0" max="60" step="0.01" />
+                    <input id="IN_fromCaratSlider" type="range" value="0" min="0" max="60" step="0.01" />
+                    <input id="IN_toCaratSlider" type="range" value="60" min="0" max="60" step="0.01" />
                 </div>
-
                 <div class="flex justify-between font-montserrat text-xs text-gray-500 font-medium">
                     <span>0ct</span>
                     <span>60ct</span>
                 </div>
-            </form>
+            </div>
         </div>
         <style>
-            input[type="range"]#fromCaratSlider::-webkit-slider-thumb,
-            input[type="range"]#toCaratSlider::-webkit-slider-thumb {
+            input[type="range"]#IN_fromCaratSlider::-webkit-slider-thumb,
+            input[type="range"]#IN_toCaratSlider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
                 width: 16px;
@@ -2259,8 +2248,8 @@
                 z-index: 5;
             }
 
-            input[type="range"]#fromCaratSlider,
-            input[type="range"]#toCaratSlider {
+            input[type="range"]#IN_fromCaratSlider,
+            input[type="range"]#IN_toCaratSlider {
                 -webkit-appearance: none;
                 appearance: none;
                 height: 4px;
@@ -2271,91 +2260,76 @@
                 border-radius: 8px;
             }
 
-            #toCaratSlider {
+            #IN_toCaratSlider {
                 height: 0;
                 z-index: 4;
             }
         </style>
         <script>
-            const fromCaratSlider = document.querySelector("#fromCaratSlider");
-            const toCaratSlider = document.querySelector("#toCaratSlider");
-            const fromCaratInput = document.querySelector("#fromCaratInput");
-            const toCaratInput = document.querySelector("#toCaratInput");
-            const caratFilterForm = document.querySelector("#caratFilterForm");
-
-            let updateCaratPending = false;
-
-            function updateSliderColors() {
-                if (updateCaratPending) return;
-
-                updateCaratPending = true;
-                requestAnimationFrame(() => {
-                    const min = parseInt(fromCaratSlider.min);
-                    const max = parseInt(toCaratSlider.max);
-                    const from = parseInt(fromCaratInput.value);
-                    const to = parseInt(toCaratInput.value);
-
-                    const percentFrom = ((from - min) / (max - min)) * 100;
-                    const percentTo = ((to - min) / (max - min)) * 100;
+            function IN_updateSliderColors() {
+                const fromValue = parseFloat(IN_fromCaratSlider.value);
+                const toValue = parseFloat(IN_toCaratSlider.value);
+                const range = IN_toCaratSlider.max - IN_toCaratSlider.min;
+                
+                const percentFrom = ((fromValue - IN_toCaratSlider.min) / range) * 100;
+                const percentTo = ((toValue - IN_toCaratSlider.min) / range) * 100;
 
                 const gradient = `linear-gradient(to right,
-                        #C6C6C6 0%,
-                        #C6C6C6 ${percentFrom}%, 
-                        #733D80 ${percentFrom}%, 
-                        #733D80 ${percentTo}%, 
-                        #C6C6C6 ${percentTo}%, 
-                        #C6C6C6 100%)`;
+                    #C6C6C6 0%,
+                    #C6C6C6 ${percentFrom}%, 
+                    #733D80 ${percentFrom}%, 
+                    #733D80 ${percentTo}%, 
+                    #C6C6C6 ${percentTo}%, 
+                    #C6C6C6 100%)`;
 
-                fromCaratSlider.style.background = gradient;
-                toCaratSlider.style.background = gradient;
-                updateCaratPending = false;
-            });
-
-            function syncFromInput() {
-                let value = Math.min(parseFloat(fromCaratInput.value), parseFloat(toCaratInput.value));
-                fromCaratInput.value = value;
-                fromCaratSlider.value = value;
-                updateSliderColors();
-                caratFilterForm.submit();
+                IN_fromCaratSlider.style.background = gradient;
+                IN_toCaratSlider.style.background = gradient;
             }
 
-            function syncToInput() {
-                let value = Math.max(parseFloat(toCaratInput.value), parseFloat(fromCaratInput.value));
-                toCaratInput.value = value;
-                toCaratSlider.value = value;
-                updateSliderColors();
-                caratFilterForm.submit();
+            function IN_syncFromInput() {
+                let value = Math.min(parseFloat(IN_fromCaratInput.value), parseFloat(IN_toCaratInput.value));
+                IN_fromCaratInput.value = value.toFixed(2);
+                IN_fromCaratSlider.value = value;
+                IN_updateSliderColors();
+                IN_caratFilterForm.submit();
             }
 
-            function syncFromSlider() {
-                fromCaratInput.value = parseFloat(fromCaratSlider.value).toFixed(2);
-                updateSliderColors();
-                caratFilterForm.submit();
+            function IN_syncToInput() {
+                let value = Math.max(parseFloat(IN_toCaratInput.value), parseFloat(IN_fromCaratInput.value));
+                IN_toCaratInput.value = value.toFixed(2);
+                IN_toCaratSlider.value = value;
+                IN_updateSliderColors();
+                IN_caratFilterForm.submit();
             }
 
-            function syncToSlider() {
-                toCaratInput.value = parseFloat(toCaratSlider.value).toFixed(2);
-                updateSliderColors();
-                caratFilterForm.submit();
+            function IN_syncFromSlider() {
+                IN_fromCaratInput.value = parseFloat(IN_fromCaratSlider.value).toFixed(2);
+                IN_updateSliderColors();
+                IN_caratFilterForm.submit();
             }
 
-            fromCaratInput.addEventListener("input", syncFromInput, {
-                passive: true
-            });
-            toCaratInput.addEventListener("input", syncToInput, {
-                passive: true
-            });
-            fromCaratSlider.addEventListener("input", syncFromSlider, {
-                passive: true
-            });
-            toCaratSlider.addEventListener("input", syncToSlider, {
-                passive: true
-            });
+            function IN_syncToSlider() {
+                IN_toCaratInput.value = parseFloat(IN_toCaratSlider.value).toFixed(2);
+                IN_updateSliderColors();
+                IN_caratFilterForm.submit();
+            }
+
+            const IN_fromCaratSlider = document.querySelector("#IN_fromCaratSlider");
+            const IN_toCaratSlider = document.querySelector("#IN_toCaratSlider");
+            const IN_fromCaratInput = document.querySelector("#IN_fromCaratInput");
+            const IN_toCaratInput = document.querySelector("#IN_toCaratInput");
+
+            IN_fromCaratInput.addEventListener("input", IN_syncFromInput);
+            IN_toCaratInput.addEventListener("input", IN_syncToInput);
+            IN_fromCaratSlider.addEventListener("input", IN_syncFromSlider);
+            IN_toCaratSlider.addEventListener("input", IN_syncToSlider);
 
             // Initialize slider colors
-            updateSliderColors();
+            IN_updateSliderColors();
         </script>
         <!-- End Carat Slider -->
+
+        
 
         <!-- Cut Slider -->
         <div class="flex items-center justify-center">
@@ -2767,9 +2741,9 @@
                                 <span class="text-sm font-montserrat">GIA</span>
                             </label>
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                        <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="IGI" {{ in_array('IGI', $selectedLab) ? 'checked' : '' }}>
-                                        <span class="text-sm font-montserrat">IGI</span>
-                                    </label>
+                                <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="IGI" {{ in_array('IGI', $selectedLab) ? 'checked' : '' }}>
+                                <span class="text-sm font-montserrat">IGI</span>
+                            </label>
                             <label class="flex items-center px-4 py-2 hover:bg-gray-100">
                                 <input type="checkbox" class="mr-2 accent-black" name="lab[]" value="ROAYA" {{ in_array('ROAYA', $selectedLab) ? 'checked' : '' }}>
                                 <span class="text-sm font-montserrat"> ROAYA MOISSANITE</span>
@@ -2983,20 +2957,20 @@
                         <div class="flex items-center p-4">
                             <div class="w-full">
                                 <form id="tableForm" action="{{ route('inventory') }}" method="GET">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="fromTableInput" name="table_min" value="{{ request('table_min', 50) }}" min="50.00" max="80.00" step="0.01" />
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                id="fromTableInput" name="table_min" value="{{ request('table_min', 50) }}" min="50.00" max="80.00" step="0.01" />
+                                        </div>
+                                        <div>
+                                            <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                id="toTableInput" name="table_max" value="{{ request('table_max', 80) }}" min="50.00" max="80.00" step="0.01" />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="toTableInput" name="table_max" value="{{ request('table_max', 80) }}" min="50.00" max="80.00" step="0.01" />
+                                    <div class="relative min-h-7 flex items-center">
+                                        <input id="fromTableSlider" type="range" name="table_min" value="{{ request('table_min', 50) }}" min="50" max="80" step="0.01" />
+                                        <input id="toTableSlider" type="range" name="table_max" value="{{ request('table_max', 80) }}" min="50" max="80" step="0.01" />
                                     </div>
-                                </div>
-                                <div class="relative min-h-7 flex items-center">
-                                    <input id="fromTableSlider" type="range" name="table_min" value="{{ request('table_min', 50) }}" min="50" max="80" step="0.01" />
-                                    <input id="toTableSlider" type="range" name="table_max" value="{{ request('table_max', 80) }}" min="50" max="80" step="0.01" />
-                                </div>
                                 </form>
                             </div>
                         </div>
@@ -3043,7 +3017,7 @@
                                 const from = parseInt(fromTableSlider.value);
                                 const to = parseInt(toTableSlider.value);
 
-                               
+
 
                                 const percentFrom = ((from - min) / (max - min)) * 100;
                                 const percentTo = ((to - min) / (max - min)) * 100;
@@ -3366,20 +3340,20 @@
                         <div class="flex items-center p-4">
                             <div class="w-full">
                                 <form id="lwForm" action="{{ route('inventory') }}" method="GET">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="fromLWInput" name="l_w_ratio_min" value="{{ request('l_w_ratio_min', 1.00) }}" min="1.00" max="80" step="0.01" />
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
+                                                id="fromLWInput" name="l_w_ratio_min" value="{{ request('l_w_ratio_min', 1.00) }}" min="1.00" max="80" step="0.01" />
+                                        </div>
+                                        <div>
+                                            <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toLWInput"
+                                                name="l_w_ratio_max" value="{{ request('l_w_ratio_max', 80) }}" min="1.00" max="80" step="0.01" />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="toLWInput"
-                                            name="l_w_ratio_max" value="{{ request('l_w_ratio_max', 80) }}" min="1.00" max="80" step="0.01" />
+                                    <div class="relative min-h-7 flex items-center">
+                                        <input id="fromLWSlider" type="range" name="l_w_ratio_min" value="{{ request('l_w_ratio_min', 1.00) }}" min="1" max="80" step="0.01" />
+                                        <input id="toLWSlider" type="range" name="l_w_ratio_max" value="{{ request('l_w_ratio_max', 80) }}" min="1" max="80" step="0.01" />
                                     </div>
-                                </div>
-                                <div class="relative min-h-7 flex items-center">
-                                    <input id="fromLWSlider" type="range" name="l_w_ratio_min" value="{{ request('l_w_ratio_min', 1.00) }}" min="1" max="80" step="0.01" />
-                                    <input id="toLWSlider" type="range" name="l_w_ratio_max" value="{{ request('l_w_ratio_max', 80) }}" min="1" max="80" step="0.01" />
-                                </div>
                                 </form>
                             </div>
                         </div>
@@ -3469,7 +3443,7 @@
                                 lwForm.submit();
                             }
 
-                       
+
 
                             fromLWInput.addEventListener("input", syncLWFromInput);
                             toLWInput.addEventListener("input", syncLWToInput);
@@ -3536,20 +3510,20 @@
     <div class="flex justify-between items-center md:px-10 py-5">
         <!-- Left side search box with icon -->
         <form action="{{ route('inventory') }}" method="GET">
-    <div class="relative flex items-center w-full md:w-96">
-        <input type="text" placeholder="Search" name="search" value="{{ request('search') }}"
-            class="w-full md:w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
-        <div class="absolute right-0 h-full flex items-center">
-            <button type="submit" class="h-full px-4 bg-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </button>
-        </div>
-    </div>
-</form>
+            <div class="relative flex items-center w-full md:w-96">
+                <input type="text" placeholder="Search" name="search" value="{{ request('search') }}"
+                    class="w-full md:w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">
+                <div class="absolute right-0 h-full flex items-center">
+                    <button type="submit" class="h-full px-4 bg-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </form>
         <!-- Right side clear filter button -->
         <button onclick="clearFilters()" class="hidden md:flex items-center gap-2 text-sm font-montserrat text-primary">
             <span>Clear Filters</span>
@@ -3557,7 +3531,7 @@
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
-        </button> 
+        </button>
         <script>
             function clearFilters() {
                 const url = new URL(window.location.href);
@@ -3681,7 +3655,19 @@
                             </button>
                             <div class="grid grid-cols-2 gap-8 my-10">
                                 <!-- Left Side -->
-                                <div class="flex flex-col items-center gap-3">
+                                <div class="relative flex flex-col items-center gap-3">
+                                    <!-- Wishlist Heart Icon -->
+                                    <button id="wishlist-btn-{{ $diamond->id }}" 
+                                            class="absolute top-2 right-2 p-2 rounded-full transition-colors duration-300"
+                                            onclick="toggleWishlist({{ $diamond->id }})">
+                                            <svg id="wishlist-icon-{{ $diamond->id }}" xmlns="http://www.w3.org/2000/svg" 
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                class="w-6 h-6 transition-all" fill="white">
+                                                <path id="wishlist-path-{{ $diamond->id }}" stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 21l-1.45-1.35C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.15L12 21z" stroke="gray"/>
+                                            </svg>
+                                        </button>
+
                                     <div class="flex items-center justify-center">
                                         <img src="{{ asset($diamond->images) }}" class="w-40"
                                             alt="{{ $diamond->name }}">
@@ -3750,9 +3736,6 @@
                                             </button>
                                         </a>
                                         @endif
-                                        <button class="px-6 py-2.5 text-sm border border-primary text-primary  rounded-sm hover:bg-primary hover:text-white transition-colors flex items-center font-montserrat gap-2">
-                                            Add to Wishlist
-                                        </button>
                                     </div>
 
                                     <a href="{{ asset($diamond->certificate_link) }}" target="_blank"
@@ -4245,4 +4228,19 @@
     });
 </script>
 <!-- End Advanced Options Dropdown Script -->
+
+<script>
+    function toggleWishlist(diamondId) {
+        const icon = document.getElementById(`wishlist-icon-${diamondId}`);
+        const path = document.getElementById(`wishlist-path-${diamondId}`);
+
+        if (icon.getAttribute("fill") === "white") {
+            icon.setAttribute("fill", "red");
+            path.setAttribute("stroke", "red");
+        } else {
+            icon.setAttribute("fill", "white");
+            path.setAttribute("stroke", "gray");
+        }
+    }
+</script>
 @endsection

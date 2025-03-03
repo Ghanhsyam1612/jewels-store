@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container mx-auto px-4 lg:px-6 py-12">
+<div class="w-full mx-auto py-12">
     <h1 class="text-xl lg:text-4xl text-primary font-montserrat font-bold text-center mb-3 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
         Certified Fancy Color Lab Grown Diamonds
     </h1>
@@ -89,123 +89,7 @@
     </div>
     <!-- End Color  -->
 
-    <!-- Start Intensity Color  -->
-    <div class="flex items-center  px-4 md:px-8 lg:px-12 lg:py-4 3xl:px-40">
-        <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Intensity</h5>
-        <div class="flex flex-col">
-            <div class="grid grid-cols-2 lg:grid-cols-6 mb-1 gap-5">
-                <!-- Fancy Light (0.20) -->
-                <a href="{{ route('color.diamond', ['intensity' => 'FANCY LIGHT']) }}" onclick="window.location=this.href;"
-                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
-                    data-color="yellow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/20">
-                        <g transform="translate(0,53) scale(0.1,-0.1)">
-                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
-                        </g>
-                    </svg>
-                    <span class="text-primary text-10px">Fancy Light</span>
-                </a>
-                
-                <!-- Fancy (0.30) -->
-                <a href="{{ route('color.diamond', ['intensity' => 'FANCY']) }}" onclick="window.location=this.href;""
-                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
-                    data-color="yellow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/30">
-                        <g transform="translate(0,53) scale(0.1,-0.1)">
-                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
-                        </g>
-                    </svg>
-                    <span class="text-primary text-10px">Fancy</span>
-                </a>
 
-                <!-- Fancy Intense (0.40) -->
-                <a href="{{ route('color.diamond', ['intensity' => 'FANCY INTENSE']) }}" onclick="window.location=this.href;""
-                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
-                    data-color="yellow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/40">
-                        <g transform="translate(0,53) scale(0.1,-0.1)">
-                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
-                        </g>
-                    </svg>
-                    <span class="text-primary text-10px">Fancy Intense</span>
-                </a>
-
-                <!-- Fancy Vivid (0.60) -->
-                <a href="{{ route('color.diamond', ['intensity' => 'FANCY VIVID']) }}" onclick="window.location=this.href;""
-                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
-                    data-color="yellow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/60">
-                        <g transform="translate(0,53) scale(0.1,-0.1)">
-                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
-                        </g>
-                    </svg>
-                    <span class="text-primary text-10px">Fancy Vivid</span>
-                </a>
-
-                <!-- Fancy Deep (0.80) -->
-                <a href="{{ route('color.diamond', ['intensity' => 'FANCY DEEP']) }}" onclick="window.location=this.href;""
-                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
-                    data-color="yellow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500/80">
-                        <g transform="translate(0,53) scale(0.1,-0.1)">
-                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
-                        </g>
-                    </svg>
-                    <span class="text-primary text-10px">Fancy Deep</span>
-                </a>
-
-                <!-- Fancy Dark (100) -->
-                <a href="{{ route('color.diamond', ['intensity' => 'FANCY DARK']) }}" onclick="window.location=this.href;""
-                    class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-1.5 w-20 rounded-md hover:border-primary hover:text-primary transition"
-                    data-color="yellow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-7 h-7 fill-yellow-500">
-                        <g transform="translate(0,53) scale(0.1,-0.1)">
-                          <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                          <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                          <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                          <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                          <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                          <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                          <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
-                        </g>
-                    </svg>
-                    <span class="text-primary text-10px">Fancy Dark</span>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-    <!-- End Intensity Color  -->
 
     <!-- Filter Button -->
     <div class="flex justify-center items-center lg:hidden px-4 md:px-8 lg:px-12 2xl:px-16 py-4">
@@ -2420,6 +2304,149 @@
             FC_updateSliderColors();
         </script>
         <!-- End Carat Slider -->
+
+            <!-- Start Intensity Color  -->
+        <div class="flex items-center">
+            <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-7">Intensity</h5>
+            <div class="flex flex-col">
+                <div class="grid grid-cols-2 lg:grid-cols-6 gap-2">
+                    <!-- Fancy Light (0.20) -->
+                    <div class="flex flex-col group">
+                        <a href="{{ route('color.diamond', ['intensity' => 'FANCY LIGHT']) }}" onclick="window.location=this.href;"
+                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            data-color="yellow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/20">
+                                <g transform="translate(0,53) scale(0.1,-0.1)">
+                                    <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                    <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                    <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                    <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                    <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                    <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                    <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span class="text-primary text-10px opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                            Fancy Light
+                        </span>
+                    </div>
+
+                    
+                    <!-- Fancy (0.30) -->
+                    <div class="flex flex-col group">
+                        <a href="{{ route('color.diamond', ['intensity' => 'FANCY']) }}" onclick="window.location=this.href;""
+                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            data-color="yellow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/30">
+                                <g transform="translate(0,53) scale(0.1,-0.1)">
+                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span class="text-primary text-10px opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                            Fancy
+                        </span>
+                    </div>
+
+                    <!-- Fancy Intense (0.40) -->
+                    <div class="flex flex-col group">
+                        <a href="{{ route('color.diamond', ['intensity' => 'FANCY INTENSE']) }}" onclick="window.location=this.href;""
+                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            data-color="yellow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/40">
+                                <g transform="translate(0,53) scale(0.1,-0.1)">
+                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span class="text-primary text-10px opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                            Fancy Intense
+                        </span>
+                    </div>
+
+                    <!-- Fancy Vivid (0.60) -->
+                    <div class="flex flex-col group">
+                        <a href="{{ route('color.diamond', ['intensity' => 'FANCY VIVID']) }}" onclick="window.location=this.href;""
+                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            data-color="yellow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/60">
+                                <g transform="translate(0,53) scale(0.1,-0.1)">
+                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span class="text-primary text-10px opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                            Fancy Vivid
+                        </span>
+                    </div>
+
+                    <!-- Fancy Deep (0.80) -->
+                    <div class="flex flex-col group">
+                        <a href="{{ route('color.diamond', ['intensity' => 'FANCY DEEP']) }}" onclick="window.location=this.href;""
+                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            data-color="yellow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/80">
+                                <g transform="translate(0,53) scale(0.1,-0.1)">
+                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span class="text-primary text-10px opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                            Fancy Deep
+                        </span>
+                    </div>
+
+                    <!-- Fancy Dark (100) -->
+                    <div class="flex flex-col group">
+                        <a href="{{ route('color.diamond', ['intensity' => 'FANCY DARK']) }}" onclick="window.location=this.href;""
+                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            data-color="yellow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500">
+                                <g transform="translate(0,53) scale(0.1,-0.1)">
+                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span class="text-primary text-10px opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                            Fancy Dark
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- End Intensity Color  -->
 
         <!-- Cut Slider -->
         <div class="flex items-center justify-center">
