@@ -15,70 +15,70 @@
         <div class="flex flex-col">
             <div class="mb-1 grid grid-cols-2 lg:grid-cols-10 gap-5">
                 <!-- Color Options -->
-                <a href="{{ route('color.diamond' , ['color' => 'Yellow'])  }}"  onclick="window.location=this.href;"
+                <a href="{{ route('color.diamond' , ['color' => 'Yellow'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="yellow">
                     <img src="{{ asset('images/color/yellow.png') }}" class="w-11 h-11" alt="Yellow">
                     <span class="text-primary">Yellow</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Pink'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Pink'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="pink">
                     <img src="{{ asset('images/color/pink.png') }}" class="w-11 h-11" alt="Pink">
                     <span class="text-primary">Pink</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Purple'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Purple'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="purple">
                     <img src="{{ asset('images/color/purple.png') }}" class="w-11 h-11" alt="Purple">
                     <span class="text-primary">Purple</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Red'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Red'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="red">
                     <img src="{{ asset('images/color/red.png') }}" class="w-11 h-11" alt="Red">
                     <span class="text-primary">Red</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Blue'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Blue'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="blue">
                     <img src="{{ asset('images/color/blue.png') }}" class="w-11 h-11" alt="Blue">
                     <span class="text-primary">Blue</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Green'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Green'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="green">
                     <img src="{{ asset('images/color/green.png') }}" class="w-11 h-11" alt="Green">
                     <span class="text-primary">Green</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Orange'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Orange'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="orange">
                     <img src="{{ asset('images/color/orange.png') }}" class="w-11 h-11" alt="Orange">
                     <span class="text-primary">Orange</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Brown'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Brown'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="brown">
                     <img src="{{ asset('images/color/brown.png') }}" class="w-11 h-11" alt="Brown">
                     <span class="text-primary">Brown</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Black'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Black'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="black">
                     <img src="{{ asset('images/color/black.png') }}" class="w-11 h-11" alt="Black">
                     <span class="text-primary">Black</span>
                 </a>
-    
-                <a href="{{ route('color.diamond' , ['color' => 'Gray'])  }}"  onclick="window.location=this.href;"
+
+                <a href="{{ route('color.diamond' , ['color' => 'Gray'])  }}" onclick="window.location=this.href;"
                     class="color-item font-montserrat text-sm leading-5 font-normal gap-1.5 flex flex-col items-center text-center border border-gray-300 py-3 px-8 rounded-md hover:border-primary hover:text-primary transition"
                     data-color="gray">
                     <img src="{{ asset('images/color/gray.png') }}" class="w-11 h-11" alt="Gray">
@@ -217,8 +217,8 @@
                         <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
                             alt="Triangular Shape">
                     </a>
-                     <!-- Trilliant -->
-                     <a href="{{ route('color.diamond', ['shape' => 'TRILLIANT']) }} "
+                    <!-- Trilliant -->
+                    <a href="{{ route('color.diamond', ['shape' => 'TRILLIANT']) }} "
                         class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                         <img src="{{ asset('Shape/trilliant.svg') }}" width="25" height="25"
                             alt="Trilliant Shape">
@@ -269,49 +269,45 @@
                             <div class="mb-3">
                                 <div class="flex justify-between">
                                     <div class="pr-2">
-                                        <input 
+                                        <input
                                             type="number"
                                             id="FC_mobilePriceFromInput"
                                             name="minPrice"
                                             value="100"
                                             min="100"
                                             max="100000"
-                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                        />
+                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                     </div>
                                     <div class="pl-2">
-                                        <input 
+                                        <input
                                             type="number"
                                             id="FC_mobilePriceToInput"
                                             name="maxPrice"
                                             value="100000"
                                             min="100"
                                             max="100000"
-                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                        />
+                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                     </div>
                                 </div>
                             </div>
-        
+
                             <div class="relative mb-7 flex items-center">
-                                <input 
+                                <input
                                     id="FC_mobilePriceFromSlider"
                                     type="range"
                                     value="100"
                                     min="100"
                                     max="100000"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
-                                <input 
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                                <input
                                     id="FC_mobilePriceToSlider"
                                     type="range"
                                     value="100000"
                                     min="100"
                                     max="100000"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                             </div>
-        
+
                             <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                                 <span>$100</span>
                                 <span>$100,000</span>
@@ -323,7 +319,7 @@
                         input[type="range"]#FC_mobilePriceToSlider::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             pointer-events: all;
-                            width: 16px;    
+                            width: 16px;
                             height: 16px;
                             background-color: #fff;
                             border-radius: 100%;
@@ -332,7 +328,7 @@
                             position: relative;
                             z-index: 5;
                         }
-        
+
                         input[type="range"]#FC_mobilePriceFromSlider::-moz-range-thumb,
                         input[type="range"]#FC_mobilePriceToSlider::-moz-range-thumb {
                             -webkit-appearance: none;
@@ -346,7 +342,7 @@
                             position: relative;
                             z-index: 5;
                         }
-        
+
                         input[type="range"]#FC_mobilePriceToSlider {
                             height: 0;
                             z-index: 4;
@@ -358,16 +354,16 @@
                         const FC_mobilePriceFromInput = document.querySelector("#FC_mobilePriceFromInput");
                         const FC_mobilePriceToInput = document.querySelector("#FC_mobilePriceToInput");
                         const FC_mobilePriceFilterForm = document.querySelector("#FC_mobilePriceFilterForm");
-        
+
                         function updateFC_MobilePriceSliderColors() {
                             const min = parseInt(FC_mobilePriceFromSlider.min);
                             const max = parseInt(FC_mobilePriceToSlider.max);
                             const from = parseInt(FC_mobilePriceFromInput.value);
                             const to = parseInt(FC_mobilePriceToInput.value);
-        
+
                             const percentFrom = ((from - min) / (max - min)) * 100;
                             const percentTo = ((to - min) / (max - min)) * 100;
-        
+
                             const gradient = `linear-gradient(to right, 
                                 #C6C6C6 0%, 
                                 #C6C6C6 ${percentFrom}%, 
@@ -375,11 +371,11 @@
                                 #733D80 ${percentTo}%, 
                                 #C6C6C6 ${percentTo}%, 
                                 #C6C6C6 100%)`;
-        
+
                             FC_mobilePriceFromSlider.style.background = gradient;
                             FC_mobilePriceToSlider.style.background = gradient;
                         }
-        
+
                         function syncFC_MobilePriceFromInput() {
                             let value = Math.min(parseInt(FC_mobilePriceFromInput.value), parseInt(FC_mobilePriceToInput.value));
                             FC_mobilePriceFromInput.value = value;
@@ -387,7 +383,7 @@
                             updateFC_MobilePriceSliderColors();
                             FC_mobilePriceFilterForm.submit();
                         }
-        
+
                         function syncFC_MobilePriceToInput() {
                             let value = Math.max(parseInt(FC_mobilePriceToInput.value), parseInt(FC_mobilePriceFromInput.value));
                             FC_mobilePriceToInput.value = value;
@@ -395,24 +391,24 @@
                             updateFC_MobilePriceSliderColors();
                             FC_mobilePriceFilterForm.submit();
                         }
-        
+
                         function syncFC_MobilePriceFromSlider() {
                             FC_mobilePriceFromInput.value = FC_mobilePriceFromSlider.value;
                             updateFC_MobilePriceSliderColors();
                             FC_mobilePriceFilterForm.submit();
                         }
-        
+
                         function syncFC_MobilePriceToSlider() {
                             FC_mobilePriceToInput.value = FC_mobilePriceToSlider.value;
                             updateFC_MobilePriceSliderColors();
                             FC_mobilePriceFilterForm.submit();
                         }
-        
+
                         FC_mobilePriceFromInput.addEventListener("input", syncFC_MobilePriceFromInput);
                         FC_mobilePriceToInput.addEventListener("input", syncFC_MobilePriceToInput);
                         FC_mobilePriceFromSlider.addEventListener("input", syncFC_MobilePriceFromSlider);
                         FC_mobilePriceToSlider.addEventListener("input", syncFC_MobilePriceToSlider);
-        
+
                         // Initialize slider colors
                         updateFC_MobilePriceSliderColors();
                     </script>
@@ -454,7 +450,7 @@
                             <div class="mb-3">
                                 <div class="flex justify-between">
                                     <div class="pr-2">
-                                        <input 
+                                        <input
                                             type="number"
                                             id="FC_mobileCaratFromInput"
                                             name="minCarat"
@@ -462,11 +458,10 @@
                                             min="0.1"
                                             max="60.00"
                                             step="0.1"
-                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                        />
+                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                     </div>
                                     <div class="pl-2">
-                                        <input 
+                                        <input
                                             type="number"
                                             id="FC_mobileCaratToInput"
                                             name="maxCarat"
@@ -474,33 +469,30 @@
                                             min="0.1"
                                             max="60.00"
                                             step="0.1"
-                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                        />
+                                            class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                     </div>
                                 </div>
                             </div>
-        
+
                             <div class="relative mb-7 flex items-center">
-                                <input 
+                                <input
                                     id="FC_mobileCaratFromSlider"
                                     type="range"
                                     value="0.1"
                                     min="0.1"
                                     max="60.00"
                                     step="0.1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
-                                <input 
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                                <input
                                     id="FC_mobileCaratToSlider"
                                     type="range"
                                     value="60.00"
                                     min="0.1"
                                     max="60.00"
                                     step="0.1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                             </div>
-        
+
                             <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                                 <span>0.1</span>
                                 <span>60.00</span>
@@ -512,7 +504,7 @@
                         input[type="range"]#FC_mobileCaratToSlider::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             pointer-events: all;
-                            width: 16px;    
+                            width: 16px;
                             height: 16px;
                             background-color: #fff;
                             border-radius: 100%;
@@ -521,7 +513,7 @@
                             position: relative;
                             z-index: 5;
                         }
-        
+
                         input[type="range"]#FC_mobileCaratFromSlider::-moz-range-thumb,
                         input[type="range"]#FC_mobileCaratToSlider::-moz-range-thumb {
                             -webkit-appearance: none;
@@ -535,7 +527,7 @@
                             position: relative;
                             z-index: 5;
                         }
-        
+
                         input[type="range"]#FC_mobileCaratToSlider {
                             height: 0;
                             z-index: 4;
@@ -546,16 +538,16 @@
                         const FC_mobileCaratToSlider = document.querySelector("#FC_mobileCaratToSlider");
                         const FC_mobileCaratFromInput = document.querySelector("#FC_mobileCaratFromInput");
                         const FC_mobileCaratToInput = document.querySelector("#FC_mobileCaratToInput");
-        
+
                         function updateFC_MobileCaratSliderColors() {
                             const min = parseFloat(FC_mobileCaratFromSlider.min);
                             const max = parseFloat(FC_mobileCaratToSlider.max);
                             const from = parseFloat(FC_mobileCaratFromInput.value);
                             const to = parseFloat(FC_mobileCaratToInput.value);
-        
+
                             const percentFrom = ((from - min) / (max - min)) * 100;
                             const percentTo = ((to - min) / (max - min)) * 100;
-        
+
                             const gradient = `linear-gradient(to right, 
                                 #C6C6C6 0%, 
                                 #C6C6C6 ${percentFrom}%, 
@@ -563,40 +555,40 @@
                                 #733D80 ${percentTo}%, 
                                 #C6C6C6 ${percentTo}%, 
                                 #C6C6C6 100%)`;
-        
+
                             FC_mobileCaratFromSlider.style.background = gradient;
                             FC_mobileCaratToSlider.style.background = gradient;
                         }
-        
+
                         function syncFC_MobileFromInput() {
                             let value = Math.min(parseFloat(FC_mobileCaratFromInput.value), parseFloat(FC_mobileCaratToInput.value));
                             FC_mobileCaratFromInput.value = value.toFixed(1);
                             FC_mobileCaratFromSlider.value = value;
                             updateFC_MobileCaratSliderColors();
                         }
-        
+
                         function syncFC_MobileToInput() {
                             let value = Math.max(parseFloat(FC_mobileCaratToInput.value), parseFloat(FC_mobileCaratFromInput.value));
                             FC_mobileCaratToInput.value = value.toFixed(1);
                             FC_mobileCaratToSlider.value = value;
                             updateFC_MobileCaratSliderColors();
                         }
-        
+
                         function syncFC_MobileFromSlider() {
                             FC_mobileCaratFromInput.value = parseFloat(FC_mobileCaratFromSlider.value).toFixed(1);
                             updateFC_MobileCaratSliderColors();
                         }
-        
+
                         function syncFC_MobileToSlider() {
                             FC_mobileCaratToInput.value = parseFloat(FC_mobileCaratToSlider.value).toFixed(1);
                             updateFC_MobileCaratSliderColors();
                         }
-        
+
                         FC_mobileCaratFromInput.addEventListener("input", syncFC_MobileFromInput);
                         FC_mobileCaratToInput.addEventListener("input", syncFC_MobileToInput);
                         FC_mobileCaratFromSlider.addEventListener("input", syncFC_MobileFromSlider);
                         FC_mobileCaratToSlider.addEventListener("input", syncFC_MobileToSlider);
-        
+
                         // Initialize slider colors
                         updateFC_MobileCaratSliderColors();
                     </script>
@@ -636,24 +628,22 @@
                     <div class="flex items-center">
                         <div class="w-full max-w-md">
                             <div class="relative mb-7 flex items-center">
-                                <input 
+                                <input
                                     id="FC_mobileCutFromSlider"
                                     type="range"
                                     value="0"
                                     min="0"
                                     max="4"
                                     step="1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
-                                <input 
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                                <input
                                     id="FC_mobileCutToSlider"
                                     type="range"
                                     value="4"
                                     min="0"
                                     max="4"
                                     step="1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                             </div>
 
                             <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
@@ -670,7 +660,7 @@
                         input[type="range"]#FC_mobileCutToSlider::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             pointer-events: all;
-                            width: 16px;    
+                            width: 16px;
                             height: 16px;
                             background-color: #fff;
                             border-radius: 100%;
@@ -778,24 +768,22 @@
                     <div class="flex items-center">
                         <div class="w-full max-w-md">
                             <div class="relative mb-7 flex items-center">
-                                <input 
+                                <input
                                     id="FC_mobileColorFromSlider"
                                     type="range"
                                     value="0"
                                     min="0"
                                     max="9"
                                     step="1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
-                                <input 
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                                <input
                                     id="FC_mobileColorToSlider"
                                     type="range"
                                     value="9"
                                     min="0"
                                     max="9"
                                     step="1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                             </div>
 
                             <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
@@ -817,7 +805,7 @@
                         input[type="range"]#FC_mobileColorToSlider::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             pointer-events: all;
-                            width: 16px;    
+                            width: 16px;
                             height: 16px;
                             background-color: #fff;
                             border-radius: 100%;
@@ -893,7 +881,7 @@
             </div>
 
             <!-- Clarity Filter -->
-            <div class="border-t py-4" id="FC_claritytyDropdownIcon">  
+            <div class="border-t py-4" id="FC_claritytyDropdownIcon">
                 <div class="flex justify-between items-center cursor-pointer">
                     <span class="text-lg font-semibold">Clarity</span>
                     <!-- Down Arrow -->
@@ -925,24 +913,22 @@
                     <div class="flex items-center">
                         <div class="w-full max-w-md">
                             <div class="relative mb-7 flex items-center">
-                                <input 
+                                <input
                                     id="FC_mobileClarityFromSlider"
                                     type="range"
                                     value="0"
                                     min="0"
                                     max="11"
                                     step="1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
-                                <input 
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                                <input
                                     id="FC_mobileClarityToSlider"
                                     type="range"
                                     value="11"
                                     min="0"
                                     max="11"
                                     step="1"
-                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                />
+                                    class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                             </div>
 
                             <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
@@ -965,7 +951,7 @@
                         input[type="range"]#FC_mobileClarityToSlider::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             pointer-events: all;
-                            width: 16px;    
+                            width: 16px;
                             height: 16px;
                             background-color: #fff;
                             border-radius: 100%;
@@ -1072,7 +1058,7 @@
                 <div id="FC_advancedOptionsDropdown" class="hidden mt-4">
                     <div class="flex flex-col items-center gap-4 mx-auto py-4">
                         <!-- Start Mobile Certificate Dropdown -->
-                        <div id="FC_styleMobileDropdownIcon" 
+                        <div id="FC_styleMobileDropdownIcon"
                             class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                             <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
                             <!-- Down Arrow -->
@@ -1328,7 +1314,7 @@
                                         position: relative;
                                         z-index: 5;
                                     }
-                    
+
                                     input[type="range"]#FC_fromMobileTableSlider,
                                     input[type="range"]#FC_toMobileTableSlider {
                                         -webkit-appearance: none;
@@ -1340,7 +1326,7 @@
                                         pointer-events: all;
                                         border-radius: 8px;
                                     }
-                    
+
                                     #FC_toMobileTableSlider {
                                         height: 0;
                                         z-index: 4;
@@ -1351,10 +1337,10 @@
                                         const fromValue = parseFloat(FC_fromMobileTableSlider.value);
                                         const toValue = parseFloat(FC_toMobileTableSlider.value);
                                         const range = FC_toMobileTableSlider.max - FC_toMobileTableSlider.min;
-                                        
+
                                         const percentFrom = ((fromValue - FC_toMobileTableSlider.min) / range) * 100;
                                         const percentTo = ((toValue - FC_toMobileTableSlider.min) / range) * 100;
-                    
+
                                         const gradient = `linear-gradient(to right,
                                             #C6C6C6 0%,
                                             #C6C6C6 ${percentFrom}%, 
@@ -1362,45 +1348,45 @@
                                             #733D80 ${percentTo}%, 
                                             #C6C6C6 ${percentTo}%, 
                                             #C6C6C6 100%)`;
-                    
+
                                         FC_fromMobileTableSlider.style.background = gradient;
                                         FC_toMobileTableSlider.style.background = gradient;
                                     }
-                    
+
                                     function syncFC_MobileTableFromInput() {
                                         let value = Math.min(parseFloat(FC_fromMobileTableInput.value), parseFloat(FC_toMobileTableInput.value));
                                         FC_fromMobileTableInput.value = value.toFixed(2);
                                         FC_fromMobileTableSlider.value = value;
                                         updateFC_MobileTableSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileTableToInput() {
                                         let value = Math.max(parseFloat(FC_toMobileTableInput.value), parseFloat(FC_fromMobileTableInput.value));
                                         FC_toMobileTableInput.value = value.toFixed(2);
                                         FC_toMobileTableSlider.value = value;
                                         updateFC_MobileTableSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileTableFromSlider() {
                                         FC_fromMobileTableInput.value = parseFloat(FC_fromMobileTableSlider.value).toFixed(2);
                                         updateFC_MobileTableSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileTableToSlider() {
                                         FC_toMobileTableInput.value = parseFloat(FC_toMobileTableSlider.value).toFixed(2);
                                         updateFC_MobileTableSliderColors();
                                     }
-                    
+
                                     const FC_fromMobileTableSlider = document.querySelector("#FC_fromMobileTableSlider");
                                     const FC_toMobileTableSlider = document.querySelector("#FC_toMobileTableSlider");
                                     const FC_fromMobileTableInput = document.querySelector("#FC_fromMobileTableInput");
                                     const FC_toMobileTableInput = document.querySelector("#FC_toMobileTableInput");
-                    
+
                                     FC_fromMobileTableInput.addEventListener("input", syncFC_MobileTableFromInput);
                                     FC_toMobileTableInput.addEventListener("input", syncFC_MobileTableToInput);
                                     FC_fromMobileTableSlider.addEventListener("input", syncFC_MobileTableFromSlider);
                                     FC_toMobileTableSlider.addEventListener("input", syncFC_MobileTableToSlider);
-                    
+
                                     // Initialize slider colors
                                     updateFC_MobileTableSliderColors();
                                 </script>
@@ -1517,7 +1503,7 @@
                                         position: relative;
                                         z-index: 5;
                                     }
-                    
+
                                     input[type="range"]#FC_fromMobileDepthSlider,
                                     input[type="range"]#FC_toMobileDepthSlider {
                                         -webkit-appearance: none;
@@ -1529,7 +1515,7 @@
                                         pointer-events: all;
                                         border-radius: 8px;
                                     }
-                    
+
                                     #FC_toMobileDepthSlider {
                                         height: 0;
                                         z-index: 4;
@@ -1540,10 +1526,10 @@
                                         const fromValue = parseFloat(FC_fromMobileDepthSlider.value);
                                         const toValue = parseFloat(FC_toMobileDepthSlider.value);
                                         const range = FC_toMobileDepthSlider.max - FC_toMobileDepthSlider.min;
-                                        
+
                                         const percentFrom = ((fromValue - FC_toMobileDepthSlider.min) / range) * 100;
                                         const percentTo = ((toValue - FC_toMobileDepthSlider.min) / range) * 100;
-                    
+
                                         const gradient = `linear-gradient(to right,
                                             #C6C6C6 0%,
                                             #C6C6C6 ${percentFrom}%, 
@@ -1551,45 +1537,45 @@
                                             #733D80 ${percentTo}%, 
                                             #C6C6C6 ${percentTo}%, 
                                             #C6C6C6 100%)`;
-                    
+
                                         FC_fromMobileDepthSlider.style.background = gradient;
                                         FC_toMobileDepthSlider.style.background = gradient;
                                     }
-                    
+
                                     function syncFC_MobileDepthFromInput() {
                                         let value = Math.min(parseFloat(FC_fromMobileDepthInput.value), parseFloat(FC_toMobileDepthInput.value));
                                         FC_fromMobileDepthInput.value = value.toFixed(2);
                                         FC_fromMobileDepthSlider.value = value;
                                         updateFC_MobileDepthSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileDepthToInput() {
                                         let value = Math.max(parseFloat(FC_toMobileDepthInput.value), parseFloat(FC_fromMobileDepthInput.value));
                                         FC_toMobileDepthInput.value = value.toFixed(2);
                                         FC_toMobileDepthSlider.value = value;
                                         updateFC_MobileDepthSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileDepthFromSlider() {
                                         FC_fromMobileDepthInput.value = parseFloat(FC_fromMobileDepthSlider.value).toFixed(2);
                                         updateFC_MobileDepthSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileDepthToSlider() {
                                         FC_toMobileDepthInput.value = parseFloat(FC_toMobileDepthSlider.value).toFixed(2);
                                         updateFC_MobileDepthSliderColors();
                                     }
-                    
+
                                     const FC_fromMobileDepthSlider = document.querySelector("#FC_fromMobileDepthSlider");
                                     const FC_toMobileDepthSlider = document.querySelector("#FC_toMobileDepthSlider");
                                     const FC_fromMobileDepthInput = document.querySelector("#FC_fromMobileDepthInput");
                                     const FC_toMobileDepthInput = document.querySelector("#FC_toMobileDepthInput");
-                    
+
                                     FC_fromMobileDepthInput.addEventListener("input", syncFC_MobileDepthFromInput);
                                     FC_toMobileDepthInput.addEventListener("input", syncFC_MobileDepthToInput);
                                     FC_fromMobileDepthSlider.addEventListener("input", syncFC_MobileDepthFromSlider);
                                     FC_toMobileDepthSlider.addEventListener("input", syncFC_MobileDepthToSlider);
-                    
+
                                     // Initialize slider colors
                                     updateFC_MobileDepthSliderColors();
                                 </script>
@@ -1700,7 +1686,7 @@
                                         position: relative;
                                         z-index: 5;
                                     }
-                    
+
                                     input[type="range"]#FC_mobileFromLWSlider,
                                     input[type="range"]#FC_mobileToLWSlider {
                                         -webkit-appearance: none;
@@ -1712,7 +1698,7 @@
                                         pointer-events: all;
                                         border-radius: 8px;
                                     }
-                    
+
                                     #FC_mobileToLWSlider {
                                         height: 0;
                                         z-index: 4;
@@ -1723,10 +1709,10 @@
                                         const fromValue = parseFloat(FC_mobileFromLWSlider.value);
                                         const toValue = parseFloat(FC_mobileToLWSlider.value);
                                         const range = FC_mobileToLWSlider.max - FC_mobileToLWSlider.min;
-                                        
+
                                         const percentFrom = ((fromValue - FC_mobileToLWSlider.min) / range) * 100;
                                         const percentTo = ((toValue - FC_mobileToLWSlider.min) / range) * 100;
-                    
+
                                         const gradient = `linear-gradient(to right,
                                             #C6C6C6 0%,
                                             #C6C6C6 ${percentFrom}%, 
@@ -1734,45 +1720,45 @@
                                             #733D80 ${percentTo}%, 
                                             #C6C6C6 ${percentTo}%, 
                                             #C6C6C6 100%)`;
-                    
+
                                         FC_mobileFromLWSlider.style.background = gradient;
                                         FC_mobileToLWSlider.style.background = gradient;
                                     }
-                    
+
                                     function syncFC_MobileLWFromInput() {
                                         let value = Math.min(parseFloat(FC_mobileFromLWInput.value), parseFloat(FC_mobileToLWInput.value));
                                         FC_mobileFromLWInput.value = value.toFixed(2);
                                         FC_mobileFromLWSlider.value = value;
                                         updateFC_MobileLWSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileLWToInput() {
                                         let value = Math.max(parseFloat(FC_mobileToLWInput.value), parseFloat(FC_mobileFromLWInput.value));
                                         FC_mobileToLWInput.value = value.toFixed(2);
                                         FC_mobileToLWSlider.value = value;
                                         updateFC_MobileLWSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileLWFromSlider() {
                                         FC_mobileFromLWInput.value = parseFloat(FC_mobileFromLWSlider.value).toFixed(2);
                                         updateFC_MobileLWSliderColors();
                                     }
-                    
+
                                     function syncFC_MobileLWToSlider() {
                                         FC_mobileToLWInput.value = parseFloat(FC_mobileToLWSlider.value).toFixed(2);
                                         updateFC_MobileLWSliderColors();
                                     }
-                    
+
                                     const FC_mobileFromLWSlider = document.querySelector("#FC_mobileFromLWSlider");
                                     const FC_mobileToLWSlider = document.querySelector("#FC_mobileToLWSlider");
                                     const FC_mobileFromLWInput = document.querySelector("#FC_mobileFromLWInput");
                                     const FC_mobileToLWInput = document.querySelector("#FC_mobileToLWInput");
-                    
+
                                     FC_mobileFromLWInput.addEventListener("input", syncFC_MobileLWFromInput);
                                     FC_mobileToLWInput.addEventListener("input", syncFC_MobileLWToInput);
                                     FC_mobileFromLWSlider.addEventListener("input", syncFC_MobileLWFromSlider);
                                     FC_mobileToLWSlider.addEventListener("input", syncFC_MobileLWToSlider);
-                    
+
                                     // Initialize slider colors
                                     updateFC_MobileLWSliderColors();
                                 </script>
@@ -1849,8 +1835,7 @@
                             class="text-xs text-primary w-64 hover:text-gold border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center">WHITE
                             DIAMONDS</a>
                         <a href="{{ route('color.diamond') }}"
-                            class="text-xs text-gold w-64 bg-primary border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center"
-                            >FANCY
+                            class="text-xs text-gold w-64 bg-primary border border-primary hover:bg-primary p-2 font-montserrat transition-all duration-300 text-center">FANCY
                             COLOR DIAMONDS</a>
                     </div>
                 </div>
@@ -1870,7 +1855,7 @@
         function hideFilterDrawer() {
             document.getElementById('FC_filterDrawer').classList.add('hidden');
         }
-    </script>  
+    </script>
     <!-- End Mobile Filter Drawer -->
 
     <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
@@ -1992,47 +1977,43 @@
                 <div class="mb-3">
                     <div class="flex justify-between">
                         <div class="pr-2">
-                            <input 
+                            <input
                                 type="number"
                                 id="FC_fromPriceInput"
                                 name="minPrice"
                                 value="{{ request('minPrice' , 100) }}"
                                 min="100"
                                 max="100000"
-                                class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                            />
+                                class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                         </div>
                         <div class="pl-2">
-                            <input 
+                            <input
                                 type="number"
                                 id="FC_toPriceInput"
                                 name="maxPrice"
                                 value="{{ request('maxPrice' , 100000) }}"
                                 min="100"
                                 max="100000"
-                                class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                            />
+                                class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                         </div>
                     </div>
                 </div>
 
                 <div class="relative mb-7">
-                    <input 
+                    <input
                         id="FC_fromPriceSlider"
                         type="range"
                         value="{{ request('minPrice', 100) }}"
                         min="100"
                         max="100000"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <input 
+                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                    <input
                         id="FC_toPriceSlider"
                         type="range"
                         value="{{ request('maxPrice', 100000) }}"
                         min="100"
                         max="100000"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
+                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                 </div>
 
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
@@ -2078,7 +2059,7 @@
                 opacity: 1;
             }
 
-            
+
             input[type="number"]#FC_toPriceInput::-webkit-inner-spin-button,
             input[type="number"]#FC_toPriceInput::-webkit-outer-spin-button {
                 opacity: 1;
@@ -2161,19 +2142,27 @@
                 FC_PriceFilterForm.submit(); // Fixed incorrect reference
             }
 
-            FC_fromPriceInput.addEventListener("input", FC_syncPriceFromInput, { passive: true });
-            FC_toPriceInput.addEventListener("input", FC_syncPriceToInput, { passive: true });
-            FC_fromPriceSlider.addEventListener("input", FC_syncPriceFromSlider, { passive: true });
-            FC_toPriceSlider.addEventListener("input", FC_syncPriceToSlider, { passive: true });
+            FC_fromPriceInput.addEventListener("input", FC_syncPriceFromInput, {
+                passive: true
+            });
+            FC_toPriceInput.addEventListener("input", FC_syncPriceToInput, {
+                passive: true
+            });
+            FC_fromPriceSlider.addEventListener("input", FC_syncPriceFromSlider, {
+                passive: true
+            });
+            FC_toPriceSlider.addEventListener("input", FC_syncPriceToSlider, {
+                passive: true
+            });
 
             FC_fromPriceSlider.addEventListener("change", handleSliderChange);
             FC_toPriceSlider.addEventListener("change", handleSliderChange);
 
-                // Initialize slider colors
-                FC_updatePriceSliderColors();
+            // Initialize slider colors
+            FC_updatePriceSliderColors();
         </script>
         <!-- End Price Range Slider -->
-        
+
         <!-- Carat Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mt-2">Carat</h5>
@@ -2184,7 +2173,7 @@
                             id="FC_fromCaratInput" value="{{ request('minCarat', 0.00) }}" min="0.00" max="60.00" step="0.01" />
                     </div>
                     <div>
-                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toCaratInput"  name="maxCarat"
+                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toCaratInput" name="maxCarat"
                             value="{{ request('maxCarat', 60.00) }}" min="0.00" max="60.00" step="0.01" />
                     </div>
                 </div>
@@ -2231,19 +2220,19 @@
             }
         </style>
         <script>
-             const FC_fromCaratSlider = document.querySelector("#FC_fromCaratSlider");
-             const FC_toCaratSlider = document.querySelector("#FC_toCaratSlider");
-             const FC_fromCaratInput = document.querySelector("#FC_fromCaratInput");
-             const FC_toCaratInput = document.querySelector("#FC_toCaratInput");
-             const FC_caratFilterForm = document.querySelector("#FC_caratFilterForm");
+            const FC_fromCaratSlider = document.querySelector("#FC_fromCaratSlider");
+            const FC_toCaratSlider = document.querySelector("#FC_toCaratSlider");
+            const FC_fromCaratInput = document.querySelector("#FC_fromCaratInput");
+            const FC_toCaratInput = document.querySelector("#FC_toCaratInput");
+            const FC_caratFilterForm = document.querySelector("#FC_caratFilterForm");
 
-                let updatePending = false;
+            let updatePending = false;
 
-                function FC_updateSliderColors() {
-                    if (updatePending) return;
-                    updatePending = true;
-        
-                    requestAnimationFrame(() => {
+            function FC_updateSliderColors() {
+                if (updatePending) return;
+                updatePending = true;
+
+                requestAnimationFrame(() => {
                     const min = parseFloat(FC_fromCaratSlider.min);
                     const max = parseFloat(FC_toCaratSlider.max);
                     const from = parseFloat(FC_fromCaratInput.value);
@@ -2257,46 +2246,46 @@
                 #733D80 ${percentFrom}%, #733D80 ${percentTo}%, 
                 #C6C6C6 ${percentTo}%, #C6C6C6 100%)`;
 
-                FC_fromCaratSlider.style.background = gradient;
-                FC_toCaratSlider.style.background = gradient;
+                    FC_fromCaratSlider.style.background = gradient;
+                    FC_toCaratSlider.style.background = gradient;
 
-                updatePending = false;
-            });
+                    updatePending = false;
+                });
             }
 
-             function FC_syncFromInput() {
+            function FC_syncFromInput() {
                 let value = Math.min(parseFloat(FC_fromCaratInput.value), parseFloat(FC_toCaratInput.value));
-                 FC_fromCaratInput.value = value;
-                 FC_fromCaratSlider.value = value;
-                 FC_updateSliderColors();
-             }
+                FC_fromCaratInput.value = value;
+                FC_fromCaratSlider.value = value;
+                FC_updateSliderColors();
+            }
 
             function FC_syncToInput() {
-                 let value = Math.max(parseFloat(FC_toCaratInput.value), parseFloat(FC_fromCaratInput.value));
-                 FC_toCaratInput.value = value;
-                 FC_toCaratSlider.value = value;
+                let value = Math.max(parseFloat(FC_toCaratInput.value), parseFloat(FC_fromCaratInput.value));
+                FC_toCaratInput.value = value;
+                FC_toCaratSlider.value = value;
                 FC_updateSliderColors();
             }
 
             function FC_syncFromSlider() {
-            FC_fromCaratInput.value = parseFloat(FC_fromCaratSlider.value).toFixed(2);
-            FC_updateSliderColors();
+                FC_fromCaratInput.value = parseFloat(FC_fromCaratSlider.value).toFixed(2);
+                FC_updateSliderColors();
             }
 
             function FC_syncToSlider() {
-            FC_toCaratInput.value = parseFloat(FC_toCaratSlider.value).toFixed(2);
-            FC_updateSliderColors();
+                FC_toCaratInput.value = parseFloat(FC_toCaratSlider.value).toFixed(2);
+                FC_updateSliderColors();
             }
 
             function handleCaratSliderChange() {
-            FC_caratFilterForm.submit();
-             }
+                FC_caratFilterForm.submit();
+            }
 
             FC_fromCaratInput.addEventListener("input", FC_syncFromInput);
             FC_toCaratInput.addEventListener("input", FC_syncToInput);
             FC_fromCaratSlider.addEventListener("input", FC_syncFromSlider);
             FC_toCaratSlider.addEventListener("input", FC_syncToSlider);
-    
+
             FC_fromCaratSlider.addEventListener("change", handleCaratSliderChange);
             FC_toCaratSlider.addEventListener("change", handleCaratSliderChange);
 
@@ -2305,7 +2294,7 @@
         </script>
         <!-- End Carat Slider -->
 
-            <!-- Start Intensity Color  -->
+        <!-- Start Intensity Color  -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-7">Intensity</h5>
             <div class="flex flex-col">
@@ -2332,21 +2321,21 @@
                         </span>
                     </div>
 
-                    
+
                     <!-- Fancy (0.30) -->
                     <div class="flex flex-col group">
                         <a href="{{ route('color.diamond', ['intensity' => 'FANCY']) }}" onclick="window.location=this.href;""
-                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            class=" intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
                             data-color="yellow">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/30">
                                 <g transform="translate(0,53) scale(0.1,-0.1)">
-                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                    <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                    <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                    <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                    <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                    <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                    <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                    <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
                                 </g>
                             </svg>
                         </a>
@@ -2358,17 +2347,17 @@
                     <!-- Fancy Intense (0.40) -->
                     <div class="flex flex-col group">
                         <a href="{{ route('color.diamond', ['intensity' => 'FANCY INTENSE']) }}" onclick="window.location=this.href;""
-                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            class=" intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
                             data-color="yellow">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/40">
                                 <g transform="translate(0,53) scale(0.1,-0.1)">
-                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                    <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                    <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                    <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                    <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                    <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                    <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                    <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
                                 </g>
                             </svg>
                         </a>
@@ -2380,17 +2369,17 @@
                     <!-- Fancy Vivid (0.60) -->
                     <div class="flex flex-col group">
                         <a href="{{ route('color.diamond', ['intensity' => 'FANCY VIVID']) }}" onclick="window.location=this.href;""
-                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            class=" intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
                             data-color="yellow">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/60">
                                 <g transform="translate(0,53) scale(0.1,-0.1)">
-                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                    <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                    <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                    <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                    <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                    <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                    <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                    <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
                                 </g>
                             </svg>
                         </a>
@@ -2402,17 +2391,17 @@
                     <!-- Fancy Deep (0.80) -->
                     <div class="flex flex-col group">
                         <a href="{{ route('color.diamond', ['intensity' => 'FANCY DEEP']) }}" onclick="window.location=this.href;""
-                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            class=" intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
                             data-color="yellow">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500/80">
                                 <g transform="translate(0,53) scale(0.1,-0.1)">
-                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                    <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                    <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                    <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                    <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                    <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                    <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                    <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
                                 </g>
                             </svg>
                         </a>
@@ -2424,17 +2413,17 @@
                     <!-- Fancy Dark (100) -->
                     <div class="flex flex-col group">
                         <a href="{{ route('color.diamond', ['intensity' => 'FANCY DARK']) }}" onclick="window.location=this.href;""
-                            class="intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
+                            class=" intensity-color-item font-montserrat text-sm leading-5 font-normal flex flex-col items-center text-center border border-gray-300 py-3 w-14 rounded-md hover:border-primary hover:text-primary transition"
                             data-color="yellow">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 53" class="w-5 h-5 fill-yellow-500">
                                 <g transform="translate(0,53) scale(0.1,-0.1)">
-                                <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
-                                <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
-                                <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
-                                <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
-                                <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
-                                <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
-                                <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
+                                    <path d="M127 471 l-98 -58 36 -22 36 -21 65 36 c64 36 64 36 64 80 0 24 -1 44 -2 43 -2 0 -47 -26 -101 -58z"></path>
+                                    <path d="M262 483 c3 -43 5 -46 63 -79 l61 -33 36 22 36 22 -100 57 -99 57 3 -46z"></path>
+                                    <path d="M178 374 l-58 -35 0 -69 0 -70 41 -25 c79 -50 81 -51 145 -13 l59 34 3 71 3 72 -64 35 c-35 20 -66 36 -68 35 -2 0 -30 -16 -61 -35z"></path>
+                                    <path d="M10 270 c0 -60 3 -110 6 -110 4 0 22 9 40 21 33 20 34 22 34 89 0 67 0 68 -36 89 -19 12 -37 21 -40 21 -2 0 -4 -49 -4 -110z"></path>
+                                    <path d="M433 358 c-32 -19 -33 -22 -33 -89 0 -67 1 -70 33 -89 17 -11 35 -20 40 -20 4 0 7 50 7 110 0 61 -3 110 -7 109 -5 0 -23 -10 -40 -21z"></path>
+                                    <path d="M65 145 l-37 -22 58 -33 c33 -18 78 -44 102 -57 l42 -25 0 44 c0 42 -1 43 -64 79 l-64 37 -37 -23z"></path>
+                                    <path d="M322 132 c-61 -36 -62 -37 -62 -80 0 -44 0 -44 23 -30 12 8 57 34 99 58 43 24 77 44 75 45 -1 1 -18 11 -37 23 l-36 21 -62 -37z"></path>
                                 </g>
                             </svg>
                         </a>
@@ -2442,7 +2431,7 @@
                             Fancy Dark
                         </span>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -2451,9 +2440,9 @@
         <!-- Cut Slider -->
         <div class="flex items-center justify-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Cut</h5>
-            <form id=FC_cutFilterForm action="{{ route('color.diamond') }}"  class="w-full max-w-md">
+            <form id=FC_cutFilterForm action="{{ route('color.diamond') }}" class="w-full max-w-md">
                 <div class="relative mb-3 flex items-center mt-3">
-                    <input 
+                    <input
                         id="FC_fromCutSlider"
                         name="fromCutSlider"
                         type="range"
@@ -2461,9 +2450,8 @@
                         min="0"
                         max="4"
                         step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <input 
+                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                    <input
                         id="FC_toCutSlider"
                         name="toCutSlider"
                         type="range"
@@ -2471,8 +2459,7 @@
                         min="0"
                         max="4"
                         step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
+                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                 </div>
 
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
@@ -2489,7 +2476,7 @@
             input[type="range"]#FC_toCutSlider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
-                width: 16px;    
+                width: 16px;
                 height: 16px;
                 background-color: #fff;
                 border-radius: 100%;
@@ -2569,30 +2556,28 @@
         <!-- Clarity Slider -->
         <div class="flex items-center">
             <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mb-4">Clarity</h5>
-           <div class="w-full max-w-md mt-3">
-                <form id=FC_clarityFilterForm action="{{ route('color.diamond') }}"  method="GET">
-                <div class="relative mb-3 flex items-center">
-                    <input 
-                        id="FC_fromClaritySlider"
-                        name="fromClaritySlider"
-                        type="range"
-                        value="{{ request('fromClaritySlider', 0) }}"
-                        min="0"
-                        max="11"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <input 
-                        id="FC_toClaritySlider"
-                        name="toClaritySlider"
-                        type="range"
-                        value="{{ request('toClaritySlider', 11) }}"
-                        min="0"
-                        max="11"
-                        step="1"
-                        class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    />
-                </div>
+            <div class="w-full max-w-md mt-3">
+                <form id=FC_clarityFilterForm action="{{ route('color.diamond') }}" method="GET">
+                    <div class="relative mb-3 flex items-center">
+                        <input
+                            id="FC_fromClaritySlider"
+                            name="fromClaritySlider"
+                            type="range"
+                            value="{{ request('fromClaritySlider', 0) }}"
+                            min="0"
+                            max="11"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                        <input
+                            id="FC_toClaritySlider"
+                            name="toClaritySlider"
+                            type="range"
+                            value="{{ request('toClaritySlider', 11) }}"
+                            min="0"
+                            max="11"
+                            step="1"
+                            class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+                    </div>
                 </form>
                 <div class="flex justify-between text-xs text-gray-500 font-montserrat font-medium">
                     <span>I2</span>
@@ -2607,14 +2592,14 @@
                     <span>IF</span>
                     <span>FL</span>
                 </div>
-           </div> 
+            </div>
         </div>
         <style>
             input[type="range"]#FC_fromClaritySlider::-webkit-slider-thumb,
             input[type="range"]#FC_toClaritySlider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 pointer-events: all;
-                width: 16px;    
+                width: 16px;
                 height: 16px;
                 background-color: #fff;
                 border-radius: 100%;
@@ -2695,761 +2680,23 @@
 
     <!-- Start Advanced Options -->
     <div class="hidden lg:flex lg:felx-row items-center gap-3 px-4 md:px-8 lg:px-12 3xl:px-40 py-5">
-        <h3 class="text-xs text-primary font-montserrat font-semibold">Advanced Options</h3>
+        <h3 class="text-sm text-primary font-montserrat font-semibold">Certificate</h3>
         <div class="flex flex-col lg:flex-row lg:justify-between items-start w-full">
-            <!-- Start Certificate Dropdown , Method Dropdown , Table Dropdown -->
-            <div class="grid grid-cols-2 md:flex md:flex-row items-center gap-4">
-                <!-- Start Certificate Dropdown -->
-                <div id="FC_styleDropdownIcon" 
-                    class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                    <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Certificate</label>
-                    <!-- Down Arrow -->
-                    <svg id="FC_downArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                            </path>
-                        </g>
-                    </svg>
-                    <svg id="FC_upArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                            </path>
-                        </g>
-                    </svg>
 
-                    <div id="FC_styleDropdown"
-                        class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
-                        <div class="flex justify-between">
-                            <p class="text-sm font-montserrat font-semibold px-4 py-2">Certificate</p>
-
-                            <button class="p-2 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="py-2">
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">IGI</span>
-                            </label>
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">GIA</span>
-                            </label>
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">GCAL</span>
-                            </label>
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">NON CERTIFIED</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Certificate Dropdown -->
-                 <!-- Start Certificate Dropdown Script -->
-                <script>
-                    const FC_styleIcon = document.getElementById('FC_styleDropdownIcon');
-                    const FC_styleDropdown = document.getElementById('FC_styleDropdown');
-                    const FC_downArrow = document.getElementById('FC_downArrow');
-                    const FC_upArrow = document.getElementById('FC_upArrow');
-
-                    FC_styleIcon.addEventListener('click', () => {
-                        FC_styleDropdown.classList.toggle('hidden');
-                        FC_downArrow.classList.toggle('hidden');
-                        FC_upArrow.classList.toggle('hidden');
-                    });
-
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!FC_styleIcon.contains(e.target) && !FC_styleDropdown.contains(e.target)) {
-                            FC_styleDropdown.classList.add('hidden');
-                            FC_downArrow.classList.remove('hidden');
-                            FC_upArrow.classList.add('hidden');
-                        }
-                    });
-
-                    // Prevent dropdown from closing when clicking checkboxes
-                    const FC_checkboxes = FC_styleDropdown.querySelectorAll('input[type="checkbox"]');
-                    FC_checkboxes.forEach(checkbox => {
-                        checkbox.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                        });
-                    });
-                </script>
-                <!-- End Certificate Dropdown Script -->
-
-                <!-- Start Method Dropdown -->
-                <div id="FC_methodDropdownIcon"
-                    class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                    <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
-                    <!-- Down Arrow -->
-                    <svg id="FC_methodDownArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                            </path>
-                        </g>
-                    </svg>
-                    <!-- Up Arrow -->
-                    <svg id="FC_methodUpArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                            </path>
-                        </g>
-                    </svg>
-
-                    <div id="FC_methodDropdown"
-                        class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
-                        <div class="flex justify-between">
-                            <p class="text-sm font-montserrat font-semibold px-4 py-2">Method</p>
-
-                            <button class="p-2 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="py-2">
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">HPHT</span>
-                            </label>
-                            <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <input type="checkbox" class="mr-2 accent-black">
-                                <span class="text-sm font-montserrat">CVD</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Method Dropdown -->
-                <!-- Start Method Dropdown Script -->
-                <script>
-                    const FC_methodIcon = document.getElementById('FC_methodDropdownIcon');
-                    const FC_methodDropdown = document.getElementById('FC_methodDropdown');
-                    const FC_methodDownArrow = document.getElementById('FC_methodDownArrow');
-                    const FC_methodUpArrow = document.getElementById('FC_methodUpArrow');
-
-                    FC_methodIcon.addEventListener('click', () => {
-                        FC_methodDropdown.classList.toggle('hidden');
-                        FC_methodDownArrow.classList.toggle('hidden');
-                        FC_methodUpArrow.classList.toggle('hidden');
-                    });
-
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!FC_methodIcon.contains(e.target) && !FC_methodDropdown.contains(e.target)) {
-                            FC_methodDropdown.classList.add('hidden');
-                            FC_methodDownArrow.classList.remove('hidden');
-                            FC_methodUpArrow.classList.add('hidden');
-                        }
-                    });
-
-                    // Prevent dropdown from closing when clicking checkboxes
-                    const FC_methodCheckboxes = FC_methodDropdown.querySelectorAll('input[type="checkbox"]');
-                    FC_methodCheckboxes.forEach(checkbox => {
-                        checkbox.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                        });
-                    });
-                </script>
-                <!-- End Method Dropdown Script -->
-
-                <!-- Start Table Dropdown -->
-                <div id="FC_tableDropdownIcon"
-                    class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                    <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Table (%)</label>
-                    <!-- Down Arrow -->
-                    <svg id="FC_tableDownArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                            </path>
-                        </g>
-                    </svg>
-                    <!-- Up Arrow -->
-                    <svg id="FC_tableUpArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                            </path>
-                        </g>
-                    </svg>
-
-                    <div id="FC_tableDropdown"
-                        class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                        <div class="flex justify-between">
-                            <p class="text-sm font-montserrat font-semibold px-4 py-2">Table (%)</p>
-                            <button class="p-2 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="flex items-center p-4">
-                            <div class="w-full">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="FC_fromTableInput" value="50.00" min="50.00" max="80.00" step="0.01" />
-                                    </div>
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toTableInput"
-                                            value="80.00" min="50.00" max="80.00" step="0.01" />
-                                    </div>
-                                </div>
-                                <div class="relative min-h-7 flex items-center">
-                                    <input id="FC_fromTableSlider" type="range" value="50" min="50" max="80" step="0.01" />
-                                    <input id="FC_toTableSlider" type="range" value="80" min="50" max="80" step="0.01" />
-                                </div>
-                            </div>
-                        </div>
-                        <style>
-                            input[type="range"]#FC_fromTableSlider::-webkit-slider-thumb,
-                            input[type="range"]#FC_toTableSlider::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 16px;
-                                height: 16px;
-                                background-color: #fff;
-                                border-radius: 100%;
-                                border: 2px solid #733D80;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-            
-                            input[type="range"]#FC_fromTableSlider,
-                            input[type="range"]#FC_toTableSlider {
-                                -webkit-appearance: none;
-                                appearance: none;
-                                height: 4px;
-                                width: 100%;
-                                position: absolute;
-                                background-color: #c6c6c6;
-                                pointer-events: all;
-                                border-radius: 8px;
-                            }
-            
-                            #FC_toTableSlider {
-                                height: 0;
-                                z-index: 4;
-                            }
-                        </style>
-                        <script>
-                            function FC_updateTableSliderColors() {
-                                const fromValue = parseFloat(FC_fromTableSlider.value);
-                                const toValue = parseFloat(FC_toTableSlider.value);
-                                const range = FC_toTableSlider.max - FC_toTableSlider.min;
-                                
-                                const percentFrom = ((fromValue - FC_toTableSlider.min) / range) * 100;
-                                const percentTo = ((toValue - FC_toTableSlider.min) / range) * 100;
-            
-                                const gradient = `linear-gradient(to right,
-                                    #C6C6C6 0%,
-                                    #C6C6C6 ${percentFrom}%, 
-                                    #733D80 ${percentFrom}%, 
-                                    #733D80 ${percentTo}%, 
-                                    #C6C6C6 ${percentTo}%, 
-                                    #C6C6C6 100%)`;
-            
-                                FC_fromTableSlider.style.background = gradient;
-                                FC_toTableSlider.style.background = gradient;
-                            }
-            
-                            function FC_syncTableFromInput() {
-                                let value = Math.min(parseFloat(FC_fromTableInput.value), parseFloat(FC_toTableInput.value));
-                                FC_fromTableInput.value = value.toFixed(2);
-                                FC_fromTableSlider.value = value;
-                                FC_updateTableSliderColors();
-                            }
-            
-                            function FC_syncTableToInput() {
-                                let value = Math.max(parseFloat(FC_toTableInput.value), parseFloat(FC_fromTableInput.value));
-                                FC_toTableInput.value = value.toFixed(2);
-                                FC_toTableSlider.value = value;
-                                FC_updateTableSliderColors();
-                            }
-            
-                            function FC_syncTableFromSlider() {
-                                FC_fromTableInput.value = parseFloat(FC_fromTableSlider.value).toFixed(2);
-                                FC_updateTableSliderColors();
-                            }
-            
-                            function FC_syncTableToSlider() {
-                                FC_toTableInput.value = parseFloat(FC_toTableSlider.value).toFixed(2);
-                                FC_updateTableSliderColors();
-                            }
-            
-                            const FC_fromTableSlider = document.querySelector("#FC_fromTableSlider");
-                            const FC_toTableSlider = document.querySelector("#FC_toTableSlider");
-                            const FC_fromTableInput = document.querySelector("#FC_fromTableInput");
-                            const FC_toTableInput = document.querySelector("#FC_toTableInput");
-            
-                            FC_fromTableInput.addEventListener("input", FC_syncTableFromInput);
-                            FC_toTableInput.addEventListener("input", FC_syncTableToInput);
-                            FC_fromTableSlider.addEventListener("input", FC_syncTableFromSlider);
-                            FC_toTableSlider.addEventListener("input", FC_syncTableToSlider);
-            
-                            // Initialize slider colors
-                            FC_updateTableSliderColors();
-                        </script>
-                    </div>
-                </div>
-                <!-- End Table Dropdown -->
-                <!-- Start Table Dropdown Script -->
-                <script>
-                    const FC_tableIcon = document.getElementById('FC_tableDropdownIcon');
-                    const FC_tableDropdown = document.getElementById('FC_tableDropdown');
-                    const FC_tableDownArrow = document.getElementById('FC_tableDownArrow');
-                    const FC_tableUpArrow = document.getElementById('FC_tableUpArrow');
-
-                    FC_tableIcon.addEventListener('click', () => {
-                        FC_tableDropdown.classList.toggle('hidden');
-                        FC_tableDownArrow.classList.toggle('hidden');
-                        FC_tableUpArrow.classList.toggle('hidden');
-                    });
-
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!FC_tableIcon.contains(e.target) && !FC_tableDropdown.contains(e.target) && !FC_fromTableSlider.contains(e.target) && !FC_toTableSlider.contains(e.target) && !FC_fromTableInput.contains(e.target) && !FC_toTableInput.contains(e.target)) {
-                            FC_tableDropdown.classList.add('hidden');
-                            FC_tableDownArrow.classList.remove('hidden');
-                            FC_tableUpArrow.classList.add('hidden');
-                        }
-                    });
-
-                    // Prevent dropdown from closing when clicking checkboxes
-                    const FC_tableCheckboxes = FC_tableDropdown.querySelectorAll('input[type="checkbox"]');
-                    FC_tableCheckboxes.forEach(checkbox => {
-                        checkbox.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                        });
-                    });
-                </script>
-                <!-- End Table Dropdown Script -->
-
-                <!-- Start Depth Dropdown -->
-                <div id="FC_depthDropdownIcon"
-                    class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                    <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Depth (%)</label>
-                    <!-- Down Arrow -->
-                    <svg id="FC_depthDownArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                            </path>
-                        </g>
-                    </svg>
-                    <!-- Up Arrow -->
-                    <svg id="FC_depthUpArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                            </path>
-                        </g>
-                    </svg>
-
-                    <div id="FC_depthDropdown"
-                        class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                        <div class="flex justify-between">
-                            <p class="text-sm font-montserrat font-semibold px-4 py-2">Depth (%)</p>
-
-                            <button class="p-2 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                                    <line x1="18" y1="6" x2="6" y2="18">
-                                    </line>
-                                    <line x1="6" y1="6" x2="18" y2="18">
-                                    </line>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div class="flex items-center p-4">
-                            <div class="w-full">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="FC_fromDepthInput" value="46.00" min="46.00" max="78.00" step="0.01" />
-                                    </div>
-                                    <div>
-                                        <input class="form_carat_control_container__carat__input small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toDepthInput"
-                                            value="78.00" min="46.00" max="78.00" step="0.01" />
-                                    </div>
-                                </div>
-                                <div class="relative min-h-7 flex items-center">
-                                    <input id="FC_fromDepthSlider" type="range" value="46" min="46" max="78" step="0.01" />
-                                    <input id="FC_toDepthSlider" type="range" value="78" min="46" max="78" step="0.01" />
-                                </div>
-                            </div>
-                        </div>
-                        <style>
-                            input[type="range"]#FC_fromDepthSlider::-webkit-slider-thumb,
-                            input[type="range"]#FC_toDepthSlider::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 16px;
-                                height: 16px;
-                                background-color: #fff;
-                                border-radius: 100%;
-                                border: 2px solid #733D80;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-            
-                            input[type="range"]#FC_fromDepthSlider,
-                            input[type="range"]#FC_toDepthSlider {
-                                -webkit-appearance: none;
-                                appearance: none;
-                                height: 4px;
-                                width: 100%;
-                                position: absolute;
-                                background-color: #c6c6c6;
-                                pointer-events: all;
-                                border-radius: 8px;
-                            }
-            
-                            #FC_toDepthSlider {
-                                height: 0;
-                                z-index: 4;
-                            }
-                        </style>
-                        <script>
-                            function FC_updateDepthSliderColors() {
-                                const fromValue = parseFloat(FC_fromDepthSlider.value);
-                                const toValue = parseFloat(FC_toDepthSlider.value);
-                                const range = FC_toDepthSlider.max - FC_toDepthSlider.min;
-                                
-                                const percentFrom = ((fromValue - FC_toDepthSlider.min) / range) * 100;
-                                const percentTo = ((toValue - FC_toDepthSlider.min) / range) * 100;
-            
-                                const gradient = `linear-gradient(to right,
-                                    #C6C6C6 0%,
-                                    #C6C6C6 ${percentFrom}%, 
-                                    #733D80 ${percentFrom}%, 
-                                    #733D80 ${percentTo}%, 
-                                    #C6C6C6 ${percentTo}%, 
-                                    #C6C6C6 100%)`;
-            
-                                FC_fromDepthSlider.style.background = gradient;
-                                FC_toDepthSlider.style.background = gradient;
-                            }
-            
-                            function FC_syncDepthFromInput() {
-                                let value = Math.min(parseFloat(FC_fromDepthInput.value), parseFloat(FC_toDepthInput.value));
-                                FC_fromDepthInput.value = value.toFixed(2);
-                                FC_fromDepthSlider.value = value;
-                                FC_updateDepthSliderColors();
-                            }
-            
-                            function FC_syncDepthToInput() {
-                                let value = Math.max(parseFloat(FC_toDepthInput.value), parseFloat(FC_fromDepthInput.value));
-                                FC_toDepthInput.value = value.toFixed(2);
-                                FC_toDepthSlider.value = value;
-                                FC_updateDepthSliderColors();
-                            }
-            
-                            function FC_syncDepthFromSlider() {
-                                FC_fromDepthInput.value = parseFloat(FC_fromDepthSlider.value).toFixed(2);
-                                FC_updateDepthSliderColors();
-                            }
-            
-                            function FC_syncDepthToSlider() {
-                                FC_toDepthInput.value = parseFloat(FC_toDepthSlider.value).toFixed(2);
-                                FC_updateDepthSliderColors();
-                            }
-            
-                            const FC_fromDepthSlider = document.querySelector("#FC_fromDepthSlider");
-                            const FC_toDepthSlider = document.querySelector("#FC_toDepthSlider");
-                            const FC_fromDepthInput = document.querySelector("#FC_fromDepthInput");
-                            const FC_toDepthInput = document.querySelector("#FC_toDepthInput");
-            
-                            FC_fromDepthInput.addEventListener("input", FC_syncDepthFromInput);
-                            FC_toDepthInput.addEventListener("input", FC_syncDepthToInput);
-                            FC_fromDepthSlider.addEventListener("input", FC_syncDepthFromSlider);
-                            FC_toDepthSlider.addEventListener("input", FC_syncDepthToSlider);
-            
-                            // Initialize slider colors
-                            FC_updateDepthSliderColors();
-                        </script>
-                    </div>
-                </div>
-                <!-- End Depth Dropdown -->
-                <!-- Start Depth Dropdown Script -->
-                <script>
-                    const FC_depthIcon = document.getElementById('FC_depthDropdownIcon');
-                    const FC_depthDropdown = document.getElementById('FC_depthDropdown');
-                    const FC_depthDownArrow = document.getElementById('FC_depthDownArrow');
-                    const FC_depthUpArrow = document.getElementById('FC_depthUpArrow');
-
-                    FC_depthIcon.addEventListener('click', () => {
-                        FC_depthDropdown.classList.toggle('hidden');
-                        FC_depthDownArrow.classList.toggle('hidden');
-                        FC_depthUpArrow.classList.toggle('hidden');
-                    });
-
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!FC_depthIcon.contains(e.target) && !FC_depthDropdown.contains(e.target)) {
-                            FC_depthDropdown.classList.add('hidden');
-                            FC_depthDownArrow.classList.remove('hidden');
-                            FC_depthUpArrow.classList.add('hidden');
-                        }
-                    });
-
-                    // Prevent dropdown from closing when clicking checkboxes
-                    const FC_depthCheckboxes = FC_depthDropdown.querySelectorAll('input[type="checkbox"]');
-                    FC_depthCheckboxes.forEach(checkbox => {
-                        checkbox.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                        });
-                    });
-                </script>
-                <!-- End Depth Dropdown Script -->
-
-                <!-- Start L/W Ratio Dropdown -->
-                <div id="FC_lwDropdownIcon"
-                    class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                    <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">L/W Ratio</label>
-                    <!-- Down Arrow -->
-                    <svg id="FC_lwDownArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                            </path>
-                        </g>
-                    </svg>
-                    <!-- Up Arrow -->
-                    <svg id="FC_lwUpArrow" fill="#000000" height="8" width="8" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer hidden">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path id="XMLID_23_"
-                                d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                            </path>
-                        </g>
-                    </svg>
-
-                    <div id="FC_lwDropdown"
-                        class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                        <div class="flex justify-between">
-                            <p class="text-sm font-montserrat font-semibold px-4 py-2">L/W Ratio</p>
-
-                            <button class="p-2 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="flex items-center p-4">
-                            <div class="w-full">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number"
-                                            id="FC_fromLWInput" value="1.00" min="1.00" max="2.75" step="0.01" />
-                                    </div>
-                                    <div>
-                                        <input class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" type="number" id="FC_toLWInput"
-                                            value="2.75" min="1.00" max="2.75" step="0.01" />
-                                    </div>
-                                </div>
-                                <div class="relative min-h-7 flex items-center">
-                                    <input id="FC_fromLWSlider" type="range" value="1" min="1" max="2.75" step="0.01" />
-                                    <input id="FC_toLWSlider" type="range" value="2.75" min="1" max="2.75" step="0.01" />
-                                </div>
-                            </div>
-                        </div>
-                        <style>
-                            input[type="range"]#FC_fromLWSlider::-webkit-slider-thumb,
-                            input[type="range"]#FC_toLWSlider::-webkit-slider-thumb {
-                                -webkit-appearance: none;
-                                pointer-events: all;
-                                width: 16px;
-                                height: 16px;
-                                background-color: #fff;
-                                border-radius: 100%;
-                                border: 2px solid #733D80;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 5;
-                            }
-            
-                            input[type="range"]#FC_fromLWSlider,
-                            input[type="range"]#FC_toLWSlider {
-                                -webkit-appearance: none;
-                                appearance: none;
-                                height: 4px;
-                                width: 100%;
-                                position: absolute;
-                                background-color: #c6c6c6;
-                                pointer-events: all;
-                                border-radius: 8px;
-                            }
-            
-                            #FC_toLWSlider {
-                                height: 0;
-                                z-index: 4;
-                            }
-                        </style>
-                        <script>
-                            function FC_updateLWSliderColors() {
-                                const fromValue = parseFloat(FC_fromLWSlider.value);
-                                const toValue = parseFloat(FC_toLWSlider.value);
-                                const range = FC_toLWSlider.max - FC_toLWSlider.min;
-                                
-                                const percentFrom = ((fromValue - FC_toLWSlider.min) / range) * 100;
-                                const percentTo = ((toValue - FC_toLWSlider.min) / range) * 100;
-            
-                                const gradient = `linear-gradient(to right,
-                                    #C6C6C6 0%,
-                                    #C6C6C6 ${percentFrom}%, 
-                                    #733D80 ${percentFrom}%, 
-                                    #733D80 ${percentTo}%, 
-                                    #C6C6C6 ${percentTo}%, 
-                                    #C6C6C6 100%)`;
-            
-                                FC_fromLWSlider.style.background = gradient;
-                                FC_toLWSlider.style.background = gradient;
-                            }
-            
-                            function FC_syncLWFromInput() {
-                                let value = Math.min(parseFloat(FC_fromLWInput.value), parseFloat(FC_toLWInput.value));
-                                FC_fromLWInput.value = value.toFixed(2);
-                                FC_fromLWSlider.value = value;
-                                FC_updateLWSliderColors();
-                            }
-            
-                            function FC_syncLWToInput() {
-                                let value = Math.max(parseFloat(FC_toLWInput.value), parseFloat(FC_fromLWInput.value));
-                                FC_toLWInput.value = value.toFixed(2);
-                                FC_toLWSlider.value = value;
-                                FC_updateLWSliderColors();
-                            }
-            
-                            function FC_syncLWFromSlider() {
-                                FC_fromLWInput.value = parseFloat(FC_fromLWSlider.value).toFixed(2);
-                                FC_updateLWSliderColors();
-                            }
-            
-                            function FC_syncLWToSlider() {
-                                FC_toLWInput.value = parseFloat(FC_toLWSlider.value).toFixed(2);
-                                FC_updateLWSliderColors();
-                            }
-            
-                            const FC_fromLWSlider = document.querySelector("#FC_fromLWSlider");
-                            const FC_toLWSlider = document.querySelector("#FC_toLWSlider");
-                            const FC_fromLWInput = document.querySelector("#FC_fromLWInput");
-                            const FC_toLWInput = document.querySelector("#FC_toLWInput");
-            
-                            FC_fromLWInput.addEventListener("input", FC_syncLWFromInput);
-                            FC_toLWInput.addEventListener("input", FC_syncLWToInput);
-                            FC_fromLWSlider.addEventListener("input", FC_syncLWFromSlider);
-                            FC_toLWSlider.addEventListener("input", FC_syncLWToSlider);
-            
-                            // Initialize slider colors
-                            FC_updateLWSliderColors();
-                        </script>
-                    </div>
-                </div>
-                <!-- End L/W Ratio Dropdown -->
-                <!-- Start L/W Ratio Dropdown Script -->
-                <script>
-                    const FC_lwIcon = document.getElementById('FC_lwDropdownIcon');
-                    const FC_lwDropdown = document.getElementById('FC_lwDropdown');
-                    const FC_lwDownArrow = document.getElementById('FC_lwDownArrow');
-                    const FC_lwUpArrow = document.getElementById('FC_lwUpArrow');
-
-                    FC_lwIcon.addEventListener('click', () => {
-                        FC_lwDropdown.classList.toggle('hidden');
-                        FC_lwDownArrow.classList.toggle('hidden');
-                        FC_lwUpArrow.classList.toggle('hidden');
-                    });
-
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!FC_lwIcon.contains(e.target) && !FC_lwDropdown.contains(e.target)) {
-                            FC_lwDropdown.classList.add('hidden');
-                            FC_lwDownArrow.classList.remove('hidden');
-                            FC_lwUpArrow.classList.add('hidden');
-                        }
-                    });
-
-                    // Prevent dropdown from closing when clicking checkboxes
-                    const FC_lwCheckboxes = FC_lwDropdown.querySelectorAll('input[type="checkbox"]');
-                    FC_lwCheckboxes.forEach(checkbox => {
-                        checkbox.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                        });
-                    });
-                </script>
-                <!-- End L/W Ratio Dropdown Script -->
+            <div class="space-x-2">
+                <button class="cert-btn border px-4 py-1.5 text-sm rounded-md text-gray-700 hover:bg-primary hover:text-white">IGI</button>
+                <button class="cert-btn border px-4 py-1.5 text-sm rounded-md text-gray-700 hover:bg-primary hover:text-white">GIA</button>
+                <button class="cert-btn border px-4 py-1.5 text-sm rounded-md text-gray-700 hover:bg-primary hover:text-white">ROAYA MOISSANITE</button>
             </div>
-            <!-- End Certificate Dropdown , Method Dropdown , Table Dropdown -->
 
             <!-- Start Type Dropdown -->
             <div class="flex flex-row items-center gap-3">
                 <p class="font-montserrat font-semibold text-sm">Type</p>
                 <a href="/inventory"
-                class="text-xs w-36 text-center text-primary hover:text-gold border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">WHITE
+                    class="text-xs w-36 text-center text-primary hover:text-gold border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">WHITE
                     DIAMONDS</a>
                 <a href="{{ route('color.diamond') }}"
-                class="text-xs w-48 text-center text-gold bg-primary border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300"
-                    >FANCY
+                    class="text-xs w-48 text-center text-gold bg-primary border border-primary hover:bg-primary p-2 rounded-sm font-montserrat transition-all duration-300">FANCY
                     COLOR DIAMONDS</a>
             </div>
             <!-- End Type Dropdown -->
@@ -3461,7 +2708,7 @@
     <div class="flex justify-between items-center md:px-10 py-5">
         <!-- Left side search box with icon -->
         <div class="relative flex items-center w-full md:w-96">
-            <input type="text" placeholder="Search by SKU/GIA/IGI/GCAL number" class="w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:text-xs placeholder:font-medium focus:outline-none focus:border-black">
+            <input type="text" placeholder="Search" class="w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:text-xs placeholder:font-medium focus:outline-none focus:border-black">
             <div class="absolute right-0 h-full flex items-center">
                 <button class="h-full px-4 bg-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -3484,7 +2731,7 @@
                 const url = new URL(window.location.href);
                 url.searchParams.delete('shape');
                 url.searchParams.delete('color');
-                url.searchParams.delete('intensity');                
+                url.searchParams.delete('intensity');
                 url.searchParams.delete('minPrice');
                 url.searchParams.delete('maxPrice');
                 url.searchParams.delete('fromCutSlider');
@@ -3562,8 +2809,8 @@
                 </tr>
             </thead>
             <tbody>
-                 @foreach($diamonds as $diamond)
-                
+                @foreach($diamonds as $diamond)
+
                 <tr class="border-b cursor-pointer" onclick="toggleDetails({{ $diamond->id }})">
                     <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
                         <img src="{{ asset($diamond->color_shape_svg) }}" width="25" height="25" class="group-hover:text-dark-blue mb-2" alt="{{$diamond->shaoe}} Shape">
@@ -3584,7 +2831,7 @@
                     </td>
                 </tr>
 
-                
+
                 <tr id="details-{{ $diamond->id }}" class="content hidden transition-all duration-200 ease-in-out max-h-0 overflow-hidden opacity-0">
                     <td colspan="7" class="relative">
                         <button onclick="toggleDetails(1)" class="absolute right-4 top-4 text-gray-500 hover:text-primary">
@@ -3596,7 +2843,7 @@
                             <!-- Left Side -->
                             <div class="flex flex-col items-center gap-3">
                                 <div class="flex items-center justify-center">
-                                <img src="{{ asset($diamond->image_link ?? $diamond->color_shape_svg) }}" class="w-40" alt="{{ $diamond->name }}">
+                                    <img src="{{ asset($diamond->image_link ?? $diamond->color_shape_svg) }}" class="w-40" alt="{{ $diamond->name }}">
                                 </div>
 
                                 <div class="text-center">
@@ -3612,41 +2859,41 @@
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $diamond->id }}">
                                         <input type="hidden" name="name"
-                                        value="{{ $diamond->name }}">
+                                            value="{{ $diamond->name }}">
                                         <input type="hidden" name="shape"
-                                        value="{{ $diamond->shape }}">
+                                            value="{{ $diamond->shape }}">
                                         <input type="hidden" name="original_price"
-                                         value="{{ $diamond->original_price }}">
+                                            value="{{ $diamond->original_price }}">
                                         <input type="hidden" name="carat"
-                                         value="{{ $diamond->carat }}">
+                                            value="{{ $diamond->carat }}">
                                         <input type="hidden" name="cut" value="{{ $diamond->cut }}">
                                         <input type="hidden" name="intensity"
-                                        value="{{ $diamond->intensity }}">
+                                            value="{{ $diamond->intensity }}">
                                         <input type="hidden" name="clarity"
-                                        value="{{ $diamond->clarity }}">
+                                            value="{{ $diamond->clarity }}">
                                         <input type="hidden" name="images"
-                                        value="{{ $diamond->image_link ?? $diamond->shape_svg }}">
+                                            value="{{ $diamond->image_link ?? $diamond->shape_svg }}">
                                         <input type="hidden" name="size"
-                                         value="{{ $diamond->size }}">
+                                            value="{{ $diamond->size }}">
                                         <input type="hidden" name="sku" value="{{ $diamond->sku }}">
                                         <input type="hidden" name="quantity" value="1">
                                         <!-- <input type="hidden" name="mrp" value="{{ $diamond->mrp }}"> -->
                                         <button class="px-6 py-2.5 bg-primary text-sm text-gold rounded-sm hover:bg-white hover:text-primary transition-colors duration-300 flex items-center font-montserrat border border-primary gap-2">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                        </svg>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                            </svg>
                                             Add to Bag
                                         </button>
                                     </form>
-                                     @if($diamond->video_url)
+                                    @if($diamond->video_url)
                                     <a href="{{ asset($diamond->video_url) }}" target="_blank">
-                                    <button class="px-6 py-2.5 text-sm border border-primary text-primary rounded-sm hover:bg-primary hover:text-gold hover:border-primary transition-colors duration-300 flex items-center font-montserrat gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        Play Video
-                                    </button>
+                                        <button class="px-6 py-2.5 text-sm border border-primary text-primary rounded-sm hover:bg-primary hover:text-gold hover:border-primary transition-colors duration-300 flex items-center font-montserrat gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Play Video
+                                        </button>
                                     </a>
                                     @endif
                                 </div>
@@ -3720,7 +2967,7 @@
                         </div>
                     </td>
                 </tr>
-                 @endforeach
+                @endforeach
             </tbody>
         </table>
 
@@ -3865,7 +3112,7 @@
 <script>
     function toggleDetails(id) {
         const detailsRow = document.getElementById(`details-${id}`);
-        
+
         // Close all other open details rows
         document.querySelectorAll('.content').forEach(otherContent => {
             if (otherContent !== detailsRow) {
@@ -3885,7 +3132,7 @@
             detailsRow.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
             detailsRow.style.maxHeight = '0';
             detailsRow.style.opacity = '0';
-            
+
             setTimeout(() => {
                 detailsRow.classList.add('hidden');
             }, 300);
@@ -3916,7 +3163,7 @@
 </script>
 <!-- End Color Selection  -->
 
- <!-- Start Color Selection -->
+<!-- Start Color Selection -->
 <script>
     // Get all color items
     const intensityColorItems = document.querySelectorAll('.intensity-color-item');
@@ -4156,7 +3403,7 @@
 <!-- End Mobile Carat Dropdown Script -->
 
 <!-- Start Mobile Advanced Options Dropdown Script -->
-<script>
+<!-- <script>
     const FC_advancedOptionsDropdownIcon = document.getElementById('FC_advancedOptionsDropdownIcon');
     const FC_advancedOptionsDropdown = document.getElementById('FC_advancedOptionsDropdown');
     const FC_advancedOptionsDownArrow = document.getElementById('FC_advancedOptionsDownArrow');
@@ -4183,6 +3430,20 @@
     FC_advancedOptionsDropdown.addEventListener('click', (e) => {
         e.stopPropagation();
     });
-</script>
+</script> -->
 <!-- End Advanced Options Dropdown Script -->
+
+<!-- Certificate Script -->
+<script>
+    document.querySelectorAll('.cert-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.cert-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('text-gray-700');
+            });
+            button.classList.add('bg-primary', 'text-white');
+            button.classList.remove('text-gray-700');
+        });
+    });
+</script>
 @endsection

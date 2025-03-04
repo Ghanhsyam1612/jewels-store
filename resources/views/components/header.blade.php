@@ -40,9 +40,9 @@
                     <div class="py-2">
                         <!-- Natural Diamond -->
                         <!-- <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Natural Diamond</a> -->
-                        <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/RD_WEB_21012025_135756.xlsx" 
-                            class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200"
-                            download>
+                        <!-- <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/RD_WEB_21012025_135756.xlsx"  -->
+                        <a href="{{ route('natural-diamond') }}"
+                            class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">
                             Natural Diamond
                         </a>
 
