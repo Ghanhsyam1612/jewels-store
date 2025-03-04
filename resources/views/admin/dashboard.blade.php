@@ -24,7 +24,7 @@
                         <div>
                             <span class="text-sm text-gray-500 dark:text-gray-400">Customers</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                3,782
+                            {{ number_format($totalCustomers) }} 
                             </h4>
                         </div>
 
@@ -38,13 +38,13 @@
                                     fill="" />
                             </svg>
 
-                            11.01%
+                            {{ number_format($percentageChange, 2) }}%
                         </span>
                     </div>
                 </div>
                 <!-- End Customer Card -->
 
-                <!-- Start Order Card -->
+                <!-- Start New Order Card -->
                 <div
                     class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
                     <div
@@ -59,29 +59,40 @@
 
                     <div class="mt-5 flex items-end justify-between">
                         <div>
-                            <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">New Orders</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                5,359
+                            {{ number_format($todayOrders) }}
                             </h4>
                         </div>
 
-                        <span
-                            class="flex items-center gap-1 rounded-full bg-error-50 py-0.5 pl-2 pr-2.5 text-sm font-medium text-error-600 dark:bg-error-500/15 dark:text-error-500">
-                            <svg class="fill-current" width="12" height="12"
-                                viewBox="0 0 12 12" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z"
-                                    fill="" />
-                            </svg>
+                        @php
+                            $isOrderIncrease = $orderPercentageChange >= 0;
+                            $orderColorClass = $isOrderIncrease 
+                                ? 'bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500' 
+                                : 'bg-error-50 text-error-600 dark:bg-error-500/15 dark:text-error-500';
+                        @endphp
 
-                            9.05%
+                        <span class="flex items-center gap-1 rounded-full py-0.5 pl-2 pr-2.5 text-sm font-medium {{ $orderColorClass }}">
+                            <svg class="fill-current" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             @if($isOrderIncrease)
+                                {{-- Up Arrow (Increase) --}}
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.56462 1.62393C5.70193 1.47072 5.90135 1.37432 6.12329 1.37432C6.1236 1.37432 6.12391 1.37432 6.12422 1.37432C6.31631 1.37415 6.50845 1.44731 6.65505 1.59381L9.65514 4.5918C9.94814 4.88459 9.94831 5.35947 9.65552 5.65246C9.36273 5.94546 8.88785 5.94562 8.59486 5.65283L6.87329 3.93247L6.87329 10.125C6.87329 10.5392 6.53751 10.875 6.12329 10.875C5.70908 10.875 5.37329 10.5392 5.37329 10.125L5.37329 3.93578L3.65516 5.65282C3.36218 5.94562 2.8873 5.94547 2.5945 5.65248C2.3017 5.35949 2.30185 4.88462 2.59484 4.59182L5.56462 1.62393Z"
+                                    fill="" />
+                              @else
+                                 {{-- Down Arrow (Decrease) --}}
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                 d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z"
+                                fill="" />
+                            @endif
+                            </svg>
+                                {{ number_format($orderPercentageChange, 2) }}%
                         </span>
                     </div>
                 </div>
                 <!-- End Order Card -->
 
-                <!-- Start Order Card -->
+                <!-- Start Total Order Card -->
                 <div
                     class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
                     <div
@@ -96,9 +107,9 @@
 
                     <div class="mt-5 flex items-end justify-between">
                         <div>
-                            <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Total Orders</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                5,359
+                            {{ number_format($totalOrders) }} 
                             </h4>
                         </div>
 
@@ -111,14 +122,13 @@
                                     d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z"
                                     fill="" />
                             </svg>
-
-                            9.05%
+                            {{ number_format($percentageChange, 2) }}%
                         </span>
                     </div>
                 </div>
-                <!-- End Order Card -->
+                <!-- End Total Order Card -->
 
-                <!-- Start Order Card -->
+                <!-- Start Total Revenue Card -->
                 <div
                     class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
                     <div
@@ -133,9 +143,9 @@
 
                     <div class="mt-5 flex items-end justify-between">
                         <div>
-                            <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Total Revenue</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                5,359
+                            ${{ number_format($totalRevenue, 2) }}
                             </h4>
                         </div>
 
@@ -148,12 +158,11 @@
                                     d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z"
                                     fill="" />
                             </svg>
-
-                            9.05%
+                             {{ number_format($revenuePercentageChange, 2) }}%
                         </span>
                     </div>
                 </div>
-                <!-- End Order Card -->
+                <!-- End Total Revenue Card -->
             </div>
         </div>
         {{-- End Analytics Cards --}}
@@ -183,6 +192,7 @@
             </div>
         </div>
 
+        <!-- Start Charat Script -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 if (typeof ApexCharts !== "undefined") {
@@ -226,442 +236,249 @@
                 }
             });
         </script>
+        <!-- End Start Script -->
         {{-- End Charts Section --}}
 
         {{-- Start Recent Order --}}
-        <div class="col-span-12">
-            <div class="border-t border-gray-100 dark:border-gray-800">
-                <!-- DataTable Three -->
-                <div x-data="recentOrderTable()"
-                    class="overflow-hidden rounded-xl border border-gray-200 bg-white pt-4 dark:border-gray-800 dark:bg-white/[0.03]">
-                    
-                    <div class="mb-4 flex flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                            <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
-                                Recent Orders
-                            </h3>
-                        </div>
-        
-                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-                            <div class="relative flex items-center">
-                                <!-- Search Icon -->
-                                <button class="absolute left-4 flex items-center text-gray-500 dark:text-gray-400">
-                                    <svg class="fill-current w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" 
-                                            d="M3.04199 9.37363C3.04199 5.87693 5.87735 3.04199 9.37533 3.04199C12.8733 3.04199 15.7087 5.87693 15.7087 9.37363C15.7087 12.8703 12.8733 15.7053 9.37533 15.7053C5.87735 15.7053 3.04199 12.8703 3.04199 9.37363ZM9.37533 1.54199C5.04926 1.54199 1.54199 5.04817 1.54199 9.37363C1.54199 13.6991 5.04926 17.2053 9.37533 17.2053C11.2676 17.2053 13.0032 16.5344 14.3572 15.4176L17.1773 18.238C17.4702 18.5309 17.945 18.5309 18.2379 18.238C18.5308 17.9451 18.5309 17.4703 18.238 17.1773L15.4182 14.3573C16.5367 13.0033 17.2087 11.2669 17.2087 9.37363C17.2087 5.04817 13.7014 1.54199 9.37533 1.54199Z"/>
-                                    </svg>
-                                </button>
-                            
-                                <!-- Search Input -->
-                                <input type="text" x-model="search" placeholder="Search..." 
-                                    class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent py-2 pl-12 pr-4 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 xl:w-[300px]" />
+            <div class="col-span-12">
+                <div class="border-t border-gray-100 dark:border-gray-800">
+                    <!-- DataTable Three -->
+                    <div x-data="recentOrderTable()"
+                        class="overflow-hidden rounded-xl border border-gray-200 bg-white pt-4 dark:border-gray-800 dark:bg-white/[0.03]">
+                        
+                        <div class="mb-4 flex flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
+                                    Recent Orders
+                                </h3>
                             </div>
-                            
-                        </div>
-                    </div>
-        
-                    <div class="max-w-full overflow-x-auto">
-                        <div class="min-w-[1102px]">
-                            <!-- Table Header -->
-                            <div class="grid grid-cols-12 border-t border-gray-200 dark:border-gray-800">
-                                <!-- Order Date -->
-                                <div class="flex col-span-2 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('order_date')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Order Date</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <svg class="fill-gray-300 dark:fill-gray-700" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z" fill="" />
-                                            </svg>
-                                            <svg class="fill-gray-300 dark:fill-gray-700" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z" fill="" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Order Number -->
-                                <div class="flex col-span-2 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('order_number')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Order Number</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <!-- Same SVG icons as Order Date -->
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Customer -->
-                                <div class="flex col-span-2 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('customer')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Customer</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <!-- Same SVG icons -->
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Status -->
-                                <div class="flex col-span-1 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('status')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Status</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <!-- Same SVG icons -->
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Currency -->
-                                <div class="flex col-span-1 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('currency')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Currency</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <!-- Same SVG icons -->
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Total Price -->
-                                <div class="flex col-span-2 items-center border-r border-gray-200 px-3 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('total_price')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Total Price</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <!-- Same SVG icons -->
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Shipping Cost -->
-                                <div class="flex col-span-1 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
-                                    <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('shipping_cost')">
-                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Shipping Cost</p>
-                                        <span class="flex flex-col gap-0.5">
-                                            <!-- Same SVG icons -->
-                                        </span>
-                                    </div>
-                                </div>
-        
-                                <!-- Actions -->
-                                <div class="flex col-span-1 items-center px-4 py-3">
-                                    <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Actions</p>
-                                </div>
-                            </div>
-        
-                            <!-- Table Body -->
-                            <template x-for="order in paginatedData" :key="order.id">
-                                <div x-data="{ checkboxToggle: false }" class="grid grid-cols-12 border-t border-gray-100 dark:border-gray-800" :class="checkboxToggle ? 'bg-gray-50 dark:bg-gray-900' : ''">
-                                    <!-- Order Date -->
-                                    <div class="col-span-2 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <div class="flex gap-3">
-                                            <div class="mt-1">
-                                                <label class="flex cursor-pointer select-none items-center text-sm font-medium text-gray-700 dark:text-gray-400">
-                                                    <input type="checkbox" class="sr-only" @change="checkboxToggle = !checkboxToggle" />
-                                                    <span :class="checkboxToggle ? 'border-brand-500 bg-brand-500' : 'bg-transparent border-gray-300 dark:border-gray-700'" class="flex h-4 w-4 items-center justify-center rounded border-[1.25px]">
-                                                        <span :class="checkboxToggle ? '' : 'opacity-0'">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M10 3L4.5 8.5L2 6" stroke="white" stroke-width="1.6666" stroke-linecap="round" stroke-linejoin="round" />
-                                                            </svg>
-                                                        </span>
-                                                    </span>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <p class="block text-theme-sm font-medium text-gray-800 dark:text-white/90" x-text="order.order_date"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                    <!-- Order Number -->
-                                    <div class="col-span-2 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400" x-text="order.order_number"></p>
-                                    </div>
-        
-                                    <!-- Customer -->
-                                    <div class="col-span-2 flex flex-col items-start border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400" x-text="order.customer"></p>
-                                        <span class="text-xs text-gray-500 dark:text-gray-400" x-text="order.customer_email"></span>
-                                    </div>
-        
-                                    <!-- Status -->
-                                    <div class="col-span-1 flex justify-center items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="flex justify-center items-center gap-1 rounded-full px-4 py-1 text-xs font-medium"
-                                           :class="{
-                                               'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-500': order.status === 'New',
-                                               'bg-orange-100 dark:bg-orange-500/15 text-orange-700 dark:text-orange-400': order.status === 'Processing',
-                                               'bg-emerald-100 dark:bg-emerald-500 text-emerald-600 dark:text-emerald-500': order.status === 'Shipped',
-                                               'bg-green-100 dark:bg-green-500 text-green-600 dark:text-green-500': order.status === 'Delivered',
-                                               'bg-red-100 dark:bg-red-500 text-red-500 dark:text-red-500': order.status === 'Cancelled'
-                                           }">
-                                           <img :src="getStatusIcon(order.status)" alt="Status Icon" class="w-4 h-4">
-                                           <span x-text="order.status"></span>
-                                        </p>
-                                    </div>
-                                    
-                                    <script>
-                                        function getStatusIcon(status) {
-                                            const icons = {
-                                                "New": "{{ asset('/Shape/new.svg') }}",
-                                                "Processing": "{{ asset('/Shape/processing.svg') }}",
-                                                "Shipped": "{{ asset('/Shape/shipped.svg') }}",
-                                                "Delivered": "{{ asset('/Shape/delivered.svg') }}",
-                                                "Cancelled": "{{ asset('/Shape/cancelled.svg') }}"
-                                            };
-                                            return icons[status] || "{{ asset('icons/default.png') }}";
-                                        }
-                                    </script>
-                                    
-        
-                                    <!-- Currency -->
-                                    <div class="col-span-1 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400" x-text="order.currency"></p>
-                                    </div>
-        
-                                    <!-- Total Price -->
-                                    <div class="col-span-2 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400" x-text="order.total_price"></p>
-                                    </div>
-        
-                                    <!-- Shipping Cost -->
-                                    <div class="col-span-1 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400" x-text="order.shipping_cost"></p>
-                                    </div>
-        
-                                    <!-- Actions -->
-                                    <div class="col-span-1 flex items-center px-4 py-3">
-                                        <div class="flex w-full items-center gap-2">
-                                            <button class="text-gray-500 hover:text-error-500 dark:text-gray-400 dark:hover:text-error-500">
-                                            <svg
-                                                class="fill-current"
-                                                width="21"
-                                                height="21"
-                                                viewBox="0 0 21 21"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M7.04142 4.29199C7.04142 3.04935 8.04878 2.04199 9.29142 2.04199H11.7081C12.9507 2.04199 13.9581 3.04935 13.9581 4.29199V4.54199H16.1252H17.166C17.5802 4.54199 17.916 4.87778 17.916 5.29199C17.916 5.70621 17.5802 6.04199 17.166 6.04199H16.8752V8.74687V13.7469V16.7087C16.8752 17.9513 15.8678 18.9587 14.6252 18.9587H6.37516C5.13252 18.9587 4.12516 17.9513 4.12516 16.7087V13.7469V8.74687V6.04199H3.8335C3.41928 6.04199 3.0835 5.70621 3.0835 5.29199C3.0835 4.87778 3.41928 4.54199 3.8335 4.54199H4.87516H7.04142V4.29199ZM15.3752 13.7469V8.74687V6.04199H13.9581H13.2081H7.79142H7.04142H5.62516V8.74687V13.7469V16.7087C5.62516 17.1229 5.96095 17.4587 6.37516 17.4587H14.6252C15.0394 17.4587 15.3752 17.1229 15.3752 16.7087V13.7469ZM8.54142 4.54199H12.4581V4.29199C12.4581 3.87778 12.1223 3.54199 11.7081 3.54199H9.29142C8.87721 3.54199 8.54142 3.87778 8.54142 4.29199V4.54199ZM8.8335 8.50033C9.24771 8.50033 9.5835 8.83611 9.5835 9.25033V14.2503C9.5835 14.6645 9.24771 15.0003 8.8335 15.0003C8.41928 15.0003 8.0835 14.6645 8.0835 14.2503V9.25033C8.0835 8.83611 8.41928 8.50033 8.8335 8.50033ZM12.9168 9.25033C12.9168 8.83611 12.581 8.50033 12.1668 8.50033C11.7526 8.50033 11.4168 8.83611 11.4168 9.25033V14.2503C11.4168 14.6645 11.7526 15.0003 12.1668 15.0003C12.581 15.0003 12.9168 14.6645 12.9168 14.2503V9.25033Z"
-                                                fill=""
-                                                />
-                                            </svg>
-                                            </button>
 
-                                            <button
-                                            class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white/90"
-                                            >
-                                            <svg
-                                                class="fill-current"
-                                                width="21"
-                                                height="21"
-                                                viewBox="0 0 21 21"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M17.0911 3.53206C16.2124 2.65338 14.7878 2.65338 13.9091 3.53206L5.6074 11.8337C5.29899 12.1421 5.08687 12.5335 4.99684 12.9603L4.26177 16.445C4.20943 16.6931 4.286 16.9508 4.46529 17.1301C4.64458 17.3094 4.90232 17.3859 5.15042 17.3336L8.63507 16.5985C9.06184 16.5085 9.45324 16.2964 9.76165 15.988L18.0633 7.68631C18.942 6.80763 18.942 5.38301 18.0633 4.50433L17.0911 3.53206ZM14.9697 4.59272C15.2626 4.29982 15.7375 4.29982 16.0304 4.59272L17.0027 5.56499C17.2956 5.85788 17.2956 6.33276 17.0027 6.62565L16.1043 7.52402L14.0714 5.49109L14.9697 4.59272ZM13.0107 6.55175L6.66806 12.8944C6.56526 12.9972 6.49455 13.1277 6.46454 13.2699L5.96704 15.6283L8.32547 15.1308C8.46772 15.1008 8.59819 15.0301 8.70099 14.9273L15.0436 8.58468L13.0107 6.55175Z"
-                                                fill=""
-                                                />
-                                            </svg>
-                                            </button>
+                            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+                                <div class="relative flex items-center">
+                                    <!-- Search Icon -->
+                                    <button class="absolute left-4 flex items-center text-gray-500 dark:text-gray-400">
+                                        <svg class="fill-current w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" 
+                                                d="M3.04199 9.37363C3.04199 5.87693 5.87735 3.04199 9.37533 3.04199C12.8733 3.04199 15.7087 5.87693 15.7087 9.37363C15.7087 12.8703 12.8733 15.7053 9.37533 15.7053C5.87735 15.7053 3.04199 12.8703 3.04199 9.37363ZM9.37533 1.54199C5.04926 1.54199 1.54199 5.04817 1.54199 9.37363C1.54199 13.6991 5.04926 17.2053 9.37533 17.2053C11.2676 17.2053 13.0032 16.5344 14.3572 15.4176L17.1773 18.238C17.4702 18.5309 17.945 18.5309 18.2379 18.238C18.5308 17.9451 18.5309 17.4703 18.238 17.1773L15.4182 14.3573C16.5367 13.0033 17.2087 11.2669 17.2087 9.37363C17.2087 5.04817 13.7014 1.54199 9.37533 1.54199Z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <!-- Search Input -->
+                                    <input type="text" x-model="search" placeholder="Search..." 
+                                        class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent py-2 pl-12 pr-4 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 xl:w-[300px]" />
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="max-w-full overflow-x-auto">
+                            <div class="min-w-[1102px]">
+                                <!-- Table Header -->
+                                <div class="grid grid-cols-12 border-t border-gray-200 dark:border-gray-800">
+                                    <!-- Order Date -->
+                                    <div class="flex col-span-2 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('order_date')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Order Date</p>
+                                            <span class="flex flex-col gap-0.5">
+                                                <svg class="fill-gray-300 dark:fill-gray-700" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z" fill="" />
+                                                </svg>
+                                                <svg class="fill-gray-300 dark:fill-gray-700" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z" fill="" />
+                                                </svg>
+                                            </span>
                                         </div>
                                     </div>
+
+                                    <!-- Order Number -->
+                                    <div class="flex col-span-2 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('order_number')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Order Number</p>
+                                            <span class="flex flex-col gap-0.5">
+                                            
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <!-- Customer -->
+                                    <div class="flex col-span-2 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('customer')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Customer</p>
+                                            <span class="flex flex-col gap-0.5">
+                                                <!-- Same SVG icons -->
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="flex col-span-1 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('status')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Status</p>
+                                            <span class="flex flex-col gap-0.5">
+                                                <!-- Same SVG icons -->
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Currency -->
+                                    <div class="flex col-span-1 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('currency')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Currency</p>
+                                            <span class="flex flex-col gap-0.5">
+                                                <!-- Same SVG icons -->
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Price -->
+                                    <div class="flex col-span-2 items-center border-r border-gray-200 px-3 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('total_price')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Total Price</p>
+                                            <span class="flex flex-col gap-0.5">
+                                                <!-- Same SVG icons -->
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Shipping Cost -->
+                                    <div class="flex col-span-1 items-center border-r border-gray-200 px-4 py-3 dark:border-gray-800">
+                                        <div class="flex w-full cursor-pointer items-center justify-between" @click="sortBy('shipping_cost')">
+                                            <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Shipping Cost</p>
+                                            <span class="flex flex-col gap-0.5">
+                                                <!-- Same SVG icons -->
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="flex col-span-1 items-center px-4 py-3">
+                                        <p class="text-theme-xs font-medium text-gray-700 dark:text-gray-400">Actions</p>
+                                    </div>
                                 </div>
-                            </template>
-        
-                            <!-- Pagination Controls -->
-                            <div class="border-t border-gray-100 py-4 pl-[18px] pr-4 dark:border-gray-800">
-                                <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between">
-                                    <p class="border-b border-gray-100 pb-3 text-center text-sm font-medium text-gray-500 dark:border-gray-800 dark:text-gray-400 xl:border-b-0 xl:pb-0 xl:text-left">
-                                        Showing <span x-text="startEntry"></span> to
-                                        <span x-text="endEntry"></span> of
-                                        <span x-text="totalEntries"></span> entries
-                                    </p>
-                                    <div class="flex items-center justify-center gap-0.5 pt-3 xl:justify-end xl:pt-0">
-                                        <button @click="prevPage()"
-                                            class="mr-2.5 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-gray-700 shadow-theme-xs hover:bg-gray-50 disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]"
-                                            :disabled="currentPage === 1">
-                                            Previous
-                                        </button>
-        
-                                        <template x-for="page in pagesAroundCurrent" :key="page">
-                                            <button @click="goToPage(page)"
-                                                :class="currentPage === page ? 'bg-blue-500/[0.08] text-brand-500' : 'text-gray-700 dark:text-gray-400'"
-                                                class="flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium hover:bg-blue-500/[0.08] hover:text-brand-500 dark:hover:text-brand-500">
-                                                <span x-text="page"></span>
-                                            </button>
-                                        </template>
-        
-                                        <button @click="nextPage()"
-                                            class="ml-2.5 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-gray-700 shadow-theme-xs hover:bg-gray-50 disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]"
-                                            :disabled="currentPage === totalPages">
-                                            Next
-                                        </button>
+
+                                <!-- Table Body -->
+                                @foreach($dailyOrders as $order)
+                                    <div x-data="{ checkboxToggle: false }" class="grid grid-cols-12 border-t border-gray-100 dark:border-gray-800" :class="checkboxToggle ? 'bg-gray-50 dark:bg-gray-900' : ''">
+                                        <!-- Order Date -->
+                                        <div class="col-span-2 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <div class="flex gap-3">
+                                                <div class="mt-1">
+                                                    <label class="flex cursor-pointer select-none items-center text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                        <input type="checkbox" class="sr-only" @change="checkboxToggle = !checkboxToggle" />
+                                                        <span :class="checkboxToggle ? 'border-brand-500 bg-brand-500' : 'bg-transparent border-gray-300 dark:border-gray-700'" class="flex h-4 w-4 items-center justify-center rounded border-[1.25px]">
+                                                            <span :class="checkboxToggle ? '' : 'opacity-0'">
+                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M10 3L4.5 8.5L2 6" stroke="white" stroke-width="1.6666" stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <p class="block text-theme-sm font-medium text-gray-800 dark:text-white/90">{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Order Number -->
+                                        <div class="col-span-2 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <p class="text-theme-sm text-gray-700 dark:text-gray-400">{{ $order->order_number }}</p>
+                                        </div>
+
+                                        <!-- Customer -->
+                                        <div class="col-span-2 flex flex-col items-start border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <p class="text-theme-sm text-gray-700 dark:text-gray-400">{{ $order->full_name }}</p>
+                                            <span class="text-xs text-gray-500 dark:text-gray-400">{{ $order->customer->email }}</span>
+                                        </div>
+
+                                        <!-- Status -->
+                                        <div class="col-span-1 flex justify-center items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <p class="flex justify-center items-center gap-1 rounded-full px-4 py-1 text-xs font-medium"
+                                                :class="{
+                                                    'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-500': '{{ $order->shipping_status }}' === 'New',
+                                                    'bg-orange-100 dark:bg-orange-500/15 text-orange-700 dark:text-orange-400': '{{ $order->shipping_status }}' === 'Processing',
+                                                    'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-500': '{{ $order->shipping_status }}' === 'Shipped',
+                                                    'bg-green-100 dark:bg-green-500/15 text-green-600 dark:text-green-500': '{{ $order->shipping_status }}' === 'Delivered',
+                                                    'bg-red-100 dark:bg-red-500/15 text-red-500 dark:text-red-500': '{{ $order->shipping_status }}' === 'Cancelled'
+                                                }">
+                                                <img src="{{ asset('/Shape/' . $order->shipping_status . '.svg') }}" alt="Status Icon" class="w-4 h-4">
+                                                <span>{{ ucfirst($order->shipping_status) }}</span>
+                                            </p>
+                                        </div>
+
+                                        <!-- Currency -->
+                                        <div class="col-span-1 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <p class="text-theme-sm text-gray-700 dark:text-gray-400">{{ $order->currency }}</p>
+                                        </div>
+
+                                        <!-- Total Price -->
+                                        <div class="col-span-2 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <p class="text-theme-sm text-gray-700 dark:text-gray-400">{{ $order->currency }}{{ number_format($order->total_amount, 2) }}</p>
+                                        </div>
+
+                                        <!-- Shipping Cost -->
+                                        <div class="col-span-1 flex items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
+                                            <p class="text-theme-sm text-gray-700 dark:text-gray-400">{{ $order->currency }}{{ number_format($order->shipping_cost, 2) }}</p>
+                                        </div>
+
+                                        <!-- Actions -->
+                                        <div class="col-span-1 flex items-center px-4 py-3">
+                                            <div class="flex w-full items-center gap-2">
+                                            <a href="#" class="text-purple-500 hover:underline">Open</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                                <!-- Pagination Controls -->
+                                <div class="border-t border-gray-100 py-4 pl-[18px] pr-4 dark:border-gray-800">
+                                    <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between">
+                                        <p class="border-b border-gray-100 pb-3 text-center text-sm font-medium text-gray-500 dark:border-gray-800 dark:text-gray-400 xl:border-b-0 xl:pb-0 xl:text-left">
+                                            Showing {{ $dailyOrders->firstItem() ?? 0 }} to
+                                            {{ $dailyOrders->lastItem() ?? 0 }} of
+                                            {{ $dailyOrders->total() }} entries
+                                        </p>
+                                        <div class="flex items-center justify-center gap-0.5 pt-3 xl:justify-end xl:pt-0">
+                                            @if($dailyOrders->previousPageUrl())
+                                                <a href="{{ $dailyOrders->previousPageUrl() }}"
+                                                    class="mr-2.5 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
+                                                    Previous
+                                                </a>
+                                            @else
+                                                <button disabled
+                                                    class="mr-2.5 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-gray-700 shadow-theme-xs opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400">
+                                                    Previous
+                                                </button>
+                                            @endif
+
+                                            @for($i = 1; $i <= $dailyOrders->lastPage(); $i++)
+                                                <a href="{{ $dailyOrders->url($i) }}"
+                                                    class="flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium
+                                                    {{ $dailyOrders->currentPage() == $i ? 'bg-blue-500/[0.08] text-brand-500' : 'text-gray-700 dark:text-gray-400 hover:bg-blue-500/[0.08] hover:text-brand-500 dark:hover:text-brand-500' }}">
+                                                    {{ $i }}
+                                                </a>
+                                            @endfor
+
+                                            @if($dailyOrders->nextPageUrl())
+                                                <a href="{{ $dailyOrders->nextPageUrl() }}"
+                                                    class="ml-2.5 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
+                                                    Next
+                                                </a>
+                                            @else
+                                                <button disabled
+                                                    class="ml-2.5 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-gray-700 shadow-theme-xs opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400">
+                                                    Next
+                                                </button>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        
-                {{-- Start Table Records Data Script and Sort Script --}}
-                <script>
-                    function recentOrderTable() {
-                        return {
-                            search: "",
-                            sortColumn: "order_date",
-                            sortDirection: "asc",
-                            currentPage: 1,
-                            perPage: 5,
-                            data: [
-                                {
-                                    id: 1,
-                                    order_date: "2024-02-15",
-                                    customer_email: "john.smith@example.com",
-                                    order_number: "ORD-001",
-                                    customer: "John Smith",
-                                    status: "New",
-                                    currency: "USD",
-                                    total_price: "$1,250.00",
-                                    shipping_cost: "$25.00"
-                                },
-                                {
-                                    id: 2,
-                                    order_date: "2024-02-14",
-                                    customer_email: "jane.doe@example.com",
-                                    order_number: "ORD-002",
-                                    customer: "Jane Doe",
-                                    status: "Processing",
-                                    currency: "EUR",
-                                    total_price: "$2,850.00",
-                                    shipping_cost: "$35.00"
-                                },
-                                {
-                                    id: 3,
-                                    order_date: "2024-02-13",
-                                    customer_email: "robert.johnson@example.com",
-                                    order_number: "ORD-003",
-                                    customer: "Robert Johnson",
-                                    status: "Shipped",
-                                    currency: "GBP",
-                                    total_price: "$750.00",
-                                    shipping_cost: "$15.00"
-                                },
-                                {
-                                    id: 4,
-                                    order_date: "2024-02-12",
-                                    customer_email: "emma.wilson@example.com",
-                                    order_number: "ORD-004",
-                                    customer: "Emma Wilson",
-                                    status: "Delivered",
-                                    currency: "USD",
-                                    total_price: "$3,450.00",
-                                    shipping_cost: "$45.00"
-                                },
-                                {
-                                    id: 5,
-                                    order_date: "2024-02-11",
-                                    customer_email: "michael.brown@example.com",
-                                    order_number: "ORD-005",
-                                    customer: "Michael Brown",
-                                    status: "Cancelled",
-                                    currency: "USD",
-                                    total_price: "$9881000.00",
-                                    shipping_cost: "$20.00"
-                                }
-                            ],
-        
-                            get filteredData() {
-                                const searchLower = this.search.toLowerCase();
-                                return this.data
-                                    .filter(order => 
-                                        order.order_date.toLowerCase().includes(searchLower) ||
-                                        order.order_number.toLowerCase().includes(searchLower) ||
-                                        order.customer.toLowerCase().includes(searchLower) ||
-                                        order.customer_email.toLowerCase().includes(searchLower)
-                                    )
-                                    .sort((a, b) => {
-                                        let modifier = this.sortDirection === "asc" ? 1 : -1;
-                                        
-                                        if (this.sortColumn === "total_price" || this.sortColumn === "shipping_cost") {
-                                            const aValue = parseFloat(a[this.sortColumn].replace(/[$,]/g, ''));
-                                            const bValue = parseFloat(b[this.sortColumn].replace(/[$,]/g, ''));
-                                            return (aValue - bValue) * modifier;
-                                        }
-                                        
-                                        if (this.sortColumn === "order_date") {
-                                            return (new Date(a.order_date) - new Date(b.order_date)) * modifier;
-                                        }
-                                        
-                                        return a[this.sortColumn].localeCompare(b[this.sortColumn]) * modifier;
-                                    });
-                            },
-        
-                            get paginatedData() {
-                                const start = (this.currentPage - 1) * this.perPage;
-                                const end = start + this.perPage;
-                                return this.filteredData.slice(start, end);
-                            },
-        
-                            get totalEntries() {
-                                return this.filteredData.length;
-                            },
-        
-                            get startEntry() {
-                                return Math.min((this.currentPage - 1) * this.perPage + 1, this.totalEntries);
-                            },
-        
-                            get endEntry() {
-                                return Math.min(this.currentPage * this.perPage, this.totalEntries);
-                            },
-        
-                            get totalPages() {
-                                return Math.ceil(this.filteredData.length / this.perPage);
-                            },
-        
-                            get pagesAroundCurrent() {
-                                const pages = [];
-                                const startPage = Math.max(2, this.currentPage - 2);
-                                const endPage = Math.min(this.totalPages - 1, this.currentPage + 2);
-        
-                                for (let i = startPage; i <= endPage; i++) {
-                                    pages.push(i);
-                                }
-                                return pages;
-                            },
-        
-                            sortBy(column) {
-                                if (this.sortColumn === column) {
-                                    this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
-                                } else {
-                                    this.sortDirection = "asc";
-                                    this.sortColumn = column;
-                                }
-                            },
-        
-                            goToPage(page) {
-                                if (page >= 1 && page <= this.totalPages) {
-                                    this.currentPage = page;
-                                }
-                            },
-        
-                            nextPage() {
-                                if (this.currentPage < this.totalPages) {
-                                    this.currentPage++;
-                                }
-                            },
-        
-                            prevPage() {
-                                if (this.currentPage > 1) {
-                                    this.currentPage--;
-                                }
-                            }
-                        };
-                    }
-                </script>
-                {{-- End Table Records Data Script and Sort Script --}}
             </div>
-        </div>
         {{-- End Recent Order --}}
     </div>
 </div>

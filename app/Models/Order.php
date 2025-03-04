@@ -63,4 +63,12 @@ class Order extends Model
     }
     
 
+    public function getFullNameAttribute()
+    {
+        if ($this->customer) {
+            return trim("{$this->customer->first_name} {$this->customer->last_name}");
+        }
+        return 'Guest';
+    }
+
 }

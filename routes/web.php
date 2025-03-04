@@ -1,7 +1,11 @@
 <?php
 
+use App\Filament\Resources\CustomerResource;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\ADMIN\CustomerController as ADMINCustomerController;
+use App\Http\Controllers\ADMIN\DashboardController;
+use App\Http\Controllers\ADMIN\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorDiamondController;
@@ -17,15 +21,18 @@ Route::get('/password-reset', function () {
 });
 
 // -------------------------------- Start Admin Routes --------------------------------
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-Route::get('/admin/order', function () {
-    return view('admin.order');
-});
-Route::get('/admin/customers', function () {
-    return view('admin.customers');
-});
+Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/admin/order', [OrderController::class , 'index']);
+
+// Route::get('/admin/customers', [ADMINCustomerController::class , 'index']);
+Route::get('/admin/customers', [ADMINCustomerController::class, 'index'])->name('admin.customers.index');
+Route::post('/admin/customers', [ADMINCustomerController::class, 'store'])->name('admin.customers.store');
+Route::get('/customers/{id}/edit', [ADMINCustomerController::class, 'edit'])->name('admin.customers.edit');
+Route::put('/customers/{id}', [ADMINCustomerController::class, 'update'])->name('admin.customers.update');
+Route::delete('/customers/{id}', [ADMINCustomerController::class, 'destroy'])->name('admin.customers.destroy');
+
+
 Route::get('/admin/fancy-color-diamonds', function () {
     return view('admin.fancy-color-diamonds');
 });

@@ -22,7 +22,7 @@
                         <div>
                             <span class="text-sm text-gray-500 dark:text-gray-400">Total Order</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                3,782
+                            {{ number_format($totalOrders) }} 
                             </h4>
                         </div>
 
@@ -57,7 +57,7 @@
                         <div>
                             <span class="text-sm text-gray-500 dark:text-gray-400">Open Orders</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                5,359
+                                {{number_format($totalProcessOrder)}}
                             </h4>
                         </div>
 
@@ -92,7 +92,7 @@
                         <div>
                             <span class="text-sm text-gray-500 dark:text-gray-400">Total Delivered</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                5,359
+                                {{number_format($totalCompleteOrder)}}
                             </h4>
                         </div>
 
@@ -127,7 +127,7 @@
                         <div>
                             <span class="text-sm text-gray-500 dark:text-gray-400">Average Price</span>
                             <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
-                                5,359
+                            $ {{number_format($averagePrice)}}
                             </h4>
                         </div>
 
@@ -377,7 +377,7 @@
                                                                     "New": "{{ asset('/Shape/new.svg') }}",
                                                                     "Processing": "{{ asset('/Shape/processing.svg') }}",
                                                                     "Shipped": "{{ asset('/Shape/shipped.svg') }}",
-                                                                    "Delivered": "{{ asset('/Shape/delivered.svg') }}",
+                                                                    "Delivered": "{{ asset('/Shape/completed.svg') }}",
                                                                     "Cancelled": "{{ asset('/Shape/cancelled.svg') }}"
                                                                 };
                                                                 return icons[status] || "{{ asset('icons/default.png') }}";
@@ -501,50 +501,7 @@
                                                         total_price: "$1,250.00",
                                                         shipping_cost: "$25.00"
                                                     },
-                                                    {
-                                                        id: 2,
-                                                        order_date: "2024-02-14",
-                                                        customer_email: "jane.doe@example.com",
-                                                        order_number: "ORD-002",
-                                                        customer: "Jane Doe",
-                                                        status: "Processing",
-                                                        currency: "EUR",
-                                                        total_price: "$2,850.00",
-                                                        shipping_cost: "$35.00"
-                                                    },
-                                                    {
-                                                        id: 3,
-                                                        order_date: "2024-02-13",
-                                                        customer_email: "robert.johnson@example.com",
-                                                        order_number: "ORD-003",
-                                                        customer: "Robert Johnson",
-                                                        status: "Shipped",
-                                                        currency: "GBP",
-                                                        total_price: "$750.00",
-                                                        shipping_cost: "$15.00"
-                                                    },
-                                                    {
-                                                        id: 4,
-                                                        order_date: "2024-02-12",
-                                                        customer_email: "emma.wilson@example.com",
-                                                        order_number: "ORD-004",
-                                                        customer: "Emma Wilson",
-                                                        status: "Delivered",
-                                                        currency: "USD",
-                                                        total_price: "$3,450.00",
-                                                        shipping_cost: "$45.00"
-                                                    },
-                                                    {
-                                                        id: 5,
-                                                        order_date: "2024-02-11",
-                                                        customer_email: "michael.brown@example.com",
-                                                        order_number: "ORD-005",
-                                                        customer: "Michael Brown",
-                                                        status: "Cancelled",
-                                                        currency: "USD",
-                                                        total_price: "$9881000.00",
-                                                        shipping_cost: "$20.00"
-                                                    }
+
                                                 ],
                             
                                                 get allfilteredData() {
