@@ -5,7 +5,7 @@
 <div class="w-full mx-auto pt-12">
     <h1
         class="text-xl lg:text-4xl text-primary font-montserrat font-bold text-center mb-3 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">
-        Certified Lab Grown Diamonds
+        Natural Diamonds
     </h1>
     <p
         class="text-primary/80 text-center font-montserrat text-sm mb-4 md:mb-8 px-4 md:px-8 lg:px-12 2xl:px-16 3xl:px-40">

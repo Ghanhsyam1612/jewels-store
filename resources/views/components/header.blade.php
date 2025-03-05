@@ -20,7 +20,13 @@
         <nav class="hidden lg:flex space-x-6 z-50">
             {{-- Diamonds --}}
             <div class="relative group">
-                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">DIAMONDS
+                <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">DIAMONDS
+                </a>
+            </div>
+
+            {{-- Select Your Diamond --}}
+            <div class="relative group">
+                <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">SELECT YOUR DIAMOND
                     <span class="ml-1">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -34,11 +40,11 @@
                     <div class="py-2">
                         <!-- Natural Diamond -->
                         <!-- <a href="#" class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">Natural Diamond</a> -->
-                        <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/RD_WEB_21012025_135756.xlsx" 
-   class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200"
-   download>
-   Natural Diamond
-</a>
+                        <!-- <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/RD_WEB_21012025_135756.xlsx"  -->
+                        <a href="{{ route('natural-diamond') }}"
+                            class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">
+                            Natural Diamond
+                        </a>
 
 
                         <!-- Lab Diamond with submenu -->
@@ -59,9 +65,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- Inventory --}}
-            <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">SELECT YOUR DIAMOND</a>
             
             {{-- Engagement Rings --}}
             <div class="relative group">

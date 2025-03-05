@@ -56,6 +56,10 @@ Route::get('/calibrated', function () {
     return view('lab-diamonds.calibrated');
 })->name('calibrated');
 
+Route::get('/natural-diamond', function () {
+    return view('components.natural-diamond');
+})->name('natural-diamond');
+
 Route::get('/fancy-shapes-diamonds', function () {
     return view('lab-diamonds.fancy-shapes-diamonds');
 })->name('fancy-shapes-diamonds');
