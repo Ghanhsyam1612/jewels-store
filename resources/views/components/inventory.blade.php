@@ -4229,6 +4229,7 @@
 </script>
 <!-- End Advanced Options Dropdown Script -->
 
+<!-- Start Wishlist Script -->
 <script>
     function toggleWishlist(diamondId) {
         const icon = document.getElementById(`wishlist-icon-${diamondId}`);
@@ -4243,4 +4244,5 @@
         }
     }
 </script>
+<!-- End Wishlist Script -->
 @endsection

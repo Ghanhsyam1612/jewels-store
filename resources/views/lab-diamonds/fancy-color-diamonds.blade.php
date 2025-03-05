@@ -2842,6 +2842,17 @@
                         <div class="grid grid-cols-2 gap-8 my-10">
                             <!-- Left Side -->
                             <div class="flex flex-col items-center gap-3">
+                                <!-- Wishlist Heart Icon -->
+                                <button id="wishlist-btn-{{ $diamond->id }}" 
+                                            class="absolute top-2 right-2 p-2 rounded-full transition-colors duration-300"
+                                            onclick="toggleWishlist({{ $diamond->id }})">
+                                            <svg id="wishlist-icon-{{ $diamond->id }}" xmlns="http://www.w3.org/2000/svg" 
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                class="w-6 h-6 transition-all" fill="white">
+                                                <path id="wishlist-path-{{ $diamond->id }}" stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 21l-1.45-1.35C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.15L12 21z" stroke="gray"/>
+                                            </svg>
+                                        </button>
                                 <div class="flex items-center justify-center">
                                     <img src="{{ asset($diamond->image_link ?? $diamond->color_shape_svg) }}" class="w-40" alt="{{ $diamond->name }}">
                                 </div>
@@ -3433,7 +3444,7 @@
 </script> -->
 <!-- End Advanced Options Dropdown Script -->
 
-<!-- Certificate Script -->
+<!-- Start Certificate Script -->
 <script>
     document.querySelectorAll('.cert-btn').forEach(button => {
         button.addEventListener('click', () => {
@@ -3446,4 +3457,22 @@
         });
     });
 </script>
+<!-- End Certificate Script -->
+
+<!-- Start Wishlist Script -->
+<script>
+    function toggleWishlist(diamondId) {
+        const icon = document.getElementById(`wishlist-icon-${diamondId}`);
+        const path = document.getElementById(`wishlist-path-${diamondId}`);
+
+        if (icon.getAttribute("fill") === "white") {
+            icon.setAttribute("fill", "red");
+            path.setAttribute("stroke", "red");
+        } else {
+            icon.setAttribute("fill", "white");
+            path.setAttribute("stroke", "gray");
+        }
+    }
+</script>
+<!-- End Wishlist Script -->
 @endsection
