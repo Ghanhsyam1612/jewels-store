@@ -12,7 +12,7 @@ class Diamond extends Model
     protected $table = 'diamonds';
 
     protected $casts = [
-        'images' => 'array',
+        'image_link' => 'array',
         'video_url' => 'json',
         'certificate_link' => 'json'
     ];
@@ -21,7 +21,12 @@ class Diamond extends Model
     // Relationship to wishlists
     public function wishlists()
     {
-        return $this->hasMany(Wishlist::class);
+        return $this->morphMany(Wishlist::class, 'wishlistable');
+    }
+    
+    public function isInWishlist($customerId)
+    {
+        return $this->wishlists()->where('customer_id', $customerId)->exists();
     }
 
     public function carts()

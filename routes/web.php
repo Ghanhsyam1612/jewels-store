@@ -6,12 +6,15 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ADMIN\CustomerController as ADMINCustomerController;
 use App\Http\Controllers\ADMIN\DashboardController;
 use App\Http\Controllers\ADMIN\OrderController;
+use App\Http\Controllers\AntiqueCutDiamondController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorDiamondController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NaturalDiamondController;
+use App\Http\Controllers\WishlistController;
 use App\Models\ColorDiamond;
 use Illuminate\Support\Facades\Route;
 
@@ -56,17 +59,12 @@ Route::get('/calibrated', function () {
     return view('lab-diamonds.calibrated');
 })->name('calibrated');
 
-Route::get('/natural-diamond', function () {
-    return view('components.natural-diamond');
-})->name('natural-diamond');
 
 Route::get('/fancy-shapes-diamonds', function () {
     return view('lab-diamonds.fancy-shapes-diamonds');
 })->name('fancy-shapes-diamonds');
 
-// Get Color Diamond
-Route::get('/fancy-color-diamonds', [ColorDiamondController::class , 'index'])->name('color.diamond');
-Route::get('/color/diamond/{colorDiamond}', [ColorDiamond::class, 'details'])->name('color.diamonds.details');
+
 
 
 
@@ -313,9 +311,9 @@ Route::get('/checkout/complete', [CheckoutController::class, 'complete'])->name(
 // ---------------------------------- End Checkout Routes -------------------------------------------------
 
 // ---------------------------------- Wishlist Routes -------------------------------------------------
-Route::get('/wishlist', [AccountController::class, 'wishlist'])->name('wishlist');
-Route::post('/wishlist/add', [AccountController::class, 'addToWishlist'])->name('wishlist.add');
-Route::post('/wishlist/remove', [AccountController::class, 'removeFromWishlist'])->name('wishlist.remove');
+// Route::get('/wishlist', [AccountController::class, 'wishlist'])->name('wishlist');
+// Route::post('/wishlist/add', [AccountController::class, 'addToWishlist'])->name('wishlist.add');
+// Route::post('/wishlist/remove', [AccountController::class, 'removeFromWishlist'])->name('wishlist.remove');
 // ---------------------------------- End Wishlist Routes -------------------------------------------------
 
 
@@ -346,6 +344,26 @@ Route::get('/inventory', [DiamondController::class, 'index'])->name('inventory')
 Route::get('/inventory/diamond/{diamond}', [DiamondController::class, 'details'])->name('diamonds.details');
 // -------------------------------- End Inventory & Diamond Routes --------------------------------------
 
+// -------------------------------- Fancy Color Diamond Routes ------------------------------------------
+Route::get('/fancy-color-diamonds', [ColorDiamondController::class , 'index'])->name('color.diamond');
+Route::get('/color/diamond/{colorDiamond}', [ColorDiamond::class, 'details'])->name('color.diamonds.details');
+// --------------------------------  End Fancy Color Diamond Routes ------------------------------------------
+
+
+
+// -------------------------------- Natural Diamond Routes ------------------------------------------
+Route::get('/natural-diamond', [NaturalDiamondController::class , 'index'] )->name('natural-diamond');
+Route::get('/natural/diamond/{naturalDiamond}', [NaturalDiamondController::class, 'details'])->name('natural.diamonds.details');
+// -------------------------------- End Natural Diamond Routes --------------------------------------
+
+// -------------------------------- Antique Cut Diamond Routes ------------------------------------------
+Route::get('/antique-cut-diamond', [AntiqueCutDiamondController::class , 'index'] )->name('antique.cut.diamond');
+Route::get('/antique/cut/diamond/{naturalDiamond}', [AntiqueCutDiamondController::class, 'details'])->name('antique.cut.diamonds.details');
+// -------------------------------- Antique Cut Diamond Routes ------------------------------------------
+
+
+
+
 // -------------------------------- Authenticated Routes ------------------------------------------------
 Route::middleware(['auth:customer'])->group(function () {
     // Customer Details
@@ -361,7 +379,12 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::delete('/account/addresses/{address}', [AddressController::class, 'destroy'])->name('account.addresses.destroy');
     Route::post('/account/addresses/{address}/set-default', [AddressController::class, 'setDefault'])->name('account.addresses.setDefault');
 
-    // Wishlist
-    Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
+    // // Wishlist
+    // Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
+
+    // Wishlist routes
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    Route::delete('/wishlist/{id}', [WishlistController::class, 'remove'])->name('wishlist.remove');
 });
 // -------------------------------- End Authenticated Routes ---------------------------------------------

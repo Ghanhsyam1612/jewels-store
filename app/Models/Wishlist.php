@@ -16,8 +16,8 @@ class Wishlist extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function diamond()
+    public function wishlistable()
     {
-        return $this->belongsTo(Diamond::class);
+        return $this->morphTo();
     }
 }

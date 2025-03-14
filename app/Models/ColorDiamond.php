@@ -18,43 +18,49 @@ class ColorDiamond extends Model
         'certificate_link' => 'json'
     ];
 
+
     // Relationship to wishlists
     public function wishlists()
     {
-        return $this->hasMany(Wishlist::class);
+        return $this->morphMany(Wishlist::class, 'wishlistable');
     }
-    // elationship to wishlists
+
+    public function isInWishlist($customerId)
+    {
+        return $this->wishlists()->where('customer_id', $customerId)->exists();
+    }
+    // Relationship to Cart
     public function carts()
     {
         return $this->hasMany(Cart::class);
     }
 
-        // Function to get SVG path dynamically
-        public function getColorShapeSvgAttribute()
-        {
-            $shapeSvgs = [
-                'ROUND' => 'Shape/round.svg',
-                'CUSHION' => 'Shape/cushion.svg',
-                'PEAR' => 'Shape/pear.svg',
-                'PRINCESS' => 'Shape/princess.svg',
-                'RADIANT' => 'Shape/radiant.svg',
-                'ASSCHER' => 'Shape/asscher.svg',
-                'OVAL' => 'Shape/oval.svg',
-                'EMERALD' => 'Shape/emerald.svg',
-                'MARQUISE' => 'Shape/marquise.svg',
-                'HEART' => 'Shape/heart.svg',
-                'ROSE' => 'Shape/rose-cut.svg',
-                'TRAPEZOID' => 'Shape/trapezoid.svg',
-                'TRIANGULAR' => 'Shape/triangular.svg',
-                 'TRILLIANT' => 'Shape/trilliant.svg',
-                 'FLOWER' => 'Shape/flower.svg'
-                //  'ASHOKA' => 'Shape/ashoka.svg'
+    // Function to get SVG path dynamically
+    public function getColorShapeSvgAttribute()
+    {
+        $shapeSvgs = [
+            'ROUND' => 'Shape/round.svg',
+            'CUSHION' => 'Shape/cushion.svg',
+            'PEAR' => 'Shape/pear.svg',
+            'PRINCESS' => 'Shape/princess.svg',
+            'RADIANT' => 'Shape/radiant.svg',
+            'ASSCHER' => 'Shape/asscher.svg',
+            'OVAL' => 'Shape/oval.svg',
+            'EMERALD' => 'Shape/emerald.svg',
+            'MARQUISE' => 'Shape/marquise.svg',
+            'HEART' => 'Shape/heart.svg',
+            'ROSE' => 'Shape/rose-cut.svg',
+            'TRAPEZOID' => 'Shape/trapezoid.svg',
+            'TRIANGULAR' => 'Shape/triangular.svg',
+            'TRILLIANT' => 'Shape/trilliant.svg',
+            'FLOWER' => 'Shape/flower.svg'
+            //  'ASHOKA' => 'Shape/ashoka.svg'
 
 
-            ];
-    
-            return $shapeSvgs[ucfirst($this->shape)] ?? 'Shape/default.svg';
-        }
+        ];
+
+        return $shapeSvgs[ucfirst($this->shape)] ?? 'Shape/default.svg';
+    }
 
     // Function to get cut description dynamically
     public function getColorCutDescriptionAttribute()

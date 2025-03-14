@@ -327,12 +327,11 @@
             
             {{-- Antique Cut Diamonds --}}
             <!-- <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a> -->
-            <a href="https://bhalinfotech-in-01-2025.s3.us-east-1.amazonaws.com/Sheet/Antique+and+Exotic+cut+list(1).xlsx" 
-   class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" 
-   style="color: rgb(240,186,64);" 
-   download>
-   ANTIQUE CUT DIAMOND
-</a>
+            <a href="{{ route('antique.cut.diamond') }}" 
+                 class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" 
+                    style="color: rgb(240,186,64);">
+                     ANTIQUE CUT DIAMOND
+            </a>
 
 
             {{-- Precious Stones --}}

@@ -32,7 +32,7 @@
             <!-- Left Side -->
             <div class="flex flex-col items-center gap-3">
                 <div class="flex items-center justify-center">
-                    <img src="{{ asset($diamond->images) }}" class="w-40"
+                    <img src="{{ asset($diamond->image_link) }}" class="w-40"
                         alt="{{ $diamond->name }}">
                 </div>
 
@@ -65,7 +65,7 @@
                         <input type="hidden" name="clarity"
                             value="{{ $diamond->clarity }}">
                         <input type="hidden" name="images"
-                            value="{{ $diamond->images }}">
+                            value="{{ $diamond->image_link }}">
                         <input type="hidden" name="size"
                             value="{{ $diamond->size }}">
                         <input type="hidden" name="sku" value="{{ $diamond->sku }}">

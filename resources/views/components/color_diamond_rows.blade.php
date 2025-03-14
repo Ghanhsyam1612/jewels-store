@@ -147,7 +147,7 @@
                         </tr>
                         <tr class="border-b">
                             <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">In The Box</td>
-                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">Diamond, IGI Certificate.</td>
+                            <td class="font-montserrat font-semibold text-gray-600 uppercase py-2">Diamond, {{$diamond->lab}} Certificate.</td>
                         </tr>
                         <tr class="border-b">
                             <td class="font-montserrat text-base text-gray-500 uppercase w-40 py-2">Table & Depth</td>

@@ -58,6 +58,11 @@ class DiamondController extends Controller
         }
 
         // Filter by Depth
+        if ($request->filled('depth_min') && $request->filled('depth_max')) {
+            $query->whereBetween('depth', [(int)$request->depth_min, (int)$request->depth_max]);
+        }
+
+        // Filter by L_W_Ratio
         if ($request->filled('l_w_ratio_min') && $request->filled('l_w_ratio_max')) {
             $query->whereBetween('l_w_ratio', [(int)$request->l_w_ratio_min, (int)$request->l_w_ratio_max]);
         }

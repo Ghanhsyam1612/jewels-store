@@ -9,7 +9,7 @@
         <div class="w-1/4">
             <nav class="flex flex-col text-black rounded">
                 <a href="javascript:void(0)" onclick="loadPage('/account/orders')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Orders</a>
-                <a href="javascript:void(0)" onclick="loadPage('/account/wishlist')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Wishlist</a>
+                <a href="javascript:void(0)" onclick="loadPage('{{ route('wishlist.index') }}')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Wishlist</a>
                 <a href="javascript:void(0)" onclick="loadPage('/account/addresses')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Addresses</a>
                 <a href="javascript:void(0)" onclick="loadPage('/account/details')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Account Details</a>
 

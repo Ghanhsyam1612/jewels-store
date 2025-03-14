@@ -33,12 +33,12 @@ class ColorDiamondController extends Controller
             $query->whereBetween('carat', [(float)$request->minCarat, (float)$request->maxCarat]);
         }
         // Filter by Cut Range
-         if ($request->filled('fromCutSlider') && $request->filled('toCutSlider')) {
+        if ($request->filled('fromCutSlider') && $request->filled('toCutSlider')) {
             $query->whereBetween('cut', [(int)$request->fromCutSlider, (int)$request->toCutSlider]);
         }
 
-       // Filter by intensity if provided
-         if ($request->has('intensity') && $request->intensity) {
+        // Filter by intensity if provided
+        if ($request->has('intensity') && $request->intensity) {
             // Make sure we're comparing the exact string
             $query->where('intensity', '=', $request->intensity);
         }
@@ -49,55 +49,54 @@ class ColorDiamondController extends Controller
             $query->whereBetween('clarity', [(int)$request->fromClaritySlider, (int)$request->toClaritySlider]);
         }
 
-           // Filter by Certificate (IGI, GIA, HRD, etc. [Lab] )
-           if ($request->filled('lab') && !empty($request->lab)) {
+        // Filter by Certificate (IGI, GIA, HRD, etc. [Lab] )
+        if ($request->filled('lab') && !empty($request->lab)) {
             $query->where('lab', $request->lab);
         }
 
-           // Filter by Method (HPHT, CVD [growth_type])
-           if ($request->has('growth_type') && !empty($request->growth_type)) {
+        // Filter by Method (HPHT, CVD [growth_type])
+        if ($request->has('growth_type') && !empty($request->growth_type)) {
             $methods = explode(',', $request->growth_type);
             $query->whereIn('growth_type', $methods);
         }
 
-              // Filter by Table
-              if ($request->filled('table_min') && $request->filled('table_max')) {
-                $query->whereBetween('table', [(int)$request->table_min, (int)$request->table_max]);
-            }
-    
-            // Filter by Depth
-            if ($request->filled('depth_min') && $request->filled('depth_max')) {
-                $query->whereBetween('depth', [(int)$request->depth_min, (int)$request->depth_max]);
-            }
+        // Filter by Table
+        if ($request->filled('table_min') && $request->filled('table_max')) {
+            $query->whereBetween('table', [(int)$request->table_min, (int)$request->table_max]);
+        }
 
-             // Filter by Search
-        if ($request->filled('search'))
-        {
-           $search = $request->search;
+        // Filter by Depth
+        if ($request->filled('depth_min') && $request->filled('depth_max')) {
+            $query->whereBetween('depth', [(int)$request->depth_min, (int)$request->depth_max]);
+        }
 
-           $query->where(function ($q) use ($search) {
-               $q->where('sku', 'like', '%' . $search . '%')
-                 ->orWhere('original_price', 'like', '%' . $search . '%')
-                 ->orWhere('carat', 'like', '%' . $search . '%')
-                 ->orWhere('cut', 'like', '%' . $search . '%')
-                 ->orWhere('shape', 'like', '%' . $search . '%')
-                 ->orWhere('color', 'like', '%' . $search . '%')
-                 ->orWhere('clarity', 'like', '%' . $search . '%')
-                 ->orWhere('lab', 'like', '%' . $search . '%')
-                 ->orWhere('growth_type', 'like', '%' . $search . '%');
-       
-   
-               $q->orWhereRaw("soundex(sku) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(original_price) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(carat) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(cut) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(shape) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(color) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(clarity) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(lab) = soundex(?)", [$search]);
-               $q->orWhereRaw("soundex(growth_type) = soundex(?)", [$search]);
-           });
-       }
+        // Filter by Search
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+                $q->where('sku', 'like', '%' . $search . '%')
+                    ->orWhere('original_price', 'like', '%' . $search . '%')
+                    ->orWhere('carat', 'like', '%' . $search . '%')
+                    ->orWhere('cut', 'like', '%' . $search . '%')
+                    ->orWhere('shape', 'like', '%' . $search . '%')
+                    ->orWhere('color', 'like', '%' . $search . '%')
+                    ->orWhere('clarity', 'like', '%' . $search . '%')
+                    ->orWhere('lab', 'like', '%' . $search . '%')
+                    ->orWhere('growth_type', 'like', '%' . $search . '%');
+
+
+                $q->orWhereRaw("soundex(sku) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(original_price) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(carat) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(cut) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(shape) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(color) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(clarity) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(lab) = soundex(?)", [$search]);
+                $q->orWhereRaw("soundex(growth_type) = soundex(?)", [$search]);
+            });
+        }
 
         // Check if the request is for loading more diamonds
         if ($request->ajax()) {
@@ -109,7 +108,7 @@ class ColorDiamondController extends Controller
             ]);
         }
         $diamonds = $query->inRandomOrder()->paginate(10);
-        return view('lab-diamonds.fancy-color-diamonds' , compact('diamonds'));
+        return view('lab-diamonds.fancy-color-diamonds', compact('diamonds'));
     }
 
     public function details($id)
