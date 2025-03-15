@@ -16,42 +16,34 @@ class StripeService
         $this->stripe = new StripeClient(config('services.stripe.secret_key'));
     }
 
-    public function createPaymentIntent(Order $order, $paymentMethod = 'card')
-    {
-        try {
-            $params = [
-                'amount' => $order->total_amount * 100, // Convert to cents
-                'currency' => 'usd',
-                'payment_method_types' => ['card'],
-                'metadata' => [
-                    'order_id' => $order->id,
-                    'order_number' => $order->order_number,
-                ],
-            ];
+// Update createPaymentIntent method to properly support digital wallets
+public function createPaymentIntent(Order $order, $paymentMethod = 'card')
+{
+    try {
+        $params = [
+            'amount' => $order->total_amount * 100, // Convert to cents
+            'currency' => 'usd',
+            'payment_method_types' => ['card'],
+            'metadata' => [
+                'order_id' => $order->id,
+                'order_number' => $order->order_number,
+            ],
+        ];
 
-            // Add digital wallet support
-            if ($paymentMethod === 'apple_pay') {
-                $params['payment_method_types'] = ['card', 'apple_pay'];
-                $params['payment_method_options'] = [
-                    'apple_pay' => [
-                        'setup_future_usage' => 'off_session',
-                    ]
-                ];
-            }
-            if ($paymentMethod === 'google_pay') {
-                $params['payment_method_types'] = ['card', 'google_pay'];
-                $params['payment_method_options'] = [
-                    'google_pay' => [
-                        'setup_future_usage' => 'off_session',
-                    ]
-                ];
-            }
-
-            return $this->stripe->paymentIntents->create($params);
-        } catch (CardException $e) {
-            throw new \Exception('Payment intent creation failed: ' . $e->getMessage());
+        // Add digital wallet support - Fix this part
+        if ($paymentMethod === 'apple_pay') {
+            $params['payment_method_types'] = ['card', 'apple_pay'];
+        } elseif ($paymentMethod === 'google_pay') {
+            // Google Pay is processed through 'card' type in Stripe
+            $params['payment_method_types'] = ['card'];
         }
+
+        // Create the PaymentIntent
+        return $this->stripe->paymentIntents->create($params);
+    } catch (CardException $e) {
+        throw new \Exception('Payment intent creation failed: ' . $e->getMessage());
     }
+}
 
     public function confirmPaymentIntent($paymentIntentId, $paymentMethodId = null)
     {
@@ -64,15 +56,30 @@ class StripeService
             $confirmParams['return_url'] = route('checkout.success');
 
             return $this->stripe->paymentIntents->confirm($paymentIntentId, $confirmParams);
+
         } catch (CardException $e) {
             throw new \Exception('Payment confirmation failed: ' . $e->getMessage());
         }
     }
 
+    public function createSetupIntent()
+    {
+        try {
+            return $this->stripe->setupIntents->create([
+                'payment_method_types' => ['card'],
+                'usage' => 'on_session',
+            ]);
+        } catch (CardException $e) {
+            throw new \Exception('Setup intent creation failed: ' . $e->getMessage());
+        }
+    }
+
     public function recordPayment(Order $order, $paymentIntent)
     {
-        // Get payment method details
-        $paymentMethod = $paymentIntent->payment_method_types[0];
+        // Get payment method type
+        $paymentMethod = isset($paymentIntent->payment_method_types[0]) ? 
+            $paymentIntent->payment_method_types[0] : 'card';
+        
         $paymentDetails = [];
 
         if (isset($paymentIntent->charges->data[0]->payment_method_details)) {

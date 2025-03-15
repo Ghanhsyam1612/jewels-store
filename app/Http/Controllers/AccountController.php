@@ -23,8 +23,6 @@ class AccountController extends Controller
         return view('account.wishlist', compact('wishlists'));
     }
 
-   
-
     // Account Details
     public function details()
     {
@@ -38,7 +36,8 @@ class AccountController extends Controller
         Auth::guard('customer')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        toastr()->success('logged out successfully');
 
-        return redirect()->route('home')->with('success', 'Customer logged out successfully');
+        return redirect()->route('account');
     }
 }

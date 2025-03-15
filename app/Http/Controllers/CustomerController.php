@@ -108,7 +108,7 @@ class CustomerController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'email' => 'required|email|exists:customers,email',
             'password' => 'required',
         ]);
 
@@ -119,7 +119,7 @@ class CustomerController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('customer')->attempt($credentials)) {
-            toastr()->success('Customer logged in successfully');
+            toastr()->success('Login successfullyy'); // Updated toastr message
             return redirect()->route('home');
         }
 

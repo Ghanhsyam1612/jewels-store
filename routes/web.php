@@ -310,13 +310,6 @@ Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('che
 Route::get('/checkout/complete', [CheckoutController::class, 'complete'])->name('checkout.complete');
 // ---------------------------------- End Checkout Routes -------------------------------------------------
 
-// ---------------------------------- Wishlist Routes -------------------------------------------------
-// Route::get('/wishlist', [AccountController::class, 'wishlist'])->name('wishlist');
-// Route::post('/wishlist/add', [AccountController::class, 'addToWishlist'])->name('wishlist.add');
-// Route::post('/wishlist/remove', [AccountController::class, 'removeFromWishlist'])->name('wishlist.remove');
-// ---------------------------------- End Wishlist Routes -------------------------------------------------
-
-
 // ------------------------------- Addresses -----------------------------------------------------------
 Route::get('/shipping-address', [AddressController::class, 'shipping'])->name('account.addresses.shipping');
 Route::get('/billing-address', [AddressController::class, 'billing'])->name('account.addresses.billing');

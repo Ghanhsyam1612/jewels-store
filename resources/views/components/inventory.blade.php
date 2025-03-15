@@ -3502,6 +3502,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                       
                         @foreach ($diamonds as $diamond)
                             <tr class="border-b cursor-pointer" onclick="toggleDetails({{ $diamond->id }})">
                                 <td class="py-4 flex flex-row gap-2 items-center text-sm font-montserrat">
