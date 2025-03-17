@@ -12,6 +12,16 @@ class OrderItem extends Model
     protected $guarded = [];
     protected $table = 'order_items';
 
+    protected $casts = [
+        'price' => 'decimal:2',
+        'total' => 'decimal:2',
+        'quantity' => 'integer',    
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'diamond_type' => 'string',
+        'diamond_id' => 'integer',
+    ];
+
     public function order()
     {
         return $this->belongsTo(Order::class);
@@ -19,8 +29,11 @@ class OrderItem extends Model
 
     public function diamond()
     {
-        return $this->belongsTo(Diamond::class);
+        return $this->morphTo();
     }
+
+
+
 
     public function getPriceAttribute($value)
     {

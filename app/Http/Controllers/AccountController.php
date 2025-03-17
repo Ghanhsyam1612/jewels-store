@@ -6,13 +6,30 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
-
+use App\Models\Order;
 class AccountController extends Controller
 {
     // Orders
     public function orders()
     {
-        return view('account.orders');
+        $customer = auth('customer')->user();
+        $orders = $customer->orders()->with('items.diamond')->get();
+        
+        return view('account.orders', compact('orders'));
+    }
+
+    public function orderDetails($id)
+    {
+        // Find the order and eager load the necessary relationships
+        $order = Order::with(['orderItems.diamond'])->findOrFail($id);
+        
+        // Check if this is an AJAX request
+        if (request()->ajax() || request()->header('X-Requested-With') == 'XMLHttpRequest') {
+            return response()->json($order);
+        }
+        
+        // For non-AJAX requests, return the normal view
+        return view('account.orders', compact('order'));
     }
 
     // Wishlist

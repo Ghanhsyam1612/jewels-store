@@ -35,6 +35,11 @@ class ColorDiamond extends Model
         return $this->hasMany(Cart::class);
     }
 
+    public function orderItems()
+    {
+        return $this->morphMany(OrderItem::class, 'diamond');
+    }
+
     // Function to get SVG path dynamically
     public function getColorShapeSvgAttribute()
     {

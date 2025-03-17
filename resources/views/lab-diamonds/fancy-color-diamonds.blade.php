@@ -2944,11 +2944,13 @@
                                                 <input type="hidden" name="id" value="{{ $diamond->id }}">
                                                 <input type="hidden" name="name" value="{{ $diamond->name }}">
                                                 <input type="hidden" name="shape" value="{{ $diamond->shape }}">
-                                                <input type="hidden" name="original_price" value="{{ $diamond->original_price }}">
+                                                <input type="hidden" name="original_price"
+                                                    value="{{ $diamond->original_price }}">
                                                 <input type="hidden" name="carat" value="{{ $diamond->carat }}">
                                                 <input type="hidden" name="cut" value="{{ $diamond->cut }}">
-                                                <input type="hidden" name="intensity"  value="{{ $diamond->intensity }}">
-                                              <input type="hidden" name="clarity"
+                                                <input type="hidden" name="intensity"
+                                                    value="{{ $diamond->intensity }}">
+                                                <input type="hidden" name="clarity"
                                                     value="{{ $diamond->clarity }}">
                                                 <input type="hidden" name="images"
                                                     value="{{ $diamond->image_link ?? $diamond->shape_svg }}">
@@ -2956,6 +2958,15 @@
                                                 <input type="hidden" name="sku" value="{{ $diamond->sku }}">
                                                 <input type="hidden" name="quantity" value="1">
                                                 <!-- <input type="hidden" name="mrp" value="{{ $diamond->mrp }}"> -->
+                                                @php
+                                                    $diamondType = '';
+                                                    if (get_class($diamond) === 'App\\Models\\ColorDiamond') {
+                                                        $diamondType = 'fancy';
+                                                    }
+                                                @endphp
+
+                                                <input type="hidden" name="diamond_type"
+                                                    value="{{ $diamondType }}">
                                                 <button
                                                     class="px-6 py-2.5 bg-primary text-sm text-gold rounded-sm hover:bg-white hover:text-primary transition-colors duration-300 flex items-center font-montserrat border border-primary gap-2">
                                                     <svg class="w-5 h-5" fill="none" stroke="currentColor"
@@ -3061,7 +3072,7 @@
                                                         In The Box</td>
                                                     <td
                                                         class="font-montserrat font-semibold text-gray-600 uppercase py-2">
-                                                        Diamond, {{$diamond->lab}} Certificate.</td>
+                                                        Diamond, {{ $diamond->lab }} Certificate.</td>
                                                 </tr>
                                                 <tr class="border-b">
                                                     <td

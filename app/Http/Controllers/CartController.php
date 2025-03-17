@@ -30,9 +30,11 @@ class CartController extends Controller
             'sku' => $request->sku ?? 'SKU Not Available',
             'quantity' => $request->quantity ?? 1,
             'mrp' => $request->mrp ?? 0,
+            'diamond_id' => $request->id,
+            'diamond_type' => $request->diamond_type ?? 'normal',
         ];
 
-
+        // dd($cart);
 
         // Save the updated cart back into the session
         session()->put('cart', $cart);

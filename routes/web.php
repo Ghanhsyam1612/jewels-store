@@ -290,7 +290,7 @@ Route::get('/terms-of-use', function () {
 
 
 
-Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
+
 
 
 // ---------------------------------- Cart Routes -----------------------------------------------------
@@ -372,12 +372,14 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::delete('/account/addresses/{address}', [AddressController::class, 'destroy'])->name('account.addresses.destroy');
     Route::post('/account/addresses/{address}/set-default', [AddressController::class, 'setDefault'])->name('account.addresses.setDefault');
 
-    // // Wishlist
-    // Route::get('/account/wishlist', [AccountController::class, 'wishlist'])->name('account.wishlist');
 
     // Wishlist routes
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
     Route::delete('/wishlist/{id}', [WishlistController::class, 'remove'])->name('wishlist.remove');
+
+    // Orders
+    Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
+    Route::get('/account/orders/{id}', [AccountController::class, 'orderDetails'])->name('account.orders.details');
 });
 // -------------------------------- End Authenticated Routes ---------------------------------------------

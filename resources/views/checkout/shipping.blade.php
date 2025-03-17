@@ -71,37 +71,44 @@
                     @csrf
                     <div class="grid grid-cols-1 gap-4">
                         <div>
+                            {{-- {{dd($shippingInfo)}} --}}
                             <label class="block text-sm font-medium text-gray-700 font-montserrat">Full Name</label>
-                            <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="full_name" required>
+                            <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="full_name" 
+                            value="{{ $shippingInfo['full_name'] ?? old('full_name') }}" required>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 font-montserrat">Email Address</label>
-                            <input type="email" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="email" required>
+                            <input type="email" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="email"
+                             value="{{ $shippingInfo['email'] ?? old('email') }}" required>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 font-montserrat">Phone Number</label>
-                            <input type="tel" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="phone" required>
+                            <input type="tel" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="phone" 
+                            value="{{ $shippingInfo['phone'] ?? old('phone') }}" required>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 font-montserrat">Address</label>
-                            <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="address" required>
+                            <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="address" 
+                            value="{{ $shippingInfo['address'] ?? old('address') }}" required>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 font-montserrat">City</label>
-                                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="city" required>
+                                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="city" 
+                                value="{{ $shippingInfo['city'] ?? old('city') }}" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 font-montserrat">Postal Code</label>
-                                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="zip" required>
+                                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md py-2 outline-none px-4 font-montserrat text-primary" name="zip" 
+                                value="{{ $shippingInfo['zip'] ?? old('zip') }}" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 font-montserrat">Country</label>
                             <select name="country" class="mt-1 block w-full border border-gray-300 rounded-md py-2.5 outline-none px-4 font-montserrat text-primary">
-                                <option value="US">United States</option>
-                                <option value="CA">Canada</option>
-                                <option value="GB">United Kingdom</option>
+                                <option value="US" {{ $shippingInfo['country'] == 'US' ? 'selected' : '' }}>United States</option>
+                                <option value="CA" {{ $shippingInfo['country'] == 'CA' ? 'selected' : '' }}>Canada</option>
+                                <option value="GB" {{ $shippingInfo['country'] == 'GB' ? 'selected' : '' }}>United Kingdom</option>
                             </select>
                         </div>
                     </div>

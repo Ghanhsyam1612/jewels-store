@@ -3386,6 +3386,8 @@
                                                     <input type="hidden" name="quantity" value="1">
                                                     <input type="hidden" name="mrp"
                                                         value="{{ $diamond->mrp }}">
+                                                    <input type="hidden" name="diamond_type"
+                                                        value="{{ get_class($diamond) === 'App\\Models\\Diamond' ? 'normal' : (get_class($diamond) === 'App\\Models\\ColorDiamond' ? 'fancy' : 'natural') }}">
                                                     <button
                                                         class="px-6 py-2.5 bg-primary text-sm text-white rounded-sm hover:bg-white hover:text-primary transition-colors flex items-center font-montserrat border border-primary gap-2">
                                                         <svg class="w-5 h-5" fill="none" stroke="currentColor"

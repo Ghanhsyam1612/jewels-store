@@ -21,6 +21,11 @@ class NaturalDiamond extends Model
           return $this->wishlists()->where('customer_id', $customerId)->exists();
       }
 
+      public function orderItems()
+      {
+          return $this->morphMany(OrderItem::class, 'diamond');
+      }
+
     public function carts()
     {
         return $this->hasMany(Cart::class);

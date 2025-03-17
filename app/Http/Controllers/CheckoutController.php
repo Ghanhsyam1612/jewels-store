@@ -13,6 +13,10 @@ use App\Services\StripeService;
 use Illuminate\Support\Facades\Log;
 use App\Models\Customer;
 use App\Jobs\SendOrderInvoiceJob;
+use App\Models\ColorDiamond;
+use App\Models\Diamond;
+use App\Models\NaturalDiamond;
+use App\Models\AntiqueCutDiamond;
 use Stripe\StripeClient;
 
 class CheckoutController extends Controller
@@ -29,7 +33,21 @@ class CheckoutController extends Controller
     public function shipping()
     {
         $cart = session()->get('cart', []);
-        return view('checkout.shipping', compact('cart'));
+        $customer = auth('customer')->user();
+        $address = $customer->shippingAddresses()->first();
+
+        // Prepare shipping data from customer profile and address
+        $shippingInfo = session('shipping', [
+            'full_name' => $customer->first_name . ' ' . $customer->last_name ?? '',
+            'email' => $customer->email ?? '',
+            'phone' => $customer->phone ?? '',
+            'address' => $address->address_line_1 ?? '',
+            'city' => $address->city ?? '',
+            'zip' => $address->zip_code ?? '',
+            'country' => $address->country ?? 'US'
+        ]);
+
+        return view('checkout.shipping', compact('cart', 'shippingInfo', 'customer'));
     }
 
     public function storeShipping(Request $request)
@@ -114,13 +132,42 @@ class CheckoutController extends Controller
 
             // Create order items
             foreach ($cart as $item) {
-                OrderItem::create([
+                $orderItem = new OrderItem([
                     'order_id' => $order->id,
-                    'diamond_id' => $item['id'],
                     'quantity' => $item['quantity'],
                     'price' => $item['original_price'],
                     'subtotal' => $item['original_price'] * $item['quantity']
                 ]);
+
+                // Get diamond ID and type from cart item
+                $diamondId = $item['diamond_id'];
+                $diamondType = $item['diamond_type'];
+
+                // Associate with the correct diamond type
+                switch ($diamondType) {
+                    case 'normal':
+                        $diamond = Diamond::find($diamondId);
+                        break;
+                    case 'fancy':
+                        $diamond = ColorDiamond::find($diamondId);
+                        break;
+                    case 'natural':
+                        $diamond = NaturalDiamond::find($diamondId);
+                        break;
+                    case 'antique':
+                        $diamond = AntiqueCutDiamond::find($diamondId);
+                        break;
+                }
+
+                // Check if diamond exists
+                if (!$diamond) {
+                    Log::error("Diamond not found: Type $diamondType, ID $diamondId");
+                    throw new \Exception("Diamond not found. Please try again.");
+                }
+
+                // Associate with the diamond and order
+                $orderItem->diamond()->associate($diamond);
+                $order->items()->save($orderItem);
             }
 
             // Process payment based on payment method
