@@ -46,7 +46,8 @@
                         <span>Basic Jewelry Care Guide</span>
                     </li>
                 </ul>
-                <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Join Now</a>
+                {{-- <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Join Now</a> --}}
+                <a href="#" class="mt-4 text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">BUY NOW</a>
             </div>
 
             <!-- Gold Membership -->
@@ -83,7 +84,8 @@
                         <span>Extended Warranty Coverage</span>
                     </li>
                 </ul>
-                <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Join Now</a>
+                {{-- <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Join Now</a> --}}
+                <a href="#" class="mt-4 text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">BUY NOW</a>
             </div>
 
             <!-- Platinum Membership -->
@@ -124,7 +126,9 @@
                         <span>Custom Design Consultations</span>
                     </li>
                 </ul>
-                <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Join Now</a>
+                {{-- <a href="#" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Join Now</a> --}}
+                <a href="#" class="mt-4 text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">BUY NOW</a>
+
             </div>
         </div>
         <div class="flex justify-center space-x-4 mt-8">

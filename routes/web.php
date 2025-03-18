@@ -189,12 +189,12 @@ Route::get('/ready-to-ship', function () {
 // Membership
 Route::get('/membership', function () {
     return view('components.membership');
-});
+})->name('membership');
 
 // Subscription Plan
 Route::get('/subscription-plan', function () {
     return view('components.subscription-plan');
-});
+})->name('subscription-plan');
 
 
 
