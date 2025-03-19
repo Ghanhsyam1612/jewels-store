@@ -12,6 +12,7 @@ use Stripe\Exception\ApiErrorException;
 use Illuminate\Support\Facades\Log;
 use App\Models\Customer;
 use App\Models\Subscription;
+use App\Jobs\SendSubscriptionEmail;
 
 class SubscriptionController extends Controller
 {
@@ -35,7 +36,6 @@ class SubscriptionController extends Controller
             'subscriptionPlan' => $subscriptionPlan,
         ]);
     }
-
 
     // Checkout for subscription
     public function checkout(Request $request)
@@ -124,7 +124,7 @@ class SubscriptionController extends Controller
             // Check if subscription already exists to avoid duplicates
             $existingSubscription = Subscription::where('stripe_subscription_id', $subscription->id)->first();
             if (!$existingSubscription) {
-                Subscription::create([
+                $subscriptionRecord = Subscription::create([
                     'customer_id' => $customer->id,
                     'stripe_subscription_id' => $subscription->id,
                     'stripe_customer_id' => $subscription->customer,
@@ -138,11 +138,15 @@ class SubscriptionController extends Controller
                     'current_period_start' => date('Y-m-d H:i:s', $subscription->current_period_start),
                     'current_period_end' => date('Y-m-d H:i:s', $subscription->current_period_end),
                 ]);
+
+                // Dispatch the email job for subscription success
+                // SendSubscriptionEmail::dispatch($customer, $subscriptionRecord, 'success', $plan);
             }
 
-            // Update user subscription status
+            // Update customer subscription status
             $customer->subscription_status = $subscription->status;
             $customer->subscription_plan = $plan->name;
+            $customer->is_member = $subscription->status === 'active'; // Set is_member to true if subscription is active (new or renewed)
             $customer->save();
 
             return view('subscription.success', [
@@ -236,6 +240,10 @@ class SubscriptionController extends Controller
 
             $subscription->cancel_at_period_end = false;
             $subscription->save();
+
+            // Update customer is_member status
+            $customer->is_member = $subscription->status === 'active'; // Set is_member to true if subscription is active after resuming
+            $customer->save();
 
             return redirect()->route('subscription.manage')
                 ->with('message', 'Your subscription has been resumed successfully.');

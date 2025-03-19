@@ -9,6 +9,8 @@ use Stripe\Exception\SignatureVerificationException;
 use Illuminate\Support\Facades\Log;
 use App\Models\Customer;
 use App\Models\Subscription;
+use App\Jobs\SendSubscriptionEmail;
+use Carbon\Carbon;
 
 class StripeWebhookController extends Controller
 {
@@ -58,20 +60,25 @@ class StripeWebhookController extends Controller
         if (!$subscription) {
             $customer = Customer::where('stripe_customer_id', $subscriptionData->customer)->first();
             if ($customer) {
-                Subscription::create([
+                $subscription = Subscription::create([
                     'customer_id' => $customer->id,
                     'stripe_subscription_id' => $subscriptionData->id,
                     'stripe_customer_id' => $subscriptionData->customer,
                     'stripe_price_id' => $subscriptionData->items->data[0]->price->id,
                     'stripe_product_id' => $subscriptionData->items->data[0]->price->product,
-                    'plan_name' => null, // Could be populated if plan data is available
-                    'plan_type' => null, // Could be inferred from price/product
+                    'plan_name' => null,
+                    'plan_type' => null,
                     'billing_cycle' => $subscriptionData->items->data[0]->price->recurring->interval,
                     'amount' => $subscriptionData->items->data[0]->price->unit_amount / 100,
                     'status' => $subscriptionData->status,
                     'current_period_start' => date('Y-m-d H:i:s', $subscriptionData->current_period_start),
                     'current_period_end' => date('Y-m-d H:i:s', $subscriptionData->current_period_end),
                 ]);
+
+                // Update customer
+                $customer->subscription_status = $subscriptionData->status;
+                $customer->is_member = $subscriptionData->status === 'active'; // Set is_member to true if subscription is active
+                $customer->save();
             } else {
                 Log::warning('Customer not found for subscription: ' . $subscriptionData->id);
             }
@@ -108,23 +115,30 @@ class StripeWebhookController extends Controller
         $customer = Customer::find($subscription->customer_id);
         if ($customer) {
             $customer->subscription_status = $newStatus;
+
+            // Check if subscription has ended (canceled and past the current_period_end)
+            $currentPeriodEnd = Carbon::parse($subscription->current_period_end);
+            $isSubscriptionEnded = $newStatus === 'canceled' && $currentPeriodEnd->isPast();
+
+            // Set is_member based on subscription status and whether it has ended
+            $customer->is_member = $newStatus === 'active' && !$isSubscriptionEnded;
             $customer->save();
 
             // If status changed from active to canceled, notify user
-            if ($oldStatus === 'active' && $newStatus === 'canceled') {
-                // TODO: Notify user
-                // $customer->notify(new SubscriptionCanceled($subscription));
-            }
+            // if ($oldStatus === 'active' && $newStatus === 'canceled') {
+            //     SendSubscriptionEmail::dispatch($customer, $subscription, 'canceled');
+            // }
 
             // If approaching expiration (7 days before), send reminder
             $expirationDate = \Carbon\Carbon::createFromTimestamp($subscriptionData->current_period_end);
             $now = \Carbon\Carbon::now();
             $daysUntilExpiration = $now->diffInDays($expirationDate);
 
-            if ($daysUntilExpiration <= 7 && $subscriptionData->cancel_at_period_end) {
-                // TODO: Notify user
-                // $customer->notify(new SubscriptionExpiring($subscription, $daysUntilExpiration));
-            }
+            // if ($daysUntilExpiration <= 7 && $subscriptionData->cancel_at_period_end) {
+            //     SendSubscriptionEmail::dispatch($customer, $subscription, 'expiring', null, [
+            //         'daysUntilExpiration' => $daysUntilExpiration,
+            //     ]);
+            // }
         }
     }
 
@@ -146,10 +160,11 @@ class StripeWebhookController extends Controller
         $customer = Customer::find($subscription->customer_id);
         if ($customer) {
             $customer->subscription_status = 'canceled';
+            $customer->is_member = false; // Subscription is deleted, so customer is no longer a member
             $customer->save();
 
-            // TODO: Notify user
-            // $customer->notify(new SubscriptionCanceled($subscription));
+            // Notify user
+            // SendSubscriptionEmail::dispatch($customer, $subscription, 'canceled');
         }
     }
 
@@ -176,15 +191,9 @@ class StripeWebhookController extends Controller
             $customer = Customer::find($subscription->customer_id);
             if ($customer) {
                 $customer->subscription_status = 'active';
+                $customer->is_member = true; // Successful payment means customer is a member
                 $customer->save();
             }
-        }
-
-        // Send renewal notification
-        $customer = Customer::find($subscription->customer_id);
-        if ($customer) {
-            // TODO: Notify user
-            // $customer->notify(new SubscriptionRenewed($subscription, $invoiceData->amount_paid / 100));
         }
     }
 
@@ -210,10 +219,11 @@ class StripeWebhookController extends Controller
         $customer = Customer::find($subscription->customer_id);
         if ($customer) {
             $customer->subscription_status = 'past_due';
+            $customer->is_member = false; // Payment failed, so customer is no longer a member
             $customer->save();
 
-            // TODO: Notify user
-            // $customer->notify(new SubscriptionPaymentFailed($subscription));
+            // Notify user
+            // SendSubscriptionEmail::dispatch($customer, $subscription, 'failed');
         }
     }
 }
