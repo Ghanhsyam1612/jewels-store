@@ -17,6 +17,8 @@ use App\Http\Controllers\NaturalDiamondController;
 use App\Http\Controllers\WishlistController;
 use App\Models\ColorDiamond;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SUBSCRIPTION\SubscriptionController;
+use App\Http\Controllers\SUBSCRIPTION\StripeWebhookController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/password-reset', function () {
@@ -191,10 +193,10 @@ Route::get('/membership', function () {
     return view('components.membership');
 })->name('membership');
 
-// Subscription Plan
-Route::get('/subscription-plan', function () {
-    return view('components.subscription-plan');
-})->name('subscription-plan');
+// // Subscription Plan
+// Route::get('/subscription-plan', function () {
+//     return view('components.subscription-plan');
+// })->name('subscription.plans');
 
 
 
@@ -381,5 +383,18 @@ Route::middleware(['auth:customer'])->group(function () {
     // Orders
     Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
     Route::get('/account/orders/{id}', [AccountController::class, 'orderDetails'])->name('account.orders.details');
+
+    // Subscription Routes
+    Route::get('/subscription-plans', [SubscriptionController::class, 'index'])->name('subscription.plans');
+    Route::post('/subscription/checkout', [SubscriptionController::class, 'checkout'])->name('subscription.checkout');
+    Route::get('/subscription/success', [SubscriptionController::class, 'success'])->name('subscription.success');
+    Route::get('/subscription/cancel', [SubscriptionController::class, 'cancel'])->name('subscription.cancel');
+    Route::get('/subscription/manage', [SubscriptionController::class, 'manage'])->name('subscription.manage');
+    Route::post('/subscription/cancel-subscription', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.cancel-subscription');
+    Route::post('/subscription/resume-subscription', [SubscriptionController::class, 'resumeSubscription'])->name('subscription.resume-subscription');
 });
 // -------------------------------- End Authenticated Routes ---------------------------------------------
+
+// -------------------------------- Stripe Webhook Routes ---------------------------------------------
+Route::post('/webhook/stripe', [StripeWebhookController::class, 'handleWebhook'])->name('webhook.stripe');
+// -------------------------------- End Stripe Webhook Routes ---------------------------------------------

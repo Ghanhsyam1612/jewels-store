@@ -88,4 +88,25 @@ class Customer extends Authenticatable
     {
         return $count > 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down';
     }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+    public function currentSubscription()
+    {
+        return $this->subscriptions()
+            ->where(function ($query) {
+                $query->where('status', 'active')
+                    ->orWhere('status', 'trialing');
+            })
+            ->latest()
+            ->first();
+    }
+
+    public function hasActiveSubscription()
+    {
+        return $this->currentSubscription() !== null;
+    }
 }
