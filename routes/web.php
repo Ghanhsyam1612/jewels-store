@@ -3,6 +3,7 @@
 use App\Filament\Resources\CustomerResource;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\ADMIN\ADMINSubscriptionPlanController;
 use App\Http\Controllers\ADMIN\CustomerController as ADMINCustomerController;
 use App\Http\Controllers\ADMIN\DashboardController;
 use App\Http\Controllers\ADMIN\OrderController;
@@ -28,7 +29,16 @@ Route::get('/password-reset', function () {
 // -------------------------------- Start Admin Routes --------------------------------
 Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/admin/order', [OrderController::class , 'index']);
+Route::get('/admin/order', [OrderController::class, 'index']);
+
+Route::get('admin/subscription/plan', [ADMINSubscriptionPlanController::class, 'index'])->name('admin.subscription.plan');
+Route::get('admin/subscription/plan/create', [ADMINSubscriptionPlanController::class, 'create'])->name('admin.subscription.plan.create');
+Route::post('admin/subscription/plan/store', [ADMINSubscriptionPlanController::class, 'store'])->name('admin.subscription.plan.store');
+Route::get('admin/subscription/plan/{id}/view', [ADMINSubscriptionPlanController::class, 'show'])->name('admin.subscription.plan.view');
+Route::get('admin/subscription/plan/{id}/edit', [ADMINSubscriptionPlanController::class, 'edit'])->name('admin.subscription.plan.edit');
+Route::put('admin/subscription/plan/{id}/update', [ADMINSubscriptionPlanController::class, 'update'])->name('admin.subscription.plan.update');
+Route::delete('admin/subscription/plan/{id}/delete', [ADMINSubscriptionPlanController::class, 'destroy'])->name('admin.subscription.plan.delete');
+
 
 // Route::get('/admin/customers', [ADMINCustomerController::class , 'index']);
 Route::get('/admin/customers', [ADMINCustomerController::class, 'index'])->name('admin.customers.index');
@@ -340,19 +350,19 @@ Route::get('/inventory/diamond/{diamond}', [DiamondController::class, 'details']
 // -------------------------------- End Inventory & Diamond Routes --------------------------------------
 
 // -------------------------------- Fancy Color Diamond Routes ------------------------------------------
-Route::get('/fancy-color-diamonds', [ColorDiamondController::class , 'index'])->name('color.diamond');
+Route::get('/fancy-color-diamonds', [ColorDiamondController::class, 'index'])->name('color.diamond');
 Route::get('/color/diamond/{colorDiamond}', [ColorDiamond::class, 'details'])->name('color.diamonds.details');
 // --------------------------------  End Fancy Color Diamond Routes ------------------------------------------
 
 
 
 // -------------------------------- Natural Diamond Routes ------------------------------------------
-Route::get('/natural-diamond', [NaturalDiamondController::class , 'index'] )->name('natural-diamond');
+Route::get('/natural-diamond', [NaturalDiamondController::class, 'index'])->name('natural-diamond');
 Route::get('/natural/diamond/{naturalDiamond}', [NaturalDiamondController::class, 'details'])->name('natural.diamonds.details');
 // -------------------------------- End Natural Diamond Routes --------------------------------------
 
 // -------------------------------- Antique Cut Diamond Routes ------------------------------------------
-Route::get('/antique-cut-diamond', [AntiqueCutDiamondController::class , 'index'] )->name('antique.cut.diamond');
+Route::get('/antique-cut-diamond', [AntiqueCutDiamondController::class, 'index'])->name('antique.cut.diamond');
 Route::get('/antique/cut/diamond/{naturalDiamond}', [AntiqueCutDiamondController::class, 'details'])->name('antique.cut.diamonds.details');
 // -------------------------------- Antique Cut Diamond Routes ------------------------------------------
 

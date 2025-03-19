@@ -19,7 +19,8 @@
         <div class="flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 my-8 lg:my-12">
             <h2 class="text-2xl text-primary lg:text-3xl font-montserrat font-semibold mb-2">Engagement Rings</h2>
             <p class="text-sm text-primary lg:text-base font-montserrat text-center">Indication of promising relation for
-                infinity. Engagement rings designate if a person is tied in a bond of love and marriage, where they prevail to adore their
+                infinity. Engagement rings designate if a person is tied in a bond of love and marriage, where they prevail
+                to adore their
                 relationship through a means of token designers, especially for love.</p>
         </div>
 
@@ -49,7 +50,8 @@
                             class="absolute hidden lg:block left-0 top-0 h-full w-[15px] bg-slate-300 clip-path-arrow-left">
                         </div>
                         <div class="flex items-center justify-center">
-                            <span class="text-base md:text-lg lg:text-3xl font-montserrat font-semibold pr-2 lg:pr-4">1</span>
+                            <span
+                                class="text-base md:text-lg lg:text-3xl font-montserrat font-semibold pr-2 lg:pr-4">1</span>
                             <div class="text-10px md:text-sm lg:text-base font-montserrat text-gray-400">
                                 <span>Choose a</span><br>
                                 <a href="#"
@@ -78,7 +80,8 @@
                         <!-- Left arrow shape -->
                         <div class="absolute left-0 top-0 lg:h-full w-[15px] bg-slate-200 clip-path-arrow-left"></div>
                         <div class="flex items-center justify-center">
-                            <span class="text-base md:text-lg lg:text-3xl font-montserrat font-semibold pr-2 lg:pr-4">2</span>
+                            <span
+                                class="text-base md:text-lg lg:text-3xl font-montserrat font-semibold pr-2 lg:pr-4">2</span>
                             <div class="text-10px md:text-sm lg:text-base font-montserrat text-gray-400">
                                 <span>Choose a</span><br>
                                 <a href="#"
@@ -107,7 +110,8 @@
                         <!-- Left arrow shape -->
                         <div class="absolute left-0 top-0 lg:h-full w-[15px] bg-white clip-path-arrow-left"></div>
                         <div class="flex items-center justify-center">
-                            <span class="text-base md:text-lg lg:text-3xl font-montserrat font-semibold pr-2 lg:pr-4">3</span>
+                            <span
+                                class="text-base md:text-lg lg:text-3xl font-montserrat font-semibold pr-2 lg:pr-4">3</span>
                             <div class="text-10px md:text-sm lg:text-base font-montserrat text-gray-400">
                                 <span>Complete</span><br>
                                 <a href="#"
@@ -133,13 +137,13 @@
 
         <!-- Product Grid Container -->
         <div class="grid grid-cols-4 mx-40 my-5 gap-6">
-            @foreach(range(1, 20) as $index)
+            @foreach (range(1, 20) as $index)
                 <div class="flex flex-col items-center justify-center relative">
-                    @if($index <= 5 || (auth()->check() && auth()->user()->is_member))
+                    @if ($index <= 5 || (auth()->check() && auth()->user()->is_member))
                         {{-- Regular Product Card --}}
                         <a href="/product">
                             {{-- Product Image Slider --}}
-                            <div id="default-carousel-{{$index}}" class="relative w-full">
+                            <div id="default-carousel-{{ $index }}" class="relative w-full">
                                 <div class="relative h-56 overflow-hidden md:h-72">
                                     <div class="block duration-700 ease-in-out" data-carousel-item>
                                         <img src="/images/1.jpg"
@@ -164,10 +168,14 @@
                                 </div>
                                 <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse opacity-0 transition-opacity duration-300"
                                     id="carousel-indicators">
-                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white"
+                                        aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white"
+                                        aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white"
+                                        aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                                    <button type="button" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-white"
+                                        aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
                                 </div>
                             </div>
                             <h3 class="mt-3 text-sm font-montserrat font-semibold text-gray-600 px-3 h-11 text-center">
@@ -181,27 +189,33 @@
                     @else
                         {{-- Locked Product Card --}}
                         <div class="relative">
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
-                                <a href="{{ route('subscription.plans') }}" class="cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            <a href="{{ route('subscription.plans') }}" class="cursor-pointer">
+                                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                     </svg>
-                                </a>
-                            </div>
-                            <div class="opacity-50">
-                                {{-- Product Image Slider (Blurred) --}}
-                                <div class="relative w-full">
-                                    <div class="relative h-56 overflow-hidden md:h-72">
-                                        <img src="/images/1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 filter blur-sm" alt="...">
+                                </div>
+                                <div class="opacity-50">
+                                    {{-- Product Image Slider (Blurred) --}}
+                                    <div class="relative w-full">
+                                        <div class="relative h-56 overflow-hidden md:h-72">
+                                            <img src="/images/1.jpg"
+                                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 filter blur-sm"
+                                                alt="...">
+                                        </div>
+                                    </div>
+                                    <h3
+                                        class="mt-3 text-sm font-montserrat font-semibold text-gray-600 px-3 h-11 text-center">
+                                        Exclusive Member Product
+                                    </h3>
+                                    <div class="flex flex-row items-center justify-center gap-2">
+                                        <p class="text-gray-500 font-montserrat text-sm">Members Only</p>
                                     </div>
                                 </div>
-                                <h3 class="mt-3 text-sm font-montserrat font-semibold text-gray-600 px-3 h-11 text-center">
-                                    Exclusive Member Product
-                                </h3>
-                                <div class="flex flex-row items-center justify-center gap-2">
-                                    <p class="text-gray-500 font-montserrat text-sm">Members Only</p>
-                                </div>
-                            </div>
+                            </a>
+
                         </div>
                     @endif
                 </div>
@@ -244,9 +258,10 @@
             const priceDropdown = document.getElementById('priceDropdown');
             const minPrice = document.getElementById('minPrice');
             const maxPrice = document.getElementById('maxPrice');
-            const minPriceRange = document.{(priceIcon.contains(e.target) && !priceDropdown.contains(e.target)) {
-                    priceDropdown.classList.add('hidden');
-                }
+            const minPriceRange = document. {
+            (priceIcon.contains(e.target) && !priceDropdown.contains(e.target)) {
+                priceDropdown.classList.add('hidden');
+            }
             });
 
             updateRangeSelected();
