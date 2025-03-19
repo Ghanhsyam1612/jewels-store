@@ -17,7 +17,7 @@
                 timerProgressBar: true,
                 showConfirmButton: false,
                 willClose: () => {
-                    window.location.href = "{{ route('subscruption.plans') }}";
+                    window.location.href = "{{ route('subscription.plans') }}";
                 }
             });
         });
