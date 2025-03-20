@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SUBSCRIPTION;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendOrderInvoiceJob;
 use Illuminate\Http\Request;
 use Stripe\Webhook;
 use Stripe\Exception\SignatureVerificationException;
@@ -10,10 +11,19 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Customer;
 use App\Models\Subscription;
 use App\Jobs\SendSubscriptionEmail;
+use App\Models\Order;
+use App\Services\StripeService;
 use Carbon\Carbon;
 
 class StripeWebhookController extends Controller
 {
+    protected $stripeService;
+
+    public function __construct(StripeService $stripeService)
+    {
+        $this->stripeService = $stripeService;
+    }
+
     // Handle webhook
     public function handleWebhook(Request $request)
     {
@@ -29,6 +39,7 @@ class StripeWebhookController extends Controller
         }
 
         switch ($event->type) {
+            // Subscription Events
             case 'customer.subscription.created':
                 $this->handleSubscriptionCreated($event->data->object);
                 break;
@@ -44,6 +55,15 @@ class StripeWebhookController extends Controller
             case 'invoice.payment_failed':
                 $this->handleInvoicePaymentFailed($event->data->object);
                 break;
+
+             // Checkout Events
+             case 'payment_intent.succeeded':
+                $this->handlePaymentIntentSucceeded($event->data->object);
+                break;
+            case 'payment_intent.payment_failed':
+                $this->handlePaymentIntentFailed($event->data->object);
+                break;
+
             default:
                 Log::info('Unhandled event type: ' . $event->type);
         }
@@ -225,5 +245,46 @@ class StripeWebhookController extends Controller
             // Notify user
             // SendSubscriptionEmail::dispatch($customer, $subscription, 'failed');
         }
+    }
+
+    // Checkout Handlers
+    protected function handlePaymentIntentSucceeded($paymentIntent)
+    {
+        $orderId = $paymentIntent->metadata->order_id;
+        $order = Order::find($orderId);
+
+        if (!$order) {
+            Log::warning("Order not found for PaymentIntent: {$paymentIntent->id}");
+            return;
+        }
+
+        if ($order->payment_status === Order::$PAYMENT_STATUS_COMPLETED) {
+            Log::info("Payment already processed for order: {$orderId}");
+            return;
+        }
+
+        $order->update(['payment_status' => Order::$PAYMENT_STATUS_COMPLETED]);
+        $this->stripeService->recordPayment($order, $paymentIntent);
+
+        session()->forget(['cart', 'shipping']);
+        SendOrderInvoiceJob::dispatch($order);
+
+        Log::info("Payment succeeded for order: {$orderId}");
+    }
+
+    protected function handlePaymentIntentFailed($paymentIntent)
+    {
+        $orderId = $paymentIntent->metadata->order_id;
+        $order = Order::find($orderId);
+
+        if (!$order) {
+            Log::warning("Order not found for PaymentIntent: {$paymentIntent->id}");
+            return;
+        }
+
+        $order->update(['payment_status' => Order::$PAYMENT_STATUS_FAILED]);
+        $this->stripeService->recordPayment($order, $paymentIntent);
+
+        Log::info("Payment failed for order: {$orderId}");
     }
 }
