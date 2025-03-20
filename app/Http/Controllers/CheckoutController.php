@@ -264,18 +264,25 @@ class CheckoutController extends Controller
 
         // If payment intent ID is provided (for existing payments)
         if ($paymentIntentId) {
-            return $this->stripe->paymentIntents->retrieve($paymentIntentId);
+            $paymentIntent = $this->stripe->paymentIntents->retrieve($paymentIntentId);
+            return $paymentIntent;
         }
 
         // Create a new payment intent
         $paymentIntent = $this->stripeService->createPaymentIntent($order, $paymentMethod);
 
-        // For all payment methods with a payment method ID, confirm the payment intent
+        // Confirm the payment intent based on payment method
         if ($paymentMethodId) {
-            $paymentIntent = $this->stripeService->confirmPaymentIntent(
-                $paymentIntent->id,
-                $paymentMethodId
-            );
+            if (in_array($paymentMethod, ['apple_pay', 'google_pay'])) {
+                // Digital wallets: PaymentIntent is confirmed client-side, so just return it
+                return $paymentIntent;
+            } else {
+                // Card payment: Confirm server-side
+                $paymentIntent = $this->stripeService->confirmPaymentIntent(
+                    $paymentIntent->id,
+                    $paymentMethodId
+                );
+            }
         }
 
         return $paymentIntent;
