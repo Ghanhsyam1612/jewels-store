@@ -30,12 +30,12 @@ class StripeService
                 ],
             ];
 
-            // Add support for digital wallets
-            if ($paymentMethod === 'apple_pay' || $paymentMethod === 'google_pay') {
-                $params['payment_method_types'] = array_unique(array_merge(
-                    $params['payment_method_types'],
-                    ['card'] // Google Pay uses 'card' type
-                ));
+            // Add digital wallet support - Fix this part
+            if ($paymentMethod === 'apple_pay') {
+                $params['payment_method_types'] = ['card', 'apple_pay'];
+            } elseif ($paymentMethod === 'google_pay') {
+                // Google Pay is processed through 'card' type in Stripe
+                $params['payment_method_types'] = ['card'];
             }
 
             // Create the PaymentIntent
