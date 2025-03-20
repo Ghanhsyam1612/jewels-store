@@ -45,6 +45,22 @@ class StripeService
         }
     }
 
+    public function confirmPaymentIntent($paymentIntentId, $paymentMethodId = null)
+    {
+        try {
+            $confirmParams = $paymentMethodId
+                ? ['payment_method' => $paymentMethodId]
+                : [];
+
+            // Add return URL for 3D Secure authentication
+            $confirmParams['return_url'] = route('checkout.success');
+
+            return $this->stripe->paymentIntents->confirm($paymentIntentId, $confirmParams);
+        } catch (CardException $e) {
+            throw new \Exception('Payment confirmation failed: ' . $e->getMessage());
+        }
+    }
+
     public function createSetupIntent()
     {
         try {
@@ -60,7 +76,9 @@ class StripeService
     public function recordPayment(Order $order, $paymentIntent)
     {
         // Get payment method type
-        $paymentMethod = $paymentIntent->payment_method_types[0] ?? 'card';
+        $paymentMethod = isset($paymentIntent->payment_method_types[0]) ?
+            $paymentIntent->payment_method_types[0] : 'card';
+
         $paymentDetails = [];
 
         if (isset($paymentIntent->charges->data[0]->payment_method_details)) {
@@ -69,30 +87,27 @@ class StripeService
             if (isset($details->card)) {
                 $paymentDetails = [
                     'payment_method' => $paymentIntent->payment_method,
-                    'last4' => $details->card->last4 ?? null,
-                    'brand' => $details->card->brand ?? null,
+                    'last4' => $details->card->last4,
+                    'brand' => $details->card->brand,
                     'wallet' => $details->card->wallet->type ?? null
                 ];
             }
         }
 
-        return Payment::updateOrCreate(
-            ['transaction_id' => $paymentIntent->id],
-            [
-                'order_id' => $order->id,
-                'payment_method' => $paymentMethod,
-                'payment_status' => $paymentIntent->status == 'succeeded' ? Payment::$PAYMENT_STATUS_PAID : Payment::$PAYMENT_STATUS_FAILED,
-                'transaction_id' => $paymentIntent->id,
-                'payment_date' => now(),
-                'payment_amount' => $order->total_amount,
-                'currency' => $paymentIntent->currency,
-                'payment_gateway' => 'stripe',
-                'refund_status' => $paymentIntent->status == 'succeeded' ? Payment::$REFUND_STATUS_REFUNDED : Payment::$REFUND_STATUS_FAILED,
-                'refund_amount' => $order->total_amount,
-                'refund_date' => now(),
-                'refund_reason' => $paymentIntent->status,
-                'payment_details' => json_encode($paymentDetails)
-            ]
-        );
+        return Payment::create([
+            'order_id' => $order->id,
+            'payment_method' => $paymentMethod,
+            'payment_status' => $paymentIntent->status == 'succeeded' ? Payment::$PAYMENT_STATUS_PAID : Payment::$PAYMENT_STATUS_FAILED,
+            'transaction_id' => $paymentIntent->id,
+            'payment_date' => now(),
+            'payment_amount' => $order->total_amount,
+            'currency' => $paymentIntent->currency,
+            'payment_gateway' => 'stripe',
+            'refund_status' => $paymentIntent->status == 'succeeded' ? Payment::$REFUND_STATUS_REFUNDED : Payment::$REFUND_STATUS_FAILED,
+            'refund_amount' => $order->total_amount,
+            'refund_date' => now(),
+            'refund_reason' => $paymentIntent->status,
+            'payment_details' => json_encode($paymentDetails)
+        ]);
     }
 }

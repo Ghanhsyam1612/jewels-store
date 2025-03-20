@@ -263,10 +263,11 @@ class StripeWebhookController extends Controller
             return;
         }
 
+        // Update the order status to completed
         $order->update(['payment_status' => Order::$PAYMENT_STATUS_COMPLETED]);
         $this->stripeService->recordPayment($order, $paymentIntent);
 
-        session()->forget(['cart', 'shipping']);
+        // Dispatch the invoice job
         SendOrderInvoiceJob::dispatch($order);
 
         Log::info("Payment succeeded for order: {$orderId}");

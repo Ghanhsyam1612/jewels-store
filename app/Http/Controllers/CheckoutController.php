@@ -84,30 +84,40 @@ class CheckoutController extends Controller
         return view('checkout.payment-method', compact('cart', 'total', 'shipping', 'clientSecret'));
     }
 
-    // Update checkoutProcess
     public function checkoutProcess(Request $request)
     {
+        // Validate payment method
         $request->validate([
             'payment_method' => 'required|in:card,apple_pay,google_pay',
             'payment_method_id' => 'nullable|string',
+            'payment_intent_id' => 'nullable|string',
         ]);
 
+        // Check if shipping information exists
         if (!session()->has('shipping')) {
-            return response()->json(['error' => 'Please provide shipping information'], 400);
+            return redirect()->route('checkout.shipping')
+                ->withErrors(['shipping' => 'Please provide shipping information']);
         }
 
         try {
             DB::beginTransaction();
 
+            // Get shipping information from session
             $shippingInfo = session('shipping');
+
+            // Validate cart
             $cart = session()->get('cart', []);
             if (empty($cart)) {
                 throw new \Exception('Cart is empty');
             }
 
+            // Calculate total
             $total = $this->calculateTotal($cart);
+
+            // Create or get customer
             $customer = $this->getOrCreateCustomer($shippingInfo);
 
+            // Create order with shipping information
             $order = Order::create([
                 'customer_id' => $customer->id,
                 'order_number' => 'ORD-' . uniqid(),
@@ -117,9 +127,10 @@ class CheckoutController extends Controller
                 'total_amount' => $total,
                 'shipping_cost' => $total >= 500 ? 0 : 35,
                 'shipping_address' => $this->formatAddress($shippingInfo),
-                'billing_address' => $this->formatAddress($shippingInfo),
+                'billing_address' => $this->formatAddress($shippingInfo), // Using same address for billing
             ]);
 
+            // Create order items
             foreach ($cart as $item) {
                 $orderItem = new OrderItem([
                     'order_id' => $order->id,
@@ -128,9 +139,11 @@ class CheckoutController extends Controller
                     'subtotal' => $item['original_price'] * $item['quantity']
                 ]);
 
+                // Get diamond ID and type from cart item
                 $diamondId = $item['diamond_id'];
                 $diamondType = $item['diamond_type'];
 
+                // Associate with the correct diamond type
                 switch ($diamondType) {
                     case 'normal':
                         $diamond = Diamond::find($diamondId);
@@ -146,31 +159,69 @@ class CheckoutController extends Controller
                         break;
                 }
 
+                // Check if diamond exists
                 if (!$diamond) {
                     Log::error("Diamond not found: Type $diamondType, ID $diamondId");
                     throw new \Exception("Diamond not found. Please try again.");
                 }
 
+                // Associate with the diamond and order
                 $orderItem->diamond()->associate($diamond);
                 $order->items()->save($orderItem);
             }
 
-            $paymentIntent = $this->stripeService->createPaymentIntent(
-                $order,
-                $request->input('payment_method')
-            );
+            // Process payment based on payment method
+            $paymentIntent = $this->processPayment($request, $order);
+
+            // Update order status
+            $order->update([
+                'payment_status' => $paymentIntent->status === 'succeeded' ?
+                    Order::$PAYMENT_STATUS_COMPLETED : Order::$PAYMENT_STATUS_PENDING
+            ]);
+
+            // Record payment details
+            $this->stripeService->recordPayment($order, $paymentIntent);
 
             DB::commit();
 
-            return response()->json([
-                'client_secret' => $paymentIntent->client_secret,
-                'payment_intent_id' => $paymentIntent->id,
-                'requires_action' => $paymentIntent->status === 'requires_action',
-            ]);
+            // If payment is still in progress (requires confirmation or 3DS)
+            if (
+                $paymentIntent->status === 'requires_action' ||
+                $paymentIntent->status === 'requires_confirmation' ||
+                $paymentIntent->status === 'requires_payment_method'
+            ) {
+                return response()->json([
+                    'requires_action' => true,
+                    'payment_intent_client_secret' => $paymentIntent->client_secret,
+                    'order_id' => $order->id
+                ]);
+            }
+
+            // Clear cart and shipping session
+            session()->forget(['cart', 'shipping']);
+
+            // Dispatch SendOrderInvoiceJob
+            SendOrderInvoiceJob::dispatch($order);
+
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'redirect' => route('checkout.success')
+                ]);
+            }
+
+            return redirect()->route('checkout.success');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Checkout Process Error: ' . $e->getMessage());
-            return response()->json(['error' => $e->getMessage()], 400);
+
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => $e->getMessage()
+                ], 400);
+            }
+
+            return back()->withErrors(['payment' => $e->getMessage()])->withInput();
         }
     }
 
@@ -205,7 +256,30 @@ class CheckoutController extends Controller
         return $subtotal + $shipping;
     }
 
+    private function processPayment(Request $request, Order $order)
+    {
+        $paymentMethod = $request->input('payment_method');
+        $paymentMethodId = $request->input('payment_method_id');
+        $paymentIntentId = $request->input('payment_intent_id');
 
+        // If payment intent ID is provided (for existing payments)
+        if ($paymentIntentId) {
+            return $this->stripe->paymentIntents->retrieve($paymentIntentId);
+        }
+
+        // Create a new payment intent
+        $paymentIntent = $this->stripeService->createPaymentIntent($order, $paymentMethod);
+
+        // For all payment methods with a payment method ID, confirm the payment intent
+        if ($paymentMethodId) {
+            $paymentIntent = $this->stripeService->confirmPaymentIntent(
+                $paymentIntent->id,
+                $paymentMethodId
+            );
+        }
+
+        return $paymentIntent;
+    }
     public function success()
     {
         return view('checkout.success');

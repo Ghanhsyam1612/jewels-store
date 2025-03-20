@@ -155,16 +155,31 @@
         document.addEventListener('DOMContentLoaded', function() {
             const stripe = Stripe('{{ config('services.stripe.publishable_key') }}');
             const elements = stripe.elements();
+            const clientSecret = '{{ $clientSecret }}';
             let selectedPaymentMethod = 'card';
+            let paymentRequest = null;
 
-            const cardNumberElement = elements.create('cardNumber');
+            // Create card elements
+            const cardNumberElement = elements.create('cardNumber', {
+                style: {
+                    base: {
+                        fontSize: '16px',
+                        color: '#32325d',
+                        '::placeholder': {
+                            color: '#aab7c4'
+                        }
+                    }
+                }
+            });
             const cardExpiryElement = elements.create('cardExpiry');
             const cardCvcElement = elements.create('cardCvc');
 
+            // Mount card elements
             cardNumberElement.mount('#card-number-element');
             cardExpiryElement.mount('#card-expiry-element');
             cardCvcElement.mount('#card-cvc-element');
 
+            // Payment method selection
             const paymentMethodButtons = document.querySelectorAll('.payment-method-btn');
             const paymentMethodInput = document.getElementById('payment-method');
             const cardElementContainer = document.getElementById('card-element');
@@ -174,26 +189,217 @@
             const paymentButton = document.getElementById('payment-button');
             const paymentMessage = document.getElementById('payment-message');
 
-            const paymentRequest = stripe.paymentRequest({
-                country: 'US',
-                currency: 'usd',
-                total: {
-                    label: 'Your Order Total',
-                    amount: {{ $total * 100 }},
-                },
-            });
+            // Initialize Payment Request object for Apple Pay & Google Pay
+            const initPaymentRequest = () => {
+                paymentRequest = stripe.paymentRequest({
+                    country: 'US',
+                    currency: 'usd',
+                    total: {
+                        label: 'Your Order Total',
+                        amount: {{ $total * 100 }}, // Convert to cents
+                    },
+                    requestPayerName: true,
+                    requestPayerEmail: true,
+                    requestPayerPhone: false,
+                    requestShipping: false,
+                });
 
+                // Check if Apple Pay or Google Pay is available
+                paymentRequest.canMakePayment().then(result => {
+                    if (result) {
+                        if (result.applePay) {
+                            document.querySelector('[data-method="apple_pay"]').style.display = 'block';
+                        } else {
+                            document.querySelector('[data-method="apple_pay"]').style.display = 'none';
+                        }
+
+                        if (result.googlePay) {
+                            document.querySelector('[data-method="google_pay"]').style.display =
+                                'block';
+                        } else {
+                            document.querySelector('[data-method="google_pay"]').style.display = 'none';
+                        }
+                    } else {
+                        // Hide both Apple Pay and Google Pay buttons if not available
+                        document.querySelector('[data-method="apple_pay"]').style.display = 'none';
+                        document.querySelector('[data-method="google_pay"]').style.display = 'none';
+                    }
+                });
+
+                // Handle payment request completion
+                paymentRequest.on('paymentmethod', async (event) => {
+                    try {
+                        // First create a payment intent server-side
+                        const response = await fetch('{{ route('checkout.process') }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                payment_method: selectedPaymentMethod,
+                                payment_method_id: event.paymentMethod.id
+                            })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.requires_action) {
+                            // Handle additional authentication
+                            const {
+                                error
+                            } = await stripe.confirmCardPayment(
+                                data.payment_intent_client_secret, {
+                                    payment_method: event.paymentMethod.id
+                                }
+                            );
+
+                            if (error) {
+                                // Show error to customer
+                                event.complete('fail');
+                                showError(error.message);
+                            } else {
+                                // The payment succeeded
+                                event.complete('success');
+                                window.location.href = data.redirect ||
+                                    '{{ route('checkout.success') }}';
+                            }
+                        } else if (data.success) {
+                            // Payment successful
+                            event.complete('success');
+                            window.location.href = data.redirect ||
+                                '{{ route('checkout.success') }}';
+                        } else {
+                            // Payment failed
+                            event.complete('fail');
+                            showError(data.error || 'Payment failed');
+                        }
+                    } catch (error) {
+                        console.error('Payment error:', error);
+                        event.complete('fail');
+                        showError('An unexpected error occurred. Please try again.');
+                    }
+                });
+
+                return paymentRequest;
+            };
+
+            // Initialize payment request if the browser supports it
+            if (window.PaymentRequest) {
+                initPaymentRequest();
+            }
+
+            // Setup Apple Pay
+            const setupApplePay = () => {
+                if (!paymentRequest) {
+                    paymentRequest = initPaymentRequest();
+                }
+
+                // Create Apple Pay button element
+                const applePayElement = elements.create('paymentRequestButton', {
+                    paymentRequest: paymentRequest,
+                    style: {
+                        paymentRequestButton: {
+                            type: 'apple-pay', // Use 'apple-pay' instead of 'default'
+                            theme: 'black',
+                            height: '40px',
+                        }
+                    }
+                });
+
+                paymentRequest.canMakePayment().then(result => {
+                    if (result && result.applePay) {
+                        console.log("Apple Pay can be used");
+                        // First make sure the element is empty
+                        document.getElementById('apple-pay-button').innerHTML = '';
+                        // Then mount the element
+                        applePayElement.mount('#apple-pay-button');
+                        applePayButton.classList.remove('hidden');
+                        cardElementContainer.classList.add('hidden');
+                        paymentButton.classList.add('hidden');
+                    } else {
+                        console.log("Apple Pay cannot be used", result);
+                        applePayButton.classList.add('hidden');
+                        paymentButton.classList.remove('hidden');
+                        if (selectedPaymentMethod === 'apple_pay') {
+                            showError('Apple Pay is not available on this device or browser.');
+                            // Fall back to card
+                            document.querySelector('[data-method="card"]').click();
+                        }
+                    }
+                });
+            };
+
+            // Setup Google Pay
+            const setupGooglePay = () => {
+                if (!paymentRequest) {
+                    paymentRequest = initPaymentRequest();
+                }
+
+                // Create Google Pay button element
+                const googlePayElement = elements.create('paymentRequestButton', {
+                    paymentRequest: paymentRequest,
+                    style: {
+                        paymentRequestButton: {
+                            type: 'google-pay', // Use 'google-pay' instead of 'pay'
+                            theme: 'black',
+                            height: '40px',
+                        }
+                    }
+                });
+                paymentRequest.canMakePayment().then(result => {
+                    if (result && result.googlePay) {
+                        console.log("Google Pay can be used");
+                        // First make sure the element is empty
+                        document.getElementById('google-pay-button').innerHTML = '';
+                        // Then mount the element
+                        googlePayElement.mount('#google-pay-button');
+                        googlePayButton.classList.remove('hidden');
+                        cardElementContainer.classList.add('hidden');
+                        paymentButton.classList.add('hidden');
+                    } else {
+                        console.log("Google Pay cannot be used", result);
+                        googlePayButton.classList.add('hidden');
+                        paymentButton.classList.remove('hidden');
+                        if (selectedPaymentMethod === 'google_pay') {
+                            showError('Google Pay is not available on this device or browser.');
+                            // Fall back to card
+                            document.querySelector('[data-method="card"]').click();
+                        }
+                    }
+                });
+            };
+
+            // Show error message
+            const showError = (message) => {
+                paymentMessage.textContent = message;
+                paymentMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    paymentMessage.classList.add('hidden');
+                }, 5000);
+            };
+
+            // Handle payment method selection
             paymentMethodButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    paymentMethodButtons.forEach(b => b.classList.remove('border-blue-500'));
+                    // Reset UI
+                    paymentMethodButtons.forEach(b => b.classList.remove(
+                        'border-blue-500'));
                     this.classList.add('border-blue-500');
-                    selectedPaymentMethod = this.dataset.method;
-                    paymentMethodInput.value = selectedPaymentMethod;
+                    paymentMessage.classList.add('hidden');
+                    paymentButton.classList.remove('hidden');
 
+                    // Hide all payment elements
                     cardElementContainer.classList.add('hidden');
                     applePayButton.classList.add('hidden');
                     googlePayButton.classList.add('hidden');
 
+                    // Update selected payment method
+                    selectedPaymentMethod = this.dataset.method;
+                    paymentMethodInput.value = selectedPaymentMethod;
+
+                    // Show selected payment element
                     switch (selectedPaymentMethod) {
                         case 'card':
                             cardElementContainer.classList.remove('hidden');
@@ -208,69 +414,18 @@
                 });
             });
 
-            function setupApplePay() {
-                const applePayElement = elements.create('paymentRequestButton', {
-                    paymentRequest: paymentRequest,
-                    style: {
-                        paymentRequestButton: {
-                            type: 'default',
-                            theme: 'black'
-                        }
-                    }
-                });
-                paymentRequest.canMakePayment().then(result => {
-                    if (result && result.applePay) {
-                        applePayElement.mount('#apple-pay-button');
-                        applePayButton.classList.remove('hidden');
-                    }
-                });
-            }
-
-            function setupGooglePay() {
-                const googlePayElement = elements.create('paymentRequestButton', {
-                    paymentRequest: paymentRequest,
-                    style: {
-                        paymentRequestButton: {
-                            type: 'default',
-                            theme: 'black'
-                        }
-                    }
-                });
-                paymentRequest.canMakePayment().then(result => {
-                    if (result && result.googlePay) {
-                        googlePayElement.mount('#google-pay-button');
-                        googlePayButton.classList.remove('hidden');
-                    }
-                });
-            }
-
+            // Handle form submission for card payments
             paymentForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
+
+                if (selectedPaymentMethod !== 'card') {
+                    return; // Let Apple Pay and Google Pay handle their own submissions
+                }
+
                 paymentButton.disabled = true;
                 paymentMessage.classList.add('hidden');
 
-                // Fetch PaymentIntent from backend
-                const response = await fetch('{{ route('checkout.process') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                    body: JSON.stringify({
-                        payment_method: selectedPaymentMethod,
-                    }),
-                });
-
-                const data = await response.json();
-
-                if (data.error) {
-                    paymentMessage.textContent = data.error;
-                    paymentMessage.classList.remove('hidden');
-                    paymentButton.disabled = false;
-                    return;
-                }
-
-                if (selectedPaymentMethod === 'card') {
+                try {
                     const {
                         paymentMethod,
                         error
@@ -278,53 +433,80 @@
                         type: 'card',
                         card: cardNumberElement,
                         billing_details: {
-                            name: document.querySelector('[name="card_holder_name"]').value,
-                            email: '{{ session('shipping.email') }}',
-                        },
+                            name: document.querySelector('[name="card_holder_name"]')
+                                .value,
+                            email: document.querySelector('[name="email"]').value,
+                            address: {
+                                postal_code: document.querySelector(
+                                        '[name="postal_code"]')
+                                    .value,
+                                country: document.querySelector('[name="country"]')
+                                    .value
+                            }
+                        }
                     });
 
                     if (error) {
-                        paymentMessage.textContent = error.message;
-                        paymentMessage.classList.remove('hidden');
-                        paymentButton.disabled = false;
-                        return;
+                        throw error;
                     }
 
-                    const {
-                        error: confirmError
-                    } = await stripe.confirmCardPayment(data.client_secret, {
-                        payment_method: paymentMethod.id,
+                    document.getElementById('payment-method-id').value = paymentMethod.id;
+
+                    // Submit the form for backend processing
+                    const formData = new FormData(paymentForm);
+
+                    // If you want to use fetch API instead of regular form submission:
+                    const response = await fetch('{{ route('checkout.process') }}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: formData
                     });
 
-                    if (confirmError) {
-                        paymentMessage.textContent = confirmError.message;
-                        paymentMessage.classList.remove('hidden');
-                        paymentButton.disabled = false;
-                        return;
-                    }
-                } else {
-                    paymentRequest.on('paymentmethod', async (ev) => {
+                    const data = await response.json();
+
+                    if (data.requires_action) {
+                        // Use Stripe.js to handle the required action
                         const {
-                            error
-                        } = await stripe.confirmPayment(data.client_secret, {
-                            payment_method: ev.paymentMethod.id,
-                        });
+                            error,
+                            paymentIntent
+                        } = await stripe.confirmCardPayment(
+                            data.payment_intent_client_secret
+                        );
 
                         if (error) {
-                            ev.complete('fail');
-                            paymentMessage.textContent = error.message;
-                            paymentMessage.classList.remove('hidden');
-                            paymentButton.disabled = false;
+                            throw error;
                         } else {
-                            ev.complete('success');
-                            window.location.href = '{{ route('checkout.success') }}';
+                            // Payment succeeded
+                            window.location.href = data.redirect ||
+                                '{{ route('checkout.success') }}';
                         }
-                    });
-                    paymentRequest.show();
-                    return;
+                    } else if (data.success) {
+                        // Payment succeeded
+                        window.location.href = data.redirect ||
+                            '{{ route('checkout.success') }}';
+                    } else {
+                        throw new Error(data.error || 'Payment failed');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    paymentMessage.textContent = error.message ||
+                        'An error occurred. Please try again.';
+                    paymentMessage.classList.remove('hidden');
+                    paymentButton.disabled = false;
                 }
+            });
 
-                window.location.href = '{{ route('checkout.success') }}';
+            // Handle card element events
+            cardNumberElement.on('change', function(event) {
+                if (event.error) {
+                    paymentMessage.textContent = event.error.message;
+                    paymentMessage.classList.remove('hidden');
+                } else {
+                    paymentMessage.classList.add('hidden');
+                }
             });
         });
     </script>
