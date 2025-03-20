@@ -56,8 +56,8 @@ class StripeWebhookController extends Controller
                 $this->handleInvoicePaymentFailed($event->data->object);
                 break;
 
-             // Checkout Events
-             case 'payment_intent.succeeded':
+            // Checkout Events
+            case 'payment_intent.succeeded':
                 $this->handlePaymentIntentSucceeded($event->data->object);
                 break;
             case 'payment_intent.payment_failed':

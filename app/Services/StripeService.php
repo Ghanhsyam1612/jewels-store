@@ -15,6 +15,7 @@ class StripeService
     {
         $this->stripe = new StripeClient(config('services.stripe.secret_key'));
     }
+
     // Update createPaymentIntent method to properly support digital wallets
     public function createPaymentIntent(Order $order, $paymentMethod = 'card')
     {
@@ -29,12 +30,15 @@ class StripeService
                 ],
             ];
 
+            // Add digital wallet support - Fix this part
             if ($paymentMethod === 'apple_pay') {
                 $params['payment_method_types'] = ['card', 'apple_pay'];
             } elseif ($paymentMethod === 'google_pay') {
+                // Google Pay is processed through 'card' type in Stripe
                 $params['payment_method_types'] = ['card'];
             }
 
+            // Create the PaymentIntent
             return $this->stripe->paymentIntents->create($params);
         } catch (CardException $e) {
             throw new \Exception('Payment intent creation failed: ' . $e->getMessage());
@@ -55,6 +59,7 @@ class StripeService
 
     public function recordPayment(Order $order, $paymentIntent)
     {
+        // Get payment method type
         $paymentMethod = $paymentIntent->payment_method_types[0] ?? 'card';
         $paymentDetails = [];
 

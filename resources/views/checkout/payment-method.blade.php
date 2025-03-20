@@ -6,16 +6,22 @@
             <!-- Left Side Order Summary -->
             <div
                 class="space-y-8 lg:max-h-[calc(100vh-150px)] lg:overflow-y-auto lg:pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                <!-- Order Summary Section -->
                 <div class="bg-white rounded-lg p-6 space-y-6">
                     <h2 class="text-xl font-semibold font-montserrat">Order Summary</h2>
+                    <!-- Order summary content -->
                     <div class="space-y-2">
                         @foreach (session('cart') as $item)
                             <p class="font-montserrat">Diamond: {{ $item['name'] }}</p>
-                            <p class="font-montserrat">Price: ${{ $item['original_price'] }}</p>
+                            <p class="font-montserrat">Price: {{ $item['original_price'] }}</p>
                             <p class="font-montserrat">Quantity: {{ $item['quantity'] }}</p>
                         @endforeach
+                        <!-- <p class="font-montserrat">Total: {{ session('total') }}</p> -->
                     </div>
                 </div>
+
+
+                <!-- Shipping Information Summary -->
                 <div class="bg-white rounded-lg p-6 space-y-4">
                     <div class="flex justify-between items-center">
                         <h2 class="text-xl font-semibold font-montserrat">Shipping Information</h2>
@@ -31,15 +37,18 @@
                 </div>
             </div>
 
-            <!-- Right Side Payment Method -->
+            <!-- Right Side Payment Method (Updated) -->
             <div class="space-y-8">
-                <form id="payment-form" class="bg-white rounded-lg p-6 space-y-6">
+                <form id="payment-form" method="POST" action="{{ route('checkout.process') }}"
+                    class="bg-white rounded-lg p-6 space-y-6">
                     @csrf
                     <h2 class="text-xl font-semibold font-montserrat">Payment Method</h2>
 
                     <input type="hidden" name="payment_method" id="payment-method" value="card">
                     <input type="hidden" name="payment_method_id" id="payment-method-id">
+                    <input type="hidden" name="payment_intent_id" id="payment-intent-id">
 
+                    <!-- Payment Method Selection -->
                     <div class="flex space-x-4 mb-6">
                         <button type="button" data-method="card"
                             class="payment-method-btn flex-1 border p-2 rounded border-blue-500">
@@ -57,30 +66,85 @@
                         </button>
                     </div>
 
+                    <!-- Card Payment Form -->
                     <div id="card-element" class="space-y-4">
+                        <!-- Email Field -->
+                        <div class="space-y-1">
+                            <label class="block text-sm text-gray-600">Email</label>
+                            <input type="email" name="email" value="{{ session('shipping.email') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="test@example.com">
+                        </div>
+
+                        <!-- Card Information -->
                         <div class="space-y-1">
                             <label class="block text-sm text-gray-600">Card Information</label>
-                            <div id="card-number-element" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+                            <div class="relative">
+                                <div id="card-number-element"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                </div>
+                                <div class="absolute right-3 top-2.5">
+                                    <img src="{{ asset('Shape/visa.svg') }}" alt="visa" class="h-4">
+                                </div>
+                            </div>
                             <div class="grid grid-cols-2 gap-4 mt-2">
-                                <div id="card-expiry-element" class="px-3 py-2 border border-gray-300 rounded-md"></div>
-                                <div id="card-cvc-element" class="px-3 py-2 border border-gray-300 rounded-md"></div>
+                                <div id="card-expiry-element"
+                                    class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                </div>
+                                <div id="card-cvc-element"
+                                    class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Name on Card -->
                         <div class="space-y-1">
                             <label class="block text-sm text-gray-600">Name on card</label>
                             <input type="text" name="card_holder_name" value="{{ session('shipping.full_name') }}"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Zhang San">
+                        </div>
+
+                        <!-- Country and ZIP -->
+                        <div class="space-y-1">
+                            <label class="block text-sm text-gray-600">Country or region</label>
+                            <select name="country"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                <option value="US" selected>United States</option>
+                                <!-- Add more countries as needed -->
+                            </select>
+                            <input type="text" name="postal_code" value="{{ session('shipping.zip') }}"
+                                class="w-full mt-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="12345">
                         </div>
                     </div>
 
-                    <div id="apple-pay-button" class="hidden" style="height: 40px;"></div>
-                    <div id="google-pay-button" class="hidden" style="height: 40px;"></div>
+                    <!-- Digital Payment Buttons (hidden by default) -->
+                    <div id="apple-pay-button" class="hidden apple-pay-button apple-pay-button-black"
+                        style="height: 40px; max-width: 100%;"></div>
+                    <div id="google-pay-button" class="hidden" style="height: 40px; max-width: 100%;"></div>
 
-                    <button id="payment-button" type="submit" class="w-full bg-gray-900 text-white py-3 rounded-md">
-                        Pay ${{ number_format($total, 2) }}
+                    <!-- Payment Button -->
+                    <button id="payment-button" type="submit"
+                        class="w-full bg-gray-900 text-white py-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                        <span class="flex items-center justify-center">
+                            Pay ${{ number_format($total, 2) }}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l10 7v6l10-7-10 7-10-7v6l10-7z" />
+                            </svg>
+                        </span>
                     </button>
 
+                    <!-- Error Messages -->
                     <div id="payment-message" class="text-red-500 mt-2 hidden"></div>
+                    @if ($errors->any())
+                        <div class="text-red-500 mt-2">
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
+                    @endif
                 </form>
             </div>
         </div>
@@ -185,6 +249,7 @@
                 paymentButton.disabled = true;
                 paymentMessage.classList.add('hidden');
 
+                // Fetch PaymentIntent from backend
                 const response = await fetch('{{ route('checkout.process') }}', {
                     method: 'POST',
                     headers: {
@@ -255,10 +320,24 @@
                             window.location.href = '{{ route('checkout.success') }}';
                         }
                     });
+                    paymentRequest.show();
+                    return;
                 }
 
                 window.location.href = '{{ route('checkout.success') }}';
             });
         });
     </script>
+
+    <style>
+        .apple-pay-button {
+            display: inline-block;
+            -webkit-appearance: -apple-pay-button;
+            -apple-pay-button-type: plain;
+        }
+
+        .apple-pay-button-black {
+            -apple-pay-button-style: black;
+        }
+    </style>
 @endsection

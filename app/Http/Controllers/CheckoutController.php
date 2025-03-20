@@ -22,10 +22,12 @@ use Stripe\StripeClient;
 class CheckoutController extends Controller
 {
     protected $stripeService;
+    protected $stripe;
 
     public function __construct(StripeService $stripeService)
     {
         $this->stripeService = $stripeService;
+        $this->stripe = new StripeClient(config('services.stripe.secret_key'));
     }
 
     public function shipping()
@@ -75,9 +77,14 @@ class CheckoutController extends Controller
         $total = $this->calculateTotal($cart);
         $shipping = session('shipping');
 
-        return view('checkout.payment-method', compact('cart', 'total', 'shipping'));
+        // Create a Setup Intent for digital wallets
+        $setupIntent = $this->stripeService->createSetupIntent();
+        $clientSecret = $setupIntent->client_secret;
+
+        return view('checkout.payment-method', compact('cart', 'total', 'shipping', 'clientSecret'));
     }
 
+    // Update checkoutProcess
     public function checkoutProcess(Request $request)
     {
         $request->validate([
@@ -198,7 +205,7 @@ class CheckoutController extends Controller
         return $subtotal + $shipping;
     }
 
- 
+
     public function success()
     {
         return view('checkout.success');
