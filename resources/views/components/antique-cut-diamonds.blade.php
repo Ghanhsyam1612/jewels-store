@@ -59,7 +59,7 @@
                     </div>
                     <div id="shapeDropdown" class="hidden mt-4 grid grid-cols-6 gap-3 px-4 transition-all duration-300">
                         <!-- Round -->
-                        <a href="{{ route('inventory', ['shape' => 'round']) }}"
+                        <a href="{{ route('antique.cut.diamond', ['shape' => 'round']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" alt="Round Shape">
                         </a>
@@ -223,7 +223,7 @@
                     </div>
                     <div id="priceDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobilePriceFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobilePriceFilterForm" action="{{ route('antique.cut.diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
@@ -387,7 +387,7 @@
                     </div>
                     <div id="caratDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileCaratFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileCaratFilterForm" action="{{ route('antique.cut.diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
@@ -557,7 +557,7 @@
                     </div>
                     <div id="cutDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileCutFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileCutFilterForm" action="{{ route('antique.cut.diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="mobileCutFromSlider" type="range" value="{{ request('minCut', 0) }}"
@@ -691,7 +691,7 @@
                     </div>
                     <div id="colorDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileColorFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileColorFilterForm" action="{{ route('antique.cut.diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="mobileColorFromSlider" type="range"
@@ -831,7 +831,7 @@
                     </div>
                     <div id="claritytyDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileClarityFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileClarityFilterForm" action="{{ route('antique.cut.diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="mobileClarityFromSlider" type="range" value="0" min="0"
@@ -1225,7 +1225,7 @@
                                     </div>
                                     <div class="flex items-center p-4">
                                         <div class="w-full">
-                                            <form id="mobileTableFilterForm" action="{{ route('inventory') }}"
+                                            <form id="mobileTableFilterForm" action="{{ route('antique.cut.diamond') }}"
                                                 method="GET">
                                                 <div class="flex justify-between">
                                                     <div>
@@ -1633,7 +1633,7 @@
                                     </div>
                                     <div class="flex items-center p-4">
                                         <div class="w-full">
-                                            <form id="mobileLwRatioFilterForm" action="{{ route('inventory') }}"
+                                            <form id="mobileLwRatioFilterForm" action="{{ route('antique.cut.diamond') }}"
                                                 method="GET">
                                                 <div class="flex justify-between">
                                                     <div>
@@ -3346,7 +3346,7 @@
         <!-- Start Search Box And Clear Filters Button -->
         <div class="flex justify-between items-center md:px-10 py-5">
             <!-- Left side search box with icon -->
-            <form action="{{ route('inventory') }}" method="GET">
+            <form action="{{ route('antique.cut.diamond') }}" method="GET">
                 <div class="relative flex items-center w-full md:w-96">
                     <input type="text" placeholder="Search" name="search" value="{{ request('search') }}"
                         class="w-full md:w-96 px-4 py-2.5 border border-gray-300 font-montserrat text-sm placeholder:font-medium focus:outline-none focus:border-black">

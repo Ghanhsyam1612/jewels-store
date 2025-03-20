@@ -59,133 +59,78 @@
                     </div>
                     <div id="shapeDropdown" class="hidden mt-4 grid grid-cols-6 gap-3 px-4 transition-all duration-300">
                         <!-- Round -->
-                        <a href="{{ route('inventory', ['shape' => 'round']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'round']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/round.svg') }}" width="25" height="25" alt="Round Shape">
                         </a>
 
                         <!-- Princess -->
-                        <a href="{{ route('inventory', ['shape' => 'princess']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'princess']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/princess.svg') }}" width="25" height="25" alt="Princess Shape">
                         </a>
 
                         <!-- Radiant -->
-                        <a href="{{ route('inventory', ['shape' => 'radiant']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'radiant']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25" alt="Radiant Shape">
                         </a>
 
                         <!-- Asscher -->
-                        <a href="{{ route('inventory', ['shape' => 'asscher']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'asscher']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/asscher.svg') }}" width="25" height="25" alt="Asscher Shape">
                         </a>
 
                         <!-- Cushion -->
-                        <a href="{{ route('inventory', ['shape' => 'cushion']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'cushion']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/cushion.svg') }}" width="25" height="25" alt="Cushion Shape">
                         </a>
 
                         <!-- Oval -->
-                        <a href="{{ route('inventory', ['shape' => 'oval']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'oval']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/oval.svg') }}" width="25" height="25" alt="Oval Shape">
                         </a>
 
                         <!-- Emerald -->
-                        <a href="{{ route('inventory', ['shape' => 'emerald']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'emerald']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/emerald.svg') }}" width="25" height="25" alt="Emerald Shape">
                         </a>
 
                         <!-- Pear -->
-                        <a href="{{ route('inventory', ['shape' => 'pear']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'pear']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/pear.svg') }}" width="25" height="25" alt="Pear Shape">
                         </a>
 
                         <!-- Marquise -->
-                        <a href="{{ route('inventory', ['shape' => 'marquise']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'marquise']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/marquise.svg') }}" width="25" height="25"
                                 alt="Marquise Shape">
                         </a>
 
                         <!-- Heart -->
-                        <a href="{{ route('inventory', ['shape' => 'heart']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'heart']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/heart.svg') }}" width="25" height="25" alt="Heart Shape">
                         </a>
 
-                        <!-- Rose Cut -->
-                        <a href="{{ route('inventory', ['shape' => 'rose-cut']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/rose-cut.svg') }}" width="25" height="25"
-                                alt="Rose Cut Shape">
-                        </a>
-
-                        <!-- Old European -->
-                        <a href="{{ route('inventory', ['shape' => 'old-european']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/old-european.svg') }}" width="25" height="25"
-                                alt="Old European Shape">
-                        </a>
-
-                        <!-- Half Moon -->
-                        <a href="{{ route('inventory', ['shape' => 'half-moon']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/half-moon.svg') }}" width="25" height="25"
-                                alt="Half Moon Shape">
-                        </a>
-
-                        <!-- Baguette Trapezoid -->
-                        <a href="{{ route('inventory', ['shape' => 'baguette-trapezoid']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center text-center hover:text-dark-blue group mr-2">
-                            <img src="{{ asset('Shape/baguette-trapezoid.svg') }}" width="25" height="25"
-                                alt="Baguette Trapezoid Shape">
-                        </a>
-
                         <!-- Baguette -->
-                        <a href="{{ route('inventory', ['shape' => 'baguette']) }}"
+                        <a href="{{ route('natural-diamond', ['shape' => 'baguette']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/baguette.svg') }}" width="25" height="25"
                                 alt="Baguette Shape">
                         </a>
 
-                        <!-- Hexagon -->
-                        <a href="{{ route('inventory', ['shape' => 'hexagon']) }}"
+                         <!-- SQUARE EMERALD -->
+                        <a href="{{ route('natural-diamond', ['shape' => 'hexagon']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/hexagon.svg') }}" width="25" height="25"
-                                alt="Hexagon Shape">
-                        </a>
-
-                        <!-- Kite -->
-                        <a href="{{ route('inventory', ['shape' => 'kite']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/kite.svg') }}" width="25" height="25" alt="Kite Shape">
-                        </a>
-
-                        <!-- Old Mine -->
-                        <a href="{{ route('inventory', ['shape' => 'old-mine']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/old-mine.svg') }}" width="25" height="25"
-                                alt="Old Mine Shape">
-                        </a>
-
-                        <!-- Trapezoid -->
-                        <a href="{{ route('inventory', ['shape' => 'trapezoid']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/trapezoid.svg') }}" width="25" height="25"
-                                alt="Trapezoid Shape">
-                        </a>
-
-                        <!-- Triangular -->
-                        <a href="{{ route('inventory', ['shape' => 'triangular']) }}"
-                            class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
-                            <img src="{{ asset('Shape/triangular.svg') }}" width="25" height="25"
-                                alt="Triangular Shape">
+                            <img src="{{ asset('Shape/square_emerald.svg') }}" width="25" height="25"
+                                alt="SQUARE EMERALD Shape">
                         </a>
                         <!-- End Shape Svg -->
                     </div>
@@ -223,7 +168,7 @@
                     </div>
                     <div id="priceDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobilePriceFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobilePriceFilterForm" action="{{ route('natural-diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
@@ -387,7 +332,7 @@
                     </div>
                     <div id="caratDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileCaratFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileCaratFilterForm" action="{{ route('natural-diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
@@ -557,7 +502,7 @@
                     </div>
                     <div id="cutDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileCutFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileCutFilterForm" action="{{ route('natural-diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="mobileCutFromSlider" type="range" value="{{ request('minCut', 0) }}"
@@ -691,7 +636,7 @@
                     </div>
                     <div id="colorDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileColorFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileColorFilterForm" action="{{ route('natural-diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="mobileColorFromSlider" type="range"
@@ -831,7 +776,7 @@
                     </div>
                     <div id="claritytyDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <form id="mobileClarityFilterForm" action="{{ route('inventory') }}" method="GET"
+                            <form id="mobileClarityFilterForm" action="{{ route('natural-diamond') }}" method="GET"
                                 class="w-full">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="mobileClarityFromSlider" type="range" value="0" min="0"
@@ -1066,106 +1011,7 @@
                             </script>
                             <!-- End Mobile Certificate Dropdown Script -->
 
-                            <!-- Start Mobile Method Dropdown -->
-                            @php
-                                $selectedMethods = request()->has('growth_type')
-                                    ? explode(',', request()->growth_type)
-                                    : [];
-                            @endphp
-                            <div id="methodMobileDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                                <label
-                                    class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
-                                <!-- Down Arrow -->
-                                <svg id="mobileMethodDownArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <!-- Up Arrow -->
-                                <svg id="mobileMethodUpArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer hidden">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-
-                                <div id="methodMobileDropdown"
-                                    class="hidden absolute top-full right-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                    <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Method</p>
-
-                                        <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="py-2">
-                                        <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black" name="growth_type[]"
-                                                value="HPHT" {{ in_array('HPHT', $selectedMethods) ? 'checked' : '' }}>
-                                            <span class="text-sm font-montserrat">HPHT</span>
-                                        </label>
-                                        <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black" name="growth_type[]"
-                                                value="CVD" {{ in_array('CVD', $selectedMethods) ? 'checked' : '' }}>
-                                            <span class="text-sm font-montserrat">CVD</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Mobile Method Dropdown -->
-                            <!-- Start Mobile Method Dropdown Script -->
-                            <script>
-                                const methodMobileIcon = document.getElementById('methodMobileDropdownIcon');
-                                const methodMobileDropdown = document.getElementById('methodMobileDropdown');
-                                const methodMobileDownArrow = document.getElementById('methodMobileDownArrow');
-                                const methodMobileUpArrow = document.getElementById('methodMobileUpArrow');
-
-                                methodMobileIcon.addEventListener('click', () => {
-                                    methodMobileDropdown.classList.toggle('hidden');
-                                    methodMobileDownArrow.classList.toggle('hidden');
-                                    methodMobileUpArrow.classList.toggle('hidden');
-                                });
-
-                                // Close dropdown when clicking outside
-                                document.addEventListener('click', (e) => {
-                                    if (!methodMobileIcon.contains(e.target) && !methodMobileDropdown.contains(e.target)) {
-                                        methodMobileDropdown.classList.add('hidden');
-                                        methodMobileDownArrow.classList.remove('hidden');
-                                        methodMobileUpArrow.classList.add('hidden');
-                                    }
-                                });
-
-                                // Prevent dropdown from closing when clicking checkboxes
-                                const methodMobileCheckboxes = methodMobileDropdown.querySelectorAll('input[type="checkbox"]');
-                                methodMobileCheckboxes.forEach(methodMobileCheckbox => {
-                                    methodMobileCheckbox.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                    });
-                                });
-                            </script>
-                            <!-- End Mobile Method Dropdown Script -->
+            
 
                             <!-- Start Mobile Table Dropdown -->
                             <div id="mobileTableDropdownIcon"
@@ -1218,7 +1064,7 @@
                                     </div>
                                     <div class="flex items-center p-4">
                                         <div class="w-full">
-                                            <form id="mobileTableFilterForm" action="{{ route('inventory') }}"
+                                            <form id="mobileTableFilterForm" action="{{ route('natural-diamond') }}"
                                                 method="GET">
                                                 <div class="flex justify-between">
                                                     <div>
@@ -1382,204 +1228,7 @@
                             </script>
                             <!-- End Mobile Table Dropdown Script -->
 
-                            <!-- Start Mobile Depth Dropdown -->
-                            <div id="mobileDepthDropdownIcon"
-                                class="relative flex justify-between items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Depth
-                                    (%)</label>
-                                <!-- Down Arrow -->
-                                <svg id="mobileDepthDownArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <!-- Up Arrow -->
-                                <svg id="mobileDepthUpArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer hidden">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-
-                                <div id="mobileDepthDropdown"
-                                    class="hidden absolute top-full right-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                    <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Depth (%)</p>
-
-                                        <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <div class="flex items-center p-4">
-                                        <div class="w-full">
-                                            <div class="flex justify-between">
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="fromMobileDepthInput" value="46.00"
-                                                        min="46.00" max="78.00" step="0.01" />
-                                                </div>
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="toMobileDepthInput" value="78.00"
-                                                        min="46.00" max="78.00" step="0.01" />
-                                                </div>
-                                            </div>
-                                            <div class="relative min-h-7 flex items-center">
-                                                <input id="fromMobileDepthSlider" type="range" value="46"
-                                                    min="46" max="78" step="0.01" />
-                                                <input id="toMobileDepthSlider" type="range" value="78"
-                                                    min="46" max="78" step="0.01" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <style>
-                                        input[type="range"]#fromMobileDepthSlider::-webkit-slider-thumb,
-                                        input[type="range"]#toMobileDepthSlider::-webkit-slider-thumb {
-                                            -webkit-appearance: none;
-                                            pointer-events: all;
-                                            width: 16px;
-                                            height: 16px;
-                                            background-color: #fff;
-                                            border-radius: 100%;
-                                            border: 2px solid #733D80;
-                                            cursor: pointer;
-                                            position: relative;
-                                            z-index: 5;
-                                        }
-
-                                        input[type="range"]#fromMobileDepthSlider,
-                                        input[type="range"]#toMobileDepthSlider {
-                                            -webkit-appearance: none;
-                                            appearance: none;
-                                            height: 4px;
-                                            width: 100%;
-                                            position: absolute;
-                                            background-color: #c6c6c6;
-                                            pointer-events: all;
-                                            border-radius: 8px;
-                                        }
-
-                                        #toMobileDepthSlider {
-                                            height: 0;
-                                            z-index: 4;
-                                        }
-                                    </style>
-                                    <script>
-                                        function updateMobileDepthSliderColors() {
-                                            const fromValue = parseFloat(fromMobileDepthSlider.value);
-                                            const toValue = parseFloat(toMobileDepthSlider.value);
-                                            const range = toMobileDepthSlider.max - toMobileDepthSlider.min;
-
-                                            const percentFrom = ((fromValue - toMobileDepthSlider.min) / range) * 100;
-                                            const percentTo = ((toValue - toMobileDepthSlider.min) / range) * 100;
-
-                                            const gradient = `linear-gradient(to right,
-                                                #C6C6C6 0%,
-                                                #C6C6C6 ${percentFrom}%, 
-                                                #733D80 ${percentFrom}%, 
-                                                #733D80 ${percentTo}%, 
-                                                #C6C6C6 ${percentTo}%, 
-                                                #C6C6C6 100%)`;
-
-                                            fromMobileDepthSlider.style.background = gradient;
-                                            toMobileDepthSlider.style.background = gradient;
-                                        }
-
-                                        function syncMobileDepthFromInput() {
-                                            let value = Math.min(parseFloat(fromMobileDepthInput.value), parseFloat(toMobileDepthInput.value));
-                                            fromMobileDepthInput.value = value.toFixed(2);
-                                            fromMobileDepthSlider.value = value;
-                                            updateMobileDepthSliderColors();
-                                        }
-
-                                        function syncMobileDepthToInput() {
-                                            let value = Math.max(parseFloat(toMobileDepthInput.value), parseFloat(fromMobileDepthInput.value));
-                                            toMobileDepthInput.value = value.toFixed(2);
-                                            toMobileDepthSlider.value = value;
-                                            updateMobileDepthSliderColors();
-                                        }
-
-                                        function syncMobileDepthFromSlider() {
-                                            fromMobileDepthInput.value = parseFloat(fromMobileDepthSlider.value).toFixed(2);
-                                            updateMobileDepthSliderColors();
-                                        }
-
-                                        function syncMobileDepthToSlider() {
-                                            toMobileDepthInput.value = parseFloat(toMobileDepthSlider.value).toFixed(2);
-                                            updateMobileDepthSliderColors();
-                                        }
-
-                                        const fromMobileDepthSlider = document.querySelector("#fromMobileDepthSlider");
-                                        const toMobileDepthSlider = document.querySelector("#toMobileDepthSlider");
-                                        const fromMobileDepthInput = document.querySelector("#fromMobileDepthInput");
-                                        const toMobileDepthInput = document.querySelector("#toMobileDepthInput");
-
-                                        fromMobileDepthInput.addEventListener("input", syncMobileDepthFromInput);
-                                        toMobileDepthInput.addEventListener("input", syncMobileDepthToInput);
-                                        fromMobileDepthSlider.addEventListener("input", syncMobileDepthFromSlider);
-                                        toMobileDepthSlider.addEventListener("input", syncMobileDepthToSlider);
-
-                                        // Initialize slider colors
-                                        updateMobileDepthSliderColors();
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- End Mobile Depth Dropdown -->
-                            <!-- Start Mobile Depth Dropdown Script -->
-                            <script>
-                                const mobileDepthIcon = document.getElementById('mobileDepthDropdownIcon');
-                                const mobileDepthDropdown = document.getElementById('mobileDepthDropdown');
-                                const mobileDepthDownArrow = document.getElementById('mobileDepthDownArrow');
-                                const mobileDepthUpArrow = document.getElementById('mobileDepthUpArrow');
-
-                                mobileDepthIcon.addEventListener('click', () => {
-                                    mobileDepthDropdown.classList.toggle('hidden');
-                                    mobileDepthDownArrow.classList.toggle('hidden');
-                                    mobileDepthUpArrow.classList.toggle('hidden');
-                                });
-
-                                // Close dropdown when clicking outside
-                                document.addEventListener('click', (e) => {
-                                    if (!mobileDepthIcon.contains(e.target) && !mobileDepthDropdown.contains(e.target)) {
-                                        mobileDepthDropdown.classList.add('hidden');
-                                        mobileDepthDownArrow.classList.remove('hidden');
-                                        mobileDepthUpArrow.classList.add('hidden');
-                                    }
-                                });
-
-                                // Prevent dropdown from closing when clicking checkboxes
-                                const mobileDepthCheckboxes = mobileDepthDropdown.querySelectorAll('input[type="checkbox"]');
-                                mobileDepthCheckboxes.forEach(mobileDepthCheckbox => {
-                                    mobileDepthCheckbox.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                    });
-                                });
-                            </script>
-                            <!-- End Mobile Depth Dropdown Script -->
+                        
 
                             <!-- Start Mobile L/W Ratio Dropdown -->
                             <div id="mobileLwDropdownIcon"
@@ -1626,7 +1275,7 @@
                                     </div>
                                     <div class="flex items-center p-4">
                                         <div class="w-full">
-                                            <form id="mobileLwRatioFilterForm" action="{{ route('inventory') }}"
+                                            <form id="mobileLwRatioFilterForm" action="{{ route('natural-diamond') }}"
                                                 method="GET">
                                                 <div class="flex justify-between">
                                                     <div>

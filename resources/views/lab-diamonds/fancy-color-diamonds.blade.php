@@ -152,7 +152,7 @@
                         </a>
 
                         <!-- Radiant -->
-                        <a href="{ route('color.diamond', ['shape' => 'RADIANT']) }}"
+                        <a href="{{ route('color.diamond', ['shape' => 'RADIANT']) }}"
                             class="uppercase font-montserrat text-13px leading-5 font-medium flex flex-col items-center hover:text-dark-blue group text-center mr-2">
                             <img src="{{ asset('Shape/radiant.svg') }}" width="25" height="25"
                                 alt="Radiant Shape">
@@ -272,28 +272,29 @@
                     </div>
                     <div id="FC_priceDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <div class="w-full max-w-md">
+                            <form id="FC_mobilePriceFilterForm" action="{{ route('color.diamond') }}" method="GET"
+                                class="w-full max-w-md">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
                                         <div class="pr-2">
                                             <input type="number" id="FC_mobilePriceFromInput" name="minPrice"
-                                                value="100" min="100" max="100000"
+                                                value="{{ request('minPrice', 100) }}" min="100" max="100000"
                                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                         </div>
                                         <div class="pl-2">
                                             <input type="number" id="FC_mobilePriceToInput" name="maxPrice"
-                                                value="100000" min="100" max="100000"
+                                                value="{{ request('maxPrice', 100000) }}" min="100" max="100000"
                                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="relative mb-7 flex items-center">
-                                    <input id="FC_mobilePriceFromSlider" type="range" value="100" min="100"
-                                        max="100000"
+                                    <input id="FC_mobilePriceFromSlider" type="range"
+                                        value="{{ request('minPrice', 100) }}" min="100" max="100000"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                                    <input id="FC_mobilePriceToSlider" type="range" value="100000" min="100"
-                                        max="100000"
+                                    <input id="FC_mobilePriceToSlider" type="range"
+                                        value="{{ request('minPrice', 100) }}" min="100" max="100000"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                                 </div>
 
@@ -301,7 +302,7 @@
                                     <span>$100</span>
                                     <span>$100,000</span>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <style>
                             input[type="range"]#FC_mobilePriceFromSlider::-webkit-slider-thumb,
@@ -434,29 +435,34 @@
                         </svg>
                     </div>
                     <div id="FC_caratDropdown" class="hidden mt-4">
-                        <div class="flex items-center">
+                        <form id="FC_mobileCrateFilterForm" action="{{ route('color.diamond') }}" method="GET"
+                            class="flex items-center">
                             <div class="w-full max-w-md">
                                 <div class="mb-3">
                                     <div class="flex justify-between">
                                         <div class="pr-2">
                                             <input type="number" id="FC_mobileCaratFromInput" name="minCarat"
-                                                value="0.1" min="0.1" max="60.00" step="0.1"
+                                                value="{{ request('minCarat', 0.1) }}" min="0.1" max="60.00"
+                                                step="0.1"
                                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                         </div>
                                         <div class="pl-2">
                                             <input type="number" id="FC_mobileCaratToInput" name="maxCarat"
-                                                value="60.00" min="0.1" max="60.00" step="0.1"
+                                                value="{{ request('maxCarat', 60.0) }}" min="0.1" max="60.00"
+                                                step="0.1"
                                                 class="px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="relative mb-7 flex items-center">
-                                    <input id="FC_mobileCaratFromSlider" type="range" value="0.1" min="0.1"
-                                        max="60.00" step="0.1"
+                                    <input id="FC_mobileCaratFromSlider" type="range"
+                                        value="{{ request('minCarat', 0.1) }}" min="0.1" max="60.00"
+                                        step="0.1"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                                    <input id="FC_mobileCaratToSlider" type="range" value="60.00" min="0.1"
-                                        max="60.00" step="0.1"
+                                    <input id="FC_mobileCaratToSlider" type="range"
+                                        value="{{ request('maxCarat', 60.0) }}" min="0.1" max="60.00"
+                                        step="0.1"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                                 </div>
 
@@ -465,7 +471,7 @@
                                     <span>60.00</span>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <style>
                             input[type="range"]#FC_mobileCaratFromSlider::-webkit-slider-thumb,
                             input[type="range"]#FC_mobileCaratToSlider::-webkit-slider-thumb {
@@ -505,6 +511,8 @@
                             const FC_mobileCaratToSlider = document.querySelector("#FC_mobileCaratToSlider");
                             const FC_mobileCaratFromInput = document.querySelector("#FC_mobileCaratFromInput");
                             const FC_mobileCaratToInput = document.querySelector("#FC_mobileCaratToInput");
+                            const FC_mobileCrateFilterForm = document.querySelector("#FC_mobileCrateFilterForm");
+
 
                             function updateFC_MobileCaratSliderColors() {
                                 const min = parseFloat(FC_mobileCaratFromSlider.min);
@@ -529,9 +537,10 @@
 
                             function syncFC_MobileFromInput() {
                                 let value = Math.min(parseFloat(FC_mobileCaratFromInput.value), parseFloat(FC_mobileCaratToInput.value));
-                                FC_mobileCaratFromInput.value = value.toFixed(1);
+                                FC_mobileCaratFromInput.value = value;
                                 FC_mobileCaratFromSlider.value = value;
                                 updateFC_MobileCaratSliderColors();
+                                FC_mobileCrateFilterForm.submit();
                             }
 
                             function syncFC_MobileToInput() {
@@ -539,16 +548,22 @@
                                 FC_mobileCaratToInput.value = value.toFixed(1);
                                 FC_mobileCaratToSlider.value = value;
                                 updateFC_MobileCaratSliderColors();
+                                FC_mobileCrateFilterForm.submit();
+
                             }
 
                             function syncFC_MobileFromSlider() {
-                                FC_mobileCaratFromInput.value = parseFloat(FC_mobileCaratFromSlider.value).toFixed(1);
+                                FC_mobileCaratFromInput.value = FC_mobileCaratFromSlider.value;
                                 updateFC_MobileCaratSliderColors();
+                                FC_mobileCrateFilterForm.submit();
+
                             }
 
                             function syncFC_MobileToSlider() {
-                                FC_mobileCaratToInput.value = parseFloat(FC_mobileCaratToSlider.value).toFixed(1);
+                                FC_mobileCaratToInput.value = FC_mobileCaratToSlider.value;
                                 updateFC_MobileCaratSliderColors();
+                                FC_mobileCrateFilterForm.submit();
+
                             }
 
                             FC_mobileCaratFromInput.addEventListener("input", syncFC_MobileFromInput);
@@ -593,13 +608,14 @@
                     </div>
                     <div id="FC_cutDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <div class="w-full max-w-md">
+                            <form id="FC_mobileCutFilterForm" action="{{ route('color.diamond') }}" method="GET"
+                                class="w-full max-w-md">
                                 <div class="relative mb-7 flex items-center">
-                                    <input id="FC_mobileCutFromSlider" type="range" value="0" min="0"
-                                        max="4" step="1"
+                                    <input id="FC_mobileCutFromSlider" type="range" value="{{ request('minCut', 0) }}"
+                                        min="0" max="4" step="1"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                                    <input id="FC_mobileCutToSlider" type="range" value="4" min="0"
-                                        max="4" step="1"
+                                    <input id="FC_mobileCutToSlider" type="range" value="{{ request('maxCut', 4) }}"
+                                        min="0" max="4" step="1"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                                 </div>
 
@@ -610,7 +626,7 @@
                                     <span>Excellent</span>
                                     <span>Ideal</span>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <style>
                             input[type="range"]#FC_mobileCutFromSlider::-webkit-slider-thumb,
@@ -649,6 +665,7 @@
                         <script>
                             const FC_mobileCutFromSlider = document.querySelector("#FC_mobileCutFromSlider");
                             const FC_mobileCutToSlider = document.querySelector("#FC_mobileCutToSlider");
+                            const FC_mobileCutFilterForm = document.querySelector("#FC_mobileCutFilterForm");
 
                             function FC_updateMobileCutSliderColors() {
                                 const min = parseInt(FC_mobileCutFromSlider.min);
@@ -675,12 +692,15 @@
                                 let value = Math.min(parseInt(FC_mobileCutFromSlider.value), parseInt(FC_mobileCutToSlider.value));
                                 FC_mobileCutFromSlider.value = value;
                                 FC_updateMobileCutSliderColors();
+                                FC_mobileCutFilterForm.submit();
+
                             }
 
                             function FC_syncMobileCutToSlider() {
                                 let value = Math.max(parseInt(FC_mobileCutToSlider.value), parseInt(FC_mobileCutFromSlider.value));
                                 FC_mobileCutToSlider.value = value;
                                 FC_updateMobileCutSliderColors();
+                                FC_mobileCutFilterForm.submit();
                             }
 
                             FC_mobileCutFromSlider.addEventListener("input", FC_syncMobileCutFromSlider);
@@ -723,13 +743,15 @@
                     </div>
                     <div id="FC_colorDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <div class="w-full max-w-md">
+                            <form id="FC_mobileColorFilterForm" class="w-full max-w-md">
                                 <div class="relative mb-7 flex items-center">
-                                    <input id="FC_mobileColorFromSlider" type="range" value="0" min="0"
-                                        max="9" step="1"
+                                    <input id="FC_mobileColorFromSlider" type="range"
+                                        value="{{ request('minColor', 0) }}" min="0" max="9"
+                                        step="1"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-                                    <input id="FC_mobileColorToSlider" type="range" value="9" min="0"
-                                        max="9" step="1"
+                                    <input id="FC_mobileColorToSlider" type="range"
+                                        value="{{ request('maxColor', 9) }}" min="0" max="9"
+                                        step="1"
                                         class="absolute w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                                 </div>
 
@@ -745,7 +767,7 @@
                                     <span>E</span>
                                     <span>D</span>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <style>
                             input[type="range"]#FC_mobileColorFromSlider::-webkit-slider-thumb,
@@ -784,6 +806,7 @@
                         <script>
                             const FC_mobileColorFromSlider = document.querySelector("#FC_mobileColorFromSlider");
                             const FC_mobileColorToSlider = document.querySelector("#FC_mobileColorToSlider");
+                            const FC_mobileColorFilterForm = document.querySelector("#FC_mobileColorFilterForm");
 
                             function updateFC_MobileColorSliderColors() {
                                 const min = parseInt(FC_mobileColorFromSlider.min);
@@ -810,12 +833,14 @@
                                 let value = Math.min(parseInt(FC_mobileColorFromSlider.value), parseInt(FC_mobileColorToSlider.value));
                                 FC_mobileColorFromSlider.value = value;
                                 updateFC_MobileColorSliderColors();
+                                FC_mobileColorFilterForm.submit();
                             }
 
                             function syncFC_MobileColorToSlider() {
                                 let value = Math.max(parseInt(FC_mobileColorToSlider.value), parseInt(FC_mobileColorFromSlider.value));
                                 FC_mobileColorToSlider.value = value;
                                 updateFC_MobileColorSliderColors();
+                                FC_mobileColorFilterForm.submit();
                             }
 
                             FC_mobileColorFromSlider.addEventListener("input", syncFC_MobileColorFromSlider);
@@ -858,7 +883,8 @@
                     </div>
                     <div id="FC_claritytyDropdown" class="hidden mt-4">
                         <div class="flex items-center">
-                            <div class="w-full max-w-md">
+                            <form id="FC_mobileClarityFilterForm" action="{{ route('color.diamond') }}" method="GET"
+                                class="w-full max-w-md">
                                 <div class="relative mb-7 flex items-center">
                                     <input id="FC_mobileClarityFromSlider" type="range" value="0" min="0"
                                         max="11" step="1"
@@ -881,7 +907,7 @@
                                     <span>IF</span>
                                     <span>FL</span>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <style>
                             input[type="range"]#FC_mobileClarityFromSlider::-webkit-slider-thumb,
@@ -920,6 +946,7 @@
                         <script>
                             const FC_mobileClarityFromSlider = document.querySelector("#FC_mobileClarityFromSlider");
                             const FC_mobileClarityToSlider = document.querySelector("#FC_mobileClarityToSlider");
+                            const FC_mobileClarityFilterForm = document.querySelector("#FC_mobileClarityFilterForm");
 
                             function updateFC_MobileClaritySliderColors() {
                                 const min = parseInt(FC_mobileClarityFromSlider.min);
@@ -946,12 +973,14 @@
                                 let value = Math.min(parseInt(FC_mobileClarityFromSlider.value), parseInt(FC_mobileClarityToSlider.value));
                                 FC_mobileClarityFromSlider.value = value;
                                 updateFC_MobileClaritySliderColors();
+                                FC_mobileClarityFilterForm.submit();
                             }
 
                             function syncFC_MobileClarityToSlider() {
                                 let value = Math.max(parseInt(FC_mobileClarityToSlider.value), parseInt(FC_mobileClarityFromSlider.value));
                                 FC_mobileClarityToSlider.value = value;
                                 updateFC_MobileClaritySliderColors();
+                                FC_mobileClarityFilterForm.submit();
                             }
 
                             FC_mobileClarityFromSlider.addEventListener("input", syncFC_MobileClarityFromSlider);
@@ -995,6 +1024,9 @@
                     <div id="FC_advancedOptionsDropdown" class="hidden mt-4">
                         <div class="flex flex-col items-center gap-4 mx-auto py-4">
                             <!-- Start Mobile Certificate Dropdown -->
+                            @php
+                                $selectedLab = request()->has('lab') ? explode(',', request()->lab) : [];
+                            @endphp
                             <div id="FC_styleMobileDropdownIcon"
                                 class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
                                 <label
@@ -1043,16 +1075,20 @@
                                     </div>
                                     <div class="py-2">
                                         <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black">
+                                            <input type="checkbox" class="mr-2 accent-black" name="lab[]"
+                                            value="GIA" {{ in_array('GIA', $selectedLab) ? 'checked' : '' }}>
                                             <span class="text-sm font-montserrat">IGI</span>
                                         </label>
                                         <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black">
+                                            <input type="checkbox" class="mr-2 accent-black" name="lab[]"
+                                            value="IGI" {{ in_array('IGI', $selectedLab) ? 'checked' : '' }}>
                                             <span class="text-sm font-montserrat">GIA</span>
                                         </label>
                                         <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black">
-                                            <span class="text-sm font-montserrat">GCAL</span>
+                                            <input type="checkbox" class="mr-2 accent-black" name="lab[]"
+                                            value="ROAYA MOISSANITE"
+                                                {{ in_array('ROAYA MOISSANITE', $selectedLab) ? 'checked' : '' }}>
+                                            <span class="text-sm font-montserrat">ROAYA MOISSANITE</span>
                                         </label>
                                         <label class="flex items-center px-4 py-2 hover:bg-gray-100">
                                             <input type="checkbox" class="mr-2 accent-black">
@@ -1093,692 +1129,6 @@
                                 });
                             </script>
                             <!-- End Mobile Certificate Dropdown Script -->
-
-                            <!-- Start Mobile Method Dropdown -->
-                            <div id="FC_methodMobileDropdownIcon"
-                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                                <label
-                                    class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Method</label>
-                                <!-- Down Arrow -->
-                                <svg id="FC_mobileMethodDownArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <!-- Up Arrow -->
-                                <svg id="FC_mobileMethodUpArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer hidden">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-
-                                <div id="FC_methodMobileDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                    <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Method</p>
-
-                                        <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="py-2">
-                                        <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black">
-                                            <span class="text-sm font-montserrat">HPHT</span>
-                                        </label>
-                                        <label class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                            <input type="checkbox" class="mr-2 accent-black">
-                                            <span class="text-sm font-montserrat">CVD</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Mobile Method Dropdown -->
-                            <!-- Start Mobile Method Dropdown Script -->
-                            <script>
-                                const FC_methodMobileIcon = document.getElementById('FC_methodMobileDropdownIcon');
-                                const FC_methodMobileDropdown = document.getElementById('FC_methodMobileDropdown');
-                                const FC_mobileMethodDownArrow = document.getElementById('FC_mobileMethodDownArrow');
-                                const FC_mobileMethodUpArrow = document.getElementById('FC_mobileMethodUpArrow');
-
-                                FC_methodMobileIcon.addEventListener('click', () => {
-                                    FC_methodMobileDropdown.classList.toggle('hidden');
-                                    FC_mobileMethodDownArrow.classList.toggle('hidden');
-                                    FC_mobileMethodUpArrow.classList.toggle('hidden');
-                                });
-
-                                // Close dropdown when clicking outside
-                                document.addEventListener('click', (e) => {
-                                    if (!FC_methodMobileIcon.contains(e.target) && !FC_methodMobileDropdown.contains(e.target)) {
-                                        FC_methodMobileDropdown.classList.add('hidden');
-                                        FC_mobileMethodDownArrow.classList.remove('hidden');
-                                        FC_mobileMethodUpArrow.classList.add('hidden');
-                                    }
-                                });
-
-                                // Prevent dropdown from closing when clicking checkboxes
-                                const FC_methodMobileCheckboxes = FC_methodMobileDropdown.querySelectorAll('input[type="checkbox"]');
-                                FC_methodMobileCheckboxes.forEach(FC_methodMobileCheckbox => {
-                                    FC_methodMobileCheckbox.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                    });
-                                });
-                            </script>
-                            <!-- End Mobile Method Dropdown Script -->
-
-                            <!-- Start Mobile Table Dropdown -->
-                            <div id="FC_mobileTableDropdownIcon"
-                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Table
-                                    (%)</label>
-                                <!-- Down Arrow -->
-                                <svg id="FC_mobileTableDownArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <!-- Up Arrow -->
-                                <svg id="FC_mobileTableUpArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer hidden">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-
-                                <div id="FC_mobileTableDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                    <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Table (%)</p>
-                                        <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="flex items-center p-4">
-                                        <div class="w-full">
-                                            <div class="flex justify-between">
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="FC_fromMobileTableInput" value="50.00"
-                                                        min="50.00" max="80.00" step="0.01" />
-                                                </div>
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="FC_toMobileTableInput" value="80.00"
-                                                        min="50.00" max="80.00" step="0.01" />
-                                                </div>
-                                            </div>
-                                            <div class="relative min-h-7 flex items-center">
-                                                <input id="FC_fromMobileTableSlider" type="range" value="50"
-                                                    min="50" max="80" step="0.01" />
-                                                <input id="FC_toMobileTableSlider" type="range" value="80"
-                                                    min="50" max="80" step="0.01" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <style>
-                                        input[type="range"]#FC_fromMobileTableSlider::-webkit-slider-thumb,
-                                        input[type="range"]#FC_toMobileTableSlider::-webkit-slider-thumb {
-                                            -webkit-appearance: none;
-                                            pointer-events: all;
-                                            width: 16px;
-                                            height: 16px;
-                                            background-color: #fff;
-                                            border-radius: 100%;
-                                            border: 2px solid #733D80;
-                                            cursor: pointer;
-                                            position: relative;
-                                            z-index: 5;
-                                        }
-
-                                        input[type="range"]#FC_fromMobileTableSlider,
-                                        input[type="range"]#FC_toMobileTableSlider {
-                                            -webkit-appearance: none;
-                                            appearance: none;
-                                            height: 4px;
-                                            width: 100%;
-                                            position: absolute;
-                                            background-color: #c6c6c6;
-                                            pointer-events: all;
-                                            border-radius: 8px;
-                                        }
-
-                                        #FC_toMobileTableSlider {
-                                            height: 0;
-                                            z-index: 4;
-                                        }
-                                    </style>
-                                    <script>
-                                        function updateFC_MobileTableSliderColors() {
-                                            const fromValue = parseFloat(FC_fromMobileTableSlider.value);
-                                            const toValue = parseFloat(FC_toMobileTableSlider.value);
-                                            const range = FC_toMobileTableSlider.max - FC_toMobileTableSlider.min;
-
-                                            const percentFrom = ((fromValue - FC_toMobileTableSlider.min) / range) * 100;
-                                            const percentTo = ((toValue - FC_toMobileTableSlider.min) / range) * 100;
-
-                                            const gradient = `linear-gradient(to right,
-                                            #C6C6C6 0%,
-                                            #C6C6C6 ${percentFrom}%, 
-                                            #733D80 ${percentFrom}%, 
-                                            #733D80 ${percentTo}%, 
-                                            #C6C6C6 ${percentTo}%, 
-                                            #C6C6C6 100%)`;
-
-                                            FC_fromMobileTableSlider.style.background = gradient;
-                                            FC_toMobileTableSlider.style.background = gradient;
-                                        }
-
-                                        function syncFC_MobileTableFromInput() {
-                                            let value = Math.min(parseFloat(FC_fromMobileTableInput.value), parseFloat(FC_toMobileTableInput.value));
-                                            FC_fromMobileTableInput.value = value.toFixed(2);
-                                            FC_fromMobileTableSlider.value = value;
-                                            updateFC_MobileTableSliderColors();
-                                        }
-
-                                        function syncFC_MobileTableToInput() {
-                                            let value = Math.max(parseFloat(FC_toMobileTableInput.value), parseFloat(FC_fromMobileTableInput.value));
-                                            FC_toMobileTableInput.value = value.toFixed(2);
-                                            FC_toMobileTableSlider.value = value;
-                                            updateFC_MobileTableSliderColors();
-                                        }
-
-                                        function syncFC_MobileTableFromSlider() {
-                                            FC_fromMobileTableInput.value = parseFloat(FC_fromMobileTableSlider.value).toFixed(2);
-                                            updateFC_MobileTableSliderColors();
-                                        }
-
-                                        function syncFC_MobileTableToSlider() {
-                                            FC_toMobileTableInput.value = parseFloat(FC_toMobileTableSlider.value).toFixed(2);
-                                            updateFC_MobileTableSliderColors();
-                                        }
-
-                                        const FC_fromMobileTableSlider = document.querySelector("#FC_fromMobileTableSlider");
-                                        const FC_toMobileTableSlider = document.querySelector("#FC_toMobileTableSlider");
-                                        const FC_fromMobileTableInput = document.querySelector("#FC_fromMobileTableInput");
-                                        const FC_toMobileTableInput = document.querySelector("#FC_toMobileTableInput");
-
-                                        FC_fromMobileTableInput.addEventListener("input", syncFC_MobileTableFromInput);
-                                        FC_toMobileTableInput.addEventListener("input", syncFC_MobileTableToInput);
-                                        FC_fromMobileTableSlider.addEventListener("input", syncFC_MobileTableFromSlider);
-                                        FC_toMobileTableSlider.addEventListener("input", syncFC_MobileTableToSlider);
-
-                                        // Initialize slider colors
-                                        updateFC_MobileTableSliderColors();
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- End Mobile Table Dropdown -->
-                            <!-- Start Mobile Table Dropdown Script -->
-                            <script>
-                                const FC_mobileTableIcon = document.getElementById('FC_mobileTableDropdownIcon');
-                                const FC_mobileTableDropdown = document.getElementById('FC_mobileTableDropdown');
-                                const FC_mobileTableDownArrow = document.getElementById('FC_mobileTableDownArrow');
-                                const FC_mobileTableUpArrow = document.getElementById('FC_mobileTableUpArrow');
-
-                                FC_mobileTableIcon.addEventListener('click', () => {
-                                    FC_mobileTableDropdown.classList.toggle('hidden');
-                                    FC_mobileTableDownArrow.classList.toggle('hidden');
-                                    FC_mobileTableUpArrow.classList.toggle('hidden');
-                                });
-
-                                // Close dropdown when clicking outside
-                                document.addEventListener('click', (e) => {
-                                    if (!FC_mobileTableIcon.contains(e.target) && !FC_mobileTableDropdown.contains(e.target) && !
-                                        FC_fromMobileTableSlider.contains(e.target) && !FC_toMobileTableSlider.contains(e.target) && !
-                                        FC_fromMobileTableInput.contains(e.target) && !FC_toMobileTableInput.contains(e.target)) {
-                                        FC_mobileTableDropdown.classList.add('hidden');
-                                        FC_mobileTableDownArrow.classList.remove('hidden');
-                                        FC_mobileTableUpArrow.classList.add('hidden');
-                                    }
-                                });
-
-                                // Prevent dropdown from closing when clicking checkboxes
-                                const FC_mobileTableCheckboxes = FC_mobileTableDropdown.querySelectorAll('input[type="checkbox"]');
-                                FC_mobileTableCheckboxes.forEach(FC_mobileTableCheckbox => {
-                                    FC_mobileTableCheckbox.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                    });
-                                });
-                            </script>
-                            <!-- End Mobile Table Dropdown Script -->
-
-                            <!-- Start Mobile Depth Dropdown -->
-                            <div id="FC_mobileDepthDropdownIcon"
-                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">Depth
-                                    (%)</label>
-                                <!-- Down Arrow -->
-                                <svg id="FC_mobileDepthDownArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <!-- Up Arrow -->
-                                <svg id="FC_mobileDepthUpArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer hidden">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-
-                                <div id="FC_mobileDepthDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                    <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">Depth (%)</p>
-
-                                        <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <div class="flex items-center p-4">
-                                        <div class="w-full">
-                                            <div class="flex justify-between">
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="FC_fromMobileDepthInput" value="46.00"
-                                                        min="46.00" max="78.00" step="0.01" />
-                                                </div>
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="FC_toMobileDepthInput" value="78.00"
-                                                        min="46.00" max="78.00" step="0.01" />
-                                                </div>
-                                            </div>
-                                            <div class="relative min-h-7 flex items-center">
-                                                <input id="FC_fromMobileDepthSlider" type="range" value="46"
-                                                    min="46" max="78" step="0.01" />
-                                                <input id="FC_toMobileDepthSlider" type="range" value="78"
-                                                    min="46" max="78" step="0.01" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <style>
-                                        input[type="range"]#FC_fromMobileDepthSlider::-webkit-slider-thumb,
-                                        input[type="range"]#FC_toMobileDepthSlider::-webkit-slider-thumb {
-                                            -webkit-appearance: none;
-                                            pointer-events: all;
-                                            width: 16px;
-                                            height: 16px;
-                                            background-color: #fff;
-                                            border-radius: 100%;
-                                            border: 2px solid #733D80;
-                                            cursor: pointer;
-                                            position: relative;
-                                            z-index: 5;
-                                        }
-
-                                        input[type="range"]#FC_fromMobileDepthSlider,
-                                        input[type="range"]#FC_toMobileDepthSlider {
-                                            -webkit-appearance: none;
-                                            appearance: none;
-                                            height: 4px;
-                                            width: 100%;
-                                            position: absolute;
-                                            background-color: #c6c6c6;
-                                            pointer-events: all;
-                                            border-radius: 8px;
-                                        }
-
-                                        #FC_toMobileDepthSlider {
-                                            height: 0;
-                                            z-index: 4;
-                                        }
-                                    </style>
-                                    <script>
-                                        function updateFC_MobileDepthSliderColors() {
-                                            const fromValue = parseFloat(FC_fromMobileDepthSlider.value);
-                                            const toValue = parseFloat(FC_toMobileDepthSlider.value);
-                                            const range = FC_toMobileDepthSlider.max - FC_toMobileDepthSlider.min;
-
-                                            const percentFrom = ((fromValue - FC_toMobileDepthSlider.min) / range) * 100;
-                                            const percentTo = ((toValue - FC_toMobileDepthSlider.min) / range) * 100;
-
-                                            const gradient = `linear-gradient(to right,
-                                            #C6C6C6 0%,
-                                            #C6C6C6 ${percentFrom}%, 
-                                            #733D80 ${percentFrom}%, 
-                                            #733D80 ${percentTo}%, 
-                                            #C6C6C6 ${percentTo}%, 
-                                            #C6C6C6 100%)`;
-
-                                            FC_fromMobileDepthSlider.style.background = gradient;
-                                            FC_toMobileDepthSlider.style.background = gradient;
-                                        }
-
-                                        function syncFC_MobileDepthFromInput() {
-                                            let value = Math.min(parseFloat(FC_fromMobileDepthInput.value), parseFloat(FC_toMobileDepthInput.value));
-                                            FC_fromMobileDepthInput.value = value.toFixed(2);
-                                            FC_fromMobileDepthSlider.value = value;
-                                            updateFC_MobileDepthSliderColors();
-                                        }
-
-                                        function syncFC_MobileDepthToInput() {
-                                            let value = Math.max(parseFloat(FC_toMobileDepthInput.value), parseFloat(FC_fromMobileDepthInput.value));
-                                            FC_toMobileDepthInput.value = value.toFixed(2);
-                                            FC_toMobileDepthSlider.value = value;
-                                            updateFC_MobileDepthSliderColors();
-                                        }
-
-                                        function syncFC_MobileDepthFromSlider() {
-                                            FC_fromMobileDepthInput.value = parseFloat(FC_fromMobileDepthSlider.value).toFixed(2);
-                                            updateFC_MobileDepthSliderColors();
-                                        }
-
-                                        function syncFC_MobileDepthToSlider() {
-                                            FC_toMobileDepthInput.value = parseFloat(FC_toMobileDepthSlider.value).toFixed(2);
-                                            updateFC_MobileDepthSliderColors();
-                                        }
-
-                                        const FC_fromMobileDepthSlider = document.querySelector("#FC_fromMobileDepthSlider");
-                                        const FC_toMobileDepthSlider = document.querySelector("#FC_toMobileDepthSlider");
-                                        const FC_fromMobileDepthInput = document.querySelector("#FC_fromMobileDepthInput");
-                                        const FC_toMobileDepthInput = document.querySelector("#FC_toMobileDepthInput");
-
-                                        FC_fromMobileDepthInput.addEventListener("input", syncFC_MobileDepthFromInput);
-                                        FC_toMobileDepthInput.addEventListener("input", syncFC_MobileDepthToInput);
-                                        FC_fromMobileDepthSlider.addEventListener("input", syncFC_MobileDepthFromSlider);
-                                        FC_toMobileDepthSlider.addEventListener("input", syncFC_MobileDepthToSlider);
-
-                                        // Initialize slider colors
-                                        updateFC_MobileDepthSliderColors();
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- End Mobile Depth Dropdown -->
-                            <!-- Start Mobile Depth Dropdown Script -->
-                            <script>
-                                const FC_mobileDepthIcon = document.getElementById('FC_mobileDepthDropdownIcon');
-                                const FC_mobileDepthDropdown = document.getElementById('FC_mobileDepthDropdown');
-                                const FC_mobileDepthDownArrow = document.getElementById('FC_mobileDepthDownArrow');
-                                const FC_mobileDepthUpArrow = document.getElementById('FC_mobileDepthUpArrow');
-
-                                FC_mobileDepthIcon.addEventListener('click', () => {
-                                    FC_mobileDepthDropdown.classList.toggle('hidden');
-                                    FC_mobileDepthDownArrow.classList.toggle('hidden');
-                                    FC_mobileDepthUpArrow.classList.toggle('hidden');
-                                });
-
-                                // Close dropdown when clicking outside
-                                document.addEventListener('click', (e) => {
-                                    if (!FC_mobileDepthIcon.contains(e.target) && !FC_mobileDepthDropdown.contains(e.target)) {
-                                        FC_mobileDepthDropdown.classList.add('hidden');
-                                        FC_mobileDepthDownArrow.classList.remove('hidden');
-                                        FC_mobileDepthUpArrow.classList.add('hidden');
-                                    }
-                                });
-
-                                // Prevent dropdown from closing when clicking checkboxes
-                                const FC_mobileDepthCheckboxes = FC_mobileDepthDropdown.querySelectorAll('input[type="checkbox"]');
-                                FC_mobileDepthCheckboxes.forEach(FC_mobileDepthCheckbox => {
-                                    FC_mobileDepthCheckbox.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                    });
-                                });
-                            </script>
-                            <!-- End Mobile Depth Dropdown Script -->
-
-                            <!-- Start Mobile L/W Ratio Dropdown -->
-                            <div id="FC_mobileLwDropdownIcon"
-                                class="relative flex items-center border border-gray-300 rounded-full py-2 px-4 cursor-pointer">
-                                <label class="block text-xs text-gray-500 font-montserrat mr-3 cursor-pointer">L/W
-                                    Ratio</label>
-                                <!-- Down Arrow -->
-                                <svg id="FC_mobileLwDownArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035 c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287 l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <!-- Up Arrow -->
-                                <svg id="FC_mobileLwUpArrow" fill="#000000" height="8" width="8"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002"
-                                    xml:space="preserve" class="cursor-pointer hidden">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="XMLID_23_"
-                                            d="M0.845,230.036c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035 c2.109-6.011,0.19-12.699-4.784-16.678l-150.004-120c-2.739-2.191-6.055-3.287-9.37-3.287c-3.316,0-6.631,1.096-9.371,3.287 L0.845,213.358C-1.264,217.347,0.654,223.036,0.845,230.036z">
-                                        </path>
-                                    </g>
-                                </svg>
-
-                                <div id="FC_mobileLwDropdown"
-                                    class="hidden absolute top-full left-0 mt-1 w-80 bg-white border border-gray-300 rounded shadow-lg z-10">
-                                    <div class="flex justify-between">
-                                        <p class="text-sm font-montserrat font-semibold px-4 py-2">L/W Ratio</p>
-
-                                        <button class="p-2 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="flex items-center p-4">
-                                        <div class="w-full">
-                                            <div class="flex justify-between">
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="FC_mobileFromLWInput" value="1.00"
-                                                        min="1.00" max="2.75" step="0.01" />
-                                                </div>
-                                                <div>
-                                                    <input
-                                                        class="small-input px-1 py-1 text-xs border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary"
-                                                        type="number" id="FC_mobileToLWInput" value="2.75"
-                                                        min="1.00" max="2.75" step="0.01" />
-                                                </div>
-                                            </div>
-                                            <div class="relative min-h-7 flex items-center">
-                                                <input id="FC_mobileFromLWSlider" type="range" value="1"
-                                                    min="1" max="2.75" step="0.01" />
-                                                <input id="FC_mobileToLWSlider" type="range" value="2.75"
-                                                    min="1" max="2.75" step="0.01" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <style>
-                                        input[type="range"]#FC_mobileFromLWSlider::-webkit-slider-thumb,
-                                        input[type="range"]#FC_mobileToLWSlider::-webkit-slider-thumb {
-                                            -webkit-appearance: none;
-                                            pointer-events: all;
-                                            width: 16px;
-                                            height: 16px;
-                                            background-color: #fff;
-                                            border-radius: 100%;
-                                            border: 2px solid #733D80;
-                                            cursor: pointer;
-                                            position: relative;
-                                            z-index: 5;
-                                        }
-
-                                        input[type="range"]#FC_mobileFromLWSlider,
-                                        input[type="range"]#FC_mobileToLWSlider {
-                                            -webkit-appearance: none;
-                                            appearance: none;
-                                            height: 4px;
-                                            width: 100%;
-                                            position: absolute;
-                                            background-color: #c6c6c6;
-                                            pointer-events: all;
-                                            border-radius: 8px;
-                                        }
-
-                                        #FC_mobileToLWSlider {
-                                            height: 0;
-                                            z-index: 4;
-                                        }
-                                    </style>
-                                    <script>
-                                        function updateFC_MobileLWSliderColors() {
-                                            const fromValue = parseFloat(FC_mobileFromLWSlider.value);
-                                            const toValue = parseFloat(FC_mobileToLWSlider.value);
-                                            const range = FC_mobileToLWSlider.max - FC_mobileToLWSlider.min;
-
-                                            const percentFrom = ((fromValue - FC_mobileToLWSlider.min) / range) * 100;
-                                            const percentTo = ((toValue - FC_mobileToLWSlider.min) / range) * 100;
-
-                                            const gradient = `linear-gradient(to right,
-                                            #C6C6C6 0%,
-                                            #C6C6C6 ${percentFrom}%, 
-                                            #733D80 ${percentFrom}%, 
-                                            #733D80 ${percentTo}%, 
-                                            #C6C6C6 ${percentTo}%, 
-                                            #C6C6C6 100%)`;
-
-                                            FC_mobileFromLWSlider.style.background = gradient;
-                                            FC_mobileToLWSlider.style.background = gradient;
-                                        }
-
-                                        function syncFC_MobileLWFromInput() {
-                                            let value = Math.min(parseFloat(FC_mobileFromLWInput.value), parseFloat(FC_mobileToLWInput.value));
-                                            FC_mobileFromLWInput.value = value.toFixed(2);
-                                            FC_mobileFromLWSlider.value = value;
-                                            updateFC_MobileLWSliderColors();
-                                        }
-
-                                        function syncFC_MobileLWToInput() {
-                                            let value = Math.max(parseFloat(FC_mobileToLWInput.value), parseFloat(FC_mobileFromLWInput.value));
-                                            FC_mobileToLWInput.value = value.toFixed(2);
-                                            FC_mobileToLWSlider.value = value;
-                                            updateFC_MobileLWSliderColors();
-                                        }
-
-                                        function syncFC_MobileLWFromSlider() {
-                                            FC_mobileFromLWInput.value = parseFloat(FC_mobileFromLWSlider.value).toFixed(2);
-                                            updateFC_MobileLWSliderColors();
-                                        }
-
-                                        function syncFC_MobileLWToSlider() {
-                                            FC_mobileToLWInput.value = parseFloat(FC_mobileToLWSlider.value).toFixed(2);
-                                            updateFC_MobileLWSliderColors();
-                                        }
-
-                                        const FC_mobileFromLWSlider = document.querySelector("#FC_mobileFromLWSlider");
-                                        const FC_mobileToLWSlider = document.querySelector("#FC_mobileToLWSlider");
-                                        const FC_mobileFromLWInput = document.querySelector("#FC_mobileFromLWInput");
-                                        const FC_mobileToLWInput = document.querySelector("#FC_mobileToLWInput");
-
-                                        FC_mobileFromLWInput.addEventListener("input", syncFC_MobileLWFromInput);
-                                        FC_mobileToLWInput.addEventListener("input", syncFC_MobileLWToInput);
-                                        FC_mobileFromLWSlider.addEventListener("input", syncFC_MobileLWFromSlider);
-                                        FC_mobileToLWSlider.addEventListener("input", syncFC_MobileLWToSlider);
-
-                                        // Initialize slider colors
-                                        updateFC_MobileLWSliderColors();
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- End L/W Ratio Dropdown -->
-                            <!-- Start L/W Ratio Dropdown Script -->
-                            <script>
-                                const FC_mobileLwIcon = document.getElementById('FC_mobileLwDropdownIcon');
-                                const FC_mobileLwDropdown = document.getElementById('FC_mobileLwDropdown');
-                                const FC_mobileLwDownArrow = document.getElementById('FC_mobileLwDownArrow');
-                                const FC_mobileLwUpArrow = document.getElementById('FC_mobileLwUpArrow');
-
-                                FC_mobileLwIcon.addEventListener('click', () => {
-                                    FC_mobileLwDropdown.classList.toggle('hidden');
-                                    FC_mobileLwDownArrow.classList.toggle('hidden');
-                                    FC_mobileLwUpArrow.classList.toggle('hidden');
-                                });
-
-                                // Close dropdown when clicking outside
-                                document.addEventListener('click', (e) => {
-                                    if (!FC_mobileLwIcon.contains(e.target) && !FC_mobileLwDropdown.contains(e.target)) {
-                                        FC_mobileLwDropdown.classList.add('hidden');
-                                        FC_mobileLwDownArrow.classList.remove('hidden');
-                                        FC_mobileLwUpArrow.classList.add('hidden');
-                                    }
-                                });
-
-                                // Prevent dropdown from closing when clicking checkboxes
-                                const FC_mobileLwCheckboxes = FC_mobileLwDropdown.querySelectorAll('input[type="checkbox"]');
-                                FC_mobileLwCheckboxes.forEach(FC_mobileLwCheckbox => {
-                                    FC_mobileLwCheckbox.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                    });
-                                });
-                            </script>
-                            <!-- End L/W Ratio Dropdown Script -->
                         </div>
                     </div>
                 </div>
