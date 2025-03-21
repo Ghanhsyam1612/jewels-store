@@ -1,6 +1,6 @@
 <?php
 
-use App\Filament\Resources\CustomerResource;
+
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ADMIN\ADMINSubscriptionPlanController;
