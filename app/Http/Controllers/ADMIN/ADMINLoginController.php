@@ -13,7 +13,7 @@ class ADMINLoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('ADMIN.login');
+        return view('admin.login');
     }
 
     public function login(Request $request)
