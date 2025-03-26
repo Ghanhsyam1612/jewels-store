@@ -5,10 +5,10 @@
     <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
         class="flex items-center gap-2 pt-8 sidebar-header pb-7">
         <a href="/admin/dashboard">
-            <span class="logo flex justify-center" :class="sidebarToggle ? 'hidden' : ''">
-                {{-- <img class="dark:hidden" src="{{ asset('/images/roaya-logo.png') }}" width="70"   class="w-10 h-10" alt="Logo" />
-                <img class="hidden dark:block" src="src/images/logo/logo-dark.svg" alt="Logo" /> --}}
-                ROAYA DIAMOND
+            <span class="logo flex items-center gap-2" :class="sidebarToggle ? 'hidden' : ''">
+                <img class="dark:hidden w-10 h-10" src="{{ asset('/images/roaya-logo.png') }}" alt="Logo" />
+                <img class="hidden dark:block w-10 h-10" src="src/images/logo/logo-dark.svg" alt="Logo" />
+                <span class="text-lg font-semibold">Roaya Diamond</span>
             </span>
 
             <img class="logo-icon" :class="sidebarToggle ? 'lg:block' : 'hidden'" src="src/images/logo/logo-icon.svg"
@@ -122,7 +122,8 @@
                 <!-- End Cutomers -->
                 <!-- Start Subscription Plan -->
                 <li>
-                    <a href=" {{ route('admin.subscription.plan') }} " class="menu-item group px-4 py-2 rounded-lg transition-all duration-300"
+                    <a href=" {{ route('admin.subscription.plan') }} "
+                        class="menu-item group px-4 py-2 rounded-lg transition-all duration-300"
                         :class="(selected === 'Plan') ? 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white' :
                         'bg-transparent text-gray-600 dark:text-gray-300'"
                         @click="selected = 'Plan'">

@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\ADMIN\ADMINLoginController;
 use App\Http\Controllers\ADMIN\ADMINSubscriptionPlanController;
 use App\Http\Controllers\ADMIN\CustomerController as ADMINCustomerController;
 use App\Http\Controllers\ADMIN\DashboardController;
@@ -15,11 +16,16 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NaturalDiamondController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\WishlistController;
 use App\Models\ColorDiamond;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SUBSCRIPTION\SubscriptionController;
 use App\Http\Controllers\SUBSCRIPTION\StripeWebhookController;
+use Illuminate\Support\Facades\Auth;
+
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/password-reset', function () {
@@ -27,9 +33,33 @@ Route::get('/password-reset', function () {
 });
 
 // -------------------------------- Start Admin Routes --------------------------------
-Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+Route::get('/admin', [ADMINLoginController::class, 'showLoginForm'])->name('login');
+Route::post('/admin', [ADMINLoginController::class, 'login'])->name('admin.login');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth:web');
+Route::post('admin/profile/update', [ADMINLoginController::class, 'update'])->name('admin.profile')->middleware('auth:web');
 
-Route::get('/admin/order', [OrderController::class, 'index']);
+// Logout route
+Route::post('/admin/logout', function () {
+    Auth::logout();
+    return redirect('/admin')->with('toast', [
+        'type' => 'success',
+        'message' => 'Logged out successfully!',
+    ]);
+})->name('admin.logout');
+
+Route::get('/admin/order', [OrderController::class, 'index'])->name('admin.order');
+Route::get('/admin/order/{order}/view', [OrderController::class, 'show'])->name('admin.order.view');
+Route::post('/admin/order/{order}/update-status', [OrderController::class, 'updateStatus'])->name('admin.order.update-status');
+
+// Route::get('/admin/order/{id}/edit', [OrderController::class, 'edit'])->name('admin.order.edit');
+// Route::put('/admin/order/{id}/update', [OrderController::class, 'update'])->name('admin.order.update');
+// Route::delete('/admin/order/{id}/delete', [OrderController::class, 'destroy'])->name('admin.order.delete');
+Route::get('/admin/order/{order}/invoice', [OrderController::class, 'printInvoice'])->name('admin.order.invoice');
+
+// Route::get('/admin/account', [AccountController::class, 'index'])->name('admin.account');
+// Route::get('/admin/account/{id}/view', [AccountController::class,'show'])->name('admin.account.view');
+// Route::get('/admin/account/{id}/edit', [AccountController::class, 'edit'])->name('admin.account.edit');
+// Route::put('/admin/account/{id}/update', [AccountController::class, 'update'])->name('admin.account.update');
 
 Route::get('admin/subscription/plan', [ADMINSubscriptionPlanController::class, 'index'])->name('admin.subscription.plan');
 Route::get('admin/subscription/plan/create', [ADMINSubscriptionPlanController::class, 'create'])->name('admin.subscription.plan.create');
@@ -402,8 +432,14 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::get('/subscription/manage', [SubscriptionController::class, 'manage'])->name('subscription.manage');
     Route::post('/subscription/cancel-subscription', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.cancel-subscription');
     Route::post('/subscription/resume-subscription', [SubscriptionController::class, 'resumeSubscription'])->name('subscription.resume-subscription');
+
+   
 });
+
 // -------------------------------- End Authenticated Routes ---------------------------------------------
+
+Route::get('/notifications', [NotificationController::class, 'getNotifications'])->name('notifications.get');
+Route::post('/notifications/mark-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-read');
 
 // -------------------------------- Stripe Webhook Routes ---------------------------------------------
 Route::post('/webhook/stripe', [StripeWebhookController::class, 'handleWebhook'])->name('webhook.stripe');

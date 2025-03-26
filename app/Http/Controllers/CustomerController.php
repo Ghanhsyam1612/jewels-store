@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;
 use App\Jobs\PasswordResetJob;
 use App\Jobs\PasswordResetSuccessfullyJob;
+use App\Notifications\NewCustomerNotification;
 
 use App\Jobs\WelcomeEmailJob;
 
@@ -48,6 +49,9 @@ class CustomerController extends Controller
 
             DB::commit();
 
+            // Dispatch the NewCustomerNotification job to store the notification
+            // \App\Jobs\NewCustomerNotificationJob::dispatch($customer);
+            (new \App\Notifications\NewCustomerNotification($customer))->handle();
             // Send the welcome email
             WelcomeEmailJob::dispatch($customer);
 

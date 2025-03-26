@@ -168,6 +168,7 @@ class CheckoutController extends Controller
                 // Associate with the diamond and order
                 $orderItem->diamond()->associate($diamond);
                 $order->items()->save($orderItem);
+                
             }
 
             // Process payment based on payment method
@@ -208,8 +209,10 @@ class CheckoutController extends Controller
                     'success' => true,
                     'redirect' => route('checkout.success')
                 ]);
-            }
+            }   
+            
 
+            // Redirect to success page
             return redirect()->route('checkout.success');
         } catch (\Exception $e) {
             DB::rollBack();

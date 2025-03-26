@@ -16,6 +16,10 @@
     <!-- ApexCharts Library -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+    <!-- AlpineJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 </head>
 
 <body x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -39,8 +43,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             @include('admin.layout.header')
             <main>
-            @yield('content')
-            <main>
+                @yield('content')
+                <main>
         </div>
         <!-- ===== Content Area End ===== -->
     </div>

@@ -29,7 +29,7 @@ class Order extends Model
         'billing_address' => 'array',
     ];
 
-    
+
 
 
     public function customer()
@@ -37,10 +37,10 @@ class Order extends Model
         return $this->belongsTo(Customer::class);
     }
 
-        public function items()
-        {
-            return $this->hasMany(OrderItem::class);
-        }
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 
     public function payments()
     {
@@ -61,7 +61,7 @@ class Order extends Model
     {
         return $count > 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down';
     }
-    
+
 
     public function getFullNameAttribute()
     {
@@ -70,5 +70,4 @@ class Order extends Model
         }
         return 'Guest';
     }
-
 }
