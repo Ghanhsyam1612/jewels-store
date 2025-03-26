@@ -12,6 +12,7 @@
     <link rel="icon" href="favicon.ico">
     <link href="/css/style.css" rel="stylesheet">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- ApexCharts Library -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

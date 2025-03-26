@@ -1,6 +1,6 @@
 <footer class="bg-primary text-gold py-8">
     <div class="container mx-auto px-4 lg:px-6 xl:px-24 2xl:px-36">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8">
             <!-- Connect With Us -->
             <div>
                 <h3 class="md:text-xs lg:text-lg text-gold font-montserrat font-semibold mb-4"
@@ -137,7 +137,7 @@
             </div>
 
             {{-- Google Translate --}}
-            <div id="google_translate_element">Google Translate</div>
+            <div id="google_translate_element" class="w-full">Google Translate</div>
             <script type="text/javascript">
                 function googleTranslateElementInit() {
                     new google.translate.TranslateElement({

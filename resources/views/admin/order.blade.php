@@ -87,7 +87,7 @@
             <!-- Tabs -->
             <div class="border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
                 <nav class="flex justify-center -mb-px space-x-2 p-2">
-                    @foreach (['all' => 'All', 'pending' => 'Pending', 'processing' => 'Processing', 'shipped' => 'Shipped', 'completed' => 'Ccompleted', 'cancelled' => 'Cancelled'] as $tab => $label)
+                    @foreach (['all' => 'All', 'pending' => 'Pending', 'processing' => 'Processing', 'shipped' => 'Shipped', 'completed' => 'Completed', 'cancelled' => 'Cancelled'] as $tab => $label)
                         <a href="{{ route('admin.order', ['shipping_status' => $tab]) }}"
                             class="inline-block px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 
                                 {{ request('shipping_status', 'all') === $tab ? 'bg-black text-white' : 'bg-white text-gray-600 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600' }} 
@@ -110,7 +110,7 @@
 
                     <!-- Sort Dropdown -->
                     <select name="sort"
-                        class="p-2.5 border border-gray-300 rounded-lg text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        class="p-2.5 border border-gray-300 rounded-lg text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white appearance-none pr-8">
                         <option value="order_date" {{ request('sort') === 'order_date' ? 'selected' : '' }}>Order Date
                         </option>
                         <option value="order_number" {{ request('sort') === 'order_number' ? 'selected' : '' }}>Order
@@ -120,23 +120,21 @@
                     </select>
 
                     <!-- Direction Dropdown -->
-                    <select name="direction"
-                        class="p-2.5 border border-gray-300 rounded-lg text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <option value="asc" {{ request('direction', 'desc') === 'asc' ? 'selected' : '' }}>Ascending
-                        </option>
-                        <option value="desc" {{ request('direction', 'desc') === 'desc' ? 'selected' : '' }}>Descending
-                        </option>
+                    <select name="direction" 
+                        class="p-2.5 border border-gray-300 rounded-lg text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white appearance-none pr-8">
+                        <option value="asc" {{ request('direction', 'desc') === 'asc' ? 'selected' : '' }}>Ascending</option>
+                        <option value="desc" {{ request('direction', 'desc') === 'desc' ? 'selected' : '' }}>Descending</option>
                     </select>
 
                     <!-- Filter Button -->
                     <button type="submit"
-                        class="p-2.5 bg-white border border-gray-300 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors duration-200">
+                        class="p-2.5 bg-black text-white border border-gray-300 rounded-lg text-sm font-medium transition-colors duration-200">
                         Filter
                     </button>
 
                     <!-- Clear Filters Button  -->
                     <button type="button" onclick="clearFilters()"
-                        class="p-2.5 bg-gray-500 text-white rounded-lg text-sm font-medium hover:bg-gray-600 transition-colors duration-200">
+                        class="p-2.5 bg-black text-white rounded-lg text-sm font-medium  transition-colors duration-200">
                         Clear Filters
                     </button>
                 </form>
@@ -163,8 +161,8 @@
                                         {{ $order->customer->first_name }}
                                     </td>
                                     <td
-                                        class="col-span-1 flex justify-center items-center border-r border-gray-100 px-4 py-3 dark:border-gray-800">
-                                        <p class="flex justify-center items-center gap-1 rounded-full px-4 py-1 text-xs font-medium"
+                                        class="col-span-1 flex justify-start items-center border-gray-100 p-4 ">
+                                        <p class="flex items-center gap-1 rounded-full py-1 text-xs font-medium"
                                             :class="{
                                                 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-500': '{{ $order->shipping_status }}'
                                                 === 'Pending',
@@ -192,7 +190,7 @@
                                                 @csrf
                                                 <input type="hidden" name="status" value="Cancelled">
                                                 <button type="submit"
-                                                    class="text-red-600 hover:text-red-800 text-xs font-medium"
+                                                    class="!text-red-600 text-sm font-medium"
                                                     title="Cancel">
                                                     Cancel
                                                 </button>
@@ -205,7 +203,7 @@
                                                 @csrf
                                                 <input type="hidden" name="status" value="Processing">
                                                 <button type="submit"
-                                                    class="text-green-600 hover:text-green-800 text-xs font-medium"
+                                                    class="!text-green-600 text-sm font-medium"
                                                     title="Accept">
                                                     Accept
                                                 </button>
@@ -213,7 +211,7 @@
 
                                             <!-- Details Button -->
                                             <a href="{{ route('admin.order.view', ['order' => $order->id]) }}"
-                                                class="text-blue-600 hover:text-blue-800 text-xs font-medium"
+                                                class="!text-blue-600 text-sm font-medium"
                                                 title="Details">
                                                 Details
                                             </a>

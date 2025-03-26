@@ -3,18 +3,16 @@
     @click.outside="sidebarToggle = false">
     <!-- SIDEBAR HEADER -->
     <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-        class="flex items-center gap-2 pt-8 sidebar-header pb-7">
+        class="flex items-center gap-2 pt-8 pb-7">
         <a href="/admin/dashboard">
-            <span class="logo flex items-center gap-2" :class="sidebarToggle ? 'hidden' : ''">
+            <span class="flex items-center gap-2" >
                 <img class="dark:hidden w-10 h-10" src="{{ asset('/images/roaya-logo.png') }}" alt="Logo" />
                 <img class="hidden dark:block w-10 h-10" src="src/images/logo/logo-dark.svg" alt="Logo" />
                 <span class="text-lg font-semibold">Roaya Diamond</span>
             </span>
-
-            <img class="logo-icon" :class="sidebarToggle ? 'lg:block' : 'hidden'" src="src/images/logo/logo-icon.svg"
-                alt="Logo" />
         </a>
     </div>
+
     <!-- SIDEBAR HEADER -->
 
     <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
@@ -127,10 +125,21 @@
                         :class="(selected === 'Plan') ? 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white' :
                         'bg-transparent text-gray-600 dark:text-gray-300'"
                         @click="selected = 'Plan'">
-                        Subacription-Plan
+                        Subacription Plan
                     </a>
                 </li>
                 <!-- End Subscription Plan -->
+                <!-- Start Membership -->
+                <li>
+                    <a href=" {{ route('admin.membership.index') }} "
+                        class="menu-item group px-4 py-2 rounded-lg transition-all duration-300"
+                        :class="(selected === 'Membership') ? 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white' :
+                        'bg-transparent text-gray-600 dark:text-gray-300'"
+                        @click="selected = 'Membership'">
+                        Membership
+                    </a>
+                </li>
+                <!-- End Membership -->
             </ul>
         </nav>
 

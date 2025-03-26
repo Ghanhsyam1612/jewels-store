@@ -16,23 +16,23 @@
                     </div>
                 </div>
 
-                <div class="flex space-x-3 mt-4 md:mt-0">
-                    <button class="btn btn-outline-secondary flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                <div class="flex flex-row gap-5 space-x-3 mt-4 md:mt-0">
+                    <button class="flex items-center px-6 py-2.5 bg-white text-gray-700 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-600" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
-                        Export
+                        <span class="font-semibold">Export</span>
                     </button>
                     <button onclick="window.location.href='{{ route('admin.order.invoice', ['order' => $order->id]) }}'"
-                        class="btn btn-outline-primary flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                        class="flex items-center px-6 py-2.5 bg-white text-blue-600 border border-blue-500 rounded-lg shadow-sm hover:bg-blue-50 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H5a2 2 0 00-2 2v4h18z" />
                         </svg>
-                        Print Invoice
+                        <span class="font-semibold">Print Invoice</span>
                     </button>
                 </div>
             </div>
@@ -63,8 +63,8 @@
                                 </svg>
                                 <span>{{ $order->customer->phone ?? 'No phone number' }}</span>
                             </div>
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none"
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-gray-500" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -160,66 +160,68 @@
 
         <!-- Product Details -->
         <div class="bg-white shadow-md rounded-lg">
-            <div class="p-6 border-b">
-                <h3 class="text-lg font-semibold text-gray-800">Order Items ({{ $order->items->count() }})</h3>
+            <div class="p-6 border-b bg-gray-50">
+                <h3 class="text-xl font-bold text-gray-800">Order Items ({{ $order->items->count() }})</h3>
             </div>
-            <div class="overflow-x-auto">
-                <table class="w-full">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="p-4 text-left">Product</th>
-                            <th class="p-4">Specs</th>
-                            <th class="p-4">Quantity</th>
-                            <th class="p-4">Unit Price</th>
-                            <th class="p-4">Total</th>
+            <div class="overflow-x-auto p-4">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100 border-b-2 border-gray-200">
+                            <th class="p-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">Product</th>
+                            <th class="p-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">Specs</th>
+                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Quantity</th>
+                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Unit Price</th>
+                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Total</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="divide-y divide-gray-200">
                         @forelse($order->items as $item)
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 flex items-center">
-                                    @if (isset($item->diamond->image_link) && !empty($item->diamond->image_link))
-                                        <img src="{{ str_replace('"', '', $item->diamond->image_link) }}" alt="Diamond"
-                                            class="w-16 h-16 object-cover rounded mr-4">
-                                    @endif
-                                    <div>
-                                        <div class="font-medium">{{ $item->diamond->name }}</div>
-                                        <div class="text-sm text-gray-500">{{ $item->diamond->sku ?? 'No SKU' }}</div>
+                            <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                <td class="p-4">
+                                    <div class="flex items-center space-x-4">
+                                        @if (isset($item->diamond->image_link) && !empty($item->diamond->image_link))
+                                            <img src="{{ str_replace('"', '', $item->diamond->image_link) }}" alt="Diamond"
+                                                class="w-16 h-16 object-cover rounded-lg shadow-sm">
+                                        @endif
+                                        <div>
+                                            <div class="font-semibold text-gray-800">{{ $item->diamond->name }}</div>
+                                            <div class="text-sm text-gray-500">{{ $item->diamond->sku ?? 'No SKU' }}</div>
+                                        </div>
                                     </div>
                                 </td>
-                                <td class="p-4 text-center">
+                                <td class="p-4">
                                     @if ($item->diamond)
-                                        <div class="text-left">
-                                            <p><span class="font-medium">Shape:</span>
-                                                {{ $item->diamond->shape ?? 'N/A' }}</p>
-                                            <p><span class="font-medium">Carat:</span>
-                                                {{ $item->diamond->carat ?? 'N/A' }}</p>
-                                            <p><span class="font-medium">Color:</span>
-                                                {{ $item->diamond->color ?? 'N/A' }}</p>
-                                            <p><span class="font-medium">Clarity:</span>
-                                                {{ $item->diamond->clarity ?? 'N/A' }}</p>
-                                            <p><span class="font-medium">Cut:</span> {{ $item->diamond->cut ?? 'N/A' }}
-                                            </p>
-                                            <p><span class="font-medium">Lab:</span> {{ $item->diamond->lab ?? 'N/A' }}
-                                            </p>
-                                            <p><span class="font-medium">Certificate:</span>
-                                                {{ $item->diamond->certificate_number ?? 'N/A' }}</p>
+                                        <div class="grid grid-cols-2 gap-2 text-sm">
+                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Shape:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->shape ?? 'N/A' }}</span></p>
+                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Carat:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->carat ?? 'N/A' }}</span></p>
+                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Color:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->color ?? 'N/A' }}</span></p>
+                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Clarity:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->clarity ?? 'N/A' }}</span></p>
+                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Cut:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->cut ?? 'N/A' }}</span></p>
+                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Lab:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->lab ?? 'N/A' }}</span></p>
+                                            <p class="col-span-2 flex items-center"><span class="font-medium text-gray-700 mr-2">Certificate:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->certificate_number ?? 'N/A' }}</span></p>
                                         </div>
                                     @else
                                         <span class="text-gray-500">No Diamond</span>
                                     @endif
                                 </td>
-                                <td class="p-4 text-center">{{ $item->quantity }}</td>
-                                <td class="p-4 text-center">${{ number_format($item->diamond->original_price ?? 0, 2) }}
+                                <td class="p-4 text-center font-medium text-gray-700">{{ $item->quantity }}</td>
+                                <td class="p-4 text-center font-medium text-gray-700">
+                                    ${{ number_format($item->diamond->original_price ?? 0, 2) }}
                                 </td>
-                                <td class="p-4 text-center">
+                                <td class="p-4 text-center font-semibold text-gray-800">
                                     ${{ number_format($item->quantity * $item->diamond->original_price ?? 0, 2) }}
                                 </td>
-
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="p-4 text-center text-gray-500">No items in this order</td>
+                                <td colspan="5" class="p-8 text-center text-gray-500 text-lg">No items in this order</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -256,19 +258,3 @@
         </div>
     </div>
 @endsection
-
-@push('styles')
-    <style>
-        .btn {
-            @apply px-4 py-2 rounded-md flex items-center border transition-colors;
-        }
-
-        .btn-outline-secondary {
-            @apply border-gray-300 text-gray-700 hover:bg-gray-100;
-        }
-
-        .btn-outline-primary {
-            @apply border-blue-500 text-blue-700 hover:bg-blue-50;
-        }
-    </style>
-@endpush

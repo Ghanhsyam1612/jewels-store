@@ -5,6 +5,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ADMIN\ADMINLoginController;
 use App\Http\Controllers\ADMIN\ADMINSubscriptionPlanController;
+use App\Http\Controllers\ADMIN\MembershipController;
 use App\Http\Controllers\ADMIN\CustomerController as ADMINCustomerController;
 use App\Http\Controllers\ADMIN\DashboardController;
 use App\Http\Controllers\ADMIN\OrderController;
@@ -68,6 +69,8 @@ Route::get('admin/subscription/plan/{id}/view', [ADMINSubscriptionPlanController
 Route::get('admin/subscription/plan/{id}/edit', [ADMINSubscriptionPlanController::class, 'edit'])->name('admin.subscription.plan.edit');
 Route::put('admin/subscription/plan/{id}/update', [ADMINSubscriptionPlanController::class, 'update'])->name('admin.subscription.plan.update');
 Route::delete('admin/subscription/plan/{id}/delete', [ADMINSubscriptionPlanController::class, 'destroy'])->name('admin.subscription.plan.delete');
+
+Route::get('admin/membership', [MembershipController::class, 'index'])->name('admin.membership.index');
 
 
 // Route::get('/admin/customers', [ADMINCustomerController::class , 'index']);
