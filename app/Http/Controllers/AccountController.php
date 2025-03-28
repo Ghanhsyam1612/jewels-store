@@ -84,7 +84,7 @@ class AccountController extends Controller
         
         return view('account.my-subscription', [
             'customer' => $customer,
-            'subscriptions' => $subscription,
+            'subscription' => $subscription,
         ]);
     }
 }
