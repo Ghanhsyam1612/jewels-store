@@ -100,11 +100,6 @@ Route::get('/admin/precious-stone-diamonds', function () {
 
 
 // -------------------------------- Diamond Lab Routes --------------------------------------------------
-Route::get('/calibrated', function () {
-    return view('lab-diamonds.calibrated');
-})->name('calibrated');
-
-
 Route::get('/fancy-shapes-diamonds', function () {
     return view('lab-diamonds.fancy-shapes-diamonds');
 })->name('fancy-shapes-diamonds');

@@ -13,7 +13,7 @@
                         fill="#0F0F0F"></path>
                 </g>
             </svg>
-            <span class="text-dark-blue text-xs">Calibrated Diamond</span>
+           
         </nav>
 
         <div class="flex flex-col lg:flex-row md:gap-5 px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 xl:py-6 2xl:py-0">
