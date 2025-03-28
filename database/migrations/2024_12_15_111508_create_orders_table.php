@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->string('order_number')->unique();
             $table->dateTime('order_date')->nullable();
-            $table->enum('shipping_status', ['pending', 'processing', 'shipped', 'completed', 'cancelled'])->default('pending');
+            $table->enum('shipping_status', ['pending', 'processing', 'shipped', 'completed', 'cancelled' , 'ready_to_ship', 'schedule_pickup'])->default('pending');
             $table->decimal('shipping_cost', 10, 2)->default(0);
             $table->decimal('tax_amount', 10, 2)->default(0);   
             $table->decimal('total_amount', 10, 2);
@@ -25,8 +25,11 @@ return new class extends Migration
             $table->json('shipping_address')->nullable();
             $table->json('billing_address')->nullable();
             $table->string('tracking_number')->nullable();
+            $table->string('shipping_label_url')->nullable();
+            $table->string('carrier')->nullable();
             $table->string('coupon_code')->nullable();
             $table->string('notes')->nullable();
+            $table->dateTime('pickup_date')->nullable();
             $table->timestamps();
         });
     }

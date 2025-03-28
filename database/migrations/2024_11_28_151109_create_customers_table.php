@@ -20,6 +20,10 @@ return new class extends Migration
             $table->boolean('is_email_verified')->default(false);
             $table->string('phone')->nullable();
             $table->string('password')->nullable();
+            $table->string('stripe_customer_id')->nullable();
+            $table->string('subscription_status')->nullable();
+            $table->string('subscription_plan')->nullable();
+            $table->boolean('is_member')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

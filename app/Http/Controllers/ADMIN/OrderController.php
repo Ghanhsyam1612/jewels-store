@@ -4,12 +4,19 @@ namespace App\Http\Controllers\ADMIN;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Services\DHLShippingService;
 use Barryvdh\DomPDF\Facade\Pdf;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
+    protected $dhlService;
+
+    public function __construct(DHLShippingService $dhlService)
+    {
+        $this->dhlService = $dhlService;
+    }
     public function index(Request $request)
     {
         $query = Order::query();
@@ -36,7 +43,7 @@ class OrderController extends Controller
 
         // Analytics
         $totalOrders = Order::count();
-        $totalProcessOrder = Order::whereIn('shipping_status', ['pending', 'processing', 'shipped' , 'completed'])->count();
+        $totalProcessOrder = Order::whereIn('shipping_status', ['pending', 'processing', 'shipped', 'completed'])->count();
         $totalCompleteOrder = Order::where('shipping_status', 'completed')->count();
         $averagePrice = Order::avg('total_amount');
 
@@ -54,17 +61,30 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
-        $order->load([
-            'items.diamond', 
-            'payments'
-        ]);
-      
-        return view('admin.order-details', compact('order'));
+        $order->load(['items.diamond', 'payments']);
+        $trackingInfo = $order->tracking_number ? $this->dhlService->getShipmentStatus($order->tracking_number) : null;
+
+        return view('admin.order-details', compact('order', 'trackingInfo'));
     }
 
     public function updateStatus(Request $request, Order $order)
     {
-        $order->shipping_status = $request->input('status');
+        $status = $request->input('status');
+        $order->shipping_status = $status;
+
+        if ($status === 'Processing') {
+            try {
+                $shipmentResult = $this->dhlService->createShipment($order);
+                $order->save();
+                return redirect()->back()->with('success', 'Order status updated and DHL shipment scheduled.');
+            } catch (\Exception $e) {
+                Log::error('Failed to create DHL shipment: ' . $e->getMessage());
+                return redirect()->back()->with('error', 'Failed to create DHL shipment. Please try again.');
+            }
+        dd($shipmentResult);
+
+        }
+        dd('not ok');
         $order->save();
         return redirect()->back()->with('success', 'Order status updated successfully.');
     }
@@ -72,14 +92,12 @@ class OrderController extends Controller
     public function printInvoice(Order $order)
     {
         $order->load([
-            'items.diamond', 
+            'items.diamond',
             'payments'
         ]);
-        
+
         // Generate the PDF
         $pdf = Pdf::loadView('admin.invoice-pdf', compact('order'));
         return $pdf->download('invoice-order-' . $order->order_number . '.pdf');
     }
-
-
 }

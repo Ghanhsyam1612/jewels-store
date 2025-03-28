@@ -23,28 +23,33 @@
                             <td class="px-4 py-2">{{ $order->order_number }}</td>
                             <td class="px-4 py-2">{{ $order->order_date->format('Y-m-d') }}</td>
                             <td class="px-4 py-2">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                    {{ $order->shipping_status instanceof \App\Enums\OrderStatus 
-                                        ? $order->shipping_status->getColorClasses() 
-                                        : match($order->shipping_status) {
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                    {{ $order->shipping_status instanceof \App\Enums\OrderStatus
+                                        ? $order->shipping_status->getColorClasses()
+                                        : match ($order->shipping_status) {
                                             'pending' => 'bg-yellow-100 text-yellow-800',
                                             'processing' => 'bg-blue-100 text-blue-800',
-                                            'shipped', 'completed' => 'bg-green-100 text-green-800', 
+                                            'shipped', 'completed' => 'bg-green-100 text-green-800',
                                             'cancelled' => 'bg-red-100 text-red-800',
-                                            default => 'bg-gray-100 text-gray-800'
-                                        }
-                                    }}">
-                                    {{ ucfirst($order->shipping_status instanceof \App\Enums\OrderStatus 
-                                        ? $order->shipping_status->value 
-                                        : $order->shipping_status) }}
+                                            default => 'bg-gray-100 text-gray-800',
+                                        } }}">
+                                    {{ ucfirst(
+                                        $order->shipping_status instanceof \App\Enums\OrderStatus
+                                            ? $order->shipping_status->value
+                                            : $order->shipping_status,
+                                    ) }}
                                 </span>
                             </td>
                             <td class="px-4 py-2">${{ number_format($order->total_amount, 2) }}</td>
                             <td class="px-4 py-2">
-                                @if ($order->shipping_status == 'pending')
-                                    {{ __('Tracking Number Provided Soon') }}
+                                @if ($order->tracking_number)
+                                    <a href="{{ config('services.dhl.tracking_url') }}{{ $order->tracking_number }}"
+                                        target="_blank" class="text-blue-600">
+                                        {{ $order->tracking_number }}
+                                    </a>
                                 @else
-                                    {{ $order->tracking_number }}
+                                    {{ __('Tracking Number Provided Soon') }}
                                 @endif
                             </td>
                         </tr>

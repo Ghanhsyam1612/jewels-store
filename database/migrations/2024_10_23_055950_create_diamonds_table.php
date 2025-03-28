@@ -45,7 +45,7 @@ return new class extends Migration
             $table->enum('cut', ['GOOD', 'VERY GOOD', 'EXCELLENT', 'IDEAL'])->nullable();
             $table->enum('color', ['M', 'L', 'K', 'J', 'I', 'H', 'G', 'F', 'E', 'D'])->nullable();
             $table->enum('clarity', ['IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2', 'I1', 'I2', 'I3'])->nullable();
-            $table->json('images')->nullable();
+            $table->json('image_link')->nullable();
             $table->string('size')->nullable();
             $table->string('l_w_ratio')->nullable();
             $table->string('table')->nullable();

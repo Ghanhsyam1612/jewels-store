@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
-            $table->foreignId('diamond_id')->constrained('diamonds')->cascadeOnDelete();
+            // Add the polymorphic relationship columns
+            $table->string('diamond_type');
+            $table->unsignedBigInteger('diamond_id');
+
+            // Create a composite index for better query performance
+            $table->index(['diamond_type', 'diamond_id']);
+            // Add other columns for the order item
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
             $table->decimal('subtotal', 10, 2);

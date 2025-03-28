@@ -120,10 +120,12 @@
                     </select>
 
                     <!-- Direction Dropdown -->
-                    <select name="direction" 
+                    <select name="direction"
                         class="p-2.5 border border-gray-300 rounded-lg text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white appearance-none pr-8">
-                        <option value="asc" {{ request('direction', 'desc') === 'asc' ? 'selected' : '' }}>Ascending</option>
-                        <option value="desc" {{ request('direction', 'desc') === 'desc' ? 'selected' : '' }}>Descending</option>
+                        <option value="asc" {{ request('direction', 'desc') === 'asc' ? 'selected' : '' }}>Ascending
+                        </option>
+                        <option value="desc" {{ request('direction', 'desc') === 'desc' ? 'selected' : '' }}>Descending
+                        </option>
                     </select>
 
                     <!-- Filter Button -->
@@ -148,6 +150,7 @@
                                 <th class="p-4">Order Number</th>
                                 <th class="p-4">Customer</th>
                                 <th class="p-4">Shipping Status</th>
+                                <th class="p-4">Tracking Number</th>
                                 <th class="p-4">Total</th>
                                 <th class="p-4">Actions</th>
                             </tr>
@@ -160,8 +163,7 @@
                                     <td class="p-4">
                                         {{ $order->customer->first_name }}
                                     </td>
-                                    <td
-                                        class="col-span-1 flex justify-start items-center border-gray-100 p-4 ">
+                                    <td class="col-span-1 flex justify-start items-center border-gray-100 p-4 ">
                                         <p class="flex items-center gap-1 rounded-full py-1 text-xs font-medium"
                                             :class="{
                                                 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-500': '{{ $order->shipping_status }}'
@@ -180,39 +182,50 @@
                                             <span>{{ ucfirst($order->shipping_status) }}</span>
                                         </p>
                                     </td>
+                                    <td class="p-4">
+                                        @if ($order->tracking_number)
+                                            <a href="{{ config('services.dhl.tracking_url') }}{{ $order->tracking_number }}"
+                                                target="_blank" class="text-blue-600">
+                                                {{ $order->tracking_number }}
+                                            </a>
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
                                     <td class="p-4">${{ number_format($order->total_amount, 2) }}</td>
                                     <td class="p-4">
                                         <div class="flex items-center gap-3">
-                                            <!-- Cancel Button -->
-                                            <form
-                                                action="{{ route('admin.order.update-status', ['order' => $order->id]) }}"
-                                                method="POST" class="inline-block">
-                                                @csrf
-                                                <input type="hidden" name="status" value="Cancelled">
-                                                <button type="submit"
-                                                    class="!text-red-600 text-sm font-medium"
-                                                    title="Cancel">
-                                                    Cancel
-                                                </button>
-                                            </form>
+                                            @if (
+                                                $order->shipping_status !== 'shipped' &&
+                                                    $order->shipping_status !== 'completed' &&
+                                                    $order->shipping_status !== 'cancelled')
+                                                <!-- Cancel Button -->
+                                                <form
+                                                    action="{{ route('admin.order.update-status', ['order' => $order->id]) }}"
+                                                    method="POST" class="inline-block">
+                                                    @csrf
+                                                    <input type="hidden" name="status" value="Cancelled">
+                                                    <button type="submit" class="!text-red-600 text-sm font-medium"
+                                                        title="Cancel">
+                                                        Cancel
+                                                    </button>
+                                                </form>
 
-                                            <!-- Accept Button -->
-                                            <form
-                                                action="{{ route('admin.order.update-status', ['order' => $order->id]) }}"
-                                                method="POST" class="inline-block">
-                                                @csrf
-                                                <input type="hidden" name="status" value="Processing">
-                                                <button type="submit"
-                                                    class="!text-green-600 text-sm font-medium"
-                                                    title="Accept">
-                                                    Accept
-                                                </button>
-                                            </form>
-
+                                                <!-- Accept Button -->
+                                                <form
+                                                    action="{{ route('admin.order.update-status', ['order' => $order->id]) }}"
+                                                    method="POST" class="inline-block">
+                                                    @csrf
+                                                    <input type="hidden" name="status" value="Processing">
+                                                    <button type="submit" class="!text-green-600 text-sm font-medium"
+                                                        title="Accept">
+                                                        Accept
+                                                    </button>
+                                                </form>
+                                            @endif
                                             <!-- Details Button -->
                                             <a href="{{ route('admin.order.view', ['order' => $order->id]) }}"
-                                                class="!text-blue-600 text-sm font-medium"
-                                                title="Details">
+                                                class="!text-blue-600 text-sm font-medium" title="Details">
                                                 Details
                                             </a>
                                         </div>

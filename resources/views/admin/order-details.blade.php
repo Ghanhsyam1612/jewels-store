@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <!-- Order Header -->
-        {{-- {{ dd($order) }} --}}
+
         <div class="bg-white shadow-md rounded-lg mb-6">
             <div class="flex flex-col md:flex-row justify-between items-center p-6 border-b">
                 <div>
@@ -17,9 +17,10 @@
                 </div>
 
                 <div class="flex flex-row gap-5 space-x-3 mt-4 md:mt-0">
-                    <button class="flex items-center px-6 py-2.5 bg-white text-gray-700 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:shadow-md transition-all duration-200 transform hover:scale-105">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-600" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
+                    <button
+                        class="flex items-center px-6 py-2.5 bg-white text-gray-700 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -27,8 +28,8 @@
                     </button>
                     <button onclick="window.location.href='{{ route('admin.order.invoice', ['order' => $order->id]) }}'"
                         class="flex items-center px-6 py-2.5 bg-white text-blue-600 border border-blue-500 rounded-lg shadow-sm hover:bg-blue-50 hover:shadow-md transition-all duration-200 transform hover:scale-105">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H5a2 2 0 00-2 2v4h18z" />
                         </svg>
@@ -167,11 +168,16 @@
                 <table class="w-full border-collapse">
                     <thead>
                         <tr class="bg-gray-100 border-b-2 border-gray-200">
-                            <th class="p-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">Product</th>
-                            <th class="p-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">Specs</th>
-                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Quantity</th>
-                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Unit Price</th>
-                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Total</th>
+                            <th class="p-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">Product
+                            </th>
+                            <th class="p-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">Specs
+                            </th>
+                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">
+                                Quantity</th>
+                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Unit
+                                Price</th>
+                            <th class="p-4 text-center text-sm font-semibold text-gray-600 uppercase tracking-wider">Total
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -180,8 +186,8 @@
                                 <td class="p-4">
                                     <div class="flex items-center space-x-4">
                                         @if (isset($item->diamond->image_link) && !empty($item->diamond->image_link))
-                                            <img src="{{ str_replace('"', '', $item->diamond->image_link) }}" alt="Diamond"
-                                                class="w-16 h-16 object-cover rounded-lg shadow-sm">
+                                            <img src="{{ str_replace('"', '', $item->diamond->image_link) }}"
+                                                alt="Diamond" class="w-16 h-16 object-cover rounded-lg shadow-sm">
                                         @endif
                                         <div>
                                             <div class="font-semibold text-gray-800">{{ $item->diamond->name }}</div>
@@ -192,20 +198,35 @@
                                 <td class="p-4">
                                     @if ($item->diamond)
                                         <div class="grid grid-cols-2 gap-2 text-sm">
-                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Shape:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->shape ?? 'N/A' }}</span></p>
-                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Carat:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->carat ?? 'N/A' }}</span></p>
-                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Color:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->color ?? 'N/A' }}</span></p>
-                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Clarity:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->clarity ?? 'N/A' }}</span></p>
-                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Cut:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->cut ?? 'N/A' }}</span></p>
-                                            <p class="flex items-center"><span class="font-medium text-gray-700 mr-2">Lab:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->lab ?? 'N/A' }}</span></p>
-                                            <p class="col-span-2 flex items-center"><span class="font-medium text-gray-700 mr-2">Certificate:</span>
-                                                <span class="text-gray-600">{{ $item->diamond->certificate_number ?? 'N/A' }}</span></p>
+                                            <p class="flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Shape:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->shape ?? 'N/A' }}</span>
+                                            </p>
+                                            <p class="flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Carat:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->carat ?? 'N/A' }}</span>
+                                            </p>
+                                            <p class="flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Color:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->color ?? 'N/A' }}</span>
+                                            </p>
+                                            <p class="flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Clarity:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->clarity ?? 'N/A' }}</span>
+                                            </p>
+                                            <p class="flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Cut:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->cut ?? 'N/A' }}</span>
+                                            </p>
+                                            <p class="flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Lab:</span>
+                                                <span class="text-gray-600">{{ $item->diamond->lab ?? 'N/A' }}</span>
+                                            </p>
+                                            <p class="col-span-2 flex items-center"><span
+                                                    class="font-medium text-gray-700 mr-2">Certificate:</span>
+                                                <span
+                                                    class="text-gray-600">{{ $item->diamond->certificate_number ?? 'N/A' }}</span>
+                                            </p>
                                         </div>
                                     @else
                                         <span class="text-gray-500">No Diamond</span>
@@ -221,7 +242,8 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="p-8 text-center text-gray-500 text-lg">No items in this order</td>
+                                <td colspan="5" class="p-8 text-center text-gray-500 text-lg">No items in this order
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -235,16 +257,35 @@
             <div class="relative pl-8 border-l-2 border-gray-200">
                 @php
                     $statuses = [
-                        ['title' => 'Order Placed', 'date' => $order->created_at],
-                        ['title' => 'Processing', 'date' => $order->processing_date ?? null],
-                        ['title' => 'Shipped', 'date' => $order->shipped_date ?? null],
-                        ['title' => 'Delivered', 'date' => $order->delivered_date ?? null],
+                        ['title' => 'Order Placed', 'date' => $order->created_at, 'completed' => true],
+                        [
+                            'title' => 'Processing',
+                            'date' =>
+                                $order->shipping_status === 'processing' || $order->tracking_number
+                                    ? $order->updated_at
+                                    : null,
+                            'completed' => $order->shipping_status === 'processing' || $order->tracking_number,
+                        ],
+                        [
+                            'title' => 'Shipped',
+                            'date' => $order->tracking_number ? $order->updated_at : null,
+                            'completed' => $order->shipping_status === 'shipped',
+                        ],
+                        [
+                            'title' => 'Delivered',
+                            'date' =>
+                                $trackingInfo && $trackingInfo['status'] === 'Delivered'
+                                    ? \Carbon\Carbon::parse($trackingInfo['timestamp'])
+                                    : null,
+                            'completed' => $order->shipping_status === 'completed',
+                        ],
                     ];
                 @endphp
 
                 @foreach ($statuses as $status)
                     <div class="mb-4 pl-4 relative">
-                        <div class="absolute left-[-26px] top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-white">
+                        <div
+                            class="absolute left-[-26px] top-1 w-4 h-4 rounded-full border-4 border-white {{ $status['completed'] ? 'bg-blue-500' : 'bg-gray-300' }}">
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="font-medium text-gray-800">{{ $status['title'] }}</span>
@@ -252,6 +293,18 @@
                                 {{ $status['date'] ? $status['date']->format('d M Y, H:i') : 'Pending' }}
                             </span>
                         </div>
+                        @if ($status['title'] === 'Shipped' && $order->tracking_number)
+                            <div class="text-sm text-gray-600 mt-1">
+                                Tracking: <a
+                                    href="{{ config('services.dhl.tracking_url') }}{{ $order->tracking_number }}"
+                                    target="_blank" class="text-blue-600">{{ $order->tracking_number }}</a>
+                            </div>
+                        @endif
+                        @if ($status['title'] === 'Delivered' && $trackingInfo && $trackingInfo['status'])
+                            <div class="text-sm text-gray-600 mt-1">
+                                Status: {{ $trackingInfo['status'] }} ({{ $trackingInfo['location'] ?? 'N/A' }})
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
