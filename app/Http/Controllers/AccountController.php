@@ -80,7 +80,8 @@ class AccountController extends Controller
     public function mySubscription()
     {
         $customer = auth('customer')->user();
-        $subscription = $customer->currentSubscription();
+        $subscription = $customer->subscriptions();
+        dd($subscription);
         return view('account.my-subscription' , compact('customer','subscription'));
     }
 }
