@@ -29,7 +29,7 @@
                 <div class="flex justify-between items-center">
                     <div>
                         <span class="text-primary text-sm uppercase tracking-wider">Current Plan</span>
-                        <h2 class="text-2xl font-bold text-grey mt-1">Premium Subscription</h2>
+                        <h2 class="text-2xl font-bold text-grey mt-1">{{$customer->subscription_plan}} Subscription</h2>
                     </div>
                     <span class="px-4 py-2 rounded-full bg-white text-indigo-800 font-semibold text-sm">
                         {{ ucfirst($subscription->status) }}
