@@ -81,6 +81,6 @@ class AccountController extends Controller
     {
         $customer = auth('customer')->user();
         $subscription = $customer->currentSubscription();
-        return view('account.my-subscription' , compact('subscription'));
+        return view('account.my-subscription' , compact('customer','subscription'));
     }
 }
