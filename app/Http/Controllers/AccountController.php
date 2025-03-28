@@ -79,8 +79,12 @@ class AccountController extends Controller
     // My Subscription
     public function mySubscription()
     {
-        $customer = auth('customer')->user();
-        $subscription = $customer->currentSubscription();
-        return view('account.my-subscription' , compact('customer','subscription'));
+        $customer = auth('customer')->user(); // Get authenticated customer
+        $subscriptions = $customer->subscriptions()->orderBy('created_at', 'desc')->get(); // Fetch all subscriptions, ordered by creation date
+        
+        return view('account.my-subscription', [
+            'customer' => $customer,
+            'subscriptions' => $subscriptions
+        ]);
     }
 }
