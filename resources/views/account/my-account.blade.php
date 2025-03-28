@@ -12,6 +12,7 @@
                 <a href="javascript:void(0)" onclick="loadPage('{{ route('wishlist.index') }}')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Wishlist</a>
                 <a href="javascript:void(0)" onclick="loadPage('/account/addresses')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Addresses</a>
                 <a href="javascript:void(0)" onclick="loadPage('/account/details')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">Account Details</a>
+                <a href="javascript:void(0)" onclick="loadPage('/account/my-subscription')" class="px-6 py-3 font-montserrat border-b border-gray-700 hover:bg-black hover:text-white transition-all duration-300">My Subscription</a>
 
                 <form id="logout-form" action="{{ route('account.logout') }}" method="GET" style="display: none;">
                     @csrf

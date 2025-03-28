@@ -75,4 +75,12 @@ class AccountController extends Controller
 
         return redirect()->route('account');
     }
+
+    // My Subscription
+    public function mySubscription()
+    {
+        $customer = auth('customer')->user();
+        $subscription = $customer->currentSubscription();
+        return view('account.my-subscription' , compact('subscription'));
+    }
 }

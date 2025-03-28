@@ -405,6 +405,8 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::post('/account/details', [CustomerController::class, 'updateDetails'])->name('account.update');
     // Logout
     Route::get('/account/logout', [AccountController::class, 'logout'])->name('account.logout');
+    // My subscription
+    Route::get('/account/my-subscription', [AccountController::class, 'mySubscription'])->name('account.my-subscription');
 
     // Customer Addresses
     Route::post('/account/addresses', [AddressController::class, 'store'])->name('account.addresses.store');
@@ -430,8 +432,6 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::get('/subscription/manage', [SubscriptionController::class, 'manage'])->name('subscription.manage');
     Route::post('/subscription/cancel-subscription', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.cancel-subscription');
     Route::post('/subscription/resume-subscription', [SubscriptionController::class, 'resumeSubscription'])->name('subscription.resume-subscription');
-
-   
 });
 
 // -------------------------------- End Authenticated Routes ---------------------------------------------
