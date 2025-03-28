@@ -180,7 +180,7 @@ class SubscriptionController extends Controller
 
         try {
             $stripeSubscription = $this->stripe->subscriptions->retrieve($subscription->stripe_subscription_id);
-
+            dd($stripeSubscription);
             return view('subscription.manage', [
                 'subscription' => $subscription,
                 'stripeSubscription' => $stripeSubscription,
