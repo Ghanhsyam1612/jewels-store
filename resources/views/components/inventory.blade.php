@@ -2195,8 +2195,8 @@
             </script>
             <!-- End Price Range Slider -->
 
-                  <!-- Carat Slider -->
-                  <div class="flex items-center">
+                <!-- Carat Slider -->
+                <div class="flex items-center">
                     <h5 class="text-sm text-primary font-montserrat font-semibold mr-3 mt-2">Carat</h5>
                         <form id="caratFilterForm" action="{{ route('inventory') }}" method="GET" class="w-full">
                             <div class="flex justify-between">
@@ -2295,8 +2295,7 @@
     
     
     
-                    function IN_updateSliderColors() {
-    
+                    function updateSliderColors() {
                         const min = parseInt(fromCaratSlider.min);
                         const max = parseInt(toCaratSlider.max);
                         const from = parseInt(fromCaratSlider.value);
@@ -2326,7 +2325,7 @@
                     }
     
                     function syncToInput() {
-                        let value = Math.max(parseFloat(toCaratInput.value), parseFloat(IN_fromCaratInput.value));
+                        let value = Math.max(parseFloat(toCaratInput.value), parseFloat(fromCaratInput.value));
                         toCaratInput.value = value;
                         toCaratSlider.value = value;
                         updateSliderColors();

@@ -9,7 +9,7 @@
     <td class="py-4 text-sm font-montserrat">{{ $diamond->color }}</td>
     <td class="py-4 text-sm font-montserrat">{{ $diamond->clarity }}</td>
     <td class="py-4 text-sm font-montserrat">
-        <span class="text-gray-600 line-through text-xs">${{ $diamond->mrp }}</span>
+        {{-- <span class="text-gray-600 line-through text-xs">${{ $diamond->mrp }}</span> --}}
         <span class="text-red-600">${{ $diamond->original_price }}</span>
     </td>
     <td class="py-4">
@@ -31,7 +31,7 @@
             <!-- Left Side -->
             <div class="flex flex-col items-center gap-3">
                 <div class="flex items-center justify-center">
-                    <img src="{{ asset($diamond->images) }}" class="w-40"
+                    <img src="{{ asset($diamond->image_link) }}" class="w-40"
                         alt="{{ $diamond->name }}">
                 </div>
 
@@ -40,8 +40,8 @@
                         {{ ucwords($diamond->name) }}
                     </p>
                     <div class="mt-1">
-                        <span
-                            class="text-gray-600 line-through text-lg font-montserrat font-medium">${{ $diamond->mrp }}</span>
+                        {{-- <span
+                            class="text-gray-600 line-through text-lg font-montserrat font-medium">${{ $diamond->mrp }}</span> --}}
                         <span
                             class="text-xl ml-1 font-montserrat font-semibold">${{ $diamond->original_price }}</span>
                     </div>

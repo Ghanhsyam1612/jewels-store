@@ -1864,7 +1864,7 @@
 
 
 
-                function IN_updateSliderColors() {
+                function updateSliderColors() {
 
                     const min = parseInt(fromCaratSlider.min);
                     const max = parseInt(toCaratSlider.max);
@@ -1895,7 +1895,7 @@
                 }
 
                 function syncToInput() {
-                    let value = Math.max(parseFloat(toCaratInput.value), parseFloat(IN_fromCaratInput.value));
+                    let value = Math.max(parseFloat(toCaratInput.value), parseFloat(fromCaratInput.value));
                     toCaratInput.value = value;
                     toCaratSlider.value = value;
                     updateSliderColors();

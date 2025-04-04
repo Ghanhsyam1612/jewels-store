@@ -29,7 +29,7 @@ enum AntiqueCutDiamondShapeType: string
     case CHRISTMAS = 'CHRISTMAS';
     case CLOUD = 'CLOUD';
     case CRISS = 'CRISS';
-    case CROSS = 'CROSS';
+    // case CROSS = 'CROSS';
     case CUSTOM = 'CUSTOM';
     case DECAGON = 'DECAGON';
     case DIAMOND = 'DIAMOND';

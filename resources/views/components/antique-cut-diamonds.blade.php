@@ -1850,12 +1850,12 @@
         <!-- Start Shape Svg , Price Range Slider , Carat Slider , Color Slider , Clarity Slider -->
         <div class="hidden lg:grid lg:grid-cols-3 lg:gap-4 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40">
             <!-- Shape Dropdown -->
-            <div class="flex items-center">
+            <div class="flex items-center w-full">
                 <h5 class="text-sm text-primary font-montserrat font-semibold mr-3">Shape</h5>
-                <div class="flex flex-col">
-                    <div class="flex mb-1">
+                <div class="flex flex-col w-full">
+                    <div class="flex mb-1 w-full">
                         <select id="shapeSelect"
-                            class="font-montserrat text-13px leading-5 font-medium p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
+                            class="font-montserrat text-13px leading-5 font-medium p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                             onchange="window.location.href=this.value">
                             <option value="" selected disabled>Select Shape</option>
                             @foreach (\App\Enums\AntiqueCutDiamondShapeType::cases() as $shape)
@@ -2156,7 +2156,7 @@
 
 
 
-                function IN_updateSliderColors() {
+                function updateSliderColors() {
 
                     const min = parseInt(fromCaratSlider.min);
                     const max = parseInt(toCaratSlider.max);
@@ -2187,7 +2187,7 @@
                 }
 
                 function syncToInput() {
-                    let value = Math.max(parseFloat(toCaratInput.value), parseFloat(IN_fromCaratInput.value));
+                    let value = Math.max(parseFloat(toCaratInput.value), parseFloat(fromCaratInput.value));
                     toCaratInput.value = value;
                     toCaratSlider.value = value;
                     updateSliderColors();
@@ -3472,7 +3472,7 @@
                                 <td class="py-4 text-sm font-montserrat">{{ $diamond->clarity }}</td>
                                 <td class="py-4 text-sm font-montserrat">
 
-                                    <span class="text-gray-600 line-through text-xs">${{ $diamond->mrp }}</span>
+                                    {{-- <span class="text-gray-600 line-through text-xs">${{ $diamond->mrp }}</span> --}}
                                     <span class="text-red-600">${{ $diamond->original_price }}</span>
                                 </td>
                                 <td class="py-4">
@@ -3512,7 +3512,7 @@
                                             </button>
 
                                             <div class="flex items-center justify-center">
-                                                <img src="{{ asset($diamond->images) }}" class="w-40"
+                                                <img src="{{ asset($diamond->image_link) }}" class="w-40"
                                                     alt="{{ $diamond->name }}">
                                             </div>
 
@@ -3521,8 +3521,8 @@
                                                     {{ ucwords($diamond->name) }}
                                                 </p>
                                                 <div class="mt-1">
-                                                    <span
-                                                        class="text-gray-600 line-through text-lg font-montserrat font-medium">${{ $diamond->mrp }}</span>
+                                                    {{-- <span
+                                                        class="text-gray-600 line-through text-lg font-montserrat font-medium">${{ $diamond->mrp }}</span> --}}
                                                     <span
                                                         class="text-xl text-primary ml-1 font-montserrat font-semibold">${{ $diamond->original_price }}</span>
                                                 </div>
