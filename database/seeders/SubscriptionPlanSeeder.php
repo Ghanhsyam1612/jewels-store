@@ -40,9 +40,9 @@ class SubscriptionPlanSeeder extends Seeder
             [
                 'id' => 2,
                 'name' => 'Gold',
-                'stripe_product_id' => 'prod_gold', // Replace with your actual Stripe product ID
-                'stripe_price_id_monthly' => 'price_gold_monthly', // Replace with your actual Stripe price ID
-                'stripe_price_id_yearly' => 'price_gold_yearly', // Replace with your actual Stripe price ID
+                'stripe_product_id' => 'prod_RyJlXT0fo8iug7', // Replace with your actual Stripe product ID
+                'stripe_price_id_monthly' => 'price_1R4N81F5d516MOxC5REhM1ZB', // Replace with your actual Stripe price ID
+                'stripe_price_id_yearly' => 'price_1R4N7cF5d516MOxCpRpKSsT9', // Replace with your actual Stripe price ID
                 'monthly_price' => 19.99,
                 'yearly_price' => 199.99,
                 'description' => 'Premium plan with additional features',
