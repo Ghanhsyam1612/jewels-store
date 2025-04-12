@@ -287,29 +287,68 @@
                         <img src="{{ asset('Shape/heart.svg') }}" alt="Round" class="w-7 h-7">
                     </div>
                 </div>
+
                 <!-- Product Color -->
                 <div class="flex flex-col gap-2 py-2">
-                    <p class="text-sm 3xl:text-base font-semibold text-primary">Metal : <span
-                            class="font-normal">Platinum</span></p>
-                    <div class="flex flex-row gap-2">
-                        <img src="{{ asset('images/color/silver.png') }}" alt="Silver" class="w-9 h-9 rounded-full">
-                        <img src="{{ asset('images/color/gold.png') }}" alt="Gold" class="w-9 h-9 rounded-full">
-                        <img src="{{ asset('images/color/platinum.png') }}" alt="Platinum" class="w-9 h-9 rounded-full">
-                        <img src="{{ asset('images/color/rose-gold.png') }}" alt="Rose Gold"
-                            class="w-9 h-9 rounded-full">
+                    <p class="text-sm 3xl:text-base font-semibold text-primary">Metal: <span class="font-normal">18K White Gold</span></p>
+                    <div class="flex flex-row gap-4">
+                        <div class="relative">
+                            <img src="{{ asset('images/color/silver.png') }}" alt="White Gold" class="w-9 h-9 rounded-full border-2 border-teal-600">
+                        </div>
+                        <div class="relative">
+                            <img src="{{ asset('images/color/gold.png') }}" alt="Yellow Gold" class="w-9 h-9 rounded-full hover:border-2 hover:border-teal-600 transition-all">
+                        </div>
+                        <div class="relative">
+                            <img src="{{ asset('images/color/rose-gold.png') }}" alt="Rose Gold" class="w-9 h-9 rounded-full hover:border-2 hover:border-teal-600 transition-all">
+                        </div>
+                        <div class="relative">
+                            <img src="{{ asset('images/color/platinum.png') }}" alt="Platinum" class="w-9 h-9 rounded-full hover:border-2 hover:border-teal-600 transition-all">
+                        </div>
                     </div>
                 </div>
+
+                <!-- Diamond Origin -->
+                <div>
+                    <div class="flex flex-row gap-2 text-lg mb-4">
+                        <p class="font-medium">Diamond Origin: <span id="selectedOrigin">Natural</span></p>
+                        <span class="text-gray-400 cursor-help" title="Diamond origin information">ⓘ</span>
+                    </div>
+                    <div class="flex flex-row gap-4">
+                        <button onclick="selectDiamondOrigin('Natural')" class="px-8 py-2 rounded-full border-2 border-teal-600 text-teal-600 hover:bg-teal-50 transition-colors" id="naturalBtn">Natural</button>
+                        <button onclick="selectDiamondOrigin('Lab Grown')" class="px-8 py-2 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors" id="labGrownBtn">Lab Grown</button>
+                    </div>
+                </div>
+                <script>
+                    function selectDiamondOrigin(origin) {
+                        document.getElementById('selectedOrigin').textContent = origin;
+                        const naturalBtn = document.getElementById('naturalBtn');
+                        const labGrownBtn = document.getElementById('labGrownBtn');
+                        
+                        if (origin === 'Natural') {
+                            naturalBtn.classList.remove('border-gray-300', 'text-gray-600');
+                            naturalBtn.classList.add('border-primary', 'text-primary');
+                            labGrownBtn.classList.remove('border-primary', 'text-primary');
+                            labGrownBtn.classList.add('border-gray-300', 'text-gray-600');
+                        } else {
+                            labGrownBtn.classList.remove('border-gray-300', 'text-gray-600');
+                            labGrownBtn.classList.add('border-primary', 'text-primary');
+                            naturalBtn.classList.remove('border-primary', 'text-primary');
+                            naturalBtn.classList.add('border-gray-300', 'text-gray-600');
+                        }
+                    }
+                </script>
+
                 <!-- Select Your Diamond Button -->
                 <div class="flex justify-center">
                     <button
-                        class="bg-primary 3xl:text-lg font-semibold text-gold w-full px-6 py-3 hover:bg-gold hover:text-primary transition duration-300">
+                        class="bg-primary 3xl:text-lg font-semibold text-white w-full px-6 py-2 border border-primary hover:text-primary transition duration-300">
                         Select Your Diamond
                     </button>
                 </div>
                 <!-- Consult with Diamond Expert Online Button -->
                 <div class="flex justify-center">
                     <button
-                        class="bg-gold 3xl:text-lg font-semibold text-primary w-full px-6 py-3 hover:bg-primary hover:text-gold transition duration-300">
+                        class="bg-white 3xl:text-lg font-semibold text-primary w-full px-6 py-2 border border-primary hover:bg-primary hover:text-white transition duration-300">
                         Consult with Diamond Expert Online
                     </button>
                 </div>
@@ -410,60 +449,245 @@
         </div> --}}
 
         <!-- Related Products -->
-        <div class="flex flex-col items-center gap-2 py-6 lg:py-6 px-4 md:px-8 lg:px-12 2xl:px-24">
-            <p class="text-xl lg:text-2xl 3xl:text-3xl text-primary font-semibold ">Explore Engagement Rings</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 md:w-full gap-2 py-2">
-                <div class="flex flex-col">
-                    <img src="{{ asset('images/1.jpg') }}" alt="Diamond" class="w-full h-36 md:h-full mb-2">
-                    <p class="text-sm md:text-base 3xl:text-lg text-primary font-semibold">The Twist Band</p>
-                    <p class="text-sm md:text-sm 3xl:text-base text-primary">$800+</p>
-                </div>
-                <div class="flex flex-col">
-                    <img src="{{ asset('images/2.jpg') }}" alt="Diamond" class="w-full h-36 md:h-full mb-2">
-                    <p class="text-sm md:text-base 3xl:text-lg text-primary font-semibold">The Petal Crown Band</p>
-                    <p class="text-sm md:text-sm 3xl:text-base text-primary">$800+</p>
-                </div>
-                <div class="flex flex-col">
-                    <img src="{{ asset('images/3.jpg') }}" alt="Diamond" class="w-full h-36 md:h-full mb-2">
-                    <p class="text-sm md:text-base 3xl:text-lg text-primary font-semibold">The Round</p>
-                    <p class="text-sm md:text-sm 3xl:text-base text-primary">$600+</p>
-                </div>
-                <div class="flex flex-col">
-                    <img src="{{ asset('images/1.jpg') }}" alt="Diamond" class="w-full h-36 md:h-full mb-2">
-                    <p class="text-sm md:text-base 3xl:text-lg text-primary font-semibold">The Eternity Band</p>
-                    <p class="text-sm md:text-sm 3xl:text-base text-primary">$900+</p>
+        <div class="bg-gray-50 py-12">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">You May Also Like</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://roayadiamond.com/images/1.jpg" alt="The Twist Band" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 shadow-md hover:bg-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-800 mb-1">The Twist Band</h3>
+                            <p class="text-gray-600 text-sm mb-2">A modern twist on a classic design</p>
+                            <p class="text-primary font-semibold">From $800</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://roayadiamond.com/images/2.jpg" alt="The Petal Crown Band" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 shadow-md hover:bg-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-800 mb-1">The Petal Crown Band</h3>
+                            <p class="text-gray-600 text-sm mb-2">Delicate floral-inspired design</p>
+                            <p class="text-primary font-semibold">From $800</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://roayadiamond.com/images/3.jpg" alt="The Round Solitaire" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 shadow-md hover:bg-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-800 mb-1">The Round Solitaire</h3>
+                            <p class="text-gray-600 text-sm mb-2">Timeless elegance</p>
+                            <p class="text-primary font-semibold">From $600</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://roayadiamond.com/images/4.jpg" alt="The Eternity Band" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 shadow-md hover:bg-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-800 mb-1">The Eternity Band</h3>
+                            <p class="text-gray-600 text-sm mb-2">Continuous circle of diamonds</p>
+                            <p class="text-primary font-semibold">From $900</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col gap-2 py-12 px-4 md:px-8 lg:px-12 2xl:px-24">
-            {{-- Desktop Custom Engagement Rings --}}
-            <img src="{{ asset('images/custom-jewellery.png') }}" alt="Diamond"
-                class="hidden lg:flex relative w-full h-full mb-2">
-            <div
-                class="lg:flex hidden flex-col items-start gap-2 lg:py-36 lg:right-48 lg:w-[30rem] xl:py-24 xl:right-44 xl:w-[27rem] 2xl:py-36 2xl:right-48 2xl:w-[30rem] 3xl:py-40 absolute 3xl:right-44 3xl:w-[35rem] space-y-3">
-                <h1 class="text-3xl 3xl:text-4xl text-white text-left font-semibold">Custom Engagement Rings</h1>
-                <p class="text-base 3xl:text-lg text-white text-left">
-                    If you’re not seeing exactly what you have in mind, our Diamond Experts will help you design a
-                    completely custom engagement ring featuring Roaya created diamonds.
-                </p>
-                <button class="border border-white 3xl:text-xl text-center text-white font-medium w-4/5 px-4 py-3">
-                    Create Your Own
-                </button>
-            </div>
+        <!-- Customer Reviews Section -->
+        <div class="bg-white py-12">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Customer Reviews</h2>
+                    <div class="flex items-center justify-center mb-2">
+                        <div class="flex items-center">
+                            <span class="text-3xl font-bold text-gray-900 mr-2">4.8</span>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-500">(128 reviews)</span>
+                    </div>
+                    <div class="flex justify-center space-x-4">
+                        <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-colors">Write a Review</button>
+                        <button class="border border-primary text-primary px-6 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">See All Reviews</button>
+                    </div>
+                </div>
 
-            {{-- Mobile Custom Engagement Rings --}}
-            <img src="{{ asset('images/custom-jewellery-mobile.png') }}" alt="Diamond"
-                class="flex lg:hidden relative w-full h-full mb-2">
-            <div class="flex lg:hidden flex-col items-start gap-2 px-4 space-y-3">
-                <h1 class="text-xl text-primary text-left font-semibold">Custom Engagement Rings</h1>
-                <p class="text-sm text-primary text-left">
-                    If you’re not seeing exactly what you have in mind, our Diamond Experts will help you design a
-                    completely custom engagement ring featuring VRAI created diamonds.
-                </p>
-                <button class="border border-primary text-center text-primary bg-gold font-medium w-full px-4 py-3">
-                    Create Your Own
-                </button>
+                <!-- Rating Distribution -->
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-gray-500 w-14">5 stars</span>
+                            <div class="flex-1 h-4 mx-2 bg-gray-200 rounded">
+                                <div class="h-4 bg-yellow-400 rounded" style="width: 75%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 w-14">75%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-gray-500 w-14">4 stars</span>
+                            <div class="flex-1 h-4 mx-2 bg-gray-200 rounded">
+                                <div class="h-4 bg-yellow-400 rounded" style="width: 17%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 w-14">17%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-gray-500 w-14">3 stars</span>
+                            <div class="flex-1 h-4 mx-2 bg-gray-200 rounded">
+                                <div class="h-4 bg-yellow-400 rounded" style="width: 5%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 w-14">5%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-gray-500 w-14">2 stars</span>
+                            <div class="flex-1 h-4 mx-2 bg-gray-200 rounded">
+                                <div class="h-4 bg-yellow-400 rounded" style="width: 2%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 w-14">2%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-gray-500 w-14">1 star</span>
+                            <div class="flex-1 h-4 mx-2 bg-gray-200 rounded">
+                                <div class="h-4 bg-yellow-400 rounded" style="width: 1%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 w-14">1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Review Card 1 -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-semibold text-xl">JD</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">John Doe</h4>
+                                <div class="flex items-center">
+                                    <div class="flex items-center text-yellow-400">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    </div>
+                                    <span class="ml-2 text-sm text-gray-500">2 months ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">"Absolutely stunning ring! The craftsmanship is exceptional, and the diamonds are incredibly brilliant. The customer service was outstanding throughout the entire process. Highly recommend!"</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm text-primary font-medium">Verified Purchase</span>
+                                <button class="text-sm text-gray-500 hover:text-gray-700">Report</button>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="flex items-center space-x-1 text-gray-500 hover:text-gray-700">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                                    </svg>
+                                    <span>Helpful (24)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 2 -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-semibold text-xl">SM</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Sarah Mitchell</h4>
+                                <div class="flex items-center">
+                                    <div class="flex items-center text-yellow-400">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    </div>
+                                    <span class="ml-2 text-sm text-gray-500">1 week ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">"The virtual try-on feature helped me make the perfect choice. The ring is exactly as pictured, and the quality is outstanding. The packaging was also very elegant."</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm text-primary font-medium">Verified Purchase</span>
+                                <button class="text-sm text-gray-500 hover:text-gray-700">Report</button>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="flex items-center space-x-1 text-gray-500 hover:text-gray-700">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                                    </svg>
+                                    <span>Helpful (18)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-8">
+                    <button class="bg-white text-primary px-6 py-2 border border-primary rounded-full hover:bg-primary hover:text-white transition-colors">Load More Reviews</button>
+                </div>
             </div>
         </div>
     </div>

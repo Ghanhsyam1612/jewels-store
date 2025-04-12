@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mx-auto max-w-screen-2xl p-4 md:p-6">
-    <div class="bg-white rounded-xl border border-gray-200obbingp-6">
+    <div class="bg-white rounded-xl border border-gray-200 p-6">
         <h3 class="text-xl font-medium text-gray-800 mb-6">Edit Subscription Plan</h3>
         
         <form action="{{ route('admin.subscription.plan.update', $subscriptionPlan->id) }}" method="POST">

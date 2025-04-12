@@ -118,15 +118,38 @@ Route::get('/color-melee-diamonds', function () {
 Route::get('/build-a-ring', function () {
     return view('engagement-rings.build-a-ring');
 })->name('build-a-ring');
+// Shop By Style
+Route::get('/solitaire', function () {
+    return view('engagement-rings.solitaire');
+})->name('solitaire');
+Route::get('/halo', function () {
+    return view('engagement-rings.halo');
+})->name('halo');
+Route::get('/diamond-band', function () {
+    return view('engagement-rings.diamond-band');
+})->name('diamond-band');
+Route::get('/hidden-halo', function () {
+    return view('engagement-rings.hidden-halo');
+})->name('hidden-halo');
+Route::get('/three-stone', function () {
+    return view('engagement-rings.three-stone');
+})->name('three-stone');
+Route::get('/bezel', function () {
+    return view('engagement-rings.bezel');
+})->name('bezel');
+Route::get('/cluster', function () {
+    return view('engagement-rings.cluster');
+})->name('cluster');
+Route::get('/dainty', function () {
+    return view('engagement-rings.dainty');
+})->name('dainty');
+Route::get('/unique', function () {
+    return view('engagement-rings.unique');
+})->name('unique');
+Route::get('/vintage-inspired', function () {
+    return view('engagement-rings.vintage-inspired');
+})->name('vintage-inspired');
 
-Route::get('/bespoke-jewellery', function () {
-    return view('engagement-rings.bespoke-jewellery');
-})->name('bespoke-jewellery');
-
-Route::get('/custom-engagement-rings', function () {
-    return view('engagement-rings.custom-engagement-rings');
-})->name('custom-engagement-rings');
-// End Create Your Diamond Ring
 // -------------------------------- End Engagement Rings Routes ------------------------------------------
 
 // -------------------------------- Fine Jewellery Routes ------------------------------------------------
@@ -224,12 +247,10 @@ Route::get('/tennis-necklaces', function () {
 // Ready To Ship
 Route::get('/ready-to-ship', function () {
     return view('components.ready-to-ship');
-});
+})->name('ready-to-ship');
 
 // Membership
-Route::get('/membership', function () {
-    return view('components.membership');
-})->name('membership');
+Route::get('/membership', [\App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
 
 // // Subscription Plan
 // Route::get('/subscription-plan', function () {
@@ -245,6 +266,9 @@ Route::get('/membership', function () {
 // Product Display Pages
 Route::get('/product', function () {
     return view('product.product');
+});
+Route::get('/product2', function () {
+    return view('product.product2');
 });
 
 // My Account
@@ -425,7 +449,6 @@ Route::middleware(['auth:customer'])->group(function () {
     Route::get('/account/orders/{id}', [AccountController::class, 'orderDetails'])->name('account.orders.details');
 
     // Subscription Routes
-    Route::get('/subscription-plans', [SubscriptionController::class, 'index'])->name('subscription.plans');
     Route::post('/subscription/checkout', [SubscriptionController::class, 'checkout'])->name('subscription.checkout');
     Route::get('/subscription/success', [SubscriptionController::class, 'success'])->name('subscription.success');
     Route::get('/subscription/cancel', [SubscriptionController::class, 'cancel'])->name('subscription.cancel');
@@ -436,6 +459,7 @@ Route::middleware(['auth:customer'])->group(function () {
 
 // -------------------------------- End Authenticated Routes ---------------------------------------------
 
+Route::get('/subscription-plans', [SubscriptionController::class, 'index'])->name('subscription.plans');
 Route::get('/notifications', [NotificationController::class, 'getNotifications'])->name('notifications.get');
 Route::post('/notifications/mark-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-read');
 
