@@ -208,12 +208,21 @@
                         @csrf
                         <input type="hidden" name="plan_id" value="{{ $plan->id }}">
                         <input type="hidden" name="billing_cycle" value="yearly" class="billing-cycle-input">
-                        <button type="submit" 
-                            class="w-full py-3 rounded-lg font-medium transition duration-300 {{ $loop->index == 1 
-                                ? 'bg-white text-primary hover:bg-purple-50' 
-                                : 'bg-purple-100 text-primary hover:bg-purple-200' }}">
-                            Join {{ $plan->name }} Membership
-                        </button>
+                        @auth
+                            <button type="submit" 
+                                class="w-full py-3 rounded-lg font-medium transition duration-300 {{ $loop->index == 1 
+                                    ? 'bg-white text-primary hover:bg-purple-50' 
+                                    : 'bg-purple-100 text-primary hover:bg-purple-200' }}">
+                                Join {{ $plan->name }} Membership
+                            </button>
+                        @else
+                            <a href="{{ route('account') }}"
+                                class="w-full py-3 rounded-lg font-medium transition duration-300 text-center block {{ $loop->index == 1 
+                                    ? 'bg-white text-primary hover:bg-purple-50' 
+                                    : 'bg-purple-100 text-primary hover:bg-purple-200' }}">
+                                Login to Join {{ $plan->name }} Membership
+                            </a>
+                        @endauth
                     </form>
                 </div>
             @endforeach

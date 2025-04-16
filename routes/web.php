@@ -16,6 +16,7 @@ use App\Http\Controllers\ColorDiamondController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NaturalDiamondController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\WishlistController;
@@ -26,7 +27,7 @@ use App\Http\Controllers\SUBSCRIPTION\StripeWebhookController;
 use Illuminate\Support\Facades\Auth;
 
 
-
+Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->middleware('web')->name('change.language');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/password-reset', function () {
