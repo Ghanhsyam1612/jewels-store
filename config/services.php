@@ -61,4 +61,8 @@ return [
         'shipper_company_name' => env('DHL_SHIPPER_COMPANY_NAME'),
         'shipper_full_name' => env('DHL_SHIPPER_FULL_NAME'),
     ],
+
+    'google' => [
+        'places_api_key' => env('GOOGLE_PLACES_API_KEY'),
+    ],
 ];

@@ -8,10 +8,18 @@ class GooglePlacesHelper
 {
     public static function getReviews($placeId)
     {
-        $apiKey = env('GOOGLE_PLACES_API_KEY');
-        $url = "https://maps.googleapis.com/maps/api/place/details/json?placeid={$placeId}&fields=reviews&key={$apiKey}";
+        $apiKey = config('services.google.places_api_key');
+        
+        $response = Http::get('https://maps.googleapis.com/maps/api/place/details/json', [
+            'place_id' => $placeId,
+            'key' => $apiKey,
+            'fields' => 'reviews,rating,user_ratings_total'
+        ]);
 
-        $response = Http::get($url);
+        if ($response->failed()) {
+            throw new \Exception('Failed to fetch reviews from Google Places API');
+        }
+
         return $response->json();
     }
 }
