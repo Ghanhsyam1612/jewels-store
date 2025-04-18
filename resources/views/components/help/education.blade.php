@@ -381,28 +381,45 @@
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
 
     <script>
-        const overlay = document.getElementById("overlay");
+        document.addEventListener("DOMContentLoaded", function() {
+            const drawer = document.getElementById("drawer");
+            const openDrawer = document.getElementById("openDrawer");
+            const closeDrawer = document.getElementById("closeDrawer");
+            const overlay = document.getElementById("overlay");
 
-        // Open the drawer and show overlay
-        openDrawer.addEventListener("click", (e) => {
-            e.preventDefault();
-            drawer.classList.remove("translate-x-full");
-            drawer.classList.add("translate-x-0");
-            overlay.classList.remove("hidden");
-        });
+            // Open the drawer
+            openDrawer.addEventListener("click", (e) => {
+                e.preventDefault();
+                drawer.classList.remove("translate-x-full");
+                drawer.classList.add("translate-x-0");
+                drawer.classList.add("overflow-y-auto");
+                overlay.classList.remove("hidden");
+                document.body.style.overflow = 'hidden';  // Disable body scroll
+                document.body.style.height = '100%';     // Fix body height
+                document.documentElement.style.overflow = 'hidden'; // Disable html scroll
+            });
 
-        // Close the drawer and hide overlay
-        closeDrawer.addEventListener("click", (e) => {
-            e.preventDefault();
-            drawer.classList.remove("translate-x-0");
-            drawer.classList.add("translate-x-full");
-            overlay.classList.add("hidden");
-        });
+            // Close the drawer
+            closeDrawer.addEventListener("click", () => {
+                drawer.classList.remove("translate-x-0");
+                drawer.classList.add("translate-x-full");
+                drawer.classList.remove("overflow-y-auto");
+                overlay.classList.add("hidden");
+                document.body.style.overflow = '';        // Enable body scroll
+                document.body.style.height = '';         // Reset body height
+                document.documentElement.style.overflow = ''; // Enable html scroll
+            });
 
-        overlay.addEventListener("click", () => {
-            drawer.classList.remove("translate-x-0");
-            drawer.classList.add("translate-x-full");
-            overlay.classList.add("hidden");
+            // Close drawer when clicking overlay
+            overlay.addEventListener("click", () => {
+                drawer.classList.remove("translate-x-0");
+                drawer.classList.add("translate-x-full");
+                drawer.classList.remove("overflow-y-auto");
+                overlay.classList.add("hidden");
+                document.body.style.overflow = '';
+                document.body.style.height = '';
+                document.documentElement.style.overflow = '';
+            });
         });
     </script>
     {{-- End Learn Drawer --}}
@@ -1481,8 +1498,11 @@
 
             drawer.classList.remove('translate-x-full');
             drawer.classList.add('translate-x-0');
+            drawer.classList.add('overflow-y-auto');
             overlay.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            document.body.style.height = '100%';
+            document.documentElement.style.overflow = 'hidden';
         }
 
         document.getElementById('closeFilterDrawer').addEventListener('click', () => {
@@ -1491,8 +1511,32 @@
 
             drawer.classList.remove('translate-x-0');
             drawer.classList.add('translate-x-full');
+            drawer.classList.remove('overflow-y-auto');
             overlay.classList.add('hidden');
             document.body.style.overflow = '';
+            document.body.style.height = '';
+            document.documentElement.style.overflow = '';
+        });
+
+        // Add overlay click handler for filter drawer
+        document.getElementById('overlay').addEventListener('click', () => {
+            const filterDrawer = document.getElementById('filterDrawer');
+            const learnDrawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+
+            // Close both drawers if either is open
+            filterDrawer.classList.remove('translate-x-0');
+            filterDrawer.classList.add('translate-x-full');
+            filterDrawer.classList.remove('overflow-y-auto');
+            
+            learnDrawer.classList.remove('translate-x-0');
+            learnDrawer.classList.add('translate-x-full');
+            learnDrawer.classList.remove('overflow-y-auto');
+
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+            document.body.style.height = '';
+            document.documentElement.style.overflow = '';
         });
     </script>
     <!-- End Open Drawer Script -->
@@ -1528,4 +1572,14 @@
         });
     </script>
     <!-- End toggle For Filter Drawer Options Script -->
+     <style>
+        body.overflow-hidden {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        html.overflow-hidden {
+            overflow: hidden;
+        }
+     </style>
 @endsection

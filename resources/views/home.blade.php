@@ -550,6 +550,55 @@
         </a>
     </section>
 
+    <!-- Membership -->
+    <section class="py-7 md:py-16 bg-light-blue-3">
+        <div class="container mx-auto px-6 pb-7">
+            <h2 class="text-base md:text-xl lg:text-2xl 2xl:text-3xl font-montserrat font-medium uppercase text-center text-primary">Membership Benefits</h2>
+        </div>
+        <div class="container mx-auto px-4 md:px-8 lg:px-14 xl:px-24 2xl:px-28">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit Card 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary text-center mb-2">Exclusive Discounts</h3>
+                    <p class="text-sm text-gray-600 text-center">Get special member-only pricing and early access to sales events</p>
+                </div>
+
+                <!-- Benefit Card 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary text-center mb-2">Priority Service</h3>
+                    <p class="text-sm text-gray-600 text-center">Enjoy personalized shopping assistance and priority customer support</p>
+                </div>
+
+                <!-- Benefit Card 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary text-center mb-2">Free Shipping</h3>
+                    <p class="text-sm text-gray-600 text-center">Complimentary shipping on all orders for members</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block bg-primary text-gold hover:bg-white hover:text-primary border border-primary font-montserrat text-sm font-semibold px-8 py-4 rounded-md transition duration-300">
+                    Join Membership Program
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- We’ve been featured in -->
     <section class="py-6 md:py-8 lg:py-12 2xl:py-20 bg-gray-50">
         <div class="container mx-auto px-6 md:px-20 lg:px-24 xl:px-[180px]">
