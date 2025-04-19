@@ -24,79 +24,160 @@
         </div>
 
         <!-- Start Stepper Bar -->
-        <div class="my-10 lg:px-20 xl:px-32 2xl:px-40">
-            <div class="flex relative h-20">
-            <!-- Step 1: BUILD YOUR RING -->
-            <div class="bg-gold clip-arrow-right text-white flex items-center justify-center w-20 lg:w-full font-bold text-sm lg:text-lg uppercase tracking-wider shadow-md z-40">
-                BUILD YOUR RING
-            </div>
-            
-            <!-- Step 2: CHOOSE SETTING -->
-            <div class="bg-blue-200 clip-arrow-right flex items-center px-6 w-full -ml-8 shadow-md z-30 hover:bg-blue-300 transition-colors duration-200 cursor-pointer group">
-                <div class="flex items-center w-full pl-8">
-                    <span class="text-3xl font-bold text-gray-800 mr-4">1</span>
-                    <div class="flex flex-col">
-                        <span class="text-gray-600 text-sm">Choose a</span>
-                        <span class="uppercase font-bold text-gray-800 group-hover:text-black">SETTING</span>
-                    </div>
-                    <svg class="w-6 h-6 ml-auto text-gray-700" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12,10L8,4.4L9.6,2h4.8L16,4.4L12,10z M15.5,6.8L14.3,8.5C16.5,9.4,18,11.5,18,14c0,3.3-2.7,6-6,6s-6-2.7-6-6c0-2.5,1.5-4.6,3.7-5.5L8.5,6.8C5.8,8.3,4,10.9,4,14c0,4.4,3.6,8,8,8s8-3.6,8-8C20,10.9,18.2,8.3,15.5,6.8z"/>
-                    </svg>
+        <div class="my-10 px-4 lg:px-20 xl:px-32 2xl:px-40">
+            <!-- Desktop Stepper - Visible on large screens -->
+            <div class="hidden md:flex relative h-20">
+                <!-- Step 1: BUILD YOUR RING -->
+                <div class="bg-gold clip-arrow-right text-white flex items-center justify-center w-full font-bold md:text-md lg:text-lg uppercase tracking-wider shadow-md z-40">
+                    BUILD YOUR RING
                 </div>
-            </div>
-            
-            <!-- Step 3: CHOOSE DIAMOND -->
-            <div class="bg-blue-100 clip-arrow-right flex items-center px-6 w-full -ml-8 shadow-md z-20 hover:bg-blue-200 transition-colors duration-200 cursor-pointer group">
-                <div class="flex items-center w-full pl-8">
-                    <span class="text-3xl font-bold text-gray-800 mr-4">2</span>
-                    <div class="flex flex-col">
-                        <span class="text-gray-600 text-sm">Choose a</span>
-                        <span class="uppercase font-bold text-gray-800 group-hover:text-black">DIAMOND</span>
-                    </div>
-                    <svg class="w-8 h-8 ml-auto text-gray-700" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#000000;}  </style> <g> <path class="st0" d="M262.203,224.297H257.5h-99.469L78.672,333.438L260.719,512l7.5-7.359L442.75,333.438l-79.344-109.141H262.203 z M345.813,245.75l-14.656,65.109l-51.859-65.109H345.813z M259.984,251.953l56.422,70.797H204.766L259.984,251.953z M240.75,245.75l-50.563,64.844v0.016l-14.563-64.859H240.75z M159.188,259.156L159.188,259.156l14.297,63.594h-60.547 L159.188,259.156z M179.25,341.75l50.063,109.422L117.75,341.75H179.25z M260.719,474.172L200.125,341.75h121.172L260.719,474.172z M292.109,451.172l50.063-109.422h61.484L292.109,451.172z M347.938,322.75l14.313-63.594l0,0l46.234,63.594H347.938z"></path> <path class="st0" d="M501.219,181.906c-25.906,0-34.859-6.5-39.906-11.531c-5.016-5.047-11.531-14-11.531-39.906 c0-0.984-0.094-3.781-3.188-3.781c-3.078,0-3.188,2.797-3.188,3.781c0,25.906-6.516,34.859-11.547,39.906 c-5.047,5.031-14.016,11.531-39.891,11.531c-1,0-3.781,0.109-3.781,3.203c0,3.078,2.781,3.188,3.781,3.188 c25.875,0,34.844,6.516,39.891,11.547c5.031,5.031,11.547,14,11.547,39.906c0,1,0.109,3.766,3.188,3.766 c3.094,0,3.188-2.766,3.188-3.766c0-25.906,6.516-34.875,11.531-39.906c5.047-5.047,14-11.547,39.906-11.547 c1,0,3.781-0.094,3.781-3.203C505,182.031,502.219,181.906,501.219,181.906z"></path> <path class="st0" d="M115.891,84.656c35.609,0,47.922,8.969,54.844,15.875c6.922,6.922,15.859,19.25,15.859,54.859 c0,1.359,0.188,5.172,4.406,5.172c4.25,0,4.375-3.813,4.375-5.172c0-35.609,8.953-47.938,15.875-54.859 c6.906-6.922,19.219-15.875,54.844-15.875c1.359,0,5.188-0.125,5.188-4.375c0-4.219-3.828-4.406-5.188-4.406 c-35.625,0-47.938-8.938-54.844-15.844c-6.922-6.938-15.875-19.234-15.875-54.844C195.375,3.828,195.25,0,191,0 c-4.219,0-4.406,3.828-4.406,5.188c0,35.609-8.938,47.906-15.859,54.844c-6.922,6.906-19.234,15.844-54.844,15.844 c-1.359,0-5.188,0.172-5.188,4.406C110.703,84.5,114.531,84.656,115.891,84.656z"></path> <path class="st0" d="M114.453,196c0-2.828-2.563-2.938-3.469-2.938c-23.828,0-32.078-5.984-36.703-10.609 c-4.625-4.641-10.625-12.875-10.625-36.703c0-0.906-0.094-3.469-2.938-3.469c-2.813,0-2.938,2.563-2.938,3.469 c0,23.828-5.984,32.063-10.609,36.703c-4.641,4.625-12.891,10.609-36.703,10.609C9.547,193.063,7,193.172,7,196 s2.547,2.938,3.469,2.938c23.813,0,32.063,6,36.703,10.625c4.625,4.625,10.609,12.875,10.609,36.719 c0,0.906,0.125,3.453,2.938,3.453c2.844,0,2.938-2.547,2.938-3.453c0-23.844,6-32.094,10.625-36.719 c4.625-4.641,12.875-10.625,36.703-10.625C111.891,198.938,114.453,198.844,114.453,196z"></path> </g> </g></svg>
-                </div>
-            </div>
-            
-            <!-- Step 4: COMPLETE RING -->
-            <div class="bg-gray-100 clip-last flex items-center px-6 w-full -ml-8 shadow-md z-10 hover:bg-gray-200 transition-colors duration-200 cursor-pointer group">
-                <div class="flex items-center w-full pl-8">
-                    <span class="text-3xl font-bold text-gray-800 mr-4">3</span>
-                    <div class="flex flex-col">
-                        <span class="text-gray-600 text-sm">Complete</span>
-                        <span class="uppercase font-bold text-gray-800 group-hover:text-black">RING</span>
+                
+                <!-- Step 2: CHOOSE SETTING -->
+                <div class="bg-blue-200 clip-arrow-right flex items-center px-6 w-full -ml-8 shadow-md z-30 hover:bg-blue-300 transition-colors duration-200 cursor-pointer group">
+                    <div class="flex items-center w-full pl-8">
+                        <span class="text-3xl font-bold text-gray-800 mr-4">1</span>
+                        <div class="flex flex-col">
+                            <span class="text-gray-600 text-sm">Choose a</span>
+                            <span class="uppercase font-bold text-gray-800 group-hover:text-black">SETTING</span>
+                        </div>
+                        <svg class="w-6 h-6 ml-auto text-gray-700" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,10L8,4.4L9.6,2h4.8L16,4.4L12,10z M15.5,6.8L14.3,8.5C16.5,9.4,18,11.5,18,14c0,3.3-2.7,6-6,6s-6-2.7-6-6c0-2.5,1.5-4.6,3.7-5.5L8.5,6.8C5.8,8.3,4,10.9,4,14c0,4.4,3.6,8,8,8s8-3.6,8-8C20,10.9,18.2,8.3,15.5,6.8z"/>
+                        </svg>
                     </div>
                 </div>
+                
+                <!-- Step 3: CHOOSE DIAMOND -->
+                <div class="bg-blue-100 clip-arrow-right flex items-center px-6 w-full -ml-8 shadow-md z-20 hover:bg-blue-200 transition-colors duration-200 cursor-pointer group">
+                    <div class="flex items-center w-full pl-8">
+                        <span class="text-3xl font-bold text-gray-800 mr-4">2</span>
+                        <div class="flex flex-col">
+                            <span class="text-gray-600 text-sm">Choose a</span>
+                            <span class="uppercase font-bold text-gray-800 group-hover:text-black">DIAMOND</span>
+                        </div>
+                        <svg class="w-8 h-8 ml-auto text-gray-700" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#000000;}  </style> <g> <path class="st0" d="M262.203,224.297H257.5h-99.469L78.672,333.438L260.719,512l7.5-7.359L442.75,333.438l-79.344-109.141H262.203 z M345.813,245.75l-14.656,65.109l-51.859-65.109H345.813z M259.984,251.953l56.422,70.797H204.766L259.984,251.953z M240.75,245.75l-50.563,64.844v0.016l-14.563-64.859H240.75z M159.188,259.156L159.188,259.156l14.297,63.594h-60.547 L159.188,259.156z M179.25,341.75l50.063,109.422L117.75,341.75H179.25z M260.719,474.172L200.125,341.75h121.172L260.719,474.172z M292.109,451.172l50.063-109.422h61.484L292.109,451.172z M347.938,322.75l14.313-63.594l0,0l46.234,63.594H347.938z"></path> <path class="st0" d="M501.219,181.906c-25.906,0-34.859-6.5-39.906-11.531c-5.016-5.047-11.531-14-11.531-39.906 c0-0.984-0.094-3.781-3.188-3.781c-3.078,0-3.188,2.797-3.188,3.781c0,25.906-6.516,34.859-11.547,39.906 c-5.047,5.031-14.016,11.531-39.891,11.531c-1,0-3.781,0.109-3.781,3.203c0,3.078,2.781,3.188,3.781,3.188 c25.875,0,34.844,6.516,39.891,11.547c5.031,5.031,11.547,14,11.547,39.906c0,1,0.109,3.766,3.188,3.766 c3.094,0,3.188-2.766,3.188-3.766c0-25.906,6.516-34.875,11.531-39.906c5.047-5.047,14-11.547,39.906-11.547 c1,0,3.781-0.094,3.781-3.203C505,182.031,502.219,181.906,501.219,181.906z"></path> <path class="st0" d="M115.891,84.656c35.609,0,47.922,8.969,54.844,15.875c6.922,6.922,15.859,19.25,15.859,54.859 c0,1.359,0.188,5.172,4.406,5.172c4.25,0,4.375-3.813,4.375-5.172c0-35.609,8.953-47.938,15.875-54.859 c6.906-6.922,19.219-15.875,54.844-15.875c1.359,0,5.188-0.125,5.188-4.375c0-4.219-3.828-4.406-5.188-4.406 c-35.625,0-47.938-8.938-54.844-15.844c-6.922-6.938-15.875-19.234-15.875-54.844C195.375,3.828,195.25,0,191,0 c-4.219,0-4.406,3.828-4.406,5.188c0,35.609-8.938,47.906-15.859,54.844c-6.922,6.906-19.234,15.844-54.844,15.844 c-1.359,0-5.188,0.172-5.188,4.406C110.703,84.5,114.531,84.656,115.891,84.656z"></path> <path class="st0" d="M114.453,196c0-2.828-2.563-2.938-3.469-2.938c-23.828,0-32.078-5.984-36.703-10.609 c-4.625-4.641-10.625-12.875-10.625-36.703c0-0.906-0.094-3.469-2.938-3.469c-2.813,0-2.938,2.563-2.938,3.469 c0,23.828-5.984,32.063-10.609,36.703c-4.641,4.625-12.891,10.609-36.703,10.609C9.547,193.063,7,193.172,7,196 s2.547,2.938,3.469,2.938c23.813,0,32.063,6,36.703,10.625c4.625,4.625,10.609,12.875,10.609,36.719 c0,0.906,0.125,3.453,2.938,3.453c2.844,0,2.938-2.547,2.938-3.453c0-23.844,6-32.094,10.625-36.719 c4.625-4.641,12.875-10.625,36.703-10.625C111.891,198.938,114.453,198.844,114.453,196z"></path> </g> </g></svg>
+                    </div>
+                </div>
+                
+                <!-- Step 4: COMPLETE RING -->
+                <div class="bg-gray-100 clip-last flex items-center px-6 w-full -ml-8 shadow-md z-10 hover:bg-gray-200 transition-colors duration-200 cursor-pointer group">
+                    <div class="flex items-center w-full pl-8">
+                        <span class="text-3xl font-bold text-gray-800 mr-4">3</span>
+                        <div class="flex flex-col">
+                            <span class="text-gray-600 text-sm">Complete</span>
+                            <span class="uppercase font-bold text-gray-800 group-hover:text-black">RING</span>
+                        </div>
+                        <svg class="w-6 h-6 ml-auto text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
+
+            <!-- Mobile Stepper - Visible on small screens -->
+            <div class="md:hidden">
+                <div class="bg-gold text-white py-3 px-4 text-center font-bold text-lg uppercase tracking-wider shadow-md rounded-t-md">
+                    BUILD YOUR RING
+                </div>
+                
+                <div class="flex flex-col divide-y divide-gray-200 border border-gray-200 rounded-b-md shadow-sm">
+                    <!-- Step 1: CHOOSE SETTING -->
+                    <div class="flex items-center p-4 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors duration-200">
+                        <div class="flex-shrink-0 bg-blue-200 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                            <span class="text-lg font-bold text-gray-800">1</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-gray-600 text-xs">Choose a</span>
+                            <span class="uppercase font-bold text-gray-800 text-sm">SETTING</span>
+                        </div>
+                        <svg class="w-5 h-5 ml-auto text-gray-700" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,10L8,4.4L9.6,2h4.8L16,4.4L12,10z M15.5,6.8L14.3,8.5C16.5,9.4,18,11.5,18,14c0,3.3-2.7,6-6,6s-6-2.7-6-6c0-2.5,1.5-4.6,3.7-5.5L8.5,6.8C5.8,8.3,4,10.9,4,14c0,4.4,3.6,8,8,8s8-3.6,8-8C20,10.9,18.2,8.3,15.5,6.8z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Step 2: CHOOSE DIAMOND -->
+                    <div class="flex items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                        <div class="flex-shrink-0 bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                            <span class="text-lg font-bold text-gray-800">2</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-gray-600 text-xs">Choose a</span>
+                            <span class="uppercase font-bold text-gray-800 text-sm">DIAMOND</span>
+                        </div>
+                        <svg class="w-8 h-8 ml-auto text-gray-700" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#000000;}  </style> <g> <path class="st0" d="M262.203,224.297H257.5h-99.469L78.672,333.438L260.719,512l7.5-7.359L442.75,333.438l-79.344-109.141H262.203 z M345.813,245.75l-14.656,65.109l-51.859-65.109H345.813z M259.984,251.953l56.422,70.797H204.766L259.984,251.953z M240.75,245.75l-50.563,64.844v0.016l-14.563-64.859H240.75z M159.188,259.156L159.188,259.156l14.297,63.594h-60.547 L159.188,259.156z M179.25,341.75l50.063,109.422L117.75,341.75H179.25z M260.719,474.172L200.125,341.75h121.172L260.719,474.172z M292.109,451.172l50.063-109.422h61.484L292.109,451.172z M347.938,322.75l14.313-63.594l0,0l46.234,63.594H347.938z"></path> <path class="st0" d="M501.219,181.906c-25.906,0-34.859-6.5-39.906-11.531c-5.016-5.047-11.531-14-11.531-39.906 c0-0.984-0.094-3.781-3.188-3.781c-3.078,0-3.188,2.797-3.188,3.781c0,25.906-6.516,34.859-11.547,39.906 c-5.047,5.031-14.016,11.531-39.891,11.531c-1,0-3.781,0.109-3.781,3.203c0,3.078,2.781,3.188,3.781,3.188 c25.875,0,34.844,6.516,39.891,11.547c5.031,5.031,11.547,14,11.547,39.906c0,1,0.109,3.766,3.188,3.766 c3.094,0,3.188-2.766,3.188-3.766c0-25.906,6.516-34.875,11.531-39.906c5.047-5.047,14-11.547,39.906-11.547 c1,0,3.781-0.094,3.781-3.203C505,182.031,502.219,181.906,501.219,181.906z"></path> <path class="st0" d="M115.891,84.656c35.609,0,47.922,8.969,54.844,15.875c6.922,6.922,15.859,19.25,15.859,54.859 c0,1.359,0.188,5.172,4.406,5.172c4.25,0,4.375-3.813,4.375-5.172c0-35.609,8.953-47.938,15.875-54.859 c6.906-6.922,19.219-15.875,54.844-15.875c1.359,0,5.188-0.125,5.188-4.375c0-4.219-3.828-4.406-5.188-4.406 c-35.625,0-47.938-8.938-54.844-15.844c-6.922-6.938-15.875-19.234-15.875-54.844C195.375,3.828,195.25,0,191,0 c-4.219,0-4.406,3.828-4.406,5.188c0,35.609-8.938,47.906-15.859,54.844c-6.922,6.906-19.234,15.844-54.844,15.844 c-1.359,0-5.188,0.172-5.188,4.406C110.703,84.5,114.531,84.656,115.891,84.656z"></path> <path class="st0" d="M114.453,196c0-2.828-2.563-2.938-3.469-2.938c-23.828,0-32.078-5.984-36.703-10.609 c-4.625-4.641-10.625-12.875-10.625-36.703c0-0.906-0.094-3.469-2.938-3.469c-2.813,0-2.938,2.563-2.938,3.469 c0,23.828-5.984,32.063-10.609,36.703c-4.641,4.625-12.891,10.609-36.703,10.609C9.547,193.063,7,193.172,7,196 s2.547,2.938,3.469,2.938c23.813,0,32.063,6,36.703,10.625c4.625,4.625,10.609,12.875,10.609,36.719 c0,0.906,0.125,3.453,2.938,3.453c2.844,0,2.938-2.547,2.938-3.453c0-23.844,6-32.094,10.625-36.719 c4.625-4.641,12.875-10.625,36.703-10.625C111.891,198.938,114.453,198.844,114.453,196z"></path> </g> </g></svg>
+                    </div>
+                    
+                    <!-- Step 3: COMPLETE RING -->
+                    <div class="flex items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                        <div class="flex-shrink-0 bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                            <span class="text-lg font-bold text-gray-800">3</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-gray-600 text-xs">Complete</span>
+                            <span class="uppercase font-bold text-gray-800 text-sm">RING</span>
+                        </div>
+                        <svg class="w-5 h-5 ml-auto text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
+</div>
         </div>
         
         <script>
             // Add active state functionality
             document.addEventListener('DOMContentLoaded', function() {
-            const steps = document.querySelectorAll('.clip-arrow-right:not(:first-child), .clip-last');
-            
-            steps.forEach(step => {
-                step.addEventListener('click', function() {
-                // Remove active from all steps
-                steps.forEach(s => {
-                    s.classList.remove('bg-blue-300', 'bg-blue-200', 'bg-gray-100');
-                    if (s.classList.contains('clip-arrow-right') && !s.classList.contains('bg-gold')) {
-                    s.classList.add('bg-blue-100');
-                    } else if (s.classList.contains('clip-last')) {
-                    s.classList.add('bg-white');
-                    }
+                // Desktop stepper functionality
+                const desktopSteps = document.querySelectorAll('.hidden.md\\:flex .clip-arrow-right:not(:first-child), .hidden.md\\:flex .clip-last');
+                
+                desktopSteps.forEach(step => {
+                    step.addEventListener('click', function() {
+                        // Remove active from all steps
+                        desktopSteps.forEach(s => {
+                            s.classList.remove('bg-blue-300', 'bg-blue-200', 'bg-gray-100');
+                            if (s.classList.contains('clip-arrow-right') && !s.classList.contains('bg-gold')) {
+                                s.classList.add('bg-blue-100');
+                            } else if (s.classList.contains('clip-last')) {
+                                s.classList.add('bg-white');
+                            }
+                        });
+                        
+                        // Add active to clicked step
+                        if (this.classList.contains('clip-arrow-right') && !this.classList.contains('bg-gold')) {
+                            this.classList.remove('bg-blue-100');
+                            this.classList.add('bg-blue-300');
+                        } else if (this.classList.contains('clip-last')) {
+                            this.classList.remove('bg-white');
+                            this.classList.add('bg-gray-100');
+                        }
+                    });
                 });
                 
-                // Add active to clicked step
-                if (this.classList.contains('clip-arrow-right') && !this.classList.contains('bg-gold')) {
-                    this.classList.remove('bg-blue-100');
-                    this.classList.add('bg-blue-300');
-                } else if (this.classList.contains('clip-last')) {
-                    this.classList.remove('bg-white');
-                    this.classList.add('bg-gray-100');
-                }
+                // Mobile stepper functionality
+                const mobileSteps = document.querySelectorAll('.md\\:hidden .flex.items-center.p-4');
+                
+                mobileSteps.forEach((step, index) => {
+                    step.addEventListener('click', function() {
+                        // Remove active from all steps
+                        mobileSteps.forEach(s => {
+                            s.classList.remove('bg-blue-50');
+                            s.querySelector('.flex-shrink-0').classList.remove('bg-blue-200');
+                            s.querySelector('.flex-shrink-0').classList.add('bg-gray-200');
+                        });
+                        
+                        // Add active to clicked step
+                        this.classList.add('bg-blue-50');
+                        this.querySelector('.flex-shrink-0').classList.remove('bg-gray-200');
+                        this.querySelector('.flex-shrink-0').classList.add('bg-blue-200');
+                    });
+                    
+                    // Set first step as active by default
+                    if (index === 0) {
+                        step.classList.add('bg-blue-50');
+                        step.querySelector('.flex-shrink-0').classList.remove('bg-gray-200');
+                        step.querySelector('.flex-shrink-0').classList.add('bg-blue-200');
+                    }
                 });
-            });
             });
         </script>
 
@@ -105,11 +186,11 @@
             
             /* Custom shapes that can't be done with pure Tailwind */
             .clip-arrow-right {
-            clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+                clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
             }
             
             .clip-last {
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
             }
         </style>
         <!-- End Stepper Bar -->
@@ -338,7 +419,7 @@
         <!-- Recently Viewed Section - NEW -->
         <div class="py-12 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 mx-auto flex flex-col items-center justify-center">
             <h2 class="text-2xl font-montserrat font-semibold text-gray-800 mb-6 text-center">Recently Viewed</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 @foreach (range(1, 4) as $index)
                     <div class="relative group">
                         <a href="#" class="block">

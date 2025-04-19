@@ -57,7 +57,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div id="shapeDropdown" class="hidden mt-4 grid grid-cols-6 gap-3 px-4 transition-all duration-300">
+                    <div id="shapeDropdown" class="hidden mt-4 w-full px-4 transition-all duration-300">
                         <select id="shapeSelect"
                             class="font-montserrat text-13px leading-5 font-medium p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                             onchange="window.location.href=this.value">
@@ -403,7 +403,6 @@
                     </script>
                 </div>
                 <!-- End Carat Filter -->
-
 
                 <!-- Cut Filter -->
                 <div class="border-t py-4" id="cutDropdownIcon">
