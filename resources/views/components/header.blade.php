@@ -574,7 +574,7 @@
                         </g>
                     </svg>
                 </button>
-                <a href="{{ route('inventory') }}"
+                <!-- <a href="{{ route('inventory') }}"
                     class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     style="color: rgb(240,186,64);">
                     <span class="mr-2">INVENTORY</span>
@@ -595,7 +595,7 @@
                             </g>
                         </g>
                     </svg>
-                </a>
+                </a> -->
                 <button
                     class="menu-item flex justify-between items-center w-full text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="engagement-rings-menu" style="color: rgb(240,186,64);">
@@ -1028,7 +1028,7 @@
                             </g>
                         </g>
                     </svg>
-                    <a href="#"
+                    <!-- <a href="#"
                         class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                         style="color: rgb(240,186,64);">
                         <span class="mr-2 uppercase">Bespoke Jewellery</span>
@@ -1049,8 +1049,8 @@
                                 </g>
                             </g>
                         </svg>
-                    </a>
-                    <a href="#"
+                    </a> -->
+                    <!-- <a href="#"
                         class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                         style="color: rgb(240,186,64);">
                         <span class="mr-2 uppercase">Custom Engagement Ring</span>
@@ -1071,7 +1071,7 @@
                                 </g>
                             </g>
                         </svg>
-                    </a>
+                    </a> -->
             </nav>
 
             <!-- Shop by Shape Submenu -->
