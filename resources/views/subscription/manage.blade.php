@@ -64,12 +64,12 @@
                         @if($stripeSubscription->default_payment_method)
                         <div class="flex flex-col">
                             <span class="text-sm text-gray-500">Payment Method</span>
-                            <span class="text-lg text-gray-800">
+                            {{-- <span class="text-lg text-gray-800">
                                 @php
                                     $paymentMethod = app('stripe')->paymentMethods->retrieve($stripeSubscription->default_payment_method);
                                 @endphp
                                 {{ ucfirst($paymentMethod->type) }} ending in {{ $paymentMethod->card->last4 }}
-                            </span>
+                            </span> --}}
                         </div>
                         @endif
                     </div>
