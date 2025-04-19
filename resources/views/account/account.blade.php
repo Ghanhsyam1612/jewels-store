@@ -3,7 +3,7 @@
 @section('content')
 <!-- Account Page -->
 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl flex justify-center gap-8 w-full">
+    <div class="max-w-7xl flex flex-col lg:flex-row justify-center gap-8 w-full">
         <!-- Login Form -->
         <div class="w-full bg-white rounded-lg shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] p-8">
             <div>
