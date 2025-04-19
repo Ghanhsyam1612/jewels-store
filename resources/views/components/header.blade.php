@@ -2,7 +2,7 @@
     <!-- Main header -->
     <div id="sticky-header" class="mx-auto flex items-center justify-between py-4 px-6 bg-primary max-w-screen-3xl">
         <!-- Hamburger menu for mobile -->
-        <button id="hamburger-menu" class="lg:hidden text-gold" style="color: rgb(240,186,64);">
+        <button id="hamburger-menu" class="xl:hidden text-gold" style="color: rgb(240,186,64);">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -17,14 +17,14 @@
         </a>
 
         <!-- Navigation for desktop -->
-        <nav class="hidden lg:flex space-x-6 z-50">
-            {{-- Diamonds --}}
-            {{-- <div class="relative group">
+        <nav class="hidden xl:flex space-x-6 z-50">
+            <!-- Diamonds -->
+            <!-- <div class="relative group">
                 <a href="{{ route('inventory')}}" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">DIAMONDS
                 </a>
-            </div> --}}
+            </div> -->
 
-            {{-- Select Your Diamond --}}
+            <!-- Select Your Diamond -->
             <div class="relative group">
                 <a href="{{ route('inventory') }}"
                     class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
@@ -48,7 +48,6 @@
                             class="block px-4 py-2 text-12px leading-[19px] font-sm text-primary hover:font-semibold font-medium transition-all duration-200">
                             Natural Diamond
                         </a>
-
 
                         <!-- Lab Diamond with submenu -->
                         <div class="group/lab relative">
@@ -79,7 +78,7 @@
                 </div>
             </div>
 
-            {{-- Engagement Rings --}}
+            <!-- Engagement Rings -->
             <div class="relative group">
                 <a href="#"
                     class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
@@ -263,7 +262,7 @@
                 </div>
             </div>
 
-            {{-- Fine Jewellery --}}
+            <!-- Fine Jewellery -->
             <div class="relative group">
                 <a href="#"
                     class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
@@ -420,12 +419,14 @@
                 </div>
             </div>
 
-            {{-- Ready To Ship --}}
+            <!-- Ready To Ship -->
             <a href="{{ route('ready-to-ship') }}"
                 class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
-                style="color: rgb(240,186,64);">READY TO SHIP</a>
+                style="color: rgb(240,186,64);">
+                READY TO SHIP
+            </a>
 
-            {{-- Antique Cut Diamonds --}}
+            <!-- Antique Cut Diamonds -->
             <!-- <a href="/antique-cut-diamonds" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">ANTIQUE CUT DIAMOND</a> -->
             <a href="{{ route('antique.cut.diamond') }}"
                 class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
@@ -433,19 +434,20 @@
                 ANTIQUE CUT DIAMOND
             </a>
 
-
-            {{-- Precious Stones --}}
+            <!-- Precious Stones -->
             <a href="#"
                 class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
-                style="color: rgb(240,186,64);">PRECIOUS STONES</a>
+                style="color: rgb(240,186,64);">
+                PRECIOUS STONES
+            </a>
 
-            {{-- Membership --}}
+            <!-- Membership -->
             <a href="{{ route('subscription.plans') }}"
                 class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all"
                 style="color: rgb(240,186,64);">MEMBERSHIP</a>
 
 
-            {{-- Precious Stones --}}
+            <!-- Precious Stones -->
             <!--
             <div class="relative group">
                 <a href="#" class="text-gold hover:text-white flex items-center font-montserrat text-12px font-semibold leading-[30px] tracking-wide transition-all" style="color: rgb(240,186,64);">PRECIOUS STONES
@@ -533,8 +535,6 @@
                     </div>
                 </div>
             </div> -->
-
-
         </nav>
 
         <!-- Mobile menu -->
@@ -574,7 +574,7 @@
                         </g>
                     </svg>
                 </button>
-                <a href="{{ route('inventory') }}"
+                <!-- <a href="{{ route('inventory') }}"
                     class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     style="color: rgb(240,186,64);">
                     <span class="mr-2">INVENTORY</span>
@@ -595,7 +595,7 @@
                             </g>
                         </g>
                     </svg>
-                </a>
+                </a> -->
                 <button
                     class="menu-item flex justify-between items-center w-full text-gold hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="engagement-rings-menu" style="color: rgb(240,186,64);">
@@ -640,7 +640,7 @@
                         </g>
                     </svg>
                 </button>
-                <a href="/ready-to-ship"
+                <a href="{{ route('ready-to-ship') }}"
                     class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     style="color: rgb(240,186,64);">
                     <span class="mr-2">READY TO SHIP</span>
@@ -706,9 +706,31 @@
                         </g>
                     </svg>
                 </a>
+                <a href="{{ route('subscription.plans') }}"
+                    class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
+                    style="color: rgb(240,186,64);">
+                    <span class="mr-2">MEMBERSHIP</span>
+                    <!-- Right Arrow -->
+                    <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
+                        version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
+                        xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <g>
+                                <g>
+                                    <path
+                                        d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z">
+                                    </path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
             </nav>
 
-            {{-- Start Lab Diamonds Submenu --}}
+            <!-- Start Lab Diamonds Submenu -->
             <!-- LAB DIAMONDS Submenu -->
             <nav id="lab-diamonds-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button
@@ -890,9 +912,9 @@
                     </svg>
                 </a>
             </nav>
-            {{-- End Lab Diamonds Submenu --}}
+            <!-- End Lab Diamonds Submenu -->
 
-            {{-- Start Engagement Rings --}}
+            <!-- Start Engagement Rings -->
             <!-- ENGAGEMENT RINGS Submenu -->
             <nav id="engagement-rings-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button
@@ -920,7 +942,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="create-diamond-ring-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Create Your Diamond Ring</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -942,7 +964,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="shop-by-shape-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Shop by Shape</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -964,7 +986,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="shop-by-style-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Shop by Style</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1028,7 +1050,7 @@
                             </g>
                         </g>
                     </svg>
-                    <a href="#"
+                    <!-- <a href="#"
                         class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                         style="color: rgb(240,186,64);">
                         <span class="mr-2 uppercase">Bespoke Jewellery</span>
@@ -1049,8 +1071,8 @@
                                 </g>
                             </g>
                         </svg>
-                    </a>
-                    <a href="#"
+                    </a> -->
+                    <!-- <a href="#"
                         class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                         style="color: rgb(240,186,64);">
                         <span class="mr-2 uppercase">Custom Engagement Ring</span>
@@ -1071,7 +1093,7 @@
                                 </g>
                             </g>
                         </svg>
-                    </a>
+                    </a> -->
             </nav>
 
             <!-- Shop by Shape Submenu -->
@@ -1563,9 +1585,9 @@
                     </svg></a>
                 </a>
             </nav>
-            {{-- End Engagement Rings --}}
+            <!-- End Engagement Rings -->
 
-            {{-- Start Fine Jewellry --}}
+            <!-- Start Fine Jewellry -->
             <!-- FINE JEWELRY Submenu -->
             <nav id="fine-jewelry-menu" class="hidden flex flex-col items-start space-y-4 mt-8 mx-4">
                 <button
@@ -1593,7 +1615,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="earrings-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Earrings</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1615,7 +1637,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="wedding-rings-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Wedding Rings</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1637,7 +1659,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="pendants-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Pendants</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1659,7 +1681,7 @@
                     class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Chains</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1681,7 +1703,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="bracelets-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Bracelets</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1703,7 +1725,7 @@
                     class="menu-item text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     data-target="necklaces-menu" style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Necklaces</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -1750,7 +1772,7 @@
                     class="text-gold flex justify-between items-center w-full hover:text-white font-montserrat text-12px font-semibold leading-[30px] tracking-wide"
                     style="color: rgb(240,186,64);">
                     <span class="mr-2 uppercase">Stud Earrings</span>
-                    {{-- Right Arrow --}}
+                    <!-- Right Arrow -->
                     <svg class="text-gold w-4 h-4" style="color: rgb(240,186,64);" fill="currentColor"
                         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.004 492.004"
@@ -2182,10 +2204,10 @@
 
         </div>
 
-        {{-- Start Search, Account, and Cart --}}
+        <!-- Start Search, Account, and Cart -->
         <div class="flex items-center space-x-4">
-            {{-- Search --}}
-            {{-- <div class="relative">
+            <!-- Search -->
+            <!-- <div class="relative">
                 <input type="text" placeholder="Search"
                     class="hidden lg:block pl-2 px-10 font-montserrat text-12px py-2 border border-gray-300 rounded-md focus:outline-none placeholder:text-gray-400 placeholder:font-montserrat placeholder:font-medium">
                 <svg class="w-6 h-6 lg:hidden text-gold cursor-pointer" fill="none"
@@ -2194,11 +2216,9 @@
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
                 <img src="{{ asset('Shape/search.svg') }}" class="w-4 h-4 hidden lg:block absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer" alt="Diamond Logo">
-            </div> --}}
+            </div> -->
 
-
-
-            {{-- Account --}}
+            <!-- Account -->
             <a href="{{ auth('customer')->check() ? route('account.my-account') : route('account') }}"
                 class="text-gold hover:text-white cursor-pointer" style="color: rgb(240,186,64);">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -2210,7 +2230,7 @@
                 </svg>
             </a>
 
-            {{-- Cart --}}
+            <!-- Cart -->
             <a href="/cart" class="text-gold hover:text-white relative" style="color: rgb(240,186,64);">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -2223,12 +2243,12 @@
                 </span>
             </a>
         </div>
-        {{-- End Search, Account, and Cart --}}
+        <!-- End Search, Account, and Cart -->
 
     </div>
 </header>
 
-{{-- Sticky Header --}}
+<!-- Sticky Header -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const hamburgerMenu = document.getElementById('hamburger-menu');
@@ -2274,7 +2294,7 @@
     });
 </script>
 
-{{-- MObile Menu --}}
+<!-- Mobile Menu -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const menuItems = document.querySelectorAll(".menu-item");
