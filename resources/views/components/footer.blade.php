@@ -73,9 +73,9 @@
                 <ul class="space-y-3">
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Live Chat</a></li>
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Book Appointment</a></li>
-                    <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Stores</a></li>
-                    <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Email Us</a></li>
-                    <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Affiliates</a></li>
+                    <li><a href="{{ route('stores') }}" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Stores</a></li>
+                    <li><a href="mailto:info@roayadiamond.com" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Email Us</a></li>
+                    <!-- <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Affiliates</a></li> -->
                 </ul>
             </div>
 
@@ -83,8 +83,8 @@
             <div class="lg:col-span-1">
                 <h3 class="text-lg font-montserrat font-semibold mb-6" style="color: rgb(240,186,64);">ABOUT</h3>
                 <ul class="space-y-3">
-                    <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Our Story</a></li>
-                    <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Our Mission</a></li>
+                    <li><a href="{{ route('ourstory') }}" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Our Story</a></li>
+                    <li><a href="{{ route('mission') }}" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Our Mission</a></li>
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Responsible Sourcing</a></li>
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Sustainability Goals</a></li>
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">How we Give Back</a></li>

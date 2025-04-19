@@ -1,19 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
-        <nav class="flex items-center text-sm font-montserrat mb-4 px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 py-4">
-            <a href="/" class="text-dark-blue text-xs hover:underline">Home</a>
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <path
-                        d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"
-                        fill="#0F0F0F"></path>
-                </g>
+    <div class="max-w-screen-2xl mx-auto">
+        <!-- Breadcrumb Navigation - Refined -->
+        <nav class="flex items-center text-sm font-montserrat mb-4 px-4 md:px-8 lg:px-12 2xl:px-28 3xl:px-40 py-6">
+            <a href="/" class="text-gray-600 text-xs lg:text-sm font-medium hover:text-gold transition duration-300">Home</a>
+            <svg class="w-3 h-3 mx-2 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z" fill="currentColor"></path>
             </svg>
-           
+            <span class="text-gold text-xs lg:text-sm font-medium">Engagement Rings</span>
         </nav>
 
         <div class="flex flex-col lg:flex-row md:gap-5 px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 xl:py-6 2xl:py-0">
@@ -264,94 +259,153 @@
             </div>
 
             <!-- Right side - Details -->
-            <div class="w-full lg:w-1/3 space-y-2">
-                <!-- Product Name -->
-                <h1 class="text-xl lg:text-2xl 3xl:text-3xl font-semibold text-primary">The Trellis Three Stone Emerald
-                    Engagement Ring</h1>
-                <!-- Product Price -->
-                <h3 class="text-base lg:text-lg 3xl:text-xl font-semibold text-primary">Starting at CA $10,000</h3>
+            <div class="w-full lg:w-1/3 space-y-3">
+                <!-- Product Title and Price -->
+                <div class="space-y-2">
+                    <h1 class="text-3xl font-bold text-primary">The Trellis Three Stone Emerald Engagement Ring</h1>
+                    <p class="text-xl font-semibold text-primary">Starting at CA $10,000</p>
+                </div>
+
+                <!-- Product Description Brief -->
+                <p class="text-gray-600 italic">
+                    A contemporary take on our beloved Three Stone setting, highlighting your center diamond with two matching side stones for undeniable brilliance.
+                </p>
+
                 <!-- Product Shape -->
                 <div class="flex flex-col gap-2 py-2">
-                    <p class="text-sm 3xl:text-base font-semibold text-primary">Shape : <span
-                            class="font-normal">Round</span></p>
-                    <div class="grid grid-cols-10 gap-2">
-                        <img src="{{ asset('Shape/round.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/oval.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/emerald.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/pear.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/cushion.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/marquise.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/asscher.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/princess.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/radiant.svg') }}" alt="Round" class="w-7 h-7">
-                        <img src="{{ asset('Shape/heart.svg') }}" alt="Round" class="w-7 h-7">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-gray-800">Diamond Shape</h3>
+                            <span class="text-primary font-medium">Round</span>
+                        </div>
+                        <div class="grid grid-cols-5 gap-3">
+                            <div class="p-3 border-2 border-primary rounded-lg flex justify-center shape-option active">
+                                <img src="{{ asset('Shape/round.svg') }}" alt="Round" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/oval.svg') }}" alt="Oval" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/emerald.svg') }}" alt="Emerald" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/pear.svg') }}" alt="Pear" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/cushion.svg') }}" alt="Cushion" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/marquise.svg') }}" alt="Cushion" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/asscher.svg') }}" alt="Cushion" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/princess.svg') }}" alt="Cushion" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/radiant.svg') }}" alt="Cushion" class="w-7 h-7">
+                            </div>
+                            <div class="p-3 border-2 border-gray-200 rounded-lg flex justify-center shape-option">
+                                <img src="{{ asset('Shape/heart.svg') }}" alt="Cushion" class="w-7 h-7">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Product Color -->
-                <div class="flex flex-col gap-2 py-2">
-                    <p class="text-sm 3xl:text-base font-semibold text-primary">Metal: <span class="font-normal">18K White Gold</span></p>
-                    <div class="flex flex-row gap-4">
-                        <div class="relative">
-                            <img src="{{ asset('images/color/silver.png') }}" alt="White Gold" class="w-9 h-9 rounded-full border-2 border-teal-600">
+                <!-- Metal Options -->
+                <div class="space-y-3 my-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-800">Metal</h3>
+                        <span class="text-primary font-medium">18K White Gold</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="relative metal-option active">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-primary flex items-center justify-center cursor-pointer">
+                                <img src="{{ asset('images/color/silver.png') }}" alt="White Gold" class="w-8 h-8 rounded-full">
+                            </div>
                         </div>
-                        <div class="relative">
-                            <img src="{{ asset('images/color/gold.png') }}" alt="Yellow Gold" class="w-9 h-9 rounded-full hover:border-2 hover:border-teal-600 transition-all">
+                        <div class="relative metal-option">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-gray-200 flex items-center justify-center cursor-pointer">
+                                <img src="{{ asset('images/color/gold.png') }}" alt="Yellow Gold" class="w-8 h-8 rounded-full">
+                            </div>
                         </div>
-                        <div class="relative">
-                            <img src="{{ asset('images/color/rose-gold.png') }}" alt="Rose Gold" class="w-9 h-9 rounded-full hover:border-2 hover:border-teal-600 transition-all">
+                        <div class="relative metal-option">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-gray-200 flex items-center justify-center cursor-pointer">
+                                <img src="{{ asset('images/color/rose-gold.png') }}" alt="Rose Gold" class="w-8 h-8 rounded-full">
+                            </div>
                         </div>
-                        <div class="relative">
-                            <img src="{{ asset('images/color/platinum.png') }}" alt="Platinum" class="w-9 h-9 rounded-full hover:border-2 hover:border-teal-600 transition-all">
+                        <div class="relative metal-option">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-gray-200 flex items-center justify-center cursor-pointer">
+                                <img src="{{ asset('images/color/platinum.png') }}" alt="Platinum" class="w-8 h-8 rounded-full">
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Diamond Origin -->
-                <div>
-                    <div class="flex flex-row gap-2 text-lg mb-4">
-                        <p class="font-medium">Diamond Origin: <span id="selectedOrigin">Natural</span></p>
-                        <span class="text-gray-400 cursor-help" title="Diamond origin information">ⓘ</span>
+                <div class="space-y-3 my-3">
+                    <div class="flex justify-between">
+                        <div class="flex items-center">
+                            <h3 class="text-lg font-semibold text-gray-800">Diamond Origin</h3>
+                            <button class="ml-2 text-gray-400 hover:text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="flex items-center">
+                            <h3 class="text-lg font-semibold text-gray-800 ml-5" id="selectedOrigin">Natural</h3>
+                        </div>
                     </div>
-                    <div class="flex flex-row gap-4">
-                        <button onclick="selectDiamondOrigin('Natural')" class="px-8 py-2 rounded-full border-2 border-teal-600 text-teal-600 hover:bg-teal-50 transition-colors" id="naturalBtn">Natural</button>
-                        <button onclick="selectDiamondOrigin('Lab Grown')" class="px-8 py-2 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors" id="labGrownBtn">Lab Grown</button>
+                    <div class="flex gap-4">
+                        <button id="naturalBtn" onclick="selectDiamondOrigin('Natural')" class="flex-1 py-3 px-4 rounded-full bg-primary text-white font-medium focus:outline-none hover:bg-primary hover:text-white focus:ring-offset-2 transition-colors">
+                            Natural
+                        </button>
+                        <button id="labGrownBtn" onclick="selectDiamondOrigin('Lab Grown')" class="flex-1 py-3 px-4 rounded-full bg-white text-gray-700 font-medium border border-gray-300 focus:outline-none hover:bg-primary hover:text-white focus:ring-offset-2 transition-colors">
+                            Lab Grown
+                        </button>
                     </div>
                 </div>
+
+                <!-- Diamond Origin Script -->
                 <script>
                     function selectDiamondOrigin(origin) {
                         document.getElementById('selectedOrigin').textContent = origin;
+
                         const naturalBtn = document.getElementById('naturalBtn');
                         const labGrownBtn = document.getElementById('labGrownBtn');
-                        
+
                         if (origin === 'Natural') {
-                            naturalBtn.classList.remove('border-gray-300', 'text-gray-600');
-                            naturalBtn.classList.add('border-primary', 'text-primary');
-                            labGrownBtn.classList.remove('border-primary', 'text-primary');
-                            labGrownBtn.classList.add('border-gray-300', 'text-gray-600');
+                            naturalBtn.classList.add('bg-primary', 'text-white');
+                            naturalBtn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+
+                            labGrownBtn.classList.remove('bg-primary', 'text-white');
+                            labGrownBtn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
                         } else {
-                            labGrownBtn.classList.remove('border-gray-300', 'text-gray-600');
-                            labGrownBtn.classList.add('border-primary', 'text-primary');
-                            naturalBtn.classList.remove('border-primary', 'text-primary');
-                            naturalBtn.classList.add('border-gray-300', 'text-gray-600');
+                            labGrownBtn.classList.add('bg-primary', 'text-white');
+                            labGrownBtn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+
+                            naturalBtn.classList.remove('bg-primary', 'text-white');
+                            naturalBtn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
                         }
                     }
-                </script>
 
-                <!-- Select Your Diamond Button -->
-                <div class="flex justify-center">
-                    <button
-                        class="bg-primary 3xl:text-lg font-semibold text-white w-full px-6 py-2 border border-primary hover:text-primary transition duration-300">
+                    window.addEventListener('load', () => {
+                        selectDiamondOrigin('Natural');
+                    });
+                </script>
+                
+                <!-- Select and Consult button -->
+                <div class="space-y-3">
+                    <button class="w-full py-3 px-6 bg-primary text-white font-semibold rounded-md hover:bg-indigo-800 focus:outline-none transition-colors">
                         Select Your Diamond
                     </button>
-                </div>
-                <!-- Consult with Diamond Expert Online Button -->
-                <div class="flex justify-center">
-                    <button
-                        class="bg-white 3xl:text-lg font-semibold text-primary w-full px-6 py-2 border border-primary hover:bg-primary hover:text-white transition duration-300">
-                        Consult with Diamond Expert Online
+                    <button class="w-full py-3 px-6 bg-white text-primary font-semibold rounded-md border border-primary hover:bg-indigo-50 transition-colors">
+                        Consult with Diamond Expert
                     </button>
                 </div>
+
                 <!-- Description -->
                 <div class="flex flex-col gap-2 py-3">
                     <div class="flex flex-row items-center gap-2">
@@ -534,7 +588,7 @@
 
         <!-- Customer Reviews Section -->
         <div class="bg-white py-12">
-            <div class="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
+            <div class="w-full  mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
                 <div class="text-center mb-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Customer Reviews</h2>
                     <div class="flex items-center justify-center mb-2">

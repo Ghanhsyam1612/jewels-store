@@ -353,9 +353,18 @@ Route::get('/terms-of-use', function () {
     return view('privacy.terms-of-use');
 })->name('terms-of-use');
 
+// Contact Us
+Route::get('/stores', function () {
+    return view('components.stores');
+})->name('stores');
 
+Route::get('/ourstory', function () {
+    return view('components.our_story');
+})->name('ourstory');
 
-
+Route::get('/mission', function () {
+    return view('components.our_mission');
+})->name('mission');
 
 
 // ---------------------------------- Cart Routes -----------------------------------------------------
