@@ -46,7 +46,7 @@
                 <ul class="space-y-3">
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Live Chat</a></li>
                     <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Book Appointment</a></li>
-                    <li><a href="{{ route('stores') }}" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Stores</a></li>
+                    <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Stores</a></li>
                     <li><a href="mailto:info@roayadiamond.com" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Email Us</a></li>
                     <!-- <li><a href="#" class="text-sm hover:text-white transition duration-300" style="color: rgb(240,186,64);">Affiliates</a></li> -->
                 </ul>
