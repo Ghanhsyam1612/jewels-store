@@ -3544,7 +3544,7 @@
                                             <button
                                                 data-product-type="{{ get_class($diamond) === 'App\\Models\\Diamond' ? 'diamond' : (get_class($diamond) === 'App\\Models\\ColorDiamond' ? 'color-diamond' : 'natural-diamond') }}"
                                                 data-product-id="{{ $diamond->id }}"
-                                                class="wishlist-btn absolute top-2 right-2 p-2 rounded-full transition-colors duration-300">
+                                                class="wishlist-btn absolute -top-2 right-2 p-2 rounded-full transition-colors duration-300">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                     stroke-width="2" stroke="currentColor"
                                                     class="w-6 h-6 transition-all wishlist-icon"

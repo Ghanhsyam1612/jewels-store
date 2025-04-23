@@ -2268,10 +2268,10 @@
                         </button>
                         <div class="grid grid-cols-2 gap-8 my-10">
                             <!-- Left Side -->
-                            <div class="flex flex-col items-center gap-3">
+                            <div class="relative flex flex-col items-center gap-3">
                                 <!-- Wishlist Heart Icon -->
                                 <button id="wishlist-btn-{{ $diamond->id }}" 
-                                            class="absolute top-2 right-2 p-2 rounded-full transition-colors duration-300"
+                                            class="absolute -top-2 right-2 p-2 rounded-full transition-colors duration-300"
                                             onclick="toggleWishlist({{ $diamond->id }})">
                                             <svg id="wishlist-icon-{{ $diamond->id }}" xmlns="http://www.w3.org/2000/svg" 
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"

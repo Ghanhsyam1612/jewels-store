@@ -1470,10 +1470,9 @@
                 </div>
 
                 <!-- Type Filter -->
-                <div class="border-t py-4" id="typeFilterDropdownIcon">
+                <!-- <div class="border-t py-4" id="typeFilterDropdownIcon">
                     <div class="flex justify-between items-center cursor-pointer">
                         <span class="text-lg font-semibold">Type</span>
-                        <!-- Down Arrow -->
                         <svg id="typeFilterDownArrow" fill="#000000" height="8" width="8" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             viewBox="0 0 330.002 330.002" xml:space="preserve" class="cursor-pointer">
@@ -1485,7 +1484,6 @@
                                 </path>
                             </g>
                         </svg>
-                        <!-- Up Arrow -->
                         <svg id="typeFilterUpArrow" class="hidden" height="8" width="8" version="1.1"
                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
@@ -1500,7 +1498,7 @@
                         </svg>
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
         <script>
@@ -3171,7 +3169,7 @@
                                         <div class="relative flex flex-col items-center gap-3">
                                             <!-- Wishlist Heart Icon -->
                                             <button id="wishlist-btn-{{ $diamond->id }}"
-                                                class="absolute top-2 right-2 p-2 rounded-full transition-colors duration-300"
+                                                class="absolute -top-2 right-2 p-2 rounded-full transition-colors duration-300"
                                                 onclick="toggleWishlist({{ $diamond->id }})">
                                                 <svg id="wishlist-icon-{{ $diamond->id }}"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
