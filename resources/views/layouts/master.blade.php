@@ -44,6 +44,8 @@
     </main>
 
     @include('components.footer')
+    {!! Toastr::message() !!}
+
 
     <!-- Google Translate Script -->
     {{-- <script type="text/javascript">

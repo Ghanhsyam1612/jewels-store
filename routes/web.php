@@ -18,6 +18,7 @@ use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NaturalDiamondController;
+use App\Http\Controllers\NewsletterSubscriberController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\WishlistController;
 use App\Models\ColorDiamond;
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->middleware('web')->name('change.language');
+
+Route::post('/news-letter/subscribe', [NewsletterSubscriberController::class, 'store'])->name('news-letter.subscribe.store');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/password-reset', function () {
