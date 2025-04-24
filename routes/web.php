@@ -354,9 +354,9 @@ Route::get('/terms-of-use', function () {
 })->name('terms-of-use');
 
 // Contact Us
-Route::get('/stores', function () {
+Route::get('/store', function () {
     return view('components.stores');
-})->name('stores');
+})->name('store');
 
 Route::get('/ourstory', function () {
     return view('components.our_story');
