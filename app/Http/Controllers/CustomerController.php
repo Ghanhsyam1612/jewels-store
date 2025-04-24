@@ -12,6 +12,8 @@ use Illuminate\Support\Carbon;
 use App\Jobs\PasswordResetJob;
 use App\Jobs\PasswordResetSuccessfullyJob;
 use App\Notifications\NewCustomerNotification;
+use Brian2694\Toastr\Facades\Toastr;
+
 
 use App\Jobs\WelcomeEmailJob;
 
@@ -30,8 +32,9 @@ class CustomerController extends Controller
         ]);
 
         if ($validator->fails()) {
-            toastr()->error($validator->errors()->first());
+            Toastr::error($validator->errors()->first(), 'Error');
             return redirect()->back();
+           
         }
 
         DB::beginTransaction();
@@ -55,7 +58,9 @@ class CustomerController extends Controller
             // Send the welcome email
             WelcomeEmailJob::dispatch($customer);
 
-            toastr()->success('Customer registered successfully');
+            
+            Toastr::success('Customer registered successfully', 'Success');
+
 
             return redirect()->back();
         } catch (\Exception $e) {
