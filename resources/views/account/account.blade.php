@@ -129,6 +129,18 @@
                         @error('password')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
+                        <div class="my-2">
+                            <div class="flex items-center">
+                                <div class="w-2/4 h-1 bg-gray-200 rounded-full"><div id="password-strength" class="h-1 bg-red-500 rounded-full" style="width: 0%"></div></div>
+                                <span id="password-strength-text" class="ml-2 text-xs text-gray-500">Weak</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="terms" name="terms" type="checkbox" required="" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="terms" class="ml-2 block text-sm text-gray-900 font-montserrat">
+                                I agree to the <a href="#" class="text-primary hover:text-indigo-500">Terms of Service</a> and <a href="#" class="text-primary hover:text-indigo-500">Privacy Policy</a>
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -257,7 +269,7 @@
     });
 </script>
 
-{{-- Toggle Password --}}
+<!-- Toggle Password -->
 <script>
     // Login Password
     const passwordInput = document.getElementById('password');
@@ -307,6 +319,41 @@
     registerPasswordInput.addEventListener('input', () => {
         registerEyeCloseIcon.classList.remove('hidden'); // Keep "eye-close" visible
         registerEyeOpenIcon.classList.add('hidden'); // Ensure "eye-open" is hidden unless toggled
+    });
+
+    // Password strength meter
+    document.getElementById('register-password').addEventListener('input', function(e) {
+        const password = e.target.value;
+        const strengthBar = document.getElementById('password-strength');
+        const strengthText = document.getElementById('password-strength-text');
+        
+        // Calculate password strength
+        let strength = 0;
+        if (password.length >= 8) strength += 25;
+        if (password.match(/[A-Z]/)) strength += 25;
+        if (password.match(/[0-9]/)) strength += 25;
+        if (password.match(/[^A-Za-z0-9]/)) strength += 25;
+        
+        // Update strength indicator
+        strengthBar.style.width = strength + '%';
+        
+        if (strength <= 25) {
+            strengthBar.className = 'h-1 bg-red-500 rounded-full';
+            strengthText.textContent = 'Weak';
+            strengthText.className = 'ml-2 text-xs text-red-500';
+        } else if (strength <= 50) {
+            strengthBar.className = 'h-1 bg-orange-500 rounded-full';
+            strengthText.textContent = 'Fair';
+            strengthText.className = 'ml-2 text-xs text-orange-500';
+        } else if (strength <= 75) {
+            strengthBar.className = 'h-1 bg-yellow-500 rounded-full';
+            strengthText.textContent = 'Good';
+            strengthText.className = 'ml-2 text-xs text-yellow-500';
+        } else {
+            strengthBar.className = 'h-1 bg-green-500 rounded-full';
+            strengthText.textContent = 'Strong';
+            strengthText.className = 'ml-2 text-xs text-green-500';
+        }
     });
 </script>
 @endsection

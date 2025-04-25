@@ -1,4 +1,4 @@
-<div class="container mx-auto px-6 py-12">
+<div class="container mx-auto bg-white p-6 rounded shadow-sm">
     @if(session('success'))
     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
         {{ session('success') }}
@@ -56,7 +56,7 @@
 
             <!-- Save Button -->
             <div class="mt-8">
-                <button type="submit" class="w-1/3 bg-black text-white text-sm font-montserrat uppercase py-3 px-4 rounded-md hover:bg-gray-800 transition-colors duration-300">
+                <button type="submit" class="w-1/3 bg-primary text-white text-sm font-montserrat uppercase py-3 px-4 rounded-md hover:bg-gray-800 transition-colors duration-300">
                     Save Changes
                 </button>
             </div>

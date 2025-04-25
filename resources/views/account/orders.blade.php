@@ -1,5 +1,4 @@
-<div class="bg-white p-6 rounded shadow-sm">
-    <h2 class="text-xl font-montserrat font-semibold mb-4">Orders</h2>
+<div>
     @if ($orders->count() > 0)
         <div class="overflow-x-auto">
             <table id="orders-table" class="min-w-full divide-y divide-gray-200">
@@ -187,6 +186,16 @@
             </table>
         </div>
     @else
-        <p class="text-gray-600">No order has been made yet.</p>
+        <div class="bg-white p-6 rounded shadow-sm">
+            <h2 class="text-xl font-semibold mb-6 flex items-center"><i class="fas fa-shopping-bag mr-3"></i>Orders</h2>
+            <div class="border-t border-gray-200 pt-4">
+                <p class="text-gray-600">No order has been made yet.</p>
+                <div class="mt-6">
+                    <a href="#" class="bg-primary text-white px-6 py-2 rounded hover:bg-gray-800 transition-all inline-flex items-center">
+                        <i class="fas fa-shopping-cart mr-2"></i> Browse Products
+                    </a>
+                </div>
+            </div>
+        </div>
     @endif
 </div>

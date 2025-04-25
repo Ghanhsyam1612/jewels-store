@@ -1,6 +1,5 @@
-<div class="container mx-auto px-6 pb-12">
-    <h2 class="text-2xl font-montserrat font-semibold mb-8">My Wishlist</h2>
-
+<div class="container mx-auto bg-white p-6 rounded shadow-sm">
+    <h2 class="text-xl font-semibold mb-6 flex items-center"><i class="fas fa-heart mr-3"></i>Wishlist</h2>
     <div class="overflow-x-auto">
         <table class="min-w-full border-collapse">
             <thead>
@@ -50,11 +49,14 @@
                 @else
                     <tr>
                         <td colspan="3" class="text-center py-8">
-                            <p class="text-gray-500 font-montserrat">Your wishlist is empty</p>
-                            <a href="{{ route('wishlist.index') }}" 
-                               class="inline-block mt-4 bg-black text-white text-sm font-montserrat uppercase py-2 px-6 hover:bg-gray-800 transition-colors duration-300">
-                                Browse More Products
-                            </a>
+                            <div>
+                                <p class="text-gray-600">Your wishlist is empty.</p>
+                                <div class="mt-6">
+                                    <a href="#" class="bg-primary text-white px-6 py-2 rounded hover:bg-gray-800 transition-all inline-flex items-center">
+                                        <i class="fas fa-shopping-cart mr-2"></i> Discover Products
+                                    </a>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endif

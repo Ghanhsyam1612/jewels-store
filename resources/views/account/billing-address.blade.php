@@ -1,4 +1,4 @@
-<div class="container mx-auto px-6">
+<div class="container mx-auto bg-white p-6 rounded shadow-sm">
     <h1 class="flex justify-start text-3xl font-montserrat font-semibold mb-8">Billing Address</h1>
 
     <form action="{{ route('account.addresses.store') }}" method="POST" class="w-full mx-auto">
