@@ -26,11 +26,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SUBSCRIPTION\SubscriptionController;
 use App\Http\Controllers\SUBSCRIPTION\StripeWebhookController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CustomSettingRequestController;
+
 
 
 Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->middleware('web')->name('change.language');
 
 Route::post('/news-letter/subscribe', [NewsletterSubscriberController::class, 'store'])->name('news-letter.subscribe.store');
+
+Route::post('/custom-setting-request', [CustomSettingRequestController::class, 'store'])->name('custom-setting.request');
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/password-reset', function () {
@@ -179,10 +184,11 @@ Route::get('/cluster', function () {
     return view('components.fine-jewellery.earrings.cluster');
 })->name('cluster');
 
+// Wedding Rings
 Route::get('/wedding-rings', function () {
     return view('components.fine-jewellery.wedding-rings.wedding-rings');
 })->name('wedding-rings');
-// Wedding Rings
+
 Route::get('/diamond', function () {
     return view('components.fine-jewellery.wedding-rings.diamond');
 })->name('diamond');
